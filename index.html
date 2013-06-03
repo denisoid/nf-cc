@@ -1,246 +1,245 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Bootstrap 101 Template</title>
+<html lang="ru" ng-app="seedApp" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>RCI Calculator</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	
-    
+
+
     <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
     </style>
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link href="http://www.eyecon.ro/bootstrap-slider/css/slider.css" rel="stylesheet">
-	
-  </head>
+    <link href="http://www.eyecon.ro/bootstrap-slider/css/slider.css" rel="stylesheet">
 
-  <body>
+</head>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
+<body ng-controller="CalculatorCtrl">
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Кредитный калькулятор</a>
-          
-		  <!--<div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Кредитный калькулятор</a>
+
+            <!--<div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
         </div>
-      </div>
     </div>
+</div>
 
-    <div class="container">
+<div class="container">
 
-	
-	
-	<div class="accordion" id="accordion2">
-	  <div class="accordion-group">
-		<div class="accordion-heading">
+
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            <div class="accordion-heading">
 		  <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-			Автомобиль — 813 670 руб.
+			Автомобиль — {{summ() | currency}}
 		  </span>
-		  
-		</div>
-		<div id="collapseOne" class="accordion-body collapse in">
-		  <div class="accordion-inner">
-		  
-			<form class="form-inline">
-				
-				<h4>Автомобиль — 800 000 руб.</h4>
-		  
-				<select id="car-company" class="input-medium">
-				  <option>Марка</option>
-				  <option>DMC</option>
-				  <option>Ваз</option>
-				  <option>Nissan</option>
-				</select>
 
-				<select id="car-model" class="input-medium">
-				  <option>Модель</option>
-				  <option>Delorean</option>
-				  <option>Delorean 1</option>
-				  <option>Delorean 2</option>
-				</select>
-				
-				<select id="car-modification" class="input-medium">
-				  <option>Модификация</option>
-				  <option>DSDA</option>
-				  <option>fDSF71</option>
-				  <option>FAPQU</option>
-				</select>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
 
-				<select id="car-year" class="input-small">
-				  <option>Год</option>
-				  <option>2013</option>
-				  <option>2012</option>
-				  <option>2011</option>
-				</select>
+                    <form class="form-inline">
 
+                        <h4>Автомобиль — {{summ() | currency}}</h4>
+
+                        <select id="car-company" class="input-medium">
+                            <option>Марка</option>
+                            <option>DMC</option>
+                            <option>Ваз</option>
+                            <option>Nissan</option>
+                        </select>
+
+                        <select id="car-model" class="input-medium">
+                            <option>Модель</option>
+                            <option>Delorean</option>
+                            <option>Delorean 1</option>
+                            <option>Delorean 2</option>
+                        </select>
+
+                        <select id="car-modification" class="input-medium">
+                            <option>Модификация</option>
+                            <option>DSDA</option>
+                            <option>fDSF71</option>
+                            <option>FAPQU</option>
+                        </select>
+
+                        <select id="car-year" class="input-small">
+                            <option>Год</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                        </select>
+                        <input type="text" ng-model="car.price"/>
 
 				<span class="btn-group" data-toggle="buttons-radio">
 					 <button type="button" class="btn active" value="want">Новая</button>
 					 <button type="button" class="btn" value="need">С пробегом</button>
 				</span>
-			</form>
-				<h4>Опции — 13 670 руб.</h4>
-				
-					<label class="checkbox">
-						<input type="checkbox">ОСАГО +3100 руб.
-					</label>
-				
-					<label class="checkbox">
-						<input type="checkbox">КАСКО +10570 руб.
-					</label>
-				
-				<h4>Итого — 813 670 руб.</h4>
-				
+                    </form>
+                    <h4>Опции — 13 670 руб.</h4>
 
-			
-		  </div>
-		</div>
-	  </div>
-	  <div class="accordion-group">
-		<div class="accordion-heading">
-		  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-			Кредитование
-		  </a>
-		</div>
-		<div id="collapseTwo" class="accordion-body collapse">
-		  <div class="accordion-inner">
-			<form>
-			
-			<label>Программа</label>
-			<select id="credit-program" class="input-medium">
-			  <option>Супер кредит</option>
-			  <option>Кредит 2013</option>
-			</select>
-			
-			
-			
-			<div class="control-group">
-				<label>Срок</label>
-				<input type="text" id="months" class="span2" value="" data-slider-min="3" data-slider-max="36" data-slider-step="1" data-slider-value="12" data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="hide">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="car.osago" ng-true-value=" 3100 " ng-false-value=" 0 " >ОСАГО +3100 руб.
+                    </label>
 
-				
-				<input type="text" id="months-input" style="width:20px"> мес.
-			
-			</div>
+                    <label class="checkbox">
+                        <input type="checkbox" ng-model="car.casco" ng-true-value=" 10570 " ng-false-value=" 0 " >КАСКО +10570 руб.
+                    </label>
 
-			<div class="control-group">
-				<label>Первый взнос</label>
-				<input type="text" id="handsel" class="span2" value="" data-slider-min="30" data-slider-max="80" data-slider-step="1" data-slider-value="50" data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="hide">
+                    <h4>Итого — {{summ()}}</h4>
 
-				
-				<input type="text" id="handsel-input" style="width:20px">%
-				
-				<input type="text" id="handsel-money-input" class="input-mini">руб.
-			
-			</div>
 
-			
-			<div class="control-group">
-				<label>Трейд-ин</label>
-				<input type="text" id="tradein" class="span2" value="" data-slider-min="0" data-slider-max="800000" data-slider-step="100" data-slider-value="0" data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="hide">
-			
-				<input type="text" id="tradein-input" class="input-mini">руб.
-			
-			</div>
-			
-			
-			
-</form>
-			
-			
-			
-		  </div>
-		</div>
-	  </div>
-	  
-	  
-	  
-	  <div class="accordion-group">
-		<div class="accordion-heading">
+                </div>
+            </div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                    Кредитование
+                </a>
+            </div>
+            <div id="collapseTwo" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <form>
+
+                        <label>Программа</label>
+                        <select id="credit-program" class="input-medium">
+                            <option>Супер кредит</option>
+                            <option>Кредит 2013</option>
+                        </select>
+
+
+                        <div class="control-group">
+                            <label>Срок</label>
+                            <input type="text" id="months" class="span2" value="" data-slider-min="3"
+                                   data-slider-max="36" data-slider-step="1" data-slider-value="12"
+                                   data-slider-orientation="horizontal" data-slider-selection="after"
+                                   data-slider-tooltip="hide">
+
+
+                            <input type="text" id="months-input" style="width:20px"> мес.
+
+                        </div>
+
+                        <div class="control-group">
+                            <label>Первый взнос</label>
+                            <input type="text" id="handsel" class="span2" value="" data-slider-min="30"
+                                   data-slider-max="80" data-slider-step="1" data-slider-value="50"
+                                   data-slider-orientation="horizontal" data-slider-selection="after"
+                                   data-slider-tooltip="hide">
+
+
+                            <input type="text" id="handsel-input" style="width:20px">%
+
+                            <input type="text" id="handsel-money-input" class="input-mini">руб.
+
+                        </div>
+
+
+                        <div class="control-group">
+                            <label>Трейд-ин</label>
+                            <input type="text" id="tradein" class="span2" value="" data-slider-min="0"
+                                   data-slider-max="800000" data-slider-step="100" data-slider-value="0"
+                                   data-slider-orientation="horizontal" data-slider-selection="after"
+                                   data-slider-tooltip="hide">
+
+                            <input type="text" id="tradein-input" class="input-mini">руб.
+
+                        </div>
+
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="accordion-group">
+            <div class="accordion-heading">
 		  <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
 			График платежей
 		  </span>
-		  
-		</div>
-		<div id="collapseThree" class="accordion-body collapse">
-		  <div class="accordion-inner">
-		  <p>График...</p>
-		  
-		  <span class='btn'>Печатать</span>
-		  
-		  </div>
-		</div>
-	 </div>
-	 
-	 <p class='text-right'>
-	 <span class='btn'>Оформить заявку</span>
-	 </p>
-	  
-	</div>
 
-	
+            </div>
+            <div id="collapseThree" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <p>График...</p>
 
-    </div> <!-- /container -->
+                    <span class='btn'>Печатать</span>
 
-	
-	
-	
-	
-	
-	
-	
+                </div>
+            </div>
+        </div>
 
-	
-	
+        <p class='text-right'>
+            <span class='btn'>Оформить заявку</span>
+        </p>
 
-	
-	
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-	
-	
-    <script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>
-	
-	
-	<script type="text/javascript">
-		$('#months').slider()
-		  .on('slide', function(ev){
-			 $('#months-input').val(ev.value);
+    </div>
 
-			 
-		  });
-		  
-		$('#handsel').slider()
-		  .on('slide', function(ev){
-			 $('#handsel-input').val(ev.value);
-			 $('#handsel-money-input').val(parseFloat(ev.value/100.0*813000));
-		  });		  
-		  
-		$('#tradein').slider()
-		  .on('slide', function(ev){
-			 $('#tradein-input').val(ev.value);
 
-			 
-		  });
-		  
-		  
-	</script>
-	
-  </body>
+</div>
+<!-- /container -->
+
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+<script src="http://www.eyecon.ro/bootstrap-slider/js/bootstrap-slider.js"></script>
+
+<script type="text/javascript" src="js/angular/angular.js"></script>
+<script type="text/javascript" src="js/angular/i18n/angular-locale_ru.js"></script>
+<script type="text/javascript" src="js/angular/angular-resource.js"></script>
+<script type="text/javascript" src="js/app/app.js"></script>
+<script type="text/javascript" src="js/app/controllers.js"></script>
+<script type="text/javascript" src="js/app/directives.js"></script>
+<script type="text/javascript" src="js/app/services.js"></script>
+
+<script type="text/javascript">
+    $('#months').slider()
+            .on('slide', function (ev) {
+                $('#months-input').val(ev.value);
+
+
+            });
+
+    $('#handsel').slider()
+            .on('slide', function (ev) {
+                $('#handsel-input').val(ev.value);
+                $('#handsel-money-input').val(parseFloat(ev.value / 100.0 * 813000));
+            });
+
+    $('#tradein').slider()
+            .on('slide', function (ev) {
+                $('#tradein-input').val(ev.value);
+
+
+            });
+
+
+</script>
+
+</body>
 </html>
 
 	
