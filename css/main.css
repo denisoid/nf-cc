@@ -1,0 +1,48 @@
+body{
+	color:#605525;
+
+}
+
+.credit-offers>div{
+	padding-bottom:50px;
+}
+
+
+.credit-offer{
+    border:1px solid #FFCA15;
+	border-radius:5px;
+	padding:10px 5px 5px;
+	background:#FFF5C5;
+	position:relative;
+}
+
+
+.credit-offer h3{
+	font-size:15px;
+	line-height:22px;
+
+}
+
+.credit-offer .monthly-payment{
+	float:right;
+	display:block;
+	font-size:1.4em;
+	color: #B28D0F;
+	
+}
+
+.credit-offer .monthly-payment small{
+	font-size:0.5em;
+}
+
+.credit-offer .add-to-compare{
+	position: absolute;
+	width:95%;
+	bottom:-40px;
+	display:none;
+
+}
+
+.credit-offers>div:hover .add-to-compare{
+	display:block;
+}
