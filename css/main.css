@@ -46,3 +46,8 @@ body{
 .credit-offers>div:hover .add-to-compare{
 	display:block;
 }
+
+
+.slider {
+	width:70% !important;
+}

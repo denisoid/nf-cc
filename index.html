@@ -117,7 +117,54 @@
             <div id="collapseTwo" class="accordion-body collapse">
                 <div class="accordion-inner">
 				
+				<div class="row-fluid">
+					<div class="span4">
+
+						<div class="control-group">
+							<label>Первый взнос</label>
+							<input type="text" id="handsel" class="span2" value="" data-slider-min="30"
+								   data-slider-max="80" data-slider-step="1" data-slider-value="50"
+								   data-slider-orientation="horizontal" data-slider-selection="after"
+								   data-slider-tooltip="hide">
+
+
+							<input type="text" id="handsel-input" style="width:20px">%
+
+							<input type="text" id="handsel-money-input" class="input-mini">руб.
+
+						</div>
+					</div>
 				
+					<div class="span4">
+
+						<div class="control-group">
+							<label>Ежемесячный платеж</label>
+							<input type="text" id="tradein" class="span2" value="" data-slider-min="0"
+								   data-slider-max="800000" data-slider-step="100" data-slider-value="0"
+								   data-slider-orientation="horizontal" data-slider-selection="after"
+								   data-slider-tooltip="hide">
+
+							<input type="text" id="tradein-input" class="input-mini">руб.
+
+						</div>
+
+					</div>
+					
+					<div class="span4">
+						<div class="control-group">
+							<label>Срок</label>
+							<input type="text" id="months" class="span2" value="" data-slider-min="3"
+								   data-slider-max="36" data-slider-step="1" data-slider-value="12"
+								   data-slider-orientation="horizontal" data-slider-selection="after"
+								   data-slider-tooltip="hide">
+
+
+							<input type="text" id="months-input" style="width:20px"> мес.
+
+						</div>
+					</div>
+									  
+				</div>
 				
 				<h4>Варианты</h4>
 				<div class="row-fluid credit-offers">
@@ -189,56 +236,32 @@
 				</div>
 				
 				
-				
-                    <form>
-
-                        <label>Программа</label>
-                        <select id="credit-program" class="input-medium">
-                            <option>Супер кредит</option>
-                            <option>Кредит 2013</option>
-                        </select>
-
-
-                        <div class="control-group">
-                            <label>Срок</label>
-                            <input type="text" id="months" class="span2" value="" data-slider-min="3"
-                                   data-slider-max="36" data-slider-step="1" data-slider-value="12"
-                                   data-slider-orientation="horizontal" data-slider-selection="after"
-                                   data-slider-tooltip="hide">
-
-
-                            <input type="text" id="months-input" style="width:20px"> мес.
-
-                        </div>
-
-                        <div class="control-group">
-                            <label>Первый взнос</label>
-                            <input type="text" id="handsel" class="span2" value="" data-slider-min="30"
-                                   data-slider-max="80" data-slider-step="1" data-slider-value="50"
-                                   data-slider-orientation="horizontal" data-slider-selection="after"
-                                   data-slider-tooltip="hide">
+				<h4>Отложенные</h4>
+				<div class="row-fluid credit-offers">
+				  <div class="span3">
+					<div class="credit-offer">
+						<span class="monthly-payment">42 000 <small>руб/мес</small></span>
+						<h3>Кредит А</h3>
+						<table style='width:100%;'>
+							<tr><td>Сумма <td class='text-right'>800 000 руб.
+							<tr><td>Срок <td class='text-right'>12 мес.
+						
+						</table>
+						
+						<h5>Опции</h5>
+						<div class='options-list'>
+							<label class="checkbox"><input type="checkbox" checked disabled />Страхование</label>
+							<label class="checkbox"><input type="checkbox" checked disabled  />Без штрафов</label>
+						</div>
+						
+						<button class='btn add-to-compare'>Оформить</button>
+					</div>
+				  </div>
 
 
-                            <input type="text" id="handsel-input" style="width:20px">%
-
-                            <input type="text" id="handsel-money-input" class="input-mini">руб.
-
-                        </div>
-
-
-                        <div class="control-group">
-                            <label>Трейд-ин</label>
-                            <input type="text" id="tradein" class="span2" value="" data-slider-min="0"
-                                   data-slider-max="800000" data-slider-step="100" data-slider-value="0"
-                                   data-slider-orientation="horizontal" data-slider-selection="after"
-                                   data-slider-tooltip="hide">
-
-                            <input type="text" id="tradein-input" class="input-mini">руб.
-
-                        </div>
-
-
-                    </form>
+				  
+				  
+				</div>				
 
 
                 </div>
