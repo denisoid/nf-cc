@@ -18,6 +18,25 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     $scope.carModifList = CarModifs;
     $scope.carYearList = CarYears;
 
+
+    $scope.currentOfferList = [];
+
+    $scope.selectedOfferList = [];
+
+    $scope.updateOfferList = function() {
+        $scope.currentOfferList = [
+            {productCode: "p1"},
+            {productCode: "p2"},
+            {productCode: "p3"},
+            {productCode: "p4"}
+        ];
+    }
+
+    $scope.addToSelectedOfferList = function(idx) {
+        $scope.selectedOfferList.push($scope.currentOfferList[idx]);
+    }
+
+
     $scope.summ = function () {
         return parseFloat($scope.car.price) + parseFloat($scope.car.osago) + parseFloat($scope.car.casco);
     }
@@ -39,6 +58,8 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
 
     $scope.updateYear = function () {
     }
+
+    $scope.updateOfferList();
 
 }
 

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	
-	<link href="css/main.css" rel="stylesheet" media="screen">
+
+    <link href="css/main.css" rel="stylesheet" media="screen">
 
 
     <style>
@@ -46,251 +46,215 @@
 <div class="container">
 
 
-    <div class="accordion" id="accordion2">
-        <div class="accordion-group">
-            <div class="accordion-heading">
+<div class="accordion" id="accordion2">
+<div class="accordion-group">
+    <div class="accordion-heading">
 		  <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
 			Автомобиль — {{summ() | currency}}
 		  </span>
 
-            </div>
-            <div id="collapseOne" class="accordion-body collapse in">
-                <div class="accordion-inner">
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+        <div class="accordion-inner">
 
-                    <form class="form-inline">
+            <form class="form-inline">
 
-                        <h4>Автомобиль — {{summ() | currency}}</h4>
+                <h4>Автомобиль — {{summ() | currency}}</h4>
 
-                        <select id="car-company" class="input-medium">
-                            <option>Марка</option>
-                            <option>DMC</option>
-                            <option>Ваз</option>
-                            <option>Nissan</option>
-                        </select>
+                <select id="car-company" class="input-medium">
+                    <option>Марка</option>
+                    <option>DMC</option>
+                    <option>Ваз</option>
+                    <option>Nissan</option>
+                </select>
 
-                        <select class="input-medium" ng-model="car.modelId"
-                                ng-options="carModel as carModel.name for carModel in carModelList track by carModel.id"
-                                ng-change="updateModel()"
-                                >
-                        </select>
+                <select class="input-medium" ng-model="car.modelId"
+                        ng-options="carModel as carModel.name for carModel in carModelList track by carModel.id"
+                        ng-change="updateModel()"
+                        >
+                </select>
 
-                        <select class="input-medium" ng-model="car.modifId" ng-options="carModif as carModif.name for carModif in carModifList track by carModif.id"
-                                ng-change="updateModif()"
-                                >
-                        </select>
+                <select class="input-medium" ng-model="car.modifId"
+                        ng-options="carModif as carModif.name for carModif in carModifList track by carModif.id"
+                        ng-change="updateModif()"
+                        >
+                </select>
 
-                        <select class="input-medium" ng-model="car.yearId"
-                                ng-options="carYear as carYear.name for carYear in carYearList track by carYear.id"
-                                ng-change="updateYear()"
-                                >
-                        </select>
+                <select class="input-medium" ng-model="car.yearId"
+                        ng-options="carYear as carYear.name for carYear in carYearList track by carYear.id"
+                        ng-change="updateYear()"
+                        >
+                </select>
 
 
 				<span class="btn-group" data-toggle="buttons-radio">
 					 <button type="button" class="btn active" value="want">Новая</button>
 					 <button type="button" class="btn" value="need">С пробегом</button>
 				</span>
-                        <input type="text" class="input-medium" ng-model="car.price"/>
-                    </form>
-                    <h4>Опции — 13 670 руб.</h4>
+                <input type="text" class="input-medium" ng-model="car.price"/>
+            </form>
+            <h4>Опции — 13 670 руб.</h4>
 
-                    <label class="checkbox">
-                        <input type="checkbox" ng-model="car.osago" ng-true-value=" 3100 " ng-false-value=" 0 " >ОСАГО +3100 руб.
-                    </label>
+            <label class="checkbox">
+                <input type="checkbox" ng-model="car.osago" ng-true-value=" 3100 " ng-false-value=" 0 ">ОСАГО +3100
+                руб.
+            </label>
 
-                    <label class="checkbox">
-                        <input type="checkbox" ng-model="car.casco" ng-true-value=" 10570 " ng-false-value=" 0 " >КАСКО +10570 руб.
-                    </label>
+            <label class="checkbox">
+                <input type="checkbox" ng-model="car.casco" ng-true-value=" 10570 " ng-false-value=" 0 ">КАСКО
+                +10570 руб.
+            </label>
 
-                    <h4>Итого — {{summ()}}</h4>
+            <h4>Итого — {{summ()}}</h4>
 
+
+        </div>
+    </div>
+</div>
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+            Подбор кредитных программ
+        </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+        <div class="accordion-inner">
+
+            <div class="row-fluid">
+                <div class="span4">
+
+                    <div class="control-group">
+                        <label>Первый взнос</label>
+                        <input type="text" id="handsel" class="span2" value="" data-slider-min="30"
+                               data-slider-max="80" data-slider-step="1" data-slider-value="50"
+                               data-slider-orientation="horizontal" data-slider-selection="after"
+                               data-slider-tooltip="hide">
+
+
+                        <input type="text" id="handsel-input" style="width:20px">%
+
+                        <input type="text" id="handsel-money-input" class="input-mini">руб.
+
+                    </div>
+                </div>
+
+                <div class="span4">
+
+                    <div class="control-group">
+                        <label>Ежемесячный платеж</label>
+                        <input type="text" id="tradein" class="span2" value="" data-slider-min="0"
+                               data-slider-max="800000" data-slider-step="100" data-slider-value="0"
+                               data-slider-orientation="horizontal" data-slider-selection="after"
+                               data-slider-tooltip="hide">
+
+                        <input type="text" id="tradein-input" class="input-mini">руб.
+
+                    </div>
 
                 </div>
-            </div>
-        </div>
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                    Подбор кредитных программ
-                </a>
-            </div>
-            <div id="collapseTwo" class="accordion-body collapse">
-                <div class="accordion-inner">
-				
-				<div class="row-fluid">
-					<div class="span4">
 
-						<div class="control-group">
-							<label>Первый взнос</label>
-							<input type="text" id="handsel" class="span2" value="" data-slider-min="30"
-								   data-slider-max="80" data-slider-step="1" data-slider-value="50"
-								   data-slider-orientation="horizontal" data-slider-selection="after"
-								   data-slider-tooltip="hide">
+                <div class="span4">
+                    <div class="control-group">
+                        <label>Срок</label>
+                        <input type="text" id="months" class="span2" value="" data-slider-min="3"
+                               data-slider-max="36" data-slider-step="1" data-slider-value="12"
+                               data-slider-orientation="horizontal" data-slider-selection="after"
+                               data-slider-tooltip="hide">
 
 
-							<input type="text" id="handsel-input" style="width:20px">%
+                        <input type="text" id="months-input" style="width:20px"> мес.
 
-							<input type="text" id="handsel-money-input" class="input-mini">руб.
-
-						</div>
-					</div>
-				
-					<div class="span4">
-
-						<div class="control-group">
-							<label>Ежемесячный платеж</label>
-							<input type="text" id="tradein" class="span2" value="" data-slider-min="0"
-								   data-slider-max="800000" data-slider-step="100" data-slider-value="0"
-								   data-slider-orientation="horizontal" data-slider-selection="after"
-								   data-slider-tooltip="hide">
-
-							<input type="text" id="tradein-input" class="input-mini">руб.
-
-						</div>
-
-					</div>
-					
-					<div class="span4">
-						<div class="control-group">
-							<label>Срок</label>
-							<input type="text" id="months" class="span2" value="" data-slider-min="3"
-								   data-slider-max="36" data-slider-step="1" data-slider-value="12"
-								   data-slider-orientation="horizontal" data-slider-selection="after"
-								   data-slider-tooltip="hide">
-
-
-							<input type="text" id="months-input" style="width:20px"> мес.
-
-						</div>
-					</div>
-									  
-				</div>
-				
-				<h4>Варианты</h4>
-				<div class="row-fluid credit-offers">
-				  <div class="span3">
-					<div class="credit-offer">
-						<span class="monthly-payment">42 000 <small>руб/мес</small></span>
-						<h3>Кредит А</h3>
-						
-						
-						<h5>Опции</h5>
-						<div class='options-list'>
-							<label class="checkbox"><input type="checkbox" />Страхование</label>
-							<label class="checkbox"><input type="checkbox" />Без штрафов</label>
-						</div>
-						
-						<button class='btn add-to-compare'>Добавить к сравнению</button>
-					</div>
-				  </div>
-
-				   <div class="span3">
-					<div class="credit-offer">
-						<span class="monthly-payment">42 000 <small>руб/мес</small></span>
-						<h3>Кредит А</h3>
-						
-						
-						<h5>Опции</h5>
-						<div class='options-list'>
-							<label class="checkbox"><input type="checkbox" />Страхование</label>
-							<label class="checkbox"><input type="checkbox" />Без штрафов</label>
-						</div>
-						
-						<button class='btn add-to-compare'>Добавить к сравнению</button>
-					</div>
-				  </div>
-
-				  <div class="span3">
-					<div class="credit-offer">
-						<span class="monthly-payment">42 000 <small>руб/мес</small></span>
-						<h3>Кредит А</h3>
-						
-						
-						<h5>Опции</h5>
-						<div class='options-list'>
-							<label class="checkbox"><input type="checkbox" />Страхование</label>
-							<label class="checkbox"><input type="checkbox" />Без штрафов</label>
-						</div>
-						
-						<button class='btn add-to-compare'>Добавить к сравнению</button>
-					</div>
-				  </div>
-
-				  <div class="span3">
-					<div class="credit-offer">
-						<span class="monthly-payment">42 000 <small>руб/мес</small></span>
-						<h3>Кредит А</h3>
-						
-						
-						<h5>Опции</h5>
-						<div class='options-list'>
-							<label class="checkbox"><input type="checkbox" />Страхование</label>
-							<label class="checkbox"><input type="checkbox" />Без штрафов</label>
-						</div>
-						
-						<button class='btn add-to-compare'>Добавить к сравнению</button>
-					</div>
-				  </div>  
-				  
-				  
-				</div>
-				
-				
-				<h4>Отложенные</h4>
-				<div class="row-fluid credit-offers">
-				  <div class="span3">
-					<div class="credit-offer">
-						<span class="monthly-payment">42 000 <small>руб/мес</small></span>
-						<h3>Кредит А</h3>
-						<table style='width:100%;'>
-							<tr><td>Сумма <td class='text-right'>800 000 руб.
-							<tr><td>Срок <td class='text-right'>12 мес.
-						
-						</table>
-						
-						<h5>Опции</h5>
-						<div class='options-list'>
-							<label class="checkbox"><input type="checkbox" checked disabled />Страхование</label>
-							<label class="checkbox"><input type="checkbox" checked disabled  />Без штрафов</label>
-						</div>
-						
-						<button class='btn add-to-compare'>Оформить</button>
-					</div>
-				  </div>
-
-
-				  
-				  
-				</div>				
-
-
+                    </div>
                 </div>
+
             </div>
+
+            <h4>Варианты</h4>
+
+            <div class="row-fluid credit-offers">
+
+                <div class="span3" ng-repeat="offer in currentOfferList">
+                    <div class="credit-offer">
+                        <span class="monthly-payment">42 000 <small>руб/мес</small></span>
+
+                        <h3>Кредит А</h3>
+
+
+                        <h5>Опции</h5>
+
+                        <div class='options-list'>
+                            <label class="checkbox"><input type="checkbox"/>Страхование</label>
+                            <label class="checkbox"><input type="checkbox"/>Без штрафов</label>
+                        </div>
+
+                        <button class='btn add-to-compare' ng-click="addToSelectedOfferList($index)">Добавить к сравнению</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <h4>Отложенные</h4>
+
+            <div class="row-fluid credit-offers">
+                <div class="span3" ng-repeat="offer in selectedOfferList">
+                    <div class="credit-offer">
+                        <span class="monthly-payment">42 000 <small>руб/мес</small></span>
+
+                        <h3>Кредит А</h3>
+                        <table style='width:100%;'>
+                            <tr>
+                                <td>Сумма
+                                <td class='text-right'>800 000 руб.
+                            <tr>
+                                <td>Срок
+                                <td class='text-right'>12 мес.
+
+                        </table>
+
+                        <h5>Опции</h5>
+
+                        <div class='options-list'>
+                            <label class="checkbox"><input type="checkbox" checked disabled/>Страхование</label>
+                            <label class="checkbox"><input type="checkbox" checked disabled/>Без штрафов</label>
+                        </div>
+
+                        <button class='btn add-to-compare'>Оформить</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+
         </div>
+    </div>
+</div>
 
 
-        <div class="accordion-group">
-            <div class="accordion-heading">
+<div class="accordion-group">
+    <div class="accordion-heading">
 		  <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
 			График платежей
 		  </span>
 
-            </div>
-            <div id="collapseThree" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    <p>График...</p>
-
-                    <span class='btn'>Печатать</span>
-
-                </div>
-            </div>
-        </div>
-
-        <p class='text-right'>
-            <span class='btn'>Оформить заявку</span>
-        </p>
-
     </div>
+    <div id="collapseThree" class="accordion-body collapse">
+        <div class="accordion-inner">
+            <p>График...</p>
+
+            <span class='btn'>Печатать</span>
+
+        </div>
+    </div>
+</div>
+
+<p class='text-right'>
+    <span class='btn'>Оформить заявку</span>
+</p>
+
+</div>
 
 
 </div>
