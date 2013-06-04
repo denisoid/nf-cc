@@ -59,39 +59,35 @@
 
                         <h4>Автомобиль — {{summ() | currency}}</h4>
 
-                        <select id="car-company" class="input-medium">
-                            <option>Марка</option>
-                            <option>DMC</option>
-                            <option>Ваз</option>
-                            <option>Nissan</option>
+                        <select class="input-medium" ng-model="car.companyId"
+                                ng-options="carCompany as carCompany.name for carCompany in carCompanyList track by carCompany.id"
+                                ng-change="updateCompany()"
+                                >
                         </select>
 
-                        <select id="car-model" class="input-medium">
-                            <option>Модель</option>
-                            <option>Delorean</option>
-                            <option>Delorean 1</option>
-                            <option>Delorean 2</option>
+                        <select class="input-medium" ng-model="car.modelId"
+                                ng-options="carModel as carModel.name for carModel in carModelList track by carModel.id"
+                                ng-change="updateModel()"
+                                >
                         </select>
 
-                        <select id="car-modification" class="input-medium">
-                            <option>Модификация</option>
-                            <option>DSDA</option>
-                            <option>fDSF71</option>
-                            <option>FAPQU</option>
+                        <select class="input-medium" ng-model="car.modifId" ng-options="carModif as carModif.name for carModif in carModifList track by carModif.id"
+                                ng-change="updateModif()"
+                                >
                         </select>
 
-                        <select id="car-year" class="input-small">
-                            <option>Год</option>
-                            <option>2013</option>
-                            <option>2012</option>
-                            <option>2011</option>
+                        <select class="input-medium" ng-model="car.yearId"
+                                ng-options="carYear as carYear.name for carYear in carYearList track by carYear.id"
+                                ng-change="updateYear()"
+                                >
                         </select>
-                        <input type="text" ng-model="car.price"/>
+
 
 				<span class="btn-group" data-toggle="buttons-radio">
 					 <button type="button" class="btn active" value="want">Новая</button>
 					 <button type="button" class="btn" value="need">С пробегом</button>
 				</span>
+                        <input type="text" class="input-medium" ng-model="car.price"/>
                     </form>
                     <h4>Опции — 13 670 руб.</h4>
 
