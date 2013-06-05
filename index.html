@@ -172,17 +172,32 @@
 
                 <div class="span3" ng-repeat="offer in currentOfferList">
                     <div class="credit-offer">
-                        <span class="monthly-payment">42 000 <small>руб/мес</small></span>
+						<div class='flip-container'>
+							<div class='terms-container'>
+								<div class='main-terms'>
+									<span class="monthly-payment">42 000 <small>руб/мес</small></span>
 
-                        <h3>Кредит А</h3>
+									<h3>Кредит А</h3>
 
 
-                        <h5>Опции</h5>
+									<h5>Опции</h5>
 
-                        <div class='options-list'>
-                            <label class="checkbox"><input type="checkbox"/>Страхование</label>
-                            <label class="checkbox"><input type="checkbox"/>Без штрафов</label>
-                        </div>
+									<div class='options-list'>
+										<label class="checkbox"><input type="checkbox"/>Страхование</label>
+										<label class="checkbox"><input type="checkbox"/>Без штрафов</label>
+									</div>
+									
+									<a class='rotate' href='#'></a>
+								</div>
+								<div class="extra-terms">
+									
+									
+									пыщь-пыщь
+								
+									<a class='rotate' href='#'></a>
+								</div>
+							</div>
+						</div>
 
                         <button class='btn add-to-compare' ng-click="addToSelectedOfferList($index)">Добавить к сравнению</button>
                     </div>
@@ -296,6 +311,12 @@
 
 
             });
+			
+			
+	$(".terms-container .rotate").click(function(){
+		$(this).parent().parent().parent().toggleClass('hover');
+		return false;
+	})
 
 
 </script>

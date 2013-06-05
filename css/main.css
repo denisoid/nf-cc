@@ -37,13 +37,7 @@ h4{
 }
 
 
-.credit-offer{
-    border:1px solid #FFCA15;
-	border-radius:5px;
-	padding:10px 5px 5px;
-	background:#FFF5C5;
-	position:relative;
-}
+
 
 
 .credit-offer h3{
@@ -64,9 +58,14 @@ h4{
 	font-size:0.5em;
 }
 
+
+.credit-offer {
+	position:relative;
+}
+
 .credit-offer .add-to-compare{
 	position: absolute;
-	width:95%;
+	/*width:95%;*/
 	bottom:-40px;
 	display:none;
 
@@ -120,4 +119,69 @@ h4{
 
 .offers-comparison .delete-offer:hover{
 	background-position:0 bottom;
+}
+
+.terms-container>div{
+    border:1px solid #FFCA15;
+	border-radius:5px;
+	padding:10px 5px 5px;
+	background:#FFF5C5;
+}
+
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+	-webkit-transform: rotateY(0deg);
+}
+/* flip the pane when hovered */
+.flip-container.hover .terms-container {
+	-webkit-transform: rotateY(180deg);
+}
+
+.flip-container, .terms-container, .main-terms, .extra-terms {
+	height: 320px;
+	width:260px;
+}
+
+/* flip speed goes here */
+.terms-container {
+	-webkit-transition: 0.3s;
+	-webkit-transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.main-terms, .extra-terms {
+	-webkit-backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.main-terms {
+	z-index: 2;
+}
+
+/* back, initially hidden pane */
+.extra-terms {
+	-webkit-transform: rotateY(180deg);
+}
+
+
+
+
+
+a.rotate{
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(../img/rotate.png) no-repeat 0 0;
+	position:absolute;
+	bottom:0;
+	right:0;
 }
