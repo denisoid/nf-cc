@@ -46,23 +46,17 @@
 <div class="container">
 
 
-<div class="accordion" id="accordion2">
-<div class="accordion-group">
-    <div class="accordion-heading">
-		  <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-			Автомобиль — {{summ() | currency}}
-		  </span>
 
-    </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-        <div class="accordion-inner">
+
 
             <form class="form-inline">
 
-                <h4>Автомобиль — {{summ() | currency}}</h4>
+                <h4>Выбор автомобиля</h4>
 
-                <select id="car-company" class="input-medium">
-                    <option>Марка</option>
+                <select id="car-company" class="input-medium"
+						ng-model="car.companyId"
+						ng-change="updateCompany()">
+                    <option value="">Марка</option>
                     <option>DMC</option>
                     <option>Ваз</option>
                     <option>Nissan</option>
@@ -72,18 +66,21 @@
                         ng-options="carModel as carModel.name for carModel in carModelList track by carModel.id"
                         ng-change="updateModel()"
                         >
+						<option value="">Модель</option>
                 </select>
 
                 <select class="input-medium" ng-model="car.modifId"
                         ng-options="carModif as carModif.name for carModif in carModifList track by carModif.id"
                         ng-change="updateModif()"
                         >
+						<option value="">Модификация</option>
                 </select>
 
                 <select class="input-medium" ng-model="car.yearId"
                         ng-options="carYear as carYear.name for carYear in carYearList track by carYear.id"
                         ng-change="updateYear()"
                         >
+						<option value="">Год</option>
                 </select>
 
 
@@ -91,41 +88,41 @@
 					 <button type="button" class="btn active" value="want">Новая</button>
 					 <button type="button" class="btn" value="need">С пробегом</button>
 				</span>
-                <input type="text" class="input-medium" ng-model="car.price"/>
+                
             </form>
-            <h4>Опции — 13 670 руб.</h4>
 
-            <label class="checkbox">
-                <input type="checkbox" ng-model="car.osago" ng-true-value=" 3100 " ng-false-value=" 0 ">ОСАГО +3100
-                руб.
-            </label>
+			
+			<div class="prices">
+				<div>
+					<label>Стоимость машины
+						<input type="text" class="component-price input-medium" ng-model="car.price"/>
+					</label>
+				</div>
+				
 
-            <label class="checkbox">
-                <input type="checkbox" ng-model="car.casco" ng-true-value=" 10570 " ng-false-value=" 0 ">КАСКО
-                +10570 руб.
-            </label>
+				<label class="checkbox">
+					<input type="checkbox" ng-model="car.osago" ng-true-value="3100" ng-false-value=" 0 ">ОСАГО
+					<span class="component-price">+3100 руб.</span>
+				</label>
 
-            <h4>Итого — {{summ()}}</h4>
+				<label class="checkbox">
+					<input type="checkbox" ng-model="car.casco" ng-true-value="10570" ng-false-value=" 0 ">КАСКО
+					<span class="component-price">+10570 руб.</span>
+				</label>
+
+				<label class="car-total">Итого <span class="component-price">{{summ() | currency}}</span></label>
+			</div>
 
 
-        </div>
-    </div>
-</div>
-<div class="accordion-group">
-    <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-            Подбор кредитных программ
-        </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-        <div class="accordion-inner">
 
+
+	<h4>Подбор кредитных программ</h4>
             <div class="row-fluid">
                 <div class="span4">
 
                     <div class="control-group">
                         <label>Первый взнос</label>
-                        <input type="text" id="handsel" class="span2" value="" data-slider-min="30"
+                        <input type="text" id="handsel" value="" data-slider-min="30"
                                data-slider-max="80" data-slider-step="1" data-slider-value="50"
                                data-slider-orientation="horizontal" data-slider-selection="after"
                                data-slider-tooltip="hide">
@@ -142,8 +139,8 @@
 
                     <div class="control-group">
                         <label>Ежемесячный платеж</label>
-                        <input type="text" id="tradein" class="span2" value="" data-slider-min="0"
-                               data-slider-max="800000" data-slider-step="100" data-slider-value="0"
+                        <input type="text" id="tradein" value="" data-slider-min="5000"
+                               data-slider-max="50000" data-slider-step="1000" data-slider-value="0"
                                data-slider-orientation="horizontal" data-slider-selection="after"
                                data-slider-tooltip="hide">
 
@@ -156,7 +153,7 @@
                 <div class="span4">
                     <div class="control-group">
                         <label>Срок</label>
-                        <input type="text" id="months" class="span2" value="" data-slider-min="3"
+                        <input type="text" id="months" value="" data-slider-min="3"
                                data-slider-max="36" data-slider-step="1" data-slider-value="12"
                                data-slider-orientation="horizontal" data-slider-selection="after"
                                data-slider-tooltip="hide">
@@ -196,9 +193,41 @@
 
 
             <h4>Отложенные</h4>
+			
+			<table class='offers-comparison'>
+				<tr class='offer-name'>
+					<th></th>
+					<td>Кредит А</td>
+					<td>Кредит Б</td>
+					<td>Кредит В</td>
+				</tr>
+				<tr class='offer-sum'>
+					<th>Сумма кредита</th>
+					<td>800 000 руб.</td>
+					<td>800 000 руб.</td>
+					<td>800 000 руб.</td>
+				</tr>
+				<tr class='offer-term'>
+					<th>Срок кредита</th>
+					<td class='offer-sum'>12 мес</td>
+					<td class='offer-sum'>18 мес.</td>
+					<td class='offer-sum'>15 мес.</td>
+				</tr>
+				<tr class='offer-return'>
+					<th>Сумма к возврату</th>
+					<td class='offer-sum'>320 000 руб.</td>
+					<td class='offer-sum'>410 000 руб.</td>
+					<td class='offer-sum'>341 000 руб.</td>
+				</tr>
+			</table>
+			
+			
 
             <div class="row-fluid credit-offers">
+
                 <div class="span3" ng-repeat="offer in selectedOfferList">
+				
+				
                     <div class="credit-offer">
                         <span class="monthly-payment">42 000 <small>руб/мес</small></span>
 
@@ -227,34 +256,6 @@
 
             </div>
 
-
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-group">
-    <div class="accordion-heading">
-		  <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseThree">
-			График платежей
-		  </span>
-
-    </div>
-    <div id="collapseThree" class="accordion-body collapse">
-        <div class="accordion-inner">
-            <p>График...</p>
-
-            <span class='btn'>Печатать</span>
-
-        </div>
-    </div>
-</div>
-
-<p class='text-right'>
-    <span class='btn'>Оформить заявку</span>
-</p>
-
-</div>
 
 
 </div>
