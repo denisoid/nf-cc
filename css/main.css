@@ -5,6 +5,7 @@ body{
 
 h4{
 	margin-top:20px;
+	color:#FFB600;
 }
 
 
@@ -78,11 +79,11 @@ h4{
 
 
 .offers-comparison{
-	width:100%;
+	/*width:100%;*/
 }
 
 .offers-comparison th{
-	text-align:right;
+	/*text-align:right;*/
 	font-weight:normal;
 	font-size:0.8em;
 	
@@ -90,7 +91,7 @@ h4{
 }
 
 .offers-comparison th, .offers-comparison td{
-	width:25%;
+	width:293px;
 	border-bottom:1px solid #ccc;
 	padding:3px 5px;
 }
