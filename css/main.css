@@ -1,6 +1,8 @@
 body{
 	color:#605525;
-
+	
+	padding-bottom:100px;
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
 h4{
@@ -82,12 +84,19 @@ h4{
 }
 
 .offers-comparison th{
-	/*text-align:right;*/
+	text-align:left;
 	font-weight:normal;
 	font-size:0.8em;
 	
 	
 }
+
+.offers-comparison tr.group th, .offers-comparison tr.group td{
+	background:#eee;
+	font-weight:bold;
+
+}
+
 
 .offers-comparison th, .offers-comparison td{
 	width:293px;
