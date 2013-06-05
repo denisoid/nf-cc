@@ -142,10 +142,12 @@
 
                     <div class="control-group">
                         <label>Ежемесячный платеж</label>
-                        <input type="text" id="tradein" class="span2" value="" data-slider-min="0"
-                               data-slider-max="800000" data-slider-step="100" data-slider-value="0"
+                        <input type="text" class="span2" data-slider-min="0"
+                               data-slider-max="800000" data-slider-step="100"
                                data-slider-orientation="horizontal" data-slider-selection="after"
-                               data-slider-tooltip="hide">
+                               data-slider-tooltip="hide"
+                                ng-model="monthPayment"
+                                ng-change="updateOfferList()">
 
                         <input type="text" id="tradein-input" class="input-mini">руб.
 

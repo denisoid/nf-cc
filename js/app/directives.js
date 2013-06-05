@@ -2,10 +2,17 @@
 
 /* Directives */
 
+var seedAppDirectives = angular.module('seedApp.directives', []);
 
-angular.module('seedApp.directives', []).
-  directive('appVersion', ['version', function(version) {
+seedAppDirectives.directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
       elm.text(version);
     };
   }]);
+
+seedAppDirectives.directive('slider', function() {
+    return {
+        restrict: "A",
+        template: ""
+    }
+});

@@ -18,18 +18,34 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     $scope.carModifList = CarModifs;
     $scope.carYearList = CarYears;
 
+    $scope.monthPayment = 0;
 
     $scope.currentOfferList = [];
 
     $scope.selectedOfferList = [];
 
     $scope.updateOfferList = function() {
-        $scope.currentOfferList = [
-            {productCode: "p1"},
-            {productCode: "p2"},
-            {productCode: "p3"},
-            {productCode: "p4"}
-        ];
+        if($scope.monthPayment < 50000) {
+            $scope.currentOfferList = [];
+        } else if ($scope.monthPayment < 200000) {
+            $scope.currentOfferList = [
+                {productCode: "p1"},
+                {productCode: "p2"}
+            ];
+        } else if ($scope.monthPayment < 400000) {
+            $scope.currentOfferList = [
+                {productCode: "p1"},
+                {productCode: "p2"},
+                {productCode: "p3"}
+            ];
+        } else if ($scope.monthPayment > 700000) {
+            $scope.currentOfferList = [
+                {productCode: "p1"},
+                {productCode: "p2"},
+                {productCode: "p3"},
+                {productCode: "p4"}
+            ];
+        }
     }
 
     $scope.addToSelectedOfferList = function(idx) {
