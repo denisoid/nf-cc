@@ -12,14 +12,19 @@ seedAppDirectives.directive('appVersion', ['version', function (version) {
 
 seedAppDirectives.directive('slider', function () {
     return {
-        link: function (scope, elem, attrs) {
+        restrict: 'A',
+        require : '?ngModel',
+        replace : true,
+        link: function (scope, elem, attrs, ctrl) {
             $(elem).slider({
-                range: true,
-                min: scope.days[1],
-                max: scope.days[scope.days.length - 1],
-                values: [scope.days[0], scope.days[scope.days.length - 1]],
+                min: scope.$eval(attrs.min),
+                max: scope.$eval(attrs.max),
+                step: scope.$eval(attrs.step),
+                value: scope.$eval(attrs.ngModel),
                 slide: function (event, ui) {
-                    console.log(ui.values[0], ui.values[1]);
+                    scope.$apply(function() {
+                        ctrl.$setViewValue(ui.value);
+                    });
                 }
             });
         }

@@ -3,6 +3,10 @@
 /* Controllers */
 
 function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
+    $scope.initialPayment = 30;
+    $scope.monthPayment = 10000;
+    $scope.months = 12;
+
     $scope.car = {
         price: 813670,
         casco: 0,
