@@ -3,6 +3,34 @@ body{
 
 }
 
+h4{
+	margin-top:20px;
+}
+
+
+.prices{
+	position:relative;
+	width:300px;
+}
+
+
+.car-total{
+	border-top:1px solid #ccc;
+}
+
+
+.component-price{
+
+
+	text-align:right;
+	left:150px;
+	width:150px;
+	position:absolute;
+
+}
+
+
+
 .credit-offers>div{
 	padding-bottom:50px;
 }
@@ -48,6 +76,34 @@ body{
 }
 
 
-.slider {
-	width:70% !important;
+
+.offers-comparison{
+	width:100%;
+}
+
+.offers-comparison th{
+	text-align:right;
+	font-weight:normal;
+	font-size:0.8em;
+	
+	
+}
+
+.offers-comparison th, .offers-comparison td{
+	width:25%;
+	border-bottom:1px solid #ccc;
+	padding:3px 5px;
+}
+
+.offers-comparison tr:last-child *{
+	border-bottom:0;
+}
+
+.offers-comparison td{
+	text-align:center;
+}
+
+.offers-comparison .offer-name td{
+	font-size:1.2em;
+	
 }

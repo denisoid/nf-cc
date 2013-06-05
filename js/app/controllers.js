@@ -58,17 +58,17 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     }
 
     $scope.updateCompany = function () {
-        $scope.car.modelId = undefined;
+        $scope.car.modelId = "";
         $scope.updateModel();
     }
 
     $scope.updateModel = function () {
-        $scope.car.modifId = undefined;
+        $scope.car.modifId = "";
         $scope.updateModif();
     }
 
     $scope.updateModif = function () {
-        $scope.car.yearId = undefined;
+        $scope.car.yearId = "";
         $scope.updateYear();
     }
 
