@@ -165,83 +165,97 @@
             <h3>Кредит А</h3>
 
 
-            <h5>Опции</h5>
+                        <h5>Опции</h5>
 
-            <div class='options-list'>
-                <label class="checkbox"><input type="checkbox"/>Страхование</label>
-                <label class="checkbox"><input type="checkbox"/>Без штрафов</label>
+									<div class='options-list'>
+										<label class="checkbox"><input type="checkbox"/>Страхование</label>
+										<label class="checkbox"><input type="checkbox"/>Без штрафов</label>
+									</div>
+									
+									<a class='rotate' href='#'></a>
+								</div>
+								<div class="extra-terms">
+									
+									
+									пыщь-пыщь
+								
+									<a class='rotate' href='#'></a>
+								</div>
+							</div>
+						</div>
+
+                        <button class='btn add-to-compare' ng-click="addToSelectedOfferList($index)">Добавить к сравнению</button>
+                    </div>
+                </div>
+
+
             </div>
 
-            <button class='btn add-to-compare' ng-click="addToSelectedOfferList($index)">Добавить к сравнению</button>
-        </div>
-    </div>
+
+            <h4>Отложенные</h4>
+			
+			<table class='offers-comparison'>
+				<tr class='offer-name'>
+					<th></th>
+					<td>Кредит А<a href="#" class="delete-offer"></a></td>
+					<td>Кредит Б<a href="#" class="delete-offer"></a></td>
+					<td>Кредит В<a href="#" class="delete-offer"></a></td>
+				</tr>
+				<tr class='offer-sum'>
+					<th>Сумма кредита</th>
+					<td>800 000 руб.</td>
+					<td>800 000 руб.</td>
+					<td>800 000 руб.</td>
+				</tr>
+				<tr class='offer-term'>
+					<th>Срок кредита</th>
+					<td class='offer-sum'>12 мес</td>
+					<td class='offer-sum'>18 мес.</td>
+					<td class='offer-sum'>15 мес.</td>
+				</tr>
+				<tr class='offer-return'>
+					<th>Сумма к возврату</th>
+					<td class='offer-sum'>320 000 руб.</td>
+					<td class='offer-sum'>410 000 руб.</td>
+					<td class='offer-sum'>341 000 руб.</td>
+				</tr>
+			</table>
+			
+			
+
+            <div class="row-fluid credit-offers">
+
+                <div class="span3" ng-repeat="offer in selectedOfferList">
+				
+				
+                    <div class="credit-offer">
+                        <span class="monthly-payment">42 000 <small>руб/мес</small></span>
+
+                        <h3>Кредит А</h3>
+                        <table style='width:100%;'>
+                            <tr>
+                                <td>Сумма
+                                <td class='text-right'>800 000 руб.
+                            <tr>
+                                <td>Срок
+                                <td class='text-right'>12 мес.
+
+                        </table>
+
+                        <h5>Опции</h5>
+
+                        <div class='options-list'>
+                            <label class="checkbox"><input type="checkbox" checked disabled/>Страхование</label>
+                            <label class="checkbox"><input type="checkbox" checked disabled/>Без штрафов</label>
+                        </div>
+
+                        <button class='btn add-to-compare'>Оформить</button>
+                    </div>
+                </div>
 
 
-</div>
-
-
-<h4>Отложенные</h4>
-
-<table class='offers-comparison'>
-    <tr class='offer-name'>
-        <th></th>
-        <td>Кредит А<a href="#" class="delete-offer"></a></td>
-        <td>Кредит Б<a href="#" class="delete-offer"></a></td>
-        <td>Кредит В<a href="#" class="delete-offer"></a></td>
-    </tr>
-    <tr class='offer-sum'>
-        <th>Сумма кредита</th>
-        <td>800 000 руб.</td>
-        <td>800 000 руб.</td>
-        <td>800 000 руб.</td>
-    </tr>
-    <tr class='offer-term'>
-        <th>Срок кредита</th>
-        <td class='offer-sum'>12 мес</td>
-        <td class='offer-sum'>18 мес.</td>
-        <td class='offer-sum'>15 мес.</td>
-    </tr>
-    <tr class='offer-return'>
-        <th>Сумма к возврату</th>
-        <td class='offer-sum'>320 000 руб.</td>
-        <td class='offer-sum'>410 000 руб.</td>
-        <td class='offer-sum'>341 000 руб.</td>
-    </tr>
-</table>
-
-
-<div class="row-fluid credit-offers">
-
-    <div class="span3" ng-repeat="offer in selectedOfferList">
-
-
-        <div class="credit-offer">
-            <span class="monthly-payment">42 000 <small>руб/мес</small></span>
-
-            <h3>Кредит А</h3>
-            <table style='width:100%;'>
-                <tr>
-                    <td>Сумма
-                    <td class='text-right'>800 000 руб.
-                <tr>
-                    <td>Срок
-                    <td class='text-right'>12 мес.
-
-            </table>
-
-            <h5>Опции</h5>
-
-            <div class='options-list'>
-                <label class="checkbox"><input type="checkbox" checked disabled/>Страхование</label>
-                <label class="checkbox"><input type="checkbox" checked disabled/>Без штрафов</label>
             </div>
 
-            <button class='btn add-to-compare'>Оформить</button>
-        </div>
-    </div>
-
-
-</div>
 
 
 </div>
@@ -283,6 +297,12 @@
 
 
             });
+			
+			
+	$(".terms-container .rotate").click(function(){
+		$(this).parent().parent().parent().toggleClass('hover');
+		return false;
+	})
 
 
 </script>
