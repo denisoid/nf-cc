@@ -42,7 +42,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
-            </div><!--/.nav-collapse -->
+            </div> -->
         </div>
     </div>
 </div>
@@ -92,12 +92,6 @@
 
 
 <div class="prices">
-    <div>
-        <label>Стоимость машины
-            <input type="text" class="component-price input-medium" ng-model="car.price"/>
-        </label>
-    </div>
-
 
     <label class="checkbox">
         <input type="checkbox" ng-model="car.osago" ng-true-value="3100" ng-false-value=" 0 ">ОСАГО
@@ -108,18 +102,31 @@
         <input type="checkbox" ng-model="car.casco" ng-true-value="10570" ng-false-value=" 0 ">КАСКО
         <span class="component-price">+10570 руб.</span>
     </label>
-
-    <label class="car-total">Итого <span class="component-price">{{summ() | currency}}</span></label>
 </div>
 
 
 <h4>Подбор кредитных программ</h4>
 
 <div class="row-fluid">
-    <div class="span4">
+    <div class="span3">
 
         <div class="control-group">
-            <label>Первый взнос</label>
+            <label>Стоимость машины</label>
+
+            <div slider min="250000" max="3000000" step="10000" ng-model="car.price"></div>
+
+            <input type="text" class="input-mini" ng-model="car.price">руб.
+
+        </div>
+
+    </div>
+
+
+
+    <div class="span3">
+
+        <div class="control-group">
+            <label>Первоначальный взнос</label>
 
             <div slider min="30" max="" step="1" ng-model="initialPayment"></div>
 
@@ -130,12 +137,12 @@
         </div>
     </div>
 
-    <div class="span4">
+    <div class="span3">
 
         <div class="control-group">
             <label>Ежемесячный платеж</label>
 
-            <div slider min="5000" max="500000" step="1000" ng-model="monthPayment"></div>
+            <div slider min="5000" max="200000" step="1000" ng-model="monthPayment"></div>
 
             <input type="text" class="input-mini" ng-model="monthPayment">руб.
 
@@ -143,7 +150,7 @@
 
     </div>
 
-    <div class="span4">
+    <div class="span3">
         <div class="control-group">
             <label>Срок</label>
 
@@ -156,7 +163,7 @@
 
 </div>
 
-<h4>Варианты</h4>
+<h4>Варианты программ</h4>
 
 <div class="row-fluid credit-offers">
 
@@ -180,7 +187,7 @@
                         <a class='rotate' href='#'></a>
                     </div>
                     <div class="extra-terms">
-
+			<h5>Дополнительная информация</h5>
 
                         пыщь-пыщь
 
@@ -197,11 +204,11 @@
 </div>
 
 <div ng-show="1">
-    <h4>Отложенные</h4>
+    <h4>Сравнение вариантов</h4>
 
     <table class='offers-comparison'>
         <tr class='offer-name'>
-            <td></td>
+            <td>&nbsp;</td>
             <td ng-repeat="selectedOffer in selectedOfferList">Кредит А<a href="" class="delete-offer"
                                                                           ng-click="removeFromSelectedOfferList($index)"></a>
             </td>
@@ -239,44 +246,18 @@
             <th>Мобильный телефон</th>
             <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/no.png"/></td>
         </tr>
-
+		
+		
+		<tr>
+			<th></th>
+			<td ng-repeat="selectedOffer in selectedOfferList">
+				<button class='btn'>Оформить</button>
+			</td>
+		</tr>
 
     </table>
 </div>
 
-
-<div class="row-fluid credit-offers">
-
-    <div class="span3" ng-repeat="offer in selectedOfferList">
-
-
-        <div class="credit-offer">
-            <span class="monthly-payment">42 000 <small>руб/мес</small></span>
-
-            <h3>Кредит А</h3>
-            <table style='width:100%;'>
-                <tr>
-                    <td>Сумма
-                    <td class='text-right'>800 000 руб.
-                <tr>
-                    <td>Срок
-                    <td class='text-right'>12 мес.
-
-            </table>
-
-            <h5>Опции</h5>
-
-            <div class='options-list'>
-                <label class="checkbox"><input type="checkbox" checked disabled/>Страхование</label>
-                <label class="checkbox"><input type="checkbox" checked disabled/>Без штрафов</label>
-            </div>
-
-            <button class='btn add-to-compare'>Оформить</button>
-        </div>
-    </div>
-
-
-</div>
 
 
 </div>
