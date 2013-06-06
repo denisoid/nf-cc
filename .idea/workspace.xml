@@ -9,13 +9,28 @@
     </list>
     <ignored path="nf-cc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370433529262" ignored="false" />
-    <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370447469995" ignored="false" />
+    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370516294978" ignored="false" />
+    <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370514074030" ignored="false" />
     <file path="/app.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370271995006" ignored="false" />
-    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370447730646" ignored="false" />
+    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370497932167" ignored="false" />
     <file path="/services.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370345151002" ignored="false" />
-    <file path="/directives.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370446717268" ignored="false" />
+    <file path="/directives.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370515743882" ignored="false" />
     <file path="/dummy.xml" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370446677151" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/relaxng.rng" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/XMLSchema.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xinclude.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xslt-1_0.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xslt-2_0.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xml.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/catalog.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/html5/xhtml5.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xsl" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xml" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/lib/webstorm.jar!/standardSchemas/xhtml1-strict.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
+    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370513436004" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,23 +50,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="directives.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+            <state line="31" column="48" selection-start="964" selection-end="993" vertical-scroll-proportion="0.6692607">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="51" selection-start="4162" selection-end="4162" vertical-scroll-proportion="0.477459">
+            <state line="300" column="6" selection-start="9371" selection-end="9371" vertical-scroll-proportion="-75.0">
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,7 +84,7 @@
       <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="28" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
+            <state line="6" column="27" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,6 +116,9 @@
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
+  </component>
+  <component name="MergeToolSettings">
+    <option name="SOFT_WRAPS" value="true" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -244,15 +262,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="C:/Git/bin/git.exe" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="303" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="970" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="977" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="970" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="295" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="294" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -278,7 +297,7 @@
   <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration default="false" name="index.html" type="JavascriptDebugSession" factoryName="Local" singleton="true" temporary="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" value="file:///C:/Work/nf-cc/index.html" />
       </JSDebuggerConfigurationSettings>
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
@@ -295,7 +314,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -345,30 +364,38 @@
       <created>1370433536797</created>
       <updated>1370433536797</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="new directive - slider">
+      <created>1370447835830</created>
+      <updated>1370447835830</updated>
+    </task>
+    <task id="LOCAL-00005" summary="merged with rotator">
+      <created>1370516301729</created>
+      <updated>1370516301729</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24986821" sideWeight="0.6006674" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39933258" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32887402" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -397,7 +424,7 @@
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORISONTALLY" value="true" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
     <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
@@ -413,7 +440,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="new directive - slider" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged with rotator" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -430,13 +457,46 @@
     <MESSAGE value="11:35" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;Conflicts:&#10;&#9;index.html&#10;" />
     <MESSAGE value="new directive - slider" />
+    <MESSAGE value="merged with rotator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/app/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="30" selection-start="6153" selection-end="6153" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/angular/angular.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -453,9 +513,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="50" selection-start="334" selection-end="334" vertical-scroll-proportion="0.39688715">
-          <folding />
-        </state>
+        <state line="12" column="50" selection-start="334" selection-end="334" vertical-scroll-proportion="0.39688715" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app/app.js">
@@ -468,35 +526,32 @@
     <entry file="file://$PROJECT_DIR$/js/angular/angular.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16387" column="21" selection-start="554955" selection-end="554959" vertical-scroll-proportion="18.16">
-          <folding>
-            <marker date="1369171024000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1369171024000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0">
+        <state line="6" column="27" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="51" selection-start="4162" selection-end="4162" vertical-scroll-proportion="0.477459">
+        <state line="300" column="6" selection-start="9371" selection-end="9371" vertical-scroll-proportion="-75.0">
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#4;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="48" selection-start="964" selection-end="993" vertical-scroll-proportion="0.6692607">
+          <folding />
         </state>
       </provider>
     </entry>

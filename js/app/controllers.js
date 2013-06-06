@@ -4,7 +4,7 @@
 
 function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     $scope.initialPayment = 30;
-    $scope.monthPayment = 10000;
+    $scope.monthPayment = 60000;
     $scope.months = 12;
 
     $scope.car = {
@@ -21,8 +21,6 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     $scope.carModelList = CarModels;
     $scope.carModifList = CarModifs;
     $scope.carYearList = CarYears;
-
-    $scope.monthPayment = 0;
 
     $scope.currentOfferList = [];
 
@@ -56,6 +54,13 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
         $scope.selectedOfferList.push($scope.currentOfferList[idx]);
     }
 
+    $scope.removeFromSelectedOfferList = function(idx) {
+        $scope.selectedOfferList.splice(idx,1);
+    }
+
+    $scope.isSelected = function() {
+        return ($scope.selectedOfferList.length > 0);
+    }
 
     $scope.summ = function () {
         return parseFloat($scope.car.price) + parseFloat($scope.car.osago) + parseFloat($scope.car.casco);
@@ -80,6 +85,10 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     }
 
     $scope.updateOfferList();
+
+    $scope.$watch($scope.monthPayment, function() {
+        $scope.updateOfferList();
+    })
 
 }
 

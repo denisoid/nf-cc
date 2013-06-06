@@ -27,6 +27,11 @@ seedAppDirectives.directive('slider', function () {
                     });
                 }
             });
+            /*
+            scope.$watch(ctrl.$modelValue, function(nv,ov) {
+                $(elem).slider( "value", nv);
+            });
+            */
         }
     }
 });
