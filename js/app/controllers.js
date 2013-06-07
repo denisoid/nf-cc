@@ -4,74 +4,24 @@
 
 function FlipCtrl($scope) {
     $scope.isFlip = false;
-    $scope.flip = function() {
+    $scope.flip = function () {
         $scope.isFlip = !$scope.isFlip;
     }
 }
 
-function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
-    $scope.initialPayment = 30;
-    $scope.monthPayment = 60000;
-    $scope.months = 12;
+function CalculatorCtrl($scope, CarConfiguration) {
 
-    $scope.car = {
-        price: 813670,
-        casco: 0,
-        osago: 0,
-        companyId: undefined,
-        modelId: undefined,
-        modifId: undefined,
-        yearId: undefined
-    }
+    $scope.car = CarConfiguration;
+
+}
+
+function CarConfigurationCtrl($scope, CarConfiguration, CarCompanys, CarModels, CarModifs, CarYears) {
+    $scope.car = CarConfiguration;
 
     $scope.carCompanyList = CarCompanys;
     $scope.carModelList = CarModels;
     $scope.carModifList = CarModifs;
     $scope.carYearList = CarYears;
-
-    $scope.currentOfferList = [];
-
-    $scope.selectedOfferList = [];
-
-    $scope.updateOfferList = function() {
-        if($scope.monthPayment < 50000) {
-            $scope.currentOfferList = [];
-        } else if ($scope.monthPayment < 200000) {
-            $scope.currentOfferList = [
-                {productCode: "p1"},
-                {productCode: "p2"}
-            ];
-        } else if ($scope.monthPayment < 400000) {
-            $scope.currentOfferList = [
-                {productCode: "p1"},
-                {productCode: "p2"},
-                {productCode: "p3"}
-            ];
-        } else if ($scope.monthPayment > 700000) {
-            $scope.currentOfferList = [
-                {productCode: "p1"},
-                {productCode: "p2"},
-                {productCode: "p3"},
-                {productCode: "p4"}
-            ];
-        }
-    }
-
-    $scope.addToSelectedOfferList = function(idx) {
-        $scope.selectedOfferList.push($scope.currentOfferList[idx]);
-    }
-
-    $scope.removeFromSelectedOfferList = function(idx) {
-        $scope.selectedOfferList.splice(idx,1);
-    }
-
-    $scope.isSelected = function() {
-        return ($scope.selectedOfferList.length > 0);
-    }
-
-    $scope.summ = function () {
-        return parseFloat($scope.car.price) + parseFloat($scope.car.osago) + parseFloat($scope.car.casco);
-    }
 
     $scope.updateCompany = function () {
         $scope.car.modelId = "";
@@ -91,11 +41,62 @@ function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     $scope.updateYear = function () {
     }
 
-    $scope.updateOfferList();
-
-    $scope.$watch($scope.monthPayment, function() {
-        $scope.updateOfferList();
-    })
-
 }
 
+function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filter) {
+
+    $scope.car = CarConfiguration;
+
+    $scope.loanProductList = [];
+
+    $scope.initialPayment = 0;
+    $scope.initialPaymentPercent = 0;
+
+
+    $scope.months = 12;
+
+    $scope.currentOfferList = [];
+
+    $scope.selectedOfferList = [];
+
+
+    $scope.addToSelectedOfferList = function (idx) {
+        $scope.selectedOfferList.push($scope.currentOfferList[idx]);
+    }
+
+    $scope.removeFromSelectedOfferList = function (idx) {
+        $scope.selectedOfferList.splice(idx, 1);
+    }
+
+    $scope.isSelected = function () {
+        return ($scope.selectedOfferList.length > 0);
+    }
+
+    $scope.updateLoanProductList = function () {
+        $scope.loanProductList = $filter('filter')(LoanProducts, function (element) {
+                if (
+                    ($scope.initialPaymentPercent >= element.minip) &&
+                        ($scope.initialPaymentPercent <= element.maxip) &&
+                        ($scope.months >= element.minterm) &&
+                        ($scope.months <= element.maxterm)
+                    ) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
+        $scope.currentOfferList = $scope.loanProductList;
+    }
+
+    $scope.$watch('initialPayment', function (newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.initialPaymentPercent = $scope.initialPayment/ $scope.car.price * 100;
+        $scope.updateLoanProductList();
+    })
+
+    $scope.$watch('months', function (newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.updateLoanProductList();
+    })
+}

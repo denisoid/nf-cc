@@ -51,3 +51,39 @@ seedAppServiceModule.
             {id: "y2013", name: "2013"}
         ]
     });
+
+seedAppServiceModule.
+    factory('LoanProducts', function ($resource) {
+        return [
+            {id: "p1", name: "Программа 1", minip:0, maxip:10, minterm: 0, maxterm: 3, rate: 10},
+            {id: "p1", name: "Программа 1", minip:10.001, maxip:30, minterm: 0, maxterm: 3, rate: 9.5},
+            {id: "p1", name: "Программа 1", minip:30.001, maxip:100, minterm: 0, maxterm: 3, rate: 9},
+            {id: "p1", name: "Программа 1", minip:0, maxip:10, minterm: 4, maxterm: 9, rate: 11.5},
+            {id: "p1", name: "Программа 1", minip:10.001, maxip:10, minterm: 4, maxterm: 9, rate: 11},
+            {id: "p1", name: "Программа 1", minip:30.001, maxip:10, minterm: 4, maxterm: 9, rate: 10.5},
+            {id: "p1", name: "Программа 1", minip:0, maxip:10, minterm: 10, maxterm: 24, rate: 12.5},
+            {id: "p1", name: "Программа 1", minip:10.001, maxip:10, minterm: 10, maxterm: 24, rate: 12},
+            {id: "p1", name: "Программа 1", minip:30.001, maxip:10, minterm: 10, maxterm: 24, rate: 11.5},
+            {id: "p2", name: "Программа 2", minip:0, maxip:10, minterm: 0, maxterm: 3, rate: 9},
+            {id: "p2", name: "Программа 2", minip:10.001, maxip:30, minterm: 0, maxterm: 3, rate: 8.5},
+            {id: "p2", name: "Программа 2", minip:30.001, maxip:100, minterm: 0, maxterm: 3, rate: 8},
+            {id: "p2", name: "Программа 2", minip:0, maxip:10, minterm: 4, maxterm: 9, rate: 10.5},
+            {id: "p2", name: "Программа 2", minip:10.001, maxip:10, minterm: 4, maxterm: 9, rate: 10},
+            {id: "p2", name: "Программа 2", minip:30.001, maxip:10, minterm: 4, maxterm: 9, rate: 9.5},
+            {id: "p2", name: "Программа 2", minip:0, maxip:10, minterm: 10, maxterm: 24, rate: 11.5},
+            {id: "p2", name: "Программа 2", minip:10.001, maxip:10, minterm: 10, maxterm: 24, rate: 11},
+            {id: "p2", name: "Программа 2", minip:30.001, maxip:10, minterm: 10, maxterm: 24, rate: 10.5}
+        ]
+    });
+
+seedAppServiceModule.
+    factory('CarConfiguration', function ($resource) {
+        return {
+            price: 800000,
+            companyId: undefined,
+            modelId: undefined,
+            modifId: undefined,
+            yearId: undefined
+        }
+
+    });
