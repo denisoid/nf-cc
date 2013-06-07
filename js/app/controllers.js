@@ -2,6 +2,13 @@
 
 /* Controllers */
 
+function FlipCtrl($scope) {
+    $scope.isFlip = false;
+    $scope.flip = function() {
+        $scope.isFlip = !$scope.isFlip;
+    }
+}
+
 function CalculatorCtrl($scope, CarCompanys, CarModels, CarModifs, CarYears) {
     $scope.initialPayment = 30;
     $scope.monthPayment = 60000;

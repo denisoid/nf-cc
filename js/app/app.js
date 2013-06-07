@@ -6,6 +6,7 @@ var seedAppModule = angular.module('seedApp',
     [
         'seedApp.services',
         'seedApp.directives',
-        'ngResource'
+        'ngResource',
+        'ui.utils'
     ]
 );
