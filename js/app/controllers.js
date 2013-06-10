@@ -61,7 +61,10 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
 
 
     $scope.addToSelectedOfferList = function (idx) {
-        $scope.selectedOfferList.push($scope.currentOfferList[idx]);
+        var foundIdx = $scope.selectedOfferList.indexOf($scope.currentOfferList[idx]);
+        if(foundIdx == -1) {
+            $scope.selectedOfferList.push($scope.currentOfferList[idx]);
+        }
     }
 
     $scope.removeFromSelectedOfferList = function (idx) {
@@ -109,19 +112,21 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
 
     $scope.$watch('car.price', function (newVal, oldVal) {
         if(newVal === oldVal) return;
-        $scope.initialPaymentPercent = $scope.initialPayment * 100 / $scope.car.price;
+        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
         $scope.updateLoanProductList();
     });
 
+    /*
     $scope.$watch('initialPaymentPercent', function (newVal, oldVal) {
         if(newVal === oldVal) return;
         $scope.initialPayment = $scope.initialPaymentPercent * $scope.car.price / 100;
         $scope.updateLoanProductList();
     });
+    */
 
     $scope.$watch('initialPayment', function (newVal, oldVal) {
         if(newVal === oldVal) return;
-        $scope.initialPaymentPercent = $scope.initialPayment * 100 / $scope.car.price;
+        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
         $scope.updateLoanProductList();
     });
 
