@@ -110,10 +110,10 @@
                 <div class="control-group">
                     <label>Первоначальный взнос</label>
 
-                    <div slider min="0" max="car.price" step="car.price/100" ng-model="initialPayment"></div>
+                    <div slider min="0" max="100" step="1" ng-model="initialPaymentPercent"></div>
 
-                    <input type="text" style="width:20px" ng-model="initialPayment">%
-                    <span>{{initialPaymentPercent | currency}}</span>
+                    <input type="text" style="width:20px" ng-model="initialPaymentPercent">%
+                    <span>{{initialPayment | currency}}</span>
                     <!--input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">руб.-->
 
                 </div>

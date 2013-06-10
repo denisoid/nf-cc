@@ -15,24 +15,6 @@ seedAppDirectives.directive('slider', function () {
         restrict: 'A',
         require : '?ngModel',
         replace : true,
-        controller: function($scope) {
-            $scope.$watch('min', function(newVal, oldVal) {
-                if(newVal === oldVal) return;
-                $(elem).slider("option", "min", parseInt($scope.min));
-            });
-            $scope.$watch('max', function(newVal, oldVal) {
-                if(newVal === oldVal) return;
-                $(elem).slider("option", "max", parseInt($scope.max));
-            });
-            $scope.$watch('step', function(newVal, oldVal) {
-                if(newVal === oldVal) return;
-                $(elem).slider("option", "step", parseInt($scope.step));
-            });
-            $scope.$watch('ngModel', function(newVal, oldVal) {
-                if(newVal === oldVal) return;
-                $(elem).slider("value", parseInt($scope.ngModel));
-            });
-        },
         link: function (scope, elem, attrs, ctrl) {
             $(elem).slider({
                 min: scope.$eval(attrs.min),
@@ -45,6 +27,24 @@ seedAppDirectives.directive('slider', function () {
                     });
                 }
             });
+
+            scope.$watch(attrs.min, function(newVal, oldVal) {
+                if(newVal === oldVal) return;
+                $(elem).slider("option", "min", parseInt($scope.min));
+            });
+            scope.$watch(attrs.max, function(newVal, oldVal) {
+                if(newVal === oldVal) return;
+                $(elem).slider("option", "max", parseInt($scope.max));
+            });
+            scope.$watch(attrs.step, function(newVal, oldVal) {
+                if(newVal === oldVal) return;
+                $(elem).slider("option", "step", parseInt($scope.step));
+            });
+            scope.$watch(attrs.ngModel, function(newVal, oldVal) {
+                if(newVal === oldVal) return;
+                $(elem).slider("value", parseInt($scope.ngModel));
+            });
+
         }
     }
 });
