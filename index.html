@@ -52,6 +52,13 @@
     <form class="form-inline" ng-controller="CarConfigurationCtrl">
 
         <h4>Выбор автомобиля</h4>
+		
+		<span class="btn-group" data-toggle="buttons-radio">
+			 <button type="button" class="btn active" value="want">Новая</button>
+			 <button type="button" class="btn" value="need">С пробегом</button>
+		</span>
+				
+				
         <select class="input-medium"
                 ng-model="car.companyId"
                 ng-options="carCompany as carCompany.name for carCompany in carCompanyList track by carCompany.id"
@@ -81,10 +88,7 @@
         </select>
 
 
-				<span class="btn-group" data-toggle="buttons-radio">
-					 <button type="button" class="btn active" value="want">Новая</button>
-					 <button type="button" class="btn" value="need">С пробегом</button>
-				</span>
+
 
     </form>
     <div ng-controller="LoanProgramSelectionCtrl">
@@ -143,7 +147,7 @@
 				
 								<label>Срок</label>
 
-								<div slider min="3" max="36" step="1" ng-model="months"></div>
+								<div slider min="3" max="60" step="3" ng-model="months"></div>
 							</td>
 							
 							<td class="input">
@@ -169,9 +173,11 @@
                         <div class='terms-container'>
                             <div class='main-terms'>
 								<div class="flip-inner">
+									<h3>{{offer.name}}</h3>
+								
 									<span class="monthly-payment">{{offer.monthPayment | currency}}/мес</span>
 
-									<h3>{{offer.name}}</h3>
+
 									<!--<h3>Стоимость машины: {{offer.price  | currency}}</h3>
 									<h3>Первоначальный платеж: {{offer.initialPayment  | currency}}</h3>-->
 									
@@ -182,10 +188,6 @@
 											<td>{{offer.rate}} %</td>
 										</tr>
 										
-										<tr>								
-											<th>Срок</th>
-											<td>{{offer.months}} м.</td>
-										</tr>
 										
 										<tr>
 											<th>К возврату</th>
@@ -210,7 +212,12 @@
                             </div>
                             <div class="extra-terms">
 								<div class="flip-inner">
-									<h3>Дополнительная информация</h3>
+									<h3>{{offer.name}}</h3>
+								
+									<span class="monthly-payment">{{offer.monthPayment | currency}}/мес</span>
+								
+								
+									<h4>Дополнительная информация</h4>
 
 									<table>
 										<tr>
