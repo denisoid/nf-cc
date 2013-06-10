@@ -1,13 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic);
+
+
 body{
 	color:#605525;
 	
 	padding-bottom:100px;
 	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	
+	font-family: 'Open Sans', sans-serif;
 }
 
 h4{
 	margin-top:20px;
-	color:#FFB600;
 }
 
 
@@ -43,8 +47,11 @@ h4{
 
 
 .credit-offer h3{
-	font-size:15px;
+clear:both;
+	font-size:14px;
 	line-height:22px;
+	font-weight:600;
+	text-align:center;
 
 }
 
@@ -53,6 +60,7 @@ h4{
 	display:block;
 	font-size:1.4em;
 	color: #B28D0F;
+	font-weight:600;
 	
 }
 
@@ -71,6 +79,11 @@ h4{
 	display: none;
 	width: 200px;
 	margin-left: 30px;
+	
+	
+	-webkit-box-shadow: 3px 4px 10px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow:    3px 4px 10px rgba(50, 50, 50, 0.5);
+	box-shadow:         3px 4px 10px rgba(50, 50, 50, 0.5);
 }
 
 .credit-offers>div:hover .add-to-compare{
@@ -182,6 +195,11 @@ h4{
 	position: absolute;
 	top: 0;
 	left: 0;
+	
+	
+	-webkit-box-shadow: 6px 8px 20px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow:    6px 8px 20px rgba(50, 50, 50, 0.5);
+	box-shadow:         6px 8px 20px rgba(50, 50, 50, 0.5);
 }
 
 /* front pane, placed above back */
@@ -196,10 +214,23 @@ h4{
 
 
 .flip-inner{
-	padding:10px 5px;
+	padding:10px;
 }
 
 
+.flip-inner table{
+	width:100%;
+}
+
+.flip-inner table th{
+	font-weight:normal;
+	text-align:left;
+	color:#888;
+}
+
+.flip-inner table td{
+	text-align:right;
+}
 
 
 a.rotate{

@@ -104,7 +104,7 @@
 							
 							<td class="input">
 
-								<input type="text" class="input-mini" ng-model="car.price">руб.
+								<input maxlength="7" type="text" class="input-mini" ng-model="car.price">руб.
 							</td>
 						</tr>
 					</table>
@@ -127,7 +127,7 @@
 							
 							
 							<td class="input">
-								<input type="text" style="width:20px" ng-model="initialPaymentPercent">%
+								<input maxlength="2" type="text" style="width:20px" ng-model="initialPaymentPercent">%
 								<span>{{initialPayment | currency}}</span>
 								<!--input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">руб.-->
 							</td>
@@ -149,7 +149,7 @@
 							
 							<td class="input">
 
-								<input type="text" ng-model="months" style="width:20px"> мес.
+								<input maxlength="2" type="text" ng-model="months" style="width:20px"> мес.
 							</td>
 						</tr>
 					</table>
@@ -170,16 +170,34 @@
                         <div class='terms-container'>
                             <div class='main-terms'>
 								<div class="flip-inner">
-									<span class="monthly-payment">{{offer.monthPayment | currency}}</span>
+									<span class="monthly-payment">{{offer.monthPayment | currency}}/мес</span>
 
 									<h3>{{offer.name}}</h3>
 									<!--<h3>Стоимость машины: {{offer.price  | currency}}</h3>
 									<h3>Первоначальный платеж: {{offer.initialPayment  | currency}}</h3>-->
-									<h3>Ставка    : {{offer.rate}} %</h3>
-									<h3>Срок: {{offer.months}} месяцев</h3>
 									
-									<h3>К возврату: {{offer.months*offer.monthPayment | currency }}</h3>
-									<h3>Переплата: {{offer.overPayment | currency}}</h3>
+									
+									<table>
+										<tr>
+											<th>Ставка</th>
+											<td>{{offer.rate}} %</td>
+										</tr>
+										
+										<tr>								
+											<th>Срок</th>
+											<td>{{offer.months}} м.</td>
+										</tr>
+										
+										<tr>
+											<th>К возврату</th>
+											<td>{{offer.months*offer.monthPayment | currency }}</td>
+										</tr>	
+										
+										<tr>
+											<th>Переплата</th>
+											<td>{{offer.overPayment | currency}}</td>
+										</tr>
+									</table>
 
 									<h5>Опции</h5>
 
@@ -193,9 +211,14 @@
                             </div>
                             <div class="extra-terms">
 								<div class="flip-inner">
-									<h5>Дополнительная информация</h5>
+									<h3>Дополнительная информация</h3>
 
-									<h3>Переплата: {{offer.overPayment | currency}}</h3>
+									<table>
+										<tr>
+											<th>Переплата</th>
+											<td>{{offer.overPayment | currency}}</td>
+										</tr>
+									</table>
 
 									<a class='rotate' ng-click="flip()"></a>
 								</div>
