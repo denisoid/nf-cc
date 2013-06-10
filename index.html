@@ -117,7 +117,7 @@
             <div class="span4">
 
                 <div class="control-group">
-                    
+                  
 					<table>
 						<tr>
 							<td>
@@ -127,9 +127,8 @@
 							
 							
 							<td class="input">
-								<input maxlength="2" type="text" style="width:20px" ng-model="initialPaymentPercent">%
-								<span>{{initialPayment | currency}}</span>
-								<!--input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">руб.-->
+								<span style="width:20px">{{initialPaymentPercent | number}}%</span>
+								<input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">руб.
 							</td>
 						</tr>
 					</table>
