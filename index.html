@@ -94,11 +94,20 @@
             <div class="span4">
 
                 <div class="control-group">
-                    <label>Стоимость машины</label>
+					<table>
+						<tr>
+							<td>
+								<label>Стоимость машины</label>
 
-                    <div slider min="250000" max="3000000" step="10000" ng-model="car.price"></div>
+								<div slider min="250000" max="3000000" step="10000" ng-model="car.price"></div>
+							</td>
+							
+							<td class="input">
 
-                    <input type="text" class="input-mini" ng-model="car.price">руб.
+								<input type="text" class="input-mini" ng-model="car.price">руб.
+							</td>
+						</tr>
+					</table>
 
                 </div>
 
@@ -108,24 +117,42 @@
             <div class="span4">
 
                 <div class="control-group">
-                    <label>Первоначальный взнос</label>
-
-                    <div slider min="0" max="100" step="1" ng-model="initialPaymentPercent"></div>
-
-                    <input type="text" style="width:20px" ng-model="initialPaymentPercent">%
-                    <span>{{initialPayment | currency}}</span>
-                    <!--input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">руб.-->
-
+                    
+					<table>
+						<tr>
+							<td>
+								<label>Первоначальный взнос</label>
+								<div slider min="30" max="90" step="1" ng-model="initialPaymentPercent"></div>
+							</td>
+							
+							
+							<td class="input">
+								<input type="text" style="width:20px" ng-model="initialPaymentPercent">%
+								<span>{{initialPayment | currency}}</span>
+								<!--input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">руб.-->
+							</td>
+						</tr>
+					</table>
                 </div>
             </div>
 
             <div class="span4">
                 <div class="control-group">
-                    <label>Срок</label>
+					<table>
+						<tr>
+							<td>
+				
+								<label>Срок</label>
 
-                    <div slider min="3" max="36" step="1" ng-model="months"></div>
+								<div slider min="3" max="36" step="1" ng-model="months"></div>
+							</td>
+							
+							<td class="input">
 
-                    <input type="text" ng-model="months" style="width:20px"> мес.
+								<input type="text" ng-model="months" style="width:20px"> мес.
+							</td>
+						</tr>
+					</table>
 
                 </div>
             </div>
@@ -142,29 +169,36 @@
 
                         <div class='terms-container'>
                             <div class='main-terms'>
-                                <span class="monthly-payment">{{offer.monthPayment | currency}}</span>
+								<div class="flip-inner">
+									<span class="monthly-payment">{{offer.monthPayment | currency}}</span>
 
-                                <h3>Программа : {{offer.name}}</h3>
-                                <h3>Стоимость машины: {{offer.price | currency}}</h3>
-                                <h3>Первоначальный платеж: {{offer.initialPayment | currency}}</h3>
-                                <h3>Ставка    : {{offer.rate}}</h3>
-                                <h3>Срок: {{offer.months}} месяцев</h3>
+									<h3>{{offer.name}}</h3>
+									<!--<h3>Стоимость машины: {{offer.price  | currency}}</h3>
+									<h3>Первоначальный платеж: {{offer.initialPayment  | currency}}</h3>-->
+									<h3>Ставка    : {{offer.rate}} %</h3>
+									<h3>Срок: {{offer.months}} месяцев</h3>
+									
+									<h3>К возврату: {{offer.months*offer.monthPayment | currency }}</h3>
+									<h3>Переплата: {{offer.overPayment | currency}}</h3>
 
-                                <h5>Опции</h5>
+									<h5>Опции</h5>
 
-                                <div class='options-list'>
-                                    <label class="checkbox"><input type="checkbox"/>Страхование</label>
-                                    <label class="checkbox"><input type="checkbox"/>Без штрафов</label>
-                                </div>
+									<div class='options-list'>
+										<label class="checkbox"><input type="checkbox"/>Страхование</label>
+										<label class="checkbox"><input type="checkbox"/>Без штрафов</label>
+									</div>
 
-                                <a class='rotate' ng-click="flip()"></a>
+									<a class='rotate' ng-click="flip()"></a>
+								</div>
                             </div>
                             <div class="extra-terms">
-                                <h5>Дополнительная информация</h5>
+								<div class="flip-inner">
+									<h5>Дополнительная информация</h5>
 
-                                <h3>Переплата: {{offer.overPayment | currency}}</h3>
+									<h3>Переплата: {{offer.overPayment | currency}}</h3>
 
-                                <a class='rotate' ng-click="flip()"></a>
+									<a class='rotate' ng-click="flip()"></a>
+								</div>
                             </div>
                         </div>
                     </div>
