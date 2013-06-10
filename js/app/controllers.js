@@ -86,7 +86,25 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
             }
         );
 
-        $scope.currentOfferList = $scope.loanProductList;
+        $scope.currentOfferList = [];
+        for( var i = 0, len = $scope.loanProductList.length; i < len; i++) {
+            var product = $scope.loanProductList[i];
+            var creditValue = $scope.car.price - $scope.initialPayment;
+            var overPayment = creditValue * product.rate * $scope.months/1200;
+            var monthPayment = (creditValue + overPayment)/$scope.months;
+            var offer = {
+                id: product.id,
+                name: product.name,
+                price: $scope.car.price,
+                initialPayment: $scope.initialPayment,
+                creditValue: creditValue,
+                months: $scope.months,
+                monthPayment: monthPayment,
+                overPayment: overPayment,
+                rate: product.rate
+            };
+            $scope.currentOfferList.push(offer);
+        }
     }
 
     $scope.$watch('car.price', function (newVal, oldVal) {

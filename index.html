@@ -142,11 +142,13 @@
 
                         <div class='terms-container'>
                             <div class='main-terms'>
-                                <span class="monthly-payment">42 000 <small>руб/мес</small></span>
+                                <span class="monthly-payment">{{offer.monthPayment | currency}}</span>
 
-                                <h3>Программа : {{offer.id}}</h3>
+                                <h3>Программа : {{offer.name}}</h3>
+                                <h3>Стоимость машины: {{offer.price | currency}}</h3>
+                                <h3>Первоначальный платеж: {{offer.initialPayment | currency}}</h3>
                                 <h3>Ставка    : {{offer.rate}}</h3>
-
+                                <h3>Срок: {{offer.months}} месяцев</h3>
 
                                 <h5>Опции</h5>
 
@@ -160,7 +162,7 @@
                             <div class="extra-terms">
                                 <h5>Дополнительная информация</h5>
 
-                                пыщь-пыщь
+                                <h3>Переплата: {{offer.overPayment | currency}}</h3>
 
                                 <a class='rotate' ng-click="flip()"></a>
                             </div>
@@ -191,11 +193,11 @@
                 </tr>
                 <tr class='offer-term'>
                     <th>Срок кредита</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>12 мес</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.months | currency}} мес</td>
                 </tr>
                 <tr class='offer-return'>
                     <th>Сумма к возврату</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>320 000 руб.</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.creditValue | currency}}</td>
                 </tr>
 
 

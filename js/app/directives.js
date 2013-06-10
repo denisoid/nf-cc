@@ -30,19 +30,19 @@ seedAppDirectives.directive('slider', function () {
 
             scope.$watch(attrs.min, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
-                $(elem).slider("option", "min", parseInt($scope.min));
+                $(elem).slider("option", "min", parseInt(newVal));
             });
             scope.$watch(attrs.max, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
-                $(elem).slider("option", "max", parseInt($scope.max));
+                $(elem).slider("option", "max", parseInt(newVal));
             });
             scope.$watch(attrs.step, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
-                $(elem).slider("option", "step", parseInt($scope.step));
+                $(elem).slider("option", "step", parseInt(newVal));
             });
             scope.$watch(attrs.ngModel, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
-                $(elem).slider("value", parseInt($scope.ngModel));
+                $(elem).slider("value", parseInt(newVal));
             });
 
         }
