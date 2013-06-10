@@ -109,12 +109,19 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
 
     $scope.$watch('car.price', function (newVal, oldVal) {
         if(newVal === oldVal) return;
-        $scope.initialPayment = $scope.initialPaymentPercent * $scope.car.price / 100;
+        $scope.initialPaymentPercent = $scope.initialPayment * 100 / $scope.car.price;
+        $scope.updateLoanProductList();
     });
 
     $scope.$watch('initialPaymentPercent', function (newVal, oldVal) {
         if(newVal === oldVal) return;
         $scope.initialPayment = $scope.initialPaymentPercent * $scope.car.price / 100;
+        $scope.updateLoanProductList();
+    });
+
+    $scope.$watch('initialPayment', function (newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.initialPaymentPercent = $scope.initialPayment * 100 / $scope.car.price;
         $scope.updateLoanProductList();
     });
 
