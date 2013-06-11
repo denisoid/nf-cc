@@ -51,7 +51,7 @@ h4{
 }
 
 .credit-offers>div{
-	padding-bottom:50px;
+	padding-bottom:70px;
 }
 
 
@@ -100,6 +100,8 @@ h4{
 	overflow-y:auto;
 	height:130px;
 	margin-top:10px;
+	padding-right: 5px;
+	margin-right: -5px;
 }
 
 
@@ -126,6 +128,9 @@ h4{
 	border:1px solid #abadb3;
 }
 
+.credit-offer .options-list .option .checkbox input{
+	margin-top: 6px;
+}
 
 .credit-offer .options-list .option.disabled{
 	color:#888;
