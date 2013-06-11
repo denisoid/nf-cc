@@ -104,6 +104,11 @@ h4{
 	margin-right: -5px;
 }
 
+.credit-offer .options-list label{
+	font-size:12px;
+}
+
+
 
 .credit-offer .options-list .option{
 	position:relative;
@@ -119,9 +124,15 @@ h4{
 	position:absolute;
 	right:0;
 	top:0;
+	display:none;
 }
 
-.credit-offer .options-list .option .price input{
+
+.credit-offer .options-list .option.checked .price{
+	display:block;
+}
+
+.credit-offer .options-list .option .price input, .credit-offer  .options-list table input{
 	text-align:right;
 	margin-right:-3px;
 	padding:0 2px 2px 0;
@@ -230,12 +241,19 @@ h4{
 }
 
 .terms-container>div{
-    border:1px solid #FFCA15;
 	border-radius:3px;
-	background:#FFF5C5;
 }
 
 
+.terms-container .extra-terms{
+	background:#fffde8;
+	border:1px solid #fffac3;
+}
+
+.terms-container .main-terms{
+	background:#fffac3;
+	border:1px solid #FFCA15;
+}
 
 /* entire container, keeps perspective */
 .flip-container {
@@ -287,6 +305,7 @@ h4{
 
 .flip-inner{
 	padding:5px 10px 10px;
+	line-height:160%;
 }
 
 
@@ -298,10 +317,24 @@ h4{
 	font-weight:normal;
 	text-align:left;
 	color:#888;
+	font-size:12px;
 }
 
 .flip-inner table td{
 	text-align:right;
+}
+
+
+.extra-terms table td, .extra-terms table input{
+	font-size:12px;
+}
+
+.extra-terms .options-list{
+	height: 240px;
+}
+
+.extra-terms .options-list table td{
+	white-space:nowrap;
 }
 
 
@@ -335,4 +368,9 @@ a.rotate{
 	width:120px;
 	white-space:nowrap;
 	padding-left:10px;
+	text-align:right;
+}
+
+.control-group td.input:last-child{
+	width:60px;
 }
