@@ -7,12 +7,6 @@ var seedAppServiceModule = angular.module('seedApp.services', []);
 seedAppServiceModule.value('version', '0.1');
 
 seedAppServiceModule.
-    factory('Task', function ($resource) {
-        var taskData = $resource('http://rciserv01/rest/bpm/htm/v1/tasks/filter', {}, {});
-        return taskData;
-    });
-
-seedAppServiceModule.
     factory('CarCompanys', function ($resource) {
         return [
             {id: "c1", name: "Марка"},
@@ -45,35 +39,47 @@ seedAppServiceModule.
 seedAppServiceModule.
     factory('CarYears', function ($resource) {
         return [
-            {id: "y2000", name: "2000"},
-            {id: "y2001", name: "2001"},
-            {id: "y2011", name: "2011"},
-            {id: "y2013", name: "2013"}
+            {"id": "y2000", "name": "2000"},
+            {"id": "y2001", "name": "2001"},
+            {"id": "y2011", "name": "2011"},
+            {"id": "y2013", "name": "2013"}
         ]
     });
 
 seedAppServiceModule.
     factory('LoanProducts', function ($resource) {
-        return [
-            {id: "p1", name: "Программа 1", minip:0, maxip:10, minterm: 0, maxterm: 3, rate: 10},
-            {id: "p1", name: "Программа 1", minip:11, maxip:30, minterm: 0, maxterm: 3, rate: 9.5},
-            {id: "p1", name: "Программа 1", minip:31, maxip:100, minterm: 0, maxterm: 3, rate: 9},
-            {id: "p1", name: "Программа 1", minip:0, maxip:10, minterm: 4, maxterm: 9, rate: 11.5},
-            {id: "p1", name: "Программа 1", minip:11, maxip:30, minterm: 4, maxterm: 9, rate: 11},
-            {id: "p1", name: "Программа 1", minip:31, maxip:100, minterm: 4, maxterm: 9, rate: 10.5},
-            {id: "p1", name: "Программа 1", minip:0, maxip:10, minterm: 10, maxterm: 24, rate: 12.5},
-            {id: "p1", name: "Программа 1", minip:11, maxip:30, minterm: 10, maxterm: 24, rate: 12},
-            {id: "p1", name: "Программа 1", minip:31, maxip:100, minterm: 10, maxterm: 24, rate: 11.5},
-            {id: "p2", name: "Программа 2", minip:0, maxip:10, minterm: 0, maxterm: 3, rate: 9},
-            {id: "p2", name: "Программа 2", minip:11, maxip:30, minterm: 0, maxterm: 3, rate: 8.5},
-            {id: "p2", name: "Программа 2", minip:31, maxip:100, minterm: 0, maxterm: 3, rate: 8},
-            {id: "p2", name: "Программа 2", minip:0, maxip:10, minterm: 4, maxterm: 9, rate: 10.5},
-            {id: "p2", name: "Программа 2", minip:11, maxip:30, minterm: 4, maxterm: 9, rate: 10},
-            {id: "p2", name: "Программа 2", minip:31, maxip:100, minterm: 4, maxterm: 9, rate: 9.5},
-            {id: "p2", name: "Программа 2", minip:0, maxip:10, minterm: 10, maxterm: 36, rate: 11.5},
-            {id: "p2", name: "Программа 2", minip:11, maxip:30, minterm: 10, maxterm: 36, rate: 11},
-            {id: "p2", name: "Программа 2", minip:31, maxip:100, minterm: 10, maxterm: 36, rate: 10.5}
-        ]
+        var data = $resource('js/data/loanproducts.json', {}, {});
+        return data;
+    });
+
+seedAppServiceModule.
+    factory('Packaging_LoanProduct', function ($resource) {
+        var data = $resource('js/data/packaging_loanproduct.json', {}, {});
+        return data;
+    });
+
+seedAppServiceModule.
+    factory('Products', function ($resource) {
+        var data = $resource('js/data/products.json', {}, {});
+        return data;
+    });
+
+seedAppServiceModule.
+    factory('Packagings', function ($resource) {
+        var data = $resource('js/data/packagings.json', {}, {});
+        return data;
+    });
+
+seedAppServiceModule.
+    factory('Marks', function ($resource) {
+        var data = $resource('js/data/marks.json', {}, {});
+        return data;
+    });
+
+seedAppServiceModule.
+    factory('Models', function ($resource) {
+        var data = $resource('js/data/models.json', {}, {});
+        return data;
     });
 
 seedAppServiceModule.

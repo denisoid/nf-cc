@@ -252,21 +252,21 @@
                 </tr>
                 <tr class='offer-sum'>
                     <th>Сумма кредита</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList">800 000 руб.</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.creditValue | currency}} руб.</td>
                 </tr>
                 <tr class='offer-term'>
                     <th>Срок кредита</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.months | currency}} мес</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.months}} мес</td>
                 </tr>
                 <tr class='offer-return'>
                     <th>Сумма к возврату</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.creditValue | currency}}</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.creditValue | currency}}</td>
                 </tr>
 
 
                 <tr class='group'>
                     <th>Требования к заемщику</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList"></td>
+                    <td></td>
                 </tr>
 
                 <tr>
@@ -288,7 +288,7 @@
                 <tr>
                     <th></th>
                     <td ng-repeat="selectedOffer in selectedOfferList">
-                        <button class='btn'>Оформить</button>
+                        <button class='btn' ng-click="process($index)">Оформить</button>
                     </td>
                 </tr>
 

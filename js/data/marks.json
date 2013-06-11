@@ -1,0 +1,15 @@
+[
+    { "id": "90", "name": "Infiniti" },
+    { "id": "91", "name": "Nissan" },
+    { "id": "92", "name": "Renault" },
+    { "id": "1288", "name": "Renault с пробегом" },
+    { "id": "1286", "name": "Infiniti с пробегом" },
+    { "id": "1287", "name": "Nissan с пробегом" },
+    { "id": "93", "name": "Audi" },
+    { "id": "94", "name": "BMW" },
+    { "id": "95", "name": "Ford" },
+    { "id": "96", "name": "Lexus" },
+    { "id": "97", "name": "Mazda" },
+    { "id": "98", "name": "Toyota" },
+    { "id": "99", "name": "Volkswagen" }
+]

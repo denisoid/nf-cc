@@ -15,7 +15,14 @@ function CalculatorCtrl($scope, CarConfiguration) {
 
 }
 
-function CarConfigurationCtrl($scope, CarConfiguration, CarCompanys, CarModels, CarModifs, CarYears) {
+function CarConfigurationCtrl($scope, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, CarConfiguration, CarCompanys, CarModels, CarModifs, CarYears) {
+
+    //init
+
+    $scope.markList = Marks.query();
+    $scope.modelList = Models.query();
+    $scope.markList = Marks.query();
+
     $scope.car = CarConfiguration;
 
     $scope.carCompanyList = CarCompanys;
