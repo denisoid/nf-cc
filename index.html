@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Кредитный калькулятор</a>
+            <a class="brand" href="#"><img src="img/neoflex-logo.png" />&nbsp;&nbsp;Кредитный калькулятор</a>
 
             <!--<div class="nav-collapse collapse">
               <ul class="nav">
@@ -177,67 +177,66 @@
 								
 									<span class="monthly-payment">{{offer.monthPayment | currency}}/мес</span>
 
-
-									<!--<h3>Стоимость машины: {{offer.price  | currency}}</h3>
+									<!--
+									<h3>Стоимость машины: {{offer.price  | currency}}</h3>
 									<h3>Первоначальный платеж: {{offer.initialPayment  | currency}}</h3>-->
+									
 									
 									
 									<table>
 										<tr>
-											<th>Ставка</th>
+											<th>Сумма кредита</th>
+											<td>{{offer.price  | currency}}</td>
+										</tr>
+										
+									
+										<tr>
+											<th>Итоговая ставка</th>
 											<td>{{offer.rate}} %</td>
 										</tr>
 										
 										
 										<tr>
-											<th>К возврату</th>
+											<th>Стоимость кредита</th>
 											<td>{{offer.months*offer.monthPayment | currency }}</td>
 										</tr>	
 										
-										<tr>
+										<!--<tr>
 											<th>Переплата</th>
 											<td>{{offer.overPayment | currency}}</td>
-										</tr>
+										</tr>-->
 									</table>
 
 									<div class='options-list'>
 										<div class="option">
-											<label class="checkbox"><input type="checkbox"/>Страхование</label>
+											<label class="checkbox"><input type="checkbox"  />Расш. гарантия</label>
+											<span class="price">+ 3 000 руб.</span>
 										</div>
 										
+									
 										<div class="option checked">
-											<label class="checkbox"><input type="checkbox" checked />Страхование</label>
+											<label class="checkbox"><input type="checkbox" checked/>Помощь на дорогах</label>
 											<span class="price">+ 3 000 руб.</span>
 										</div>
 										
 										<div class="option checked">
-											<label class="checkbox"><input type="checkbox" checked />Страхование</label>
-											<span class="price"><input class="input-mini" value="3 000"> руб.</span>
+											<label class="checkbox"><input type="checkbox" checked />Защита кредита</label>
+											<span class="price">+127 512 руб.</span>
 										</div>
 										
-										<div class="option checked disabled">
-											<label class="checkbox"><input type="checkbox" checked disabled/>Страхование</label>
-											<span class="price">+ 3 000 руб.</span>
-										</div>
 
-										<div class="option">
-											<label class="checkbox"><input type="checkbox"/>Страхование</label>
+										<div class="option checked">
+											<label class="checkbox"><input type="checkbox" checked />ДСАГО</label>
+											<span class="price"><input class="input-mini" value="125 000"> руб.</span>
 										</div>
+										
 										
 										<div class="option checked">
-											<label class="checkbox"><input type="checkbox" checked />Страхование</label>
-											<span class="price">+ 3 000 руб.</span>
+											<label class="checkbox"><input type="checkbox" checked disabled/>КАСКО</label>
+											<span class="price"><input class="input-mini" value="125 000"> руб.</span>
 										</div>
 										
-										<div class="option checked">
-											<label class="checkbox"><input type="checkbox" checked />Страхование</label>
-											<span class="price"><input class="input-mini" value="3 000"> руб.</span>
-										</div>
-										
-										<div class="option checked disabled">
-											<label class="checkbox"><input type="checkbox" checked disabled/>Страхование</label>
-											<span class="price">+ 3 000 руб.</span>
-										</div>
+
 
 										
 									</div>
@@ -247,19 +246,56 @@
                             </div>
                             <div class="extra-terms">
 								<div class="flip-inner">
-									<h3>{{offer.name}}</h3>
-								
-									<span class="monthly-payment">{{offer.monthPayment | currency}}/мес</span>
-								
-								
-									<h4>Дополнительная информация</h4>
+									<h3>{{offer.name}} — <small>информация</small></h3>
+																
 
-									<table>
-										<tr>
-											<th>Переплата</th>
-											<td>{{offer.overPayment | currency}}</td>
-										</tr>
-									</table>
+									<div class='options-list'>
+										<table>
+
+											<tr>
+												<th>Банковская ставка</th>
+												<td>13,02%</td>
+											</tr>
+											<tr>
+												<th>Маркетинговая ставка</th>
+												<td>11%</td>
+											</tr>
+											<tr>
+												<th>Переплата</th>
+												<td>{{offer.overPayment | currency}}</td>
+											</tr>
+											
+											<tr>
+												<th>Скидка производителя</th>
+												<td><input class="input-mini" value="125 000"> руб.</td>
+											</tr>
+											<tr>
+												<th>Скидка дилера</th>
+												<td><input class="input-mini" value="125 000"> руб.</td>
+											</tr>
+											
+											<tr>
+												<th>Доп. сервисы</th>
+												<td>{{offer.overPayment | currency}}</td>
+											</tr>
+											<tr>
+												<th>Скидка на доп. сервисы</th>
+												<td><input class="input-mini" value="125 000"> руб.</td>
+											</tr>
+											
+											<tr>
+												<th>Платеж за автомобиль</th>
+												<td>{{offer.overPayment | currency}}</td>
+											</tr>
+											<tr>
+												<th>Платеж за доп. сервисы</th>
+												<td>{{offer.overPayment | currency}}</td>
+											</tr>
+											
+											
+											
+										</table>
+									</div>
 
 									<a class='rotate' ng-click="flip()"></a>
 								</div>
