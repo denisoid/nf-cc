@@ -2,12 +2,15 @@
 
 
 body{
-	color:#605525;
-	
 	padding-bottom:100px;
 	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
 	
 	font-family: 'Open Sans', sans-serif;
+}
+
+body, input, select, textarea{
+	color: #605525;
+
 }
 
 h4{
@@ -48,7 +51,7 @@ h4{
 }
 
 .credit-offers>div{
-	padding-bottom:50px;
+	padding-bottom:70px;
 }
 
 
@@ -90,6 +93,51 @@ h4{
 
 .credit-offer .monthly-payment small{
 	font-size:0.5em;
+}
+
+
+.credit-offer .options-list{
+	overflow-y:auto;
+	height:130px;
+	margin-top:10px;
+	padding-right: 5px;
+	margin-right: -5px;
+}
+
+
+.credit-offer .options-list .option{
+	position:relative;
+}
+
+
+.credit-offer .options-list .option, .credit-offer .options-list .checkbox{
+	height:26px;
+	line-height:26px;
+}
+
+.credit-offer .options-list .option .price{
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+.credit-offer .options-list .option .price input{
+	text-align:right;
+	margin-right:-3px;
+	padding:0 2px 2px 0;
+	border:1px solid #abadb3;
+}
+
+.credit-offer .options-list .option .checkbox input{
+	margin-top: 6px;
+}
+
+.credit-offer .options-list .option.disabled{
+	color:#888;
+}
+
+.credit-offer .options-list .option.disabled label, .credit-offer .options-list .option.disabled .checkbox{
+	cursor:default;
 }
 
 
