@@ -85,10 +85,11 @@ seedAppServiceModule.
 seedAppServiceModule.
     factory('CarConfiguration', function ($resource) {
         return {
+            used: false,
             price: 800000,
-            companyId: undefined,
+            markId: undefined,
             modelId: undefined,
-            modifId: undefined,
+            packagingId: undefined,
             yearId: undefined
         }
 

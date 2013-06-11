@@ -54,35 +54,35 @@
         <h4>Выбор автомобиля</h4>
 		
 		<span class="btn-group" data-toggle="buttons-radio">
-			 <button type="button" class="btn active" value="want">Новая</button>
-			 <button type="button" class="btn" value="need">С пробегом</button>
+			 <button type="button" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новая</button>
+			 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</button>
 		</span>
 				
 				
         <select class="input-medium"
-                ng-model="car.companyId"
-                ng-options="carCompany as carCompany.name for carCompany in carCompanyList track by carCompany.id"
-                ng-change="updateCompany()">
+                ng-model="car.markId"
+                ng-options="mark.id as mark.name for mark in selMarkList"
+                ng-change="updateModel()"
+                >
             <option value="">Марка</option>
         </select>
 
         <select class="input-medium" ng-model="car.modelId"
-                ng-options="carModel as carModel.name for carModel in carModelList track by carModel.id"
-                ng-change="updateModel()"
+                ng-options="model.id as model.name for model in selModelList"
+                ng-change="updatePackaging()"
                 >
             <option value="">Модель</option>
         </select>
 
-        <select class="input-medium" ng-model="car.modifId"
-                ng-options="carModif as carModif.name for carModif in carModifList track by carModif.id"
-                ng-change="updateModif()"
+        <select class="input-medium" ng-model="car.packagingId"
+                ng-options="pack.id as pack.name for pack in selPackagingList"
+                ng-change="updateYear()"
                 >
             <option value="">Модификация</option>
         </select>
 
-        <select class="input-medium" ng-model="car.yearId"
-                ng-options="carYear as carYear.name for carYear in carYearList track by carYear.id"
-                ng-change="updateYear()"
+        <select class="input-medium" ng-model="car.year"
+                ng-options="year.year for year in selYearList"
                 >
             <option value="">Год</option>
         </select>

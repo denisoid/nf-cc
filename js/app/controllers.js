@@ -15,38 +15,65 @@ function CalculatorCtrl($scope, CarConfiguration) {
 
 }
 
-function CarConfigurationCtrl($scope, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, CarConfiguration, CarCompanys, CarModels, CarModifs, CarYears) {
+function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, CarConfiguration) {
 
     //init
 
-    $scope.markList = Marks.query();
+    $scope.markList = Marks.query({}, function() {
+        $scope.updateMark();
+    } );
+    $scope.selMarkList = [];
     $scope.modelList = Models.query();
-    $scope.markList = Marks.query();
+    $scope.selModelList = [];
+    $scope.packagingList = Packagings.query();
+    $scope.selPackagingList = [];
+    //$scope.yearList = Years.query();
+    $scope.selYearList = [
+        {year: 2013},
+        {year: 2012},
+        {year: 2011},
+        {year: 2010},
+        {year: 2009},
+        {year: 2008},
+        {year: 2007},
+        {year: 2006},
+        {year: 2005}
+    ];
+
 
     $scope.car = CarConfiguration;
 
-    $scope.carCompanyList = CarCompanys;
-    $scope.carModelList = CarModels;
-    $scope.carModifList = CarModifs;
-    $scope.carYearList = CarYears;
-
-    $scope.updateCompany = function () {
-        $scope.car.modelId = "";
+    $scope.updateMark = function () {
+        $scope.selMarkList = $filter('filter')($scope.markList, function(element) {
+            return element.used == $scope.car.used;
+        });
+        $scope.car.markId = undefined;
         $scope.updateModel();
+/*
+        $scope.markList.then(function(result) {
+        });
+        */
     }
 
     $scope.updateModel = function () {
-        $scope.car.modifId = "";
-        $scope.updateModif();
+        $scope.selModelList = $filter('filter')($scope.modelList, function(element) {
+            return element.markId == $scope.car.markId;
+        });
+        $scope.car.modelId = undefined;
+        $scope.updatePackaging();
     }
 
-    $scope.updateModif = function () {
-        $scope.car.yearId = "";
+    $scope.updatePackaging = function () {
+        $scope.selPackagingList = $filter('filter')($scope.packagingList, function(element) {
+            return element.modelId == $scope.car.modelId;
+        });
+        $scope.car.packagingId = undefined;
         $scope.updateYear();
     }
 
     $scope.updateYear = function () {
     }
+
 
 }
 
