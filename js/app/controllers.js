@@ -49,10 +49,6 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         });
         $scope.car.markId = undefined;
         $scope.updateModel();
-/*
-        $scope.markList.then(function(result) {
-        });
-        */
     }
 
     $scope.updateModel = function () {
@@ -74,18 +70,43 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
     $scope.updateYear = function () {
     }
 
+    $scope.updateCarForPackaging = function () {
+        var searchedId = $scope.car.packagingId;
+        if(searchedId == undefined) return;
+        var packaging = undefined;
+        for(var ti = 0, len = $scope.selPackagingList.length; ti < len; ti++) {
+            var pack = $scope.selPackagingList[ti];
+            if(pack.id == searchedId) {
+                packaging = pack;
+                break;
+            }
+        }
+        if(packaging == undefined) {
+            $scope.car.price = undefined;
+            $scope.car.discount = undefined;
+        } else {
+            $scope.car.price = packaging.cost;
+            $scope.car.discount = packaging.discount;
+        }
+    }
 
+    $scope.$watch('car.packagingId', function(newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.updateCarForPackaging();
+    });
 }
 
-function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filter) {
+function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, CarConfiguration, $filter) {
 
     $scope.car = CarConfiguration;
 
-    $scope.loanProductList = [];
+    $scope.loanProductList = LoanProducts.query();
+    $scope.loanProductForPackList = [];
+    $scope.loanProductForCriteriaList = [];
+    $scope.packaging_loanProductList = Packaging_LoanProduct.query();
 
     $scope.initialPayment = 0;
     $scope.initialPaymentPercent = 0;
-
 
     $scope.months = 12;
 
@@ -105,12 +126,58 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
         $scope.selectedOfferList.splice(idx, 1);
     }
 
-    $scope.isSelected = function () {
-        return ($scope.selectedOfferList.length > 0);
+    $scope.$watch('car.packagingId', function(newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.filterLoanProductListForPack();
+        $scope.filterLoanProductListForCriteria();
+        $scope.updateCurrentOfferList();
+    });
+
+    $scope.$watch('car.price', function (newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
+        $scope.filterLoanProductListForCriteria();
+        $scope.updateCurrentOfferList();
+    });
+
+    $scope.$watch('initialPayment', function (newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
+        $scope.filterLoanProductListForCriteria();
+        $scope.updateCurrentOfferList();
+    });
+
+    $scope.$watch('months', function (newVal, oldVal) {
+        if(newVal === oldVal) return;
+        $scope.filterLoanProductListForCriteria();
+        $scope.updateCurrentOfferList();
+    })
+
+    $scope.filterLoanProductListForPack = function () {
+
+        var filteredProductList = [];
+
+        for(var ti = 0, len = $scope.packaging_loanProductList.length; ti < len; ti++) {
+            var packId = $scope.packaging_loanProductList[ti].packId;
+            if ($scope.car.packagingId == packId) {
+                filteredProductList.push($scope.packaging_loanProductList[ti].productId);
+            }
+        }
+
+        $scope.loanProductForPackList = $filter('filter')($scope.loanProductList, function (element) {
+                for(var tj = 0, len = filteredProductList.length; tj < len; tj++) {
+                    var productId = filteredProductList[tj];
+                    if (element.id == productId) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        );
     }
 
-    $scope.updateLoanProductList = function () {
-        $scope.loanProductList = $filter('filter')(LoanProducts, function (element) {
+    $scope.filterLoanProductListForCriteria = function () {
+        $scope.loanProductForCriteriaList = $filter('filter')($scope.loanProductForPackList, function (element) {
                 if (
                     ($scope.initialPaymentPercent >= element.minip) &&
                         ($scope.initialPaymentPercent <= element.maxip) &&
@@ -122,10 +189,12 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
                 return false;
             }
         );
+    }
 
+    $scope.updateCurrentOfferList = function () {
         $scope.currentOfferList = [];
-        for( var i = 0, len = $scope.loanProductList.length; i < len; i++) {
-            var product = $scope.loanProductList[i];
+        for( var i = 0, len = $scope.loanProductForCriteriaList.length; i < len; i++) {
+            var product = $scope.loanProductForCriteriaList[i];
             var creditValue = $scope.car.price - $scope.initialPayment;
             var overPayment = creditValue * product.rate * $scope.months/1200;
             var monthPayment = (creditValue + overPayment)/$scope.months;
@@ -143,29 +212,4 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, CarConfiguration, $filte
             $scope.currentOfferList.push(offer);
         }
     }
-
-    $scope.$watch('car.price', function (newVal, oldVal) {
-        if(newVal === oldVal) return;
-        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
-        $scope.updateLoanProductList();
-    });
-
-    /*
-    $scope.$watch('initialPaymentPercent', function (newVal, oldVal) {
-        if(newVal === oldVal) return;
-        $scope.initialPayment = $scope.initialPaymentPercent * $scope.car.price / 100;
-        $scope.updateLoanProductList();
-    });
-    */
-
-    $scope.$watch('initialPayment', function (newVal, oldVal) {
-        if(newVal === oldVal) return;
-        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
-        $scope.updateLoanProductList();
-    });
-
-    $scope.$watch('months', function (newVal, oldVal) {
-        if(newVal === oldVal) return;
-        $scope.updateLoanProductList();
-    })
 }

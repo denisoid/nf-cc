@@ -86,7 +86,8 @@ seedAppServiceModule.
     factory('CarConfiguration', function ($resource) {
         return {
             used: false,
-            price: 800000,
+            price: undefined,
+            discount: undefined,
             markId: undefined,
             modelId: undefined,
             packagingId: undefined,
