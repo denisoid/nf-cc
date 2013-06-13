@@ -72,7 +72,9 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
 
     $scope.updateCarForPackaging = function () {
         var searchedId = $scope.car.packagingId;
-        if(searchedId == undefined) return;
+        if(searchedId == undefined) {
+            return;
+        }
         var packaging = undefined;
         for(var ti = 0, len = $scope.selPackagingList.length; ti < len; ti++) {
             var pack = $scope.selPackagingList[ti];
@@ -101,7 +103,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
     $scope.car = CarConfiguration;
 
     $scope.loanProductList = LoanProducts.query();
-    $scope.loanProductForPackList = [];
+    $scope.loanProductForPackList = $scope.loanProductList;
     $scope.loanProductForCriteriaList = [];
     $scope.packaging_loanProductList = Packaging_LoanProduct.query();
 
@@ -154,6 +156,11 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
     })
 
     $scope.filterLoanProductListForPack = function () {
+
+        if($scope.car.packagingId == undefined) {
+            $scope.loanProductForPackList = $scope.loanProductList;
+            return;
+        }
 
         var filteredProductList = [];
 
