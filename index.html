@@ -179,7 +179,7 @@
 								<div class="flip-inner">
 									<h3>{{offer.name}}</h3>
 								
-									<span class="monthly-payment">{{offer.monthPayment | currency}}/мес</span>
+									<span class="monthly-payment">{{offer.monthPayment | number:0}} руб./мес</span>
 
 									<!--
 									<h3>Стоимость машины: {{offer.price  | currency}}</h3>
@@ -327,11 +327,11 @@
                 </tr>
                 <tr class='offer-sum'>
                     <th>Ежемесячный платеж</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList">800 000 руб./мес.</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.monthPayment | number:0}} руб./мес.</td>
                 </tr>
                 <tr class='offer-sum'>
                     <th>Сумма кредита</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.creditValue | currency}} руб.</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.creditValue | number:0}} руб.</td>
                 </tr>
                 <tr class='offer-term'>
                     <th>Срок кредита</th>
@@ -339,11 +339,11 @@
                 </tr>
                 <tr class='offer-return'>
                     <th>Сумма к возврату</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.creditValue | currency}}</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.creditValue | number:0}} руб.</td>
                 </tr>
                 <tr class='offer-return'>
                     <th>Сумма переплаты</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.creditValue | currency}}</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.creditValue | number:0}} руб.</td>
                 </tr>
 				
                 <tr class='offer-return'>
@@ -390,10 +390,9 @@
 
 
 <script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-
-
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="js/angular/angular.min.js"></script>
 <script type="text/javascript" src="js/angular/i18n/angular-locale_ru.js"></script>
