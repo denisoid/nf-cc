@@ -256,20 +256,25 @@ h4{
 }
 
 /* entire container, keeps perspective */
-.flip-container {
+.flip-container  {
 	perspective: 1000;
-	-webkit-transform: rotateY(0deg);
-    -moz-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    -o-transform: rotateY(0deg);
 }
-/* flip the pane when hovered */
-.flip-container.hover .terms-container {
-	-webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
 
+
+.flip-container .extra-terms{
+       -ms-transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+
+}
+
+/* flip the pane when hovered */
+.flip-container.hover .terms-container>div {
+      -webkit-transform: rotateY(360deg);
+      -ms-transform: rotateY(360deg);
+      -moz-transform: rotateY(360deg);
+      transform: rotateY(360deg);
 }
 
 .flip-container, .terms-container, .main-terms, .extra-terms {
@@ -277,28 +282,25 @@ h4{
 	width:260px;
 }
 
+.terms-container{
+	position:relative;
+}
+
 /* flip speed goes here */
-.terms-container {
-	-webkit-transition: 0.3s;
-	-webkit-transform-style: preserve-3d;
-    -ms-transition: 0.3s;
-    -ms-transform-style: preserve-3d;
-    -o-transition: 0.3s;
-    -o-transform-style: preserve-3d;
-    -moz-transition: 0.3s;
-    -moz-transform-style: preserve-3d;
-
-
-    position: relative;
+.terms-container>div {
+	-webkit-transition:all 0.3s linear;
+    -ms-transition:all 0.3s linear;
+    -o-transition:all 0.3s linear;
+    -moz-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+        -webkit-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
 }
 
 /* hide back of pane during swap */
 .main-terms, .extra-terms {
-	-webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -311,18 +313,11 @@ h4{
 	box-shadow:         6px 8px 20px rgba(50, 50, 50, 0.5);
 }
 
-/* front pane, placed above back */
+/* front pane, placed above back * /
 .main-terms {
 	z-index: 2;
 }
-
-/* back, initially hidden pane */
-.extra-terms {
-	-webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-}
+*/
 
 
 .flip-inner{
