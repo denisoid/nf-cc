@@ -200,7 +200,7 @@
 									<table>
 										<tr>
 											<th>Сумма кредита</th>
-											<td>{{offer.price  | currency}}</td>
+											<td>{{offer.creditValue  | number:0}}</td>
 										</tr>
 										
 									
@@ -212,7 +212,7 @@
 										
 										<tr>
 											<th>Стоимость кредита</th>
-											<td>{{offer.months*offer.monthPayment | currency }}</td>
+											<td>{{offer.returnValue | number:0 }} руб.</td>
 										</tr>	
 										
 									</table>
@@ -259,20 +259,20 @@
 											
 											<tr>
 												<th>Доп. сервисы</th>
-												<td>{{offer.overPayment | currency}}</td>
+												<td>{{offer.servicePayment | number:0}} руб.</td>
 											</tr>
 											<tr>
 												<th>Скидка на доп. сервисы</th>
-												<td><input class="input-mini" value="125 000"> руб.</td>
+												<td><input class="input-mini" ng-model="offer.serviceDiscount"> руб.</td>
 											</tr>
 											
 											<tr>
 												<th>Платеж за автомобиль</th>
-												<td>{{offer.overPayment | currency}}</td>
+												<td>{{offer.overPayment | number:0}} руб.</td>
 											</tr>
 											<tr>
 												<th>Платеж за доп. сервисы</th>
-												<td>{{offer.overPayment | currency}}</td>
+												<td>{{offer.servicePayment/offer.months | number:0}} руб.</td>
 											</tr>
 											
 											
@@ -302,7 +302,7 @@
             <table class='offers-comparison'>
                 <tr class='offer-name'>
                     <td>&nbsp;</td>
-                    <td ng-repeat="selectedOffer in selectedOfferList">Кредит А<a href="" class="delete-offer"
+                    <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.name}}<a href="" class="delete-offer"
                                                                                   ng-click="removeFromSelectedOfferList($index)"></a>
                     </td>
                 </tr>
@@ -320,22 +320,22 @@
                 </tr>
                 <tr class='offer-return'>
                     <th>Сумма к возврату</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.creditValue | number:0}} руб.</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.returnValue | number:0}} руб.</td>
                 </tr>
                 <tr class='offer-return'>
                     <th>Сумма переплаты</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.creditValue | number:0}} руб.</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.overPayment | number:0}} руб.</td>
                 </tr>
 				
                 <tr class='offer-return'>
                     <th>Стоимость доп. сервисов</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{offer.creditValue | currency}}</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.servicePrice | number:0}} руб.</td>
                 </tr>
 
 
                 <tr class='group'>
                     <th>Требования к заемщику</th>
-                    <td></td>
+                    <td ng-repeat="selectedOffer in selectedOfferList"></td>
                 </tr>
 
                 <tr>

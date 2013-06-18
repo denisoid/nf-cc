@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17909e36-41fd-41e9-8f36-35ddae2db6f2" name="Default" comment="js libs included in project for intranet use&#10;program selection fixed">
+    <list default="true" id="17909e36-41fd-41e9-8f36-35ddae2db6f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/controllers.js" afterPath="$PROJECT_DIR$/js/app/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nf-cc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371531784952" ignored="false" />
-    <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371533310940" ignored="false" />
+    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371535307602" ignored="false" />
+    <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371539479781" ignored="false" />
     <file path="/app.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370271995006" ignored="false" />
-    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371217890778" ignored="false" />
+    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371539199053" ignored="false" />
     <file path="/services.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371019559384" ignored="false" />
     <file path="/directives.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370845407986" ignored="false" />
     <file path="/dummy.xml" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370446677151" ignored="false" />
@@ -72,8 +73,12 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="168" selection-start="5265" selection-end="5265" vertical-scroll-proportion="-58.884617">
-              <folding />
+            <state line="316" column="39" selection-start="9847" selection-end="9853" vertical-scroll-proportion="-2.9607842">
+              <folding>
+                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,7 +86,7 @@
       <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="10" selection-start="4705" selection-end="4705" vertical-scroll-proportion="0.972973">
+            <state line="124" column="11" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.505071">
               <folding />
             </state>
           </provider>
@@ -507,13 +512,18 @@
       <created>1371135457377</created>
       <updated>1371135457377</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="delay recalculation on slider change added">
+      <created>1371535315034</created>
+      <updated>1371535315034</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.6718576" order="1" side_tool="false" content_ui="tabs" />
@@ -527,7 +537,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -575,7 +584,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="offer height increased" />
+    <option name="LAST_COMMIT_MESSAGE" value="delay recalculation on slider change added" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -602,10 +611,11 @@
     <MESSAGE value="js libs included in project for intranet use&#10;program selection fixed" />
     <MESSAGE value="sum rounded to integer&#10;show all programs if packaging not selected" />
     <MESSAGE value="offer height increased" />
+    <MESSAGE value="delay recalculation on slider change added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="45" />
+      <option name="time" value="46" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -705,14 +715,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="168" selection-start="5265" selection-end="5265" vertical-scroll-proportion="-58.884617">
-          <folding />
+        <state line="316" column="39" selection-start="9847" selection-end="9853" vertical-scroll-proportion="-2.9607842">
+          <folding>
+            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="10" selection-start="4705" selection-end="4705" vertical-scroll-proportion="0.972973">
+        <state line="124" column="11" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.505071">
           <folding />
         </state>
       </provider>
