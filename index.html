@@ -52,14 +52,18 @@
 
 
         <div>
-			<span class="btn-group" data-toggle="buttons-radio">
+		
+			<input  checked="checked"  type="checkbox" id="carType" class="{labelOn: 'Новый', labelOff: 'С пробегом'}" />
+			<br />
+<!--ng-model="car.used" ng-change="updateMark()"-->
+			<!--<span class="btn-group" data-toggle="buttons-radio">
 				 <button type="button" class="btn ng-class: {'active': !car.used}"
                          ng-click="car.used=false;updateMark()">Новый
                  </button>
 				 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">
                      С пробегом
                  </button>
-			</span>
+			</span>-->
 
 
         </div>
@@ -117,7 +121,7 @@
 
 
 <div class="row-fluid filters noprint">
-    <div class="span5">
+    <div class="span4">
 
         <div class="control-group">
             <table>
@@ -140,7 +144,7 @@
     </div>
 
 
-    <div class="span5">
+    <div class="span4">
 
         <div class="control-group">
 
@@ -163,7 +167,7 @@
         </div>
     </div>
 
-    <div class="span2">
+    <div class="span4">
         <div class="control-group">
             <table>
                 <tr>
@@ -428,7 +432,10 @@
 <!-- /container -->
 
 
-<script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>-->
+<script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>
+
+
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
 
 <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
@@ -445,7 +452,22 @@
 <script type="text/javascript" src="js/app/services.js"></script>
 
 
+
+<script type="text/javascript" src="js/ibutton/lib/jquery.ibutton.js"></script>
+<script type="text/javascript" src="js/ibutton/lib/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/ibutton/lib/jquery.metadata.js"></script>
+
+<link type="text/css" href="js/ibutton/css/jquery.ibutton.css" rel="stylesheet" media="all" />
+
+
+
 <script>
+
+$(document).ready(function (){
+  $("#carType").iButton();
+});
+
+
 
 
 </script>

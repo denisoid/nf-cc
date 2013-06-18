@@ -35,8 +35,9 @@ h4{
 	padding:0 5px;
 	
 	
-	color:#287ba0;
-
+	/*color:#287ba0;*/
+background: rgb(0, 28, 143);
+color: #fff;
 
 	
 
@@ -429,7 +430,8 @@ a.rotate{
 .control-group td.input{ 
 	width:120px;
 	white-space:nowrap;
-	padding-left:10px;
+	padding-left:5px;
+	padding-right:10px;
 	text-align:right;
 }
 
@@ -449,6 +451,7 @@ padding:10px 5px;
 	-moz-box-shadow:    0px 5px 12px rgba(50, 50, 50, 0.45);
 	box-shadow:         0px 5px 12px rgba(50, 50, 50, 0.45);
 }
+
 
 
 .control-group .ui-slider-horizontal{
@@ -491,9 +494,11 @@ background: url(../img/slider_handler.png) no-repeat
 	width:100%;
 }
 
-.form-inline div select option:hover,
-.form-inline div select option:checked{
-	background:#fdb417 !important;
+ }
+
+select option:checked, select option[selected]{
+	background:#f00 !important;
+	-webkit-appearance: none;
 }
 
 /*
@@ -572,8 +577,6 @@ background: url(../img/slider_handler.png) no-repeat
 	text-shadow:none;
 
 } 
-
-
 
 
 
