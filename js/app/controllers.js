@@ -156,6 +156,25 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
 
         $scope.selectedOfferList.push(offer);
         $scope.sortSelectedOfferList();
+
+        if($scope.selectedOfferList.length==1){
+            //скрол, срабатывает после небольшой задержки, т.к. колонка не добавляется сразу почему-то
+            setTimeout(function(){
+
+
+
+                var top;
+                $("table.offers-comparison:first").each(function(){
+                    top=$(this).offset().top
+                });
+
+                $("body, html").stop().animate({
+                    scrollTop:(top-100)+"px"
+                });
+
+            },50)
+        }
+
     }
 
     $scope.sortSelectedOfferList = function () {
@@ -224,7 +243,6 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
             var returnValue = (creditValue + overPayment);
             var monthPayment = Math.round(returnValue / $scope.months);
             var offer = {
-                n: undefined,
                 id: product.id,
                 name: product.name,
                 price: $scope.car.price,
