@@ -29,15 +29,14 @@ h4{
 	
 	font-size:24px;
 	line-height:40px;
-	font-weight:300;
+	font-weight:400;
 	
 	margin:25px -5px 10px -5px;
 	padding:0 5px;
 	
 	
-	color:#fff;
+	color:#287ba0;
 
-	background: #287ba0; /* Old browsers */
 
 	
 
@@ -351,11 +350,11 @@ padding-right:25px;
 	width:100%;
 	
 	
-	-webkit-box-shadow: 6px 8px 20px rgba(50, 50, 50, 0.5);
-	-moz-box-shadow:    6px 8px 20px rgba(50, 50, 50, 0.5);
-    -ms-box-shadow:    6px 8px 20px rgba(50, 50, 50, 0.5);
-    -o-box-shadow:    6px 8px 20px rgba(50, 50, 50, 0.5);
-	box-shadow:         6px 8px 20px rgba(50, 50, 50, 0.5);
+	-webkit-box-shadow: 0px 8px 20px rgba(50, 50, 50, 0.5);
+	-moz-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    -ms-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    -o-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+	box-shadow:         0px 8px 20px rgba(50, 50, 50, 0.5);
 	
 
 	
@@ -438,7 +437,16 @@ a.rotate{
 
 
 
+.filters{
 
+margin:0 -5px;
+padding:10px 5px;
+	background:#f0f0f0;
+	border:1px solid #e8e8e8;
+	-webkit-box-shadow: 0px 5px 12px rgba(50, 50, 50, 0.45);
+	-moz-box-shadow:    0px 5px 12px rgba(50, 50, 50, 0.45);
+	box-shadow:         0px 5px 12px rgba(50, 50, 50, 0.45);
+}
 
 
 .control-group .ui-slider-horizontal{
@@ -447,7 +455,10 @@ a.rotate{
 	border-radius:5px;
 	border:0;
 	background:url(../img/slider.png) no-repeat top right;
-
+	
+	-webkit-box-shadow: 0px 5px 12px rgba(50, 50, 50, 0.45);
+	-moz-box-shadow:    0px 5px 12px rgba(50, 50, 50, 0.45);
+	box-shadow:         0px 5px 12px rgba(50, 50, 50, 0.45);
 }
 
 .control-group .ui-slider-horizontal .ui-slider-range{

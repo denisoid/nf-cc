@@ -46,11 +46,11 @@
 
 
 
-
-
-    <form class="form-inline" ng-controller="CarConfigurationCtrl">
-
 		<h4>Выбор автомобиля </h4>
+
+    <form class="filters form-inline" ng-controller="CarConfigurationCtrl">
+
+
 	
         
 		
@@ -117,7 +117,7 @@
         
 
         <div class="row-fluid filters noprint">
-            <div class="span4">
+            <div class="span5">
 
                 <div class="control-group">
 					<table>
@@ -140,7 +140,7 @@
             </div>
 
 
-            <div class="span4">
+            <div class="span5">
 
                 <div class="control-group">
                   
@@ -162,7 +162,7 @@
                 </div>
             </div>
 
-            <div class="span4">
+            <div class="span2">
                 <div class="control-group">
 					<table>
 						<tr>
@@ -170,7 +170,7 @@
 				
 								<label>Срок</label>
 
-								<div slider min="3" max="60" step="3" ng-model="months"></div>
+								<div slider min="3" max="36" step="3" ng-model="months"></div>
 							</td>
 							
 							<td class="input">
