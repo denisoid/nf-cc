@@ -10,6 +10,7 @@ seedAppDirectives.directive('appVersion', ['version', function (version) {
     };
 }]);
 
+
 seedAppDirectives.directive('slider', function () {
     return {
         restrict: 'A',
@@ -19,32 +20,41 @@ seedAppDirectives.directive('slider', function () {
             $(elem).slider({
                 min: scope.$eval(attrs.min),
                 max: scope.$eval(attrs.max),
+				range: "max",
                 step: scope.$eval(attrs.step),
                 value: scope.$eval(attrs.ngModel),
                 slide: function (event, ui) {
                     scope.$apply(function() {
                         ctrl.$setViewValue(ui.value);
                     });
+					
+					
                 }
             });
 
             scope.$watch(attrs.min, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
                 $(elem).slider("option", "min", parseInt(newVal));
+				
             });
             scope.$watch(attrs.max, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
                 $(elem).slider("option", "max", parseInt(newVal));
+				
             });
             scope.$watch(attrs.step, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
                 $(elem).slider("option", "step", parseInt(newVal));
+				
             });
             scope.$watch(attrs.ngModel, function(newVal, oldVal) {
                 if(newVal === oldVal) return;
                 $(elem).slider("value", parseInt(newVal));
+				
             });
 
         }
     }
 });
+
+
