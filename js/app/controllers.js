@@ -125,7 +125,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
     $scope.loanProductForPackList = $scope.loanProductList;
     $scope.loanProductForCriteriaList = [];
 
-    $scope.initialPayment = 100000;
+    $scope.initialPayment = 200000;
     $scope.initialPaymentPercent = 0;
 
     $scope.months = 12;

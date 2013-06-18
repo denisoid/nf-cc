@@ -236,7 +236,7 @@
 									<div class='options-list'>
 										<div class="option ng-class: {'checked': service.selected}" ng-repeat="service in serviceList">
 											<label class="checkbox"><input type="checkbox" ng-model="service.selected" ng-disabled="service.mandatory" ng-click="updateOffer()" /> {{service.name}} </label>
-											<span class="price"><div ng-show="service.ctype=='fixed'">{{service.cost | number:0}}</div><input class="input-mini" ng-show="service.ctype!='fixed'" ng-model="service.cost" ng-change="updateOffer()"></span>
+											<span class="price"><div ng-show="service.ctype=='fixed'">+ {{service.cost | number:0}} руб.</div><div ng-show="service.ctype!='fixed'">+ <input class="input-mini" ng-model="service.cost" ng-change="updateOffer()"> руб.</div></span>
 										</div>
 									</div>
 
