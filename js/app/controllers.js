@@ -136,34 +136,45 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
 
 
     $scope.addToSelectedOfferList = function (idx) {
-        var offer = $scope.currentOfferList[idx];
-        var foundIdx = $.inArray($scope.currentOfferList[idx], $scope.selectedOfferList);
-        if (foundIdx == -1) {
-            offer.car = jQuery.extend(true, {}, $scope.car);
-            $scope.selectedOfferList.push(offer);
-            $scope.sortSelectedOfferList();
+        var soffer = $scope.currentOfferList[idx];
 
-        }// else if()
-		
-		
-		if($scope.selectedOfferList.length==1){
-			//скрол, срабатывает после небольшой задержки, т.к. колонка не добавляется сразу почему-то
-			setTimeout(function(){
-			
-				
-			
-				var top;
-				$("table.offers-comparison:first").each(function(){
-					top=$(this).offset().top
-				});
-				
-				$("body, html").stop().animate({
-					scrollTop:(top-100)+"px"
-				});
+        var offer = {
+            n: "" + (new Date().getTime()),
+            id: soffer.id,
+            name: soffer.name,
+            price: $scope.car.price,
+            initialPayment: soffer.initialPayment,
+            creditValue: soffer.creditValue,
+            months: soffer.months,
+            monthPayment: soffer.monthPayment,
+            overPayment: soffer.overPayment,
+            returnValue: soffer.returnValue,
+            rate: soffer.rate,
+            servicePrice: soffer.servicePrice,
+            car: jQuery.extend(true, {}, $scope.car)
+        };
 
-			},50)
-		}
-		
+        $scope.selectedOfferList.push(offer);
+        $scope.sortSelectedOfferList();
+
+        if($scope.selectedOfferList.length==1){
+            //скрол, срабатывает после небольшой задержки, т.к. колонка не добавляется сразу почему-то
+            setTimeout(function(){
+
+
+
+                var top;
+                $("table.offers-comparison:first").each(function(){
+                    top=$(this).offset().top
+                });
+
+                $("body, html").stop().animate({
+                    scrollTop:(top-100)+"px"
+                });
+
+            },50)
+        }
+
     }
 
     $scope.sortSelectedOfferList = function () {
