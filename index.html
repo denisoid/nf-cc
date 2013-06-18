@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
     <link href="css/main.css" rel="stylesheet" media="screen">
+	<link href="css/print.css" rel="stylesheet" media="print">
 
 
     <style>
@@ -15,7 +16,7 @@
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
     </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet"  media="screen">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 </head>
 
@@ -31,16 +32,25 @@
             </button>
             <a class="brand" href="#"><img src="img/neoflex-logo.png" />&nbsp;&nbsp;Кредитный калькулятор</a>
 
-<a href="#" class="btn" style="float:right; margin-top:10px;">Печать</a>
-        </div>
+			<div class="buttons">
+				<a href="#" class="btn"><i class="icon-briefcase"></i>&nbsp;Сохранить</a>
+				<a href="javascript:window.print();return false;" class="btn"><i class="icon-print"></i>&nbsp;Печатать</a>
+			</div>
+		</div>
     </div>
 </div>
 
 <div class="container">
+<div class="choose-car">
+<img style="float:right;margin-top:12px;" src="img/logos.png">
+<h4>Выбор автомобиля </h4>
+
+
+
 
     <form class="form-inline" ng-controller="CarConfigurationCtrl">
- <img style="float:right;margin-top:-12px;" src="img/logos.png">
-        <h4>Выбор автомобиля </h4>
+		
+        
 		
 		<div>
 		
@@ -85,8 +95,8 @@
 			
 			
 			<div class="span3">	Год
-				<select size="7"  class="input-medium" ng-model="car.yearId"
-						ng-options="year.yearId as year.yearId for year in selYearList"
+				<select size="7"  class="input-medium" ng-model="car.year"
+						ng-options="year.year for year in selYearList"
 						>
 						<option value="">Любой</option>
 				</select>
@@ -97,10 +107,14 @@
 
 
     </form>
+</div>
+	
+	
+	<h4 class="noprint">Подбор кредитных программ</h4>
     <div ng-controller="LoanProgramSelectionCtrl">
-        <h4>Подбор кредитных программ</h4>
+        
 
-        <div class="row-fluid filters">
+        <div class="row-fluid filters noprint">
             <div class="span4">
 
                 <div class="control-group">
@@ -137,7 +151,7 @@
 							
 							
 							<td class="input">
-								<span style="width:20px">{{initialPaymentPercent | number}}%</span>
+								<span style="width:36px;display:inline-block;">{{initialPaymentPercent | number}}%</span>
 								<input type="text" id="handsel-money-input" class="input-mini" ng-model="initialPayment">&nbsp;руб.
 
 							</td>
@@ -197,13 +211,13 @@
 									<table>
 										<tr>
 											<th>Сумма кредита</th>
-											<td>{{offer.creditValue  | number:0}} руб.</td>
+											<td>{{offer.creditValue  | number:0}}</td>
 										</tr>
 										
 									
 										<tr>
 											<th>Итоговая ставка</th>
-											<td>{{offer.rate | number:2}} %</td>
+											<td>{{offer.rate}} %</td>
 										</tr>
 										
 										
@@ -217,7 +231,7 @@
 									<div class='options-list'>
 										<div class="option ng-class: {'checked': service.selected}" ng-repeat="service in serviceList">
 											<label class="checkbox"><input type="checkbox" ng-model="service.selected" ng-disabled="service.mandatory" ng-click="updateOffer()" /> {{service.name}} </label>
-											<span class="price"><div ng-show="service.ctype=='fixed'">+ {{service.cost | number:0}} руб.</div><div ng-show="service.ctype!='fixed'">+ <input class="input-mini" ng-model="service.cost" ng-change="updateOffer()"> руб.</div></span>
+											<span class="price"><div ng-show="service.ctype=='fixed'">{{service.cost | number:0}}</div><input class="input-mini" ng-show="service.ctype!='fixed'" ng-model="service.cost" ng-change="updateOffer()"></span>
 										</div>
 									</div>
 
@@ -291,6 +305,11 @@
 
         </div>
 
+
+
+
+
+
 		
 		<div class="clearfix"></div>
         <div ng-show="selectedOfferList.length>0" class="row-fluid">
@@ -303,28 +322,28 @@
                                                                                   ng-click="removeFromSelectedOfferList($index)"></a>
                     </td>
                 </tr>
-                <tr class='offer-sum'>
+                <tr class='offer-sum row-price'>
                     <th>Ежемесячный платеж</th>
                     <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.monthPayment | number:0}} руб./мес.</td>
                 </tr>
-                <tr class='offer-sum'>
+                <tr class='offer-sum row-price'>
                     <th>Сумма кредита</th>
                     <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.creditValue | number:0}} руб.</td>
                 </tr>
-                <tr class='offer-term'>
+                <tr class='offer-term row-price'>
                     <th>Срок кредита</th>
                     <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.months}} мес</td>
                 </tr>
-                <tr class='offer-return'>
+                <tr class='offer-return row-price'>
                     <th>Сумма к возврату</th>
                     <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.returnValue | number:0}} руб.</td>
                 </tr>
-                <tr class='offer-return'>
+                <tr class='offer-return row-price'>
                     <th>Сумма переплаты</th>
                     <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.overPayment | number:0}} руб.</td>
                 </tr>
 				
-                <tr class='offer-return'>
+                <tr class='offer-return row-price'>
                     <th>Стоимость доп. сервисов</th>
                     <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.servicePrice | number:0}} руб.</td>
                 </tr>
@@ -335,23 +354,23 @@
                     <td ng-repeat="selectedOffer in selectedOfferList"></td>
                 </tr>
 
-                <tr>
+                <tr class='row-icon'>
                     <th>Гражданство РФ</th>
                     <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/yes.png"/></td>
                 </tr>
 
-                <tr>
+                <tr class='row-icon'>
                     <th>Домашний телефон</th>
                     <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/no.png"/></td>
                 </tr>
 
-                <tr>
+                <tr class='row-icon'>
                     <th>Мобильный телефон</th>
                     <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/no.png"/></td>
                 </tr>
 
 
-                <tr>
+                <tr class="noprint">
                     <th></th>
                     <td ng-repeat="selectedOffer in selectedOfferList">
                         <button class='btn' ng-click="process($index)">Оформить</button>
@@ -360,7 +379,6 @@
 
             </table>
         </div>
-    </div>
 
 
 </div>
