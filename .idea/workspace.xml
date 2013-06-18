@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17909e36-41fd-41e9-8f36-35ddae2db6f2" name="Default" comment="">
+    <list default="true" id="17909e36-41fd-41e9-8f36-35ddae2db6f2" name="Default" comment="Merge branch 'master' of https://github.com/denisoid/nf-cc&#10;&#10;Conflicts:&#10;&#9;index.html&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nf-cc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371558739139" ignored="false" />
+    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371561186532" ignored="false" />
     <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371555407791" ignored="false" />
     <file path="/app.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370271995006" ignored="false" />
-    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371559418641" ignored="false" />
+    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371561202227" ignored="false" />
     <file path="/services.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371019559384" ignored="false" />
     <file path="/directives.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370845407986" ignored="false" />
     <file path="/dummy.xml" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370446677151" ignored="false" />
@@ -81,7 +81,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="75" selection-start="3120" selection-end="3120" vertical-scroll-proportion="0.46498054">
+            <state line="430" column="25" selection-start="15652" selection-end="15652" vertical-scroll-proportion="5.4155846">
               <folding>
                 <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -177,6 +177,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,7 +328,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,16 +345,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="303" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="970" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="977" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="970" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="295" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="294" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="LOCALHOST" serverId="7825b4ad-fdbd-4c7c-b37b-0b03044597da">
     <servers>
@@ -537,27 +537,35 @@
       <created>1371558742302</created>
       <updated>1371558742302</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fix year">
+      <created>1371559443774</created>
+      <updated>1371559443774</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix bug in ie">
+      <created>1371560425675</created>
+      <updated>1371560425675</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.6718576" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25039536" sideWeight="0.6718576" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25039536" sideWeight="0.8115942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39488322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1884058" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -605,7 +613,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="regress with руб suffix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug in ie" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -638,6 +646,9 @@
     <MESSAGE value="bootstrap-ui added&#10;offer sort added" />
     <MESSAGE value="required documents added&#10;baloon rate set to 0" />
     <MESSAGE value="regress with руб suffix" />
+    <MESSAGE value="fix year" />
+    <MESSAGE value="fix ie bug" />
+    <MESSAGE value="fix bug in ie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -680,9 +691,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery/jquery-ui.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/data/products.json">
@@ -701,9 +710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/angular/angular.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="74191" selection-end="74191" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="150" column="0" selection-start="74191" selection-end="74191" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app/directives.js">
@@ -750,7 +757,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="75" selection-start="3120" selection-end="3120" vertical-scroll-proportion="0.46498054">
+        <state line="430" column="25" selection-start="15652" selection-end="15652" vertical-scroll-proportion="5.4155846">
           <folding>
             <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
