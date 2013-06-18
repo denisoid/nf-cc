@@ -32,7 +32,7 @@ h4{
 	font-weight:300;
 	
 	margin:25px 0 10px 0;
-	padding:0 5px;
+	/*padding:0 5px;*/
 	
 	color:#000;
 }
@@ -491,7 +491,7 @@ background: url(../img/slider_handler.png) no-repeat
 	background:#fdb417 !important;
 }
 
-
+/*
 .filters{
 	background: rgba(255,255,255,0.8);
 	padding: 5px 0;
@@ -506,7 +506,7 @@ background: url(../img/slider_handler.png) no-repeat
 .filters div:last-child{
 	padding-right:10px;
 }
-
+*/
 
 
 .navbar-inverse .navbar-inner{
@@ -527,7 +527,11 @@ background: url(../img/slider_handler.png) no-repeat
 
 /*btn.*/
 
+.btn-group{
+	padding-top: 23px;
+	padding-left:10px;
 
+}
 
 .btn-group>.btn {
 	background:transparent;

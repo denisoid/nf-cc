@@ -43,21 +43,33 @@
 <div class="container">
 <div class="choose-car">
 <img style="float:right;margin-top:12px;" src="img/logos.png">
-<h4>Выбор автомобиля </h4>
+
 
 
 
 
     <form class="form-inline" ng-controller="CarConfigurationCtrl">
-		
+	<table>
+		<tr>
+			<td>
+
+				<h4>Выбор автомобиля </h4>
+			</td>
+			<td>
+
+				<span class="btn-group" data-toggle="buttons-radio">
+					 <button type="button" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</button>
+					 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</button>
+				</span>
+			</td>
+		</tr>
+
+	</table>		
         
 		
 		<div>
 		
-			<span class="btn-group" data-toggle="buttons-radio">
-				 <button type="button" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</button>
-				 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</button>
-			</span>
+
 					
 		</div>		
 
@@ -123,7 +135,7 @@
 							<td>
 								<label>Стоимость машины</label>
 
-								<div slider min="250000" max="3000000" step="100000" ng-model="car.price"></div>
+								<div slider min="250000" max="3000000" step="50000" ng-model="car.price"></div>
 							</td>
 							
 							<td class="input">
@@ -373,7 +385,7 @@
                 <tr class="noprint">
                     <th></th>
                     <td ng-repeat="selectedOffer in selectedOfferList">
-                        <button class='btn' ng-click="process($index)">Оформить</button>
+                        <button class='btn btn-large' ng-click="process($index)">Оформить</button>
                     </td>
                 </tr>
 
