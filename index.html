@@ -62,6 +62,7 @@
 						ng-options="mark.id as mark.name for mark in selMarkList"
 						ng-change="updateModel()"
 						>
+						<option value="">Любая</option>
 				</select>
 			</div>
 			
@@ -71,6 +72,7 @@
 						ng-options="model.id as model.name for model in selModelList"
 						ng-change="updatePackaging()"
 						>
+						<option value="">Любая</option>
 				</select>
 			</div>
 			
@@ -80,6 +82,7 @@
 						ng-options="pack.id as pack.name for pack in selPackagingList"
 						ng-change="updateYear()"
 						>
+						<option value="">Любая</option>
 				</select>
 			</div>
 			
@@ -88,6 +91,7 @@
 				<select size="7"  class="input-medium" ng-model="car.yearId"
 						ng-options="year.yearId as year.yearId for year in selYearList"
 						>
+						<option value="">Любой</option>
 				</select>
 			</div>
 		</div>
