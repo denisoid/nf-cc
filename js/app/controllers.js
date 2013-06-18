@@ -121,7 +121,12 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
         var foundIdx = $.inArray($scope.currentOfferList[idx], $scope.selectedOfferList);
         if (foundIdx == -1) {
             $scope.selectedOfferList.push($scope.currentOfferList[idx]);
-        }
+            $scope.sortSelectedOfferList();
+        }// else if()
+    }
+
+    $scope.sortSelectedOfferList = function () {
+        $scope.selectedOfferList = $filter('orderBy')($scope.selectedOfferList, 'overPayment');
     }
 
     $scope.removeFromSelectedOfferList = function (idx) {
@@ -219,7 +224,8 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
             var product = $scope.loanProductForCriteriaList[i];
             var creditValue = $scope.car.price - $scope.initialPayment;
             var overPayment = Math.round(creditValue * product.rate * $scope.months / 1200);
-            var monthPayment = Math.round((creditValue + overPayment) / $scope.months);
+            var returnValue = (creditValue + overPayment);
+            var monthPayment = Math.round(returnValue / $scope.months);
             var offer = {
                 id: product.id,
                 name: product.name,
@@ -229,6 +235,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
                 months: $scope.months,
                 monthPayment: monthPayment,
                 overPayment: overPayment,
+                returnValue: returnValue,
                 rate: product.rate,
                 servicePrice: 125000
             };
@@ -262,11 +269,8 @@ function OfferCtrl($scope, CarConfiguration, $filter) {
 
         offer.creditValue = offer.price - offer.initialPayment + offer.servicePrice;
         offer.overPayment = Math.round(offer.creditValue * offer.rate * offer.months / 1200);
-        offer.monthPayment = Math.round((offer.creditValue + offer.overPayment) / offer.months);
+        offer.returnValue = (offer.creditValue + offer.overPayment);
+        offer.monthPayment = Math.round(offer.returnValue / offer.months);
     };
 
-    $scope.$watch('serviceList', function (newVal, oldVal) {
-        if (newVal === oldVal) return;
-        $scope.updateOffer();
-    });
 }
