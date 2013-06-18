@@ -189,7 +189,10 @@
 		<div class="row-fluid" ng-show="currentOfferList.length==0">
 			<p>Программы не найдены, попробуйте другие условия.</p>
 		</div>
-		
+        <div class="row-fluid" ng-show="currentOfferList.length>0">
+            <p><span>Программ найдено: {{currentOfferList.length}}.</span><span ng-show="currentOfferList.length>4"> Отображены 4 варианта с минимальной переплатой.</span></p>
+        </div>
+
 		
         <div class="row-fluid credit-offers" ng-show="currentOfferList.length > 0">
 
@@ -358,19 +361,34 @@
 
                 <tr class='row-icon'>
                     <th>Гражданство РФ</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/yes.png"/></td>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div class="icon-ok" tooltip="Требуется"></div></td>
                 </tr>
 
                 <tr class='row-icon'>
                     <th>Домашний телефон</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/no.png"/></td>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div class="icon-asterisk" tooltip="Не требуется"></div></td>
                 </tr>
 
                 <tr class='row-icon'>
                     <th>Мобильный телефон</th>
-                    <td ng-repeat="selectedOffer in selectedOfferList"><img src="img/no.png"/></td>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div class="icon-ok" tooltip="Требуется"></div></td>
                 </tr>
 
+
+                <tr class='group'>
+                    <th>Список документов</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList"></td>
+                </tr>
+
+                <tr>
+                    <th>Паспорт РФ</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div class="icon-ok" tooltip="Требуется"></div></td>
+                </tr>
+
+                <tr>
+                    <th>ПТС</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div ng-show="selectedOffer.car.used" class="icon-ok" tooltip="Требуется"></div><div ng-show="!selectedOffer.car.used" class="icon-asterisk" tooltip="Не требуется"></div></td>
+                </tr>
 
                 <tr class="noprint">
                     <th></th>
@@ -398,6 +416,7 @@
 <script type="text/javascript" src="js/angular/i18n/angular-locale_ru.js"></script>
 <script type="text/javascript" src="js/angular/angular-resource.min.js"></script>
 <script type="text/javascript" src="js/ui-utils/ui-utils.min.js"></script>
+<script type="text/javascript" src="js/angular-ui/bootstrap/ui-bootstrap-tpls-0.4.0-SNAPSHOT.min.js"></script>
 
 <script type="text/javascript" src="js/app/app.js"></script>
 <script type="text/javascript" src="js/app/controllers.js"></script>

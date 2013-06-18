@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17909e36-41fd-41e9-8f36-35ddae2db6f2" name="Default" comment="">
+    <list default="true" id="17909e36-41fd-41e9-8f36-35ddae2db6f2" name="Default" comment="bootstra">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/angular-ui/bootstrap/ui-bootstrap-tpls-0.4.0-SNAPSHOT.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/app.js" afterPath="$PROJECT_DIR$/js/app/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/controllers.js" afterPath="$PROJECT_DIR$/js/app/controllers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nf-cc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371535307602" ignored="false" />
-    <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371539479781" ignored="false" />
+    <file path="/Dummy.txt" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371554094689" ignored="false" />
+    <file path="/controllers.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371553575286" ignored="false" />
     <file path="/app.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370271995006" ignored="false" />
-    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371539199053" ignored="false" />
+    <file path="/index.html" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371553755941" ignored="false" />
     <file path="/services.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1371019559384" ignored="false" />
     <file path="/directives.js" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370845407986" ignored="false" />
     <file path="/dummy.xml" changelist="17909e36-41fd-41e9-8f36-35ddae2db6f2" time="1370446677151" ignored="false" />
@@ -55,7 +57,16 @@
       <file leaf-file-name="directives.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app/directives.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.0">
+            <state line="53" column="0" selection-start="1674" selection-end="1674" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="21" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -64,7 +75,7 @@
       <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="28" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0">
+            <state line="93" column="16" selection-start="2550" selection-end="2550" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,11 +84,12 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="316" column="39" selection-start="9847" selection-end="9853" vertical-scroll-proportion="-2.9607842">
+            <state line="178" column="35" selection-start="5144" selection-end="5144" vertical-scroll-proportion="-5.0">
               <folding>
                 <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,7 +98,7 @@
       <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="11" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.505071">
+            <state line="226" column="0" selection-start="7586" selection-end="7586" vertical-scroll-proportion="0.7631103">
               <folding />
             </state>
           </provider>
@@ -116,7 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/app/app.js" />
         <option value="$PROJECT_DIR$/js/app/directives.js" />
         <option value="$PROJECT_DIR$/js/data/complect.json" />
         <option value="$PROJECT_DIR$/js/data/mark.json" />
@@ -130,6 +141,7 @@
         <option value="$PROJECT_DIR$/js/app/services.js" />
         <option value="$PROJECT_DIR$/js/data/loanproducts.json" />
         <option value="$PROJECT_DIR$/css/main.css" />
+        <option value="$PROJECT_DIR$/js/app/app.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/app/controllers.js" />
       </list>
@@ -291,6 +303,14 @@
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angular-ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -307,20 +327,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="angular" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nf-cc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nf-cc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -516,7 +522,15 @@
       <created>1371535315034</created>
       <updated>1371535315034</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="&quot;compare&quot; part fixed">
+      <created>1371539557650</created>
+      <updated>1371539557650</updated>
+    </task>
+    <task id="LOCAL-00020" summary="initial data loading">
+      <created>1371543206392</created>
+      <updated>1371543206392</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -527,12 +541,12 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.6718576" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25039536" sideWeight="0.6051168" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39488322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25039536" sideWeight="0.6718576" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39488322" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -584,7 +598,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="delay recalculation on slider change added" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial data loading" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -612,18 +626,15 @@
     <MESSAGE value="sum rounded to integer&#10;show all programs if packaging not selected" />
     <MESSAGE value="offer height increased" />
     <MESSAGE value="delay recalculation on slider change added" />
+    <MESSAGE value="&quot;compare&quot; part fixed" />
+    <MESSAGE value="initial data loading" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="46" />
+      <option name="time" value="53" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="18" selection-start="233" selection-end="233" vertical-scroll-proportion="0.29766536" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data/models.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="164" column="30" selection-start="9247" selection-end="9247" vertical-scroll-proportion="-32.23077">
@@ -685,20 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/app/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="28" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data/packagings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="880" column="127" selection-start="100325" selection-end="100327" vertical-scroll-proportion="0.9837067">
@@ -713,20 +710,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="16" selection-start="2550" selection-end="2550" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="0" selection-start="1674" selection-end="1674" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="21" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="316" column="39" selection-start="9847" selection-end="9853" vertical-scroll-proportion="-2.9607842">
+        <state line="178" column="35" selection-start="5144" selection-end="5144" vertical-scroll-proportion="-5.0">
           <folding>
             <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#form#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="11" selection-start="3584" selection-end="3584" vertical-scroll-proportion="0.505071">
+        <state line="226" column="0" selection-start="7586" selection-end="7586" vertical-scroll-proportion="0.7631103">
           <folding />
         </state>
       </provider>
