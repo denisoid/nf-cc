@@ -136,10 +136,13 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
 
 
     $scope.addToSelectedOfferList = function (idx) {
+        var offer = $scope.currentOfferList[idx];
         var foundIdx = $.inArray($scope.currentOfferList[idx], $scope.selectedOfferList);
         if (foundIdx == -1) {
-            $scope.selectedOfferList.push($scope.currentOfferList[idx]);
+            offer.car = jQuery.extend(true, {}, $scope.car);
+            $scope.selectedOfferList.push(offer);
             $scope.sortSelectedOfferList();
+
         }// else if()
     }
 

@@ -354,6 +354,21 @@
                 </tr>
 
 
+                <tr class='group'>
+                    <th>Список документов</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList"></td>
+                </tr>
+
+                <tr>
+                    <th>Паспорт РФ</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div class="icon-ok" tooltip="Требуется"></div></td>
+                </tr>
+
+                <tr>
+                    <th>ПТС</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList"><div ng-show="selectedOffer.car.used" class="icon-ok" tooltip="Требуется"></div><div ng-show="!selectedOffer.car.used" class="icon-asterisk" tooltip="Не требуется"></div></td>
+                </tr>
+
                 <tr>
                     <th></th>
                     <td ng-repeat="selectedOffer in selectedOfferList">
