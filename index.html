@@ -35,6 +35,7 @@
 			<div class="buttons">
 				<a href="#" class="btn"><i class="icon-briefcase"></i>&nbsp;Сохранить</a>
 				<a href="javascript:window.print();return false;" class="btn"><i class="icon-print"></i>&nbsp;Печатать</a>
+				
 			</div>
 		</div>
     </div>
@@ -42,33 +43,22 @@
 
 <div class="container">
 <div class="choose-car">
-<img style="float:right;margin-top:12px;" src="img/logos.png">
 
 
 
 
 
     <form class="form-inline" ng-controller="CarConfigurationCtrl">
-	<table>
-		<tr>
-			<td>
 
-				<h4>Выбор автомобиля </h4>
-			</td>
-			<td>
-
-				<span class="btn-group" data-toggle="buttons-radio">
-					 <button type="button" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</button>
-					 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</button>
-				</span>
-			</td>
-		</tr>
-
-	</table>		
+		<h4>Выбор автомобиля </h4>
+	
         
 		
 		<div>
-		
+			<span class="btn-group" data-toggle="buttons-radio">
+				 <button type="button" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</button>
+				 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</button>
+			</span>
 
 					
 		</div>		

@@ -31,6 +31,7 @@
 	
 	table tr td,table tr th{
 		border:1px solid #ccc;
+		border-width:0 1px;
 		
 		
 		padding:5px 10px;
@@ -74,11 +75,10 @@
 	}
 	
 	table{
-		width:100%;
 	}
 	
 	.group th, .group td{
 		padding-top:20px;
-		border-left:0;
-		border-right:0;
+		/*border-left:0;
+		border-right:0;*/
 	}

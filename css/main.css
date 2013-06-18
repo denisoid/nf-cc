@@ -13,7 +13,7 @@ body{
 	/*background: #e0e0e0 url(../img/bg.jpg) no-repeat fixed;
 	background-size:100% auto; */
 	
-	background: #fff url(../img/portal_bg.png) repeat-x;
+	background: #f7f7f7 url(../img/portal_bg.png) repeat-x;
 
 	min-width:960px;
 }
@@ -31,22 +31,13 @@ h4{
 	line-height:40px;
 	font-weight:300;
 	
-	margin:25px 0 10px 0;
-	/*padding:0 5px;*/
+	margin:25px -5px 10px -5px;
+	padding:0 5px;
 	
-	color:#000;
-}
+	
+	color:#fff;
 
-.xxxxx{
 	background: #287ba0; /* Old browsers */
-	background: -moz-linear-gradient(left,  #287ba0 0%, #56ccff 30%, #287ba0 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#287ba0), color-stop(30%,#56ccff), color-stop(100%,#287ba0)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  #287ba0 0%,#56ccff 30%,#287ba0 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  #287ba0 0%,#56ccff 30%,#287ba0 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left,  #287ba0 0%,#56ccff 30%,#287ba0 100%); /* IE10+ */
-	background: linear-gradient(to right,  #287ba0 0%,#56ccff 30%,#287ba0 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#287ba0', endColorstr='#287ba0',GradientType=1 ); /* IE6-9 */
-
 
 	
 
@@ -286,12 +277,13 @@ padding-right:25px;
 
 
 .terms-container .extra-terms{
-	background:rgb(255,253,232);
+	/*background:rgb(255,253,232);*/
+		background:rgb(255,250,195);
 	border:1px solid #fffac3;
 }
 
 .terms-container .main-terms{
-	background:rgb(255,250,195);
+	background: rgb(255, 241, 126);
 	border:1px solid #FFCA15;
 }
 
@@ -528,8 +520,7 @@ background: url(../img/slider_handler.png) no-repeat
 /*btn.*/
 
 .btn-group{
-	padding-top: 23px;
-	padding-left:10px;
+
 
 }
 
