@@ -144,6 +144,26 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
             $scope.sortSelectedOfferList();
 
         }// else if()
+		
+		
+		if($scope.selectedOfferList.length==1){
+			//скрол, срабатывает после небольшой задержки, т.к. колонка не добавляется сразу почему-то
+			setTimeout(function(){
+			
+				
+			
+				var top;
+				$("table.offers-comparison:first").each(function(){
+					top=$(this).offset().top
+				});
+				
+				$("body, html").stop().animate({
+					scrollTop:(top-100)+"px"
+				});
+
+			},50)
+		}
+		
     }
 
     $scope.sortSelectedOfferList = function () {
