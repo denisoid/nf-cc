@@ -88,7 +88,7 @@ h4{
 	line-height:22px;
 	font-weight:600;
 	text-align:left;
-	
+padding-right:25px;	
 	margin:5px 0 5px 0;
 
 }
@@ -403,7 +403,7 @@ a.rotate{
 	height:30px;
 	background:url(../img/rotate.png) no-repeat 0 0;
 	position:absolute;
-	bottom:0;
+	top:5px;
 	right:0;
 }
 
@@ -510,5 +510,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b939', end
 
 
 .navbar-inverse .navbar-inner{
-	background:#e0e0e0;
+	background:rgba(0,0,0,0.65);
 }
