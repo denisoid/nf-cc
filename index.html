@@ -85,8 +85,8 @@
 			
 			
 			<div class="span3">	Год
-				<select size="7"  class="input-medium" ng-model="car.year"
-						ng-options="year.year for year in selYearList"
+				<select size="7"  class="input-medium" ng-model="car.yearId"
+						ng-options="year.yearId as year.yearId for year in selYearList"
 						>
 						<option value="">Любой</option>
 				</select>
@@ -197,13 +197,13 @@
 									<table>
 										<tr>
 											<th>Сумма кредита</th>
-											<td>{{offer.creditValue  | number:0}}</td>
+											<td>{{offer.creditValue  | number:0}} руб.</td>
 										</tr>
 										
 									
 										<tr>
 											<th>Итоговая ставка</th>
-											<td>{{offer.rate}} %</td>
+											<td>{{offer.rate | number:2}} %</td>
 										</tr>
 										
 										
@@ -217,7 +217,7 @@
 									<div class='options-list'>
 										<div class="option ng-class: {'checked': service.selected}" ng-repeat="service in serviceList">
 											<label class="checkbox"><input type="checkbox" ng-model="service.selected" ng-disabled="service.mandatory" ng-click="updateOffer()" /> {{service.name}} </label>
-											<span class="price"><div ng-show="service.ctype=='fixed'">{{service.cost | number:0}}</div><input class="input-mini" ng-show="service.ctype!='fixed'" ng-model="service.cost" ng-change="updateOffer()"></span>
+											<span class="price"><div ng-show="service.ctype=='fixed'">+ {{service.cost | number:0}} руб.</div><div ng-show="service.ctype!='fixed'">+ <input class="input-mini" ng-model="service.cost" ng-change="updateOffer()"> руб.</div></span>
 										</div>
 									</div>
 
