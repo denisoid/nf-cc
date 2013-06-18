@@ -98,7 +98,7 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
     });
 }
 
-function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, CarConfiguration, $filter) {
+function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, CarConfiguration, $filter, $timeout) {
 
     $scope.car = CarConfiguration;
 
@@ -128,31 +128,46 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
         $scope.selectedOfferList.splice(idx, 1);
     }
 
+    $scope.resetOffers = function () {
+        $scope.loanProductForPackList = [];
+        $scope.loanProductForCriteriaList = [];
+        $scope.currentOfferList = [];
+    };
+
     $scope.$watch('car.packagingId', function (newVal, oldVal) {
         if (newVal === oldVal) return;
+        //$scope.resetOffers();
         $scope.filterLoanProductListForPack();
-        $scope.filterLoanProductListForCriteria();
-        $scope.updateCurrentOfferList();
+        $scope.resetTimerForUdateOffers();
     });
+
+    $scope.resetTimerForUdateOffers = function () {
+        if ($scope.timerForUpdateOffers) {
+            $timeout.cancel($scope.timerForUpdateOffers);
+        }
+        $scope.timerForUpdateOffers = $timeout(
+            function () {
+                $scope.filterLoanProductListForCriteria();
+                $scope.updateCurrentOfferList();
+            }
+            , 100);
+    }
 
     $scope.$watch('car.price', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
-        $scope.filterLoanProductListForCriteria();
-        $scope.updateCurrentOfferList();
+        $scope.resetTimerForUdateOffers();
     });
 
     $scope.$watch('initialPayment', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
-        $scope.filterLoanProductListForCriteria();
-        $scope.updateCurrentOfferList();
+        $scope.resetTimerForUdateOffers();
     });
 
     $scope.$watch('months', function (newVal, oldVal) {
         if (newVal === oldVal) return;
-        $scope.filterLoanProductListForCriteria();
-        $scope.updateCurrentOfferList();
+        $scope.resetTimerForUdateOffers();
     })
 
     $scope.filterLoanProductListForPack = function () {
@@ -215,7 +230,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
                 monthPayment: monthPayment,
                 overPayment: overPayment,
                 rate: product.rate,
-                servicePrice:125000
+                servicePrice: 125000
             };
             $scope.currentOfferList.push(offer);
         }
@@ -238,7 +253,7 @@ function OfferCtrl($scope, CarConfiguration, $filter) {
             var service = $scope.serviceList[ti];
             if (service.selected == true) {
                 var cost = parseFloat(service.cost)
-                if(!isNaN(cost)) {
+                if (!isNaN(cost)) {
                     price = price + cost;
                 }
             }
