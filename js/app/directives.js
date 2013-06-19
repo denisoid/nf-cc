@@ -57,4 +57,21 @@ seedAppDirectives.directive('slider', function () {
     }
 });
 
+seedAppDirectives.directive('iButton', function () {
+    return {
+        restrict: 'A',
+        require : '?ngModel',
+        replace : true,
+        link: function (scope, elem, attrs, ctrl) {
+            $(elem).iButton({
+                labelOn: 'Новый',
+                labelOff: 'С пробегом',
+                click: function() {
+                    ctrl[0] = !ctrl[0]
+                }
+            });
+
+        }
+    }
+});
 

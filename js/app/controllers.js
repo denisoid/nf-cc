@@ -150,7 +150,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
             overPayment: soffer.overPayment,
             returnValue: soffer.returnValue,
             rate: soffer.rate,
-            servicePrice: soffer.servicePrice,
+            serviceValue: soffer.serviceValue,
             car: jQuery.extend(true, {}, $scope.car)
         };
 
@@ -237,23 +237,39 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
     $scope.updateCurrentOfferList = function () {
         $scope.currentOfferList = [];
         for (var i = 0, len = $scope.loanProductForCriteriaList.length; i < len; i++) {
+            var discount = parseFloat($scope.car.discount);
+            if(isNaN(discount)) discount = 0;
+            var months = $scope.months;
+            var price = $scope.car.price;
             var product = $scope.loanProductForCriteriaList[i];
-            var creditValue = $scope.car.price - $scope.initialPayment;
-            var overPayment = Math.round(creditValue * product.rate * $scope.months / 1200);
+            var initialPayment = $scope.initialPayment;
+            var dealerDiscount = 0;
+            var serviceDiscount = 0;
+            var carCreditValue = price - initialPayment - discount - dealerDiscount;
+            var serviceValue = 125000 - serviceDiscount;
+            var creditValue = carCreditValue + serviceValue;
+            var overPayment = Math.round(creditValue * product.rate * months / 1200);
             var returnValue = (creditValue + overPayment);
-            var monthPayment = Math.round(returnValue / $scope.months);
+            var monthPayment = Math.round(returnValue / months);
+            var carMonthPayment = Math.round((carCreditValue + (carCreditValue * product.rate * months / 1200))/months);
+            var serviceMonthPayment = Math.round((serviceValue + (serviceValue * product.rate * months / 1200))/months);
             var offer = {
                 id: product.id,
                 name: product.name,
-                price: $scope.car.price,
-                initialPayment: $scope.initialPayment,
+                price: price,
+                initialPayment: initialPayment,
                 creditValue: creditValue,
-                months: $scope.months,
+                months: months,
                 monthPayment: monthPayment,
                 overPayment: overPayment,
                 returnValue: returnValue,
                 rate: product.rate,
-                servicePrice: 125000
+                serviceValue: serviceValue,
+                serviceDiscount: serviceDiscount,
+                discount: discount,
+                dealerDiscount: dealerDiscount,
+                carMonthPayment: carMonthPayment,
+                serviceMonthPayment: serviceMonthPayment
             };
             $scope.currentOfferList.push(offer);
         }
@@ -312,22 +328,25 @@ function OfferCtrl($scope, CarConfiguration, $filter) {
 
     $scope.updateOffer = function () {
         var offer = $scope.offer;
-        var price = 0;
+        var serviceValue = 0;
         for (var ti = 0, len = $scope.serviceList.length; ti < len; ti++) {
             var service = $scope.serviceList[ti];
             if (service.selected == true) {
                 var cost = parseFloat(service.cost);
                 if (!isNaN(cost)) {
-                    price = price + cost;
+                    serviceValue = serviceValue + cost;
                 }
             }
         }
-        offer.servicePrice = price;
 
-        offer.creditValue = offer.price - offer.initialPayment + offer.servicePrice;
+        offer.carCreditValue = offer.price - offer.initialPayment - offer.discount - offer.dealerDiscount;
+        offer.serviceValue = serviceValue - offer.serviceDiscount;
+        offer.creditValue = offer.carCreditValue + offer.serviceValue;
         offer.overPayment = Math.round(offer.creditValue * offer.rate * offer.months / 1200);
         offer.returnValue = (offer.creditValue + offer.overPayment);
         offer.monthPayment = Math.round(offer.returnValue / offer.months);
+        offer.carMonthPayment = Math.round((offer.carCreditValue + (offer.carCreditValue * offer.rate * offer.months / 1200))/offer.months);
+        offer.serviceMonthPayment = Math.round((offer.serviceValue + (offer.serviceValue * offer.rate * offer.months / 1200))/offer.months);
     };
 
 }

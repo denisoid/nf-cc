@@ -52,18 +52,14 @@
 
 
         <div>
-		
-			<input  checked="checked"  type="checkbox" id="carType" class="{labelOn: 'Новый', labelOff: 'С пробегом'}" />
-			<br />
-<!--ng-model="car.used" ng-change="updateMark()"-->
-			<!--<span class="btn-group" data-toggle="buttons-radio">
+			<span class="btn-group" data-toggle="buttons-radio">
 				 <button type="button" class="btn ng-class: {'active': !car.used}"
                          ng-click="car.used=false;updateMark()">Новый
                  </button>
 				 <button type="button" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">
                      С пробегом
                  </button>
-			</span>-->
+			</span>
 
 
         </div>
@@ -221,7 +217,7 @@
                             <table>
                                 <tr>
                                     <th>Сумма кредита</th>
-                                    <td>{{offer.creditValue | number:0}}</td>
+                                    <td>{{offer.creditValue | number:0}} руб.</td>
                                 </tr>
 
 
@@ -268,42 +264,42 @@
 
                                     <tr>
                                         <th>Банковская ставка</th>
-                                        <td>13,02%</td>
+                                        <td>{{offer.rate |number:2}} %</td>
                                     </tr>
                                     <tr>
                                         <th>Маркетинговая ставка</th>
-                                        <td>11%</td>
+                                        <td>{{0 |number:2}} %</td>
                                     </tr>
                                     <tr>
                                         <th>Переплата</th>
-                                        <td>{{offer.overPayment | currency}}</td>
+                                        <td>{{offer.overPayment | number:2}} руб.</td>
                                     </tr>
 
                                     <tr>
                                         <th>Скидка производителя</th>
-                                        <td><input class="input-mini" value="125 000"> руб.</td>
+                                        <td><input class="input-mini" ng-model="offer.discount" ng-change="updateOffer()"> руб.</td>
                                     </tr>
                                     <tr>
                                         <th>Скидка дилера</th>
-                                        <td><input class="input-mini" value="125 000"> руб.</td>
+                                        <td><input class="input-mini"  ng-model="offer.dealerDiscount" ng-change="updateOffer()"> руб.</td>
                                     </tr>
 
                                     <tr>
                                         <th>Доп. сервисы</th>
-                                        <td>{{offer.servicePayment | number:0}} руб.</td>
+                                        <td>{{offer.serviceValue | number:0}} руб.</td>
                                     </tr>
                                     <tr>
                                         <th>Скидка на доп. сервисы</th>
-                                        <td><input class="input-mini" ng-model="offer.serviceDiscount"> руб.</td>
+                                        <td><input class="input-mini" ng-model="offer.serviceDiscount" ng-change="updateOffer()"> руб.</td>
                                     </tr>
 
                                     <tr>
                                         <th>Платеж за автомобиль</th>
-                                        <td>{{offer.overPayment | number:0}} руб.</td>
+                                        <td>{{offer.carMonthPayment | number:0}} руб.</td>
                                     </tr>
                                     <tr>
                                         <th>Платеж за доп. сервисы</th>
-                                        <td>{{offer.servicePayment/offer.months | number:0}} руб.</td>
+                                        <td>{{offer.serviceMonthPayment | number:0}} руб.</td>
                                     </tr>
 
 
@@ -346,7 +342,11 @@
         </tr>
         <tr class='offer-term row-price'>
             <th>Срок кредита</th>
-            <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.months}} мес</td>
+            <td ng-repeat="selectedOffer in selectedOfferList" class='offer-term'>{{selectedOffer.months}} мес</td>
+        </tr>
+        <tr class='offer-sum row-price'>
+            <th>Ставка</th>
+            <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.rate}} мес</td>
         </tr>
         <tr class='offer-return row-price'>
             <th>Сумма к возврату</th>
@@ -363,7 +363,7 @@
 
         <tr class='offer-return row-price'>
             <th>Стоимость доп. сервисов</th>
-            <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.servicePrice |
+            <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.serviceValue |
                 number:0}} руб.
             </td>
         </tr>
@@ -459,18 +459,6 @@
 
 <link type="text/css" href="js/ibutton/css/jquery.ibutton.css" rel="stylesheet" media="all" />
 
-
-
-<script>
-
-$(document).ready(function (){
-  $("#carType").iButton();
-});
-
-
-
-
-</script>
 
 </body>
 </html>
