@@ -377,21 +377,21 @@
         <tr class='row-icon'>
             <th>Гражданство РФ</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
-                <div class="icon-ok" tooltip="Требуется"></div>
+                <img src="img/yes.png" tooltip="Требуется" />
             </td>
         </tr>
 
         <tr class='row-icon'>
             <th>Домашний телефон</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
-                <div class="icon-asterisk" tooltip="Не требуется"></div>
+                <img src="img/no.png" tooltip="Не требуется" />
             </td>
         </tr>
 
         <tr class='row-icon'>
             <th>Мобильный телефон</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
-                <div class="icon-ok" tooltip="Требуется"></div>
+                <img src="img/yes.png" tooltip="Требуется" />
             </td>
         </tr>
 
@@ -404,15 +404,15 @@
         <tr>
             <th>Паспорт РФ</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
-                <div class="icon-ok" tooltip="Требуется"></div>
+                <img src="img/yes.png" tooltip="Требуется" />
             </td>
         </tr>
 
         <tr>
             <th>ПТС</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
-                <div ng-show="selectedOffer.car.used" class="icon-ok" tooltip="Требуется"></div>
-                <div ng-show="!selectedOffer.car.used" class="icon-asterisk" tooltip="Не требуется"></div>
+                <img src="img/no.png" ng-show="!selectedOffer.car.used" tooltip="Не требуется" />
+                <img src="img/yes.png" ng-show="selectedOffer.car.used" tooltip="Требуется" />
             </td>
         </tr>
 
@@ -432,8 +432,8 @@
 <!-- /container -->
 
 
-<!--<script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>-->
-<script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>-->
 
 
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
@@ -451,13 +451,6 @@
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
 
-
-
-<script type="text/javascript" src="js/ibutton/lib/jquery.ibutton.js"></script>
-<script type="text/javascript" src="js/ibutton/lib/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/ibutton/lib/jquery.metadata.js"></script>
-
-<link type="text/css" href="js/ibutton/css/jquery.ibutton.css" rel="stylesheet" media="all" />
 
 
 </body>
