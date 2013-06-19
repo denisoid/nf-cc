@@ -34,7 +34,6 @@
 </p>
 
 
-
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -414,14 +413,14 @@
             <td ng-repeat="selectedOffer in selectedOfferList"></td>
         </tr>
 
-        <tr>
+        <tr class='row-icon'>
             <th>Паспорт РФ</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
                 <img src="img/yes.png" tooltip="Требуется" />
             </td>
         </tr>
 
-        <tr>
+        <tr class='row-icon'>
             <th>ПТС</th>
             <td ng-repeat="selectedOffer in selectedOfferList">
                 <img src="img/no.png" ng-show="!selectedOffer.car.used" tooltip="Не требуется" />
@@ -468,5 +467,3 @@
 
 </body>
 </html>
-
-	
