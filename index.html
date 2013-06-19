@@ -22,6 +22,19 @@
 
 <body ng-controller="CalculatorCtrl">
 
+
+<p class="print" >
+ООО «Авто-дилер»<br />
+Москва, ул. Ленина, 31<br />
++7 495 212 85 06<br />
+<br />
+Ваш менеджер — Констанин Константинопольский<br />
++7 906 212 85 06<br />
+
+</p>
+
+
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -187,10 +200,10 @@
 
 <br/>
 
-<div class="row-fluid" ng-show="currentOfferList.length==0">
+<div class="row-fluid noprint" ng-show="currentOfferList.length==0">
     <p>Программы не найдены, попробуйте другие условия.</p>
 </div>
-<div class="row-fluid" ng-show="currentOfferList.length>0">
+<div class="row-fluid noprint" ng-show="currentOfferList.length>0">
     <p><span>Программ найдено: {{currentOfferList.length}}.</span><span ng-show="currentOfferList.length>4"> Отображены 4 варианта с минимальной переплатой.</span>
     </p>
 </div>

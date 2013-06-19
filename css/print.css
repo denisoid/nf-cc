@@ -12,7 +12,7 @@
 	}
 	
 	h1, h2, p {
-	 color: #f00; /* Черный цвет текста */
+	 color: #000; /* Черный цвет текста */
 	}
 	
 	
@@ -25,6 +25,8 @@
 	.navbar,.choose-car, .credit-offers, .noprint{
 		display:none;
 	}
+
+	
 
 	
 	
