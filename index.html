@@ -24,336 +24,353 @@
 
 <body ng-controller="CalculatorCtrl">
 
-	<nav>
-		<img>
-		<ul>
-		
-			<li>
-				<span>Расчет платежноспособности</span>
-				<dl>
-					<dt>max платеж</dt><dd>111 руб.</dd>
-					<dt>max кредит</dt><dd>111 руб.</dd>
-				</dl>
-			</li>
-			
-			
-			<li>
-				Марка
-				<br />Модель
-				<br />11111 руб/мес.
-				
-				<a href="">копировать</a>
-				<a href="">удалить</a>
-			</li>
-			
-			<li>
-				<a href="">создать вариант</a>
-			</li>
-			
-			<li>
-				<a href="">Сравнение</a>
-			</li>
-	</nav>
-	
-	
-	
-	<div>
-		<article></article><!--расчет платежноспобности-->
-		
-		
-		<article>
-			<section class="car-choose">
-				<h2>Автомобиль</h2>
-				
-				<a href="">Новый</a>
-				<a href="">С пробегом</a>
-				
-				<a href="">Каталог</a>
-				<a href="">Поиск</a>
-				
-				<section class="car-catalog">
-					<select></select><!--Марка-->
-					<select></select><!--Модель-->
-					<select></select><!--Комплектация-->
-					<select></select><!--Год-->
-				</section>
-				
-				
-				<section class="car-search">
-					<div slider></div><!--сумма-->
-					<select></select><!--Марка-->
-					<select></select><!--Модель-->
-					<select></select><!--Год-->
-					
-					<section class="car-list">
-						<ul>
-							<li>
-								<div>
-									<h4>car1</h4>
-									<span>32 000 руб</span>
-								</div>	
-							</li>
-							
-							<li>
-								<div>
-									<h4>car1</h4>
-									<span>32 000 руб</span>
-								</div>	
-							</li>
-							
-							<li>
-								<div>
-									<h4>car1</h4>
-									<span>32 000 руб</span>
-								</div>	
-							</li>							
-						</ul>
+<nav>
+    <img>
+    <ul>
 
-						
-						<a href="#">left</a>
-						<a href="#">right</a>
-					</section>
-				</section>
-				
-				<div class="price-line">
-					<h3>Машина</h3>
-					
-					<div class="price">560 000 руб</div>
-					<a class="toggler"></a>
-				</div>
-				
-				
-			</section>
-			
-			
-			<section class="credit-choose">
-				<h2>Кредит</h2>
-				
-				<section class="credit-filter">
-					<div>
-						<label>Первоначальный взнос</label>
-						<div slider></div><input>
-					</div>
+        <li>
+            <span>Расчет платежноспособности</span>
+            <dl>
+                <dt>max платеж</dt>
+                <dd>111 руб.</dd>
+                <dt>max кредит</dt>
+                <dd>111 руб.</dd>
+            </dl>
+        </li>
 
 
-					<div>
-						<label>Срок</label>
-						<div slider></div><input>
-					</div>
-					
-					<div>
-						<label><input type="checkbox" />Клиент RCI</label>
-						<label><input type="checkbox" />Есть в CRM</label>
-					</div>
-				</section>
-				
-				<section class="credit-offers">
-					<div class="selected">
-						<h4>Стандартный 6.5%</h4>
-						<span>32 000 руб/мес</span>
-					</div>
+        <li>
+            Марка
+            <br/>Модель
+            <br/>11111 руб/мес.
 
-					<div>
-						<h4>Стандартный 6.5%</h4>
-						<span>32 000 руб/мес</span>
-					</div>
-					
-					<div>
-						<h4>Стандартный 6.5%</h4>
-						<span>32 000 руб/мес</span>
-					</div>			
+            <a href="">копировать</a>
+            <a href="">удалить</a>
+        </li>
 
-					<a href="#">left</a>
-					<a href="#">right</a>
-				</section>
-				
-				<section class="credit-options">
-					<div>
-						<label>Рефинансирование</label>
-						<div slider></div><input>
-					</div>
+        <li>
+            <a href="">создать вариант</a>
+        </li>
+
+        <li>
+            <a href="">Сравнение</a>
+        </li>
+    </ul>
+</nav>
 
 
-					<div>
-						<label>Трейд-ин</label>
-						<div slider></div><input>
-					</div>
-					
-					<div>
-						<label>Остаточный платеж</label>
-						<div slider></div><input>
-					</div>
-				</section>
-				
-				
-				<div class="price-line">
-					<h3>Платеж за машину</h3>
-					
-					<div class="price">560 000 руб/мес</div>
-				
-				</div>
-				
-			</section>
-			
-			<section class="services-choose">
-				<h2>Дополнительные сервисы</h2>
-				
-
-				<section class="main-services service-list">
-					<ul>
-						<li>
-							<div>
-								<h4>ОСАГО</h4>
-								<span>+ 32 000 руб</span>
-								<a class="toggler"></a>
-							</div>	
-						</li>
-						
-						<li>
-							
-							<div>
-								<h4>КАСКО</h4>
-								<span>+32 000 руб</span>
-								<a class="toggler"></a>
-							</div>	
-					
-						</li>
-					</ul>
-				</section>
+<div>
+<article></article>
+<!--расчет платежноспобности-->
 
 
+<article>
+<section class="car-choose">
+    <h2>Автомобиль</h2>
 
-				<section class="addination-services service-list">
-					<ul>
-						<li class="selected"><span>Расширенная гарантия</span>
-							<a class="toggler"></a>
-							<div>
-								<ul>
-									<li>
-										<h4>1 год</h4>
-										<span>+ 32 000 руб</span>
-									</li>
-									<li>
-										<h4>2 года</h4>
-										<span>+ 32 000 руб</span>
-									</li>
-								</ul>
-								<a href="#">left</a>
-								<a href="#">right</a>
-							</div>	
-						</li>
-						
-						<li><span>Защита кредита</span>
-							<a class="toggler"></a>
-							<div>
-								<ul>
-									<li>
-										<h4>1 год</h4>
-										<span>+ 32 000 руб</span>
-									</li>
-									<li>
-										<h4>2 года</h4>
-										<span>+ 32 000 руб</span>
-									</li>
-								</ul>
-								<a href="#">left</a>
-								<a href="#">right</a>
-							</div>	
-						</li>
-					</ul>
-				</section>
+    <a href="">Новый</a>
+    <a href="">С пробегом</a>
+
+    <a href="">Каталог</a>
+    <a href="">Поиск</a>
+
+    <section class="car-catalog">
+        <select></select><!--Марка-->
+        <select></select><!--Модель-->
+        <select></select><!--Комплектация-->
+        <select></select><!--Год-->
+    </section>
 
 
-				
-				<div class="price-line">
-					<h3>Итого за сервисы</h3>
-					
-					<div class="price">560 000 руб/мес</div>
-				</div>
-				
-				<div class="price-line">
-					<h3>Ежемесячный платеж: 1111+2222=</h3>
-					
-					<div class="price">3333 руб/мес</div>
-				</div>
-				
-				
-			</section>
-			
-		
-			<section class="offer-complete">
-				<h2>Предложение</h2>
-			
-			</section>
-			
-			<section class="upgrades">
-				<h2>Улучшения</h2>
-			
-			
-					<section class="car-list">
-						<ul>
-							<li>
-								<div>
-									<h4>car1</h4>
-									<span>32 000 руб</span>
-								</div>	
-							</li>
-							
-							<li>
-								<div>
-									<h4>car1</h4>
-									<span>32 000 руб</span>
-								</div>	
-							</li>
-							
-							<li>
-								<div>
-									<h4>car1</h4>
-									<span>32 000 руб</span>
-								</div>	
-							</li>							
-						</ul>
-					</section>
-					
-						
-					<section class="addination-services service-list">
-						<ul>
-							<li class="selected"><span>Расширенная гарантия</span>
-								<div>
-									<h4>1 год → 2 года</h4>
-									<span>+ 32 000 руб</span>
-								</div>	
-							</li>
-							
-							<li class="selected"><span>Расширенная гарантия</span>
-								<div>
-									<h4>1 год → 2 года</h4>
-									<span>+ 32 000 руб</span>
-								</div>	
-							</li>
-							
-							<li class="selected"><span>Расширенная гарантия</span>
-								<div>
-									<h4>1 год → 2 года</h4>
-									<span>+ 32 000 руб</span>
-								</div>	
-							</li>
-							
-						</ul>
-					</section>
-					
-					<a>Оформить</a>
-					
-			
-			</section>
-		</article>
-		
-		<article></article><!--сравнение-->
-	
-	</div>
-	
-	
-	
+    <section class="car-search">
+        <div slider></div>
+        <!--сумма-->
+        <select></select><!--Марка-->
+        <select></select><!--Модель-->
+        <select></select><!--Год-->
+
+        <section class="car-list">
+            <ul>
+                <li>
+                    <div>
+                        <h4>car1</h4>
+                        <span>32 000 руб</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <h4>car1</h4>
+                        <span>32 000 руб</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <h4>car1</h4>
+                        <span>32 000 руб</span>
+                    </div>
+                </li>
+            </ul>
+
+
+            <a href="#">left</a>
+            <a href="#">right</a>
+        </section>
+    </section>
+
+    <div class="price-line">
+        <h3>Машина</h3>
+
+        <div class="price">560 000 руб</div>
+        <a class="toggler"></a>
+    </div>
+
+
+</section>
+
+
+<section class="credit-choose">
+    <h2>Кредит</h2>
+
+    <section class="credit-filter">
+        <div>
+            <label>Первоначальный взнос</label>
+
+            <div slider></div>
+            <input>
+        </div>
+
+
+        <div>
+            <label>Срок</label>
+
+            <div slider></div>
+            <input>
+        </div>
+
+        <div>
+            <label><input type="checkbox"/>Клиент RCI</label>
+            <label><input type="checkbox"/>Есть в CRM</label>
+        </div>
+    </section>
+
+    <section class="credit-offers">
+        <div class="selected">
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
+
+        <div>
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
+
+        <div>
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
+
+        <a href="#">left</a>
+        <a href="#">right</a>
+    </section>
+
+    <section class="credit-options">
+        <div>
+            <label>Рефинансирование</label>
+
+            <div slider></div>
+            <input>
+        </div>
+
+
+        <div>
+            <label>Трейд-ин</label>
+
+            <div slider></div>
+            <input>
+        </div>
+
+        <div>
+            <label>Остаточный платеж</label>
+
+            <div slider></div>
+            <input>
+        </div>
+    </section>
+
+
+    <div class="price-line">
+        <h3>Платеж за машину</h3>
+
+        <div class="price">560 000 руб/мес</div>
+
+    </div>
+
+</section>
+
+<section class="services-choose">
+    <h2>Дополнительные сервисы</h2>
+
+
+    <section class="main-services service-list">
+        <ul>
+            <li>
+                <div>
+                    <h4>ОСАГО</h4>
+                    <span>+ 32 000 руб</span>
+                    <a class="toggler"></a>
+                </div>
+            </li>
+
+            <li>
+
+                <div>
+                    <h4>КАСКО</h4>
+                    <span>+32 000 руб</span>
+                    <a class="toggler"></a>
+                </div>
+
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="addination-services service-list">
+        <ul>
+            <li class="selected"><span>Расширенная гарантия</span>
+                <a class="toggler"></a>
+
+                <div>
+                    <ul>
+                        <li>
+                            <h4>1 год</h4>
+                            <span>+ 32 000 руб</span>
+                        </li>
+                        <li>
+                            <h4>2 года</h4>
+                            <span>+ 32 000 руб</span>
+                        </li>
+                    </ul>
+                    <a href="#">left</a>
+                    <a href="#">right</a>
+                </div>
+            </li>
+
+            <li><span>Защита кредита</span>
+                <a class="toggler"></a>
+
+                <div>
+                    <ul>
+                        <li>
+                            <h4>1 год</h4>
+                            <span>+ 32 000 руб</span>
+                        </li>
+                        <li>
+                            <h4>2 года</h4>
+                            <span>+ 32 000 руб</span>
+                        </li>
+                    </ul>
+                    <a href="#">left</a>
+                    <a href="#">right</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+    <div class="price-line">
+        <h3>Итого за сервисы</h3>
+
+        <div class="price">560 000 руб/мес</div>
+    </div>
+
+    <div class="price-line">
+        <h3>Ежемесячный платеж: 1111+2222=</h3>
+
+        <div class="price">3333 руб/мес</div>
+    </div>
+
+
+</section>
+
+
+<section class="offer-complete">
+    <h2>Предложение</h2>
+
+</section>
+
+<section class="upgrades">
+    <h2>Улучшения</h2>
+
+
+    <section class="car-list">
+        <ul>
+            <li>
+                <div>
+                    <h4>car1</h4>
+                    <span>32 000 руб</span>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <h4>car1</h4>
+                    <span>32 000 руб</span>
+                </div>
+            </li>
+
+            <li>
+                <div>
+                    <h4>car1</h4>
+                    <span>32 000 руб</span>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="addination-services service-list">
+        <ul>
+            <li class="selected"><span>Расширенная гарантия</span>
+
+                <div>
+                    <h4>1 год → 2 года</h4>
+                    <span>+ 32 000 руб</span>
+                </div>
+            </li>
+
+            <li class="selected"><span>Расширенная гарантия</span>
+
+                <div>
+                    <h4>1 год → 2 года</h4>
+                    <span>+ 32 000 руб</span>
+                </div>
+            </li>
+
+            <li class="selected"><span>Расширенная гарантия</span>
+
+                <div>
+                    <h4>1 год → 2 года</h4>
+                    <span>+ 32 000 руб</span>
+                </div>
+            </li>
+
+        </ul>
+    </section>
+
+    <a>Оформить</a>
+
+
+</section>
+</article>
+
+<article></article>
+<!--сравнение-->
+
+</div>
+
+
 <script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>
 <!--<script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>-->
 
