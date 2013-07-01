@@ -149,9 +149,12 @@ aside li.calculate-sum dt, aside li.calculate-sum dd{
 
 aside li.calculate-sum dl{
     margin:0;
-    font-size:0.9em;
+    font-size:0;
 }
 
+aside li.calculate-sum dl *{
+    font-size:13px;
+}
 
 aside li.calculate-sum dd{
     text-align:right;
@@ -162,22 +165,11 @@ aside li.calculate-sum dd{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 .content-container{
     margin-left:250px;
     width:710px;
 
+    padding-bottom:3em;
 
 }
 
@@ -189,6 +181,7 @@ aside li.calculate-sum dd{
 
 .price-line{
     position: relative;
+    margin-bottom:2em;
 }
 
 
@@ -206,25 +199,35 @@ aside li.calculate-sum dd{
 
 
 
-a.radio-btn{
-    font-size:1.5em;
+.radio-btn{
+    font-size:1.3em;
     font-weight: 300;
+    margin:0;
     padding:0 0.2em;
     display:inline-block;
     color:#000;
 }
 
-a.radio-btn:hover{
-    background: rgba(255, 200, 0, 0.23);
+label.radio-btn input{
+    display:none;
+
 }
 
-a.radio-btn.active{
+
+.radio-btn:hover{
+    background: rgba(255, 200, 0, 0.25);
+}
+
+.radio-btn.active{
     background:#fc0;
     text-decoration: none;
 }
 
+
+
 div.title{
     position: relative;
+    margin-bottom:1em;
 
 }
 
@@ -241,4 +244,64 @@ div.title .car-search-type{
     position: absolute;
     right:0;
     bottom:0;
+}
+
+
+
+ul.row-fluid{
+    margin-left:0;
+}
+
+.list{
+    margin-bottom: 1em;
+}
+
+.list ul{
+    margin: 0;
+    list-style: none;
+}
+
+.list ul li{
+    background:#EAE9DA;
+    border:1px solid #BEB78F;
+    padding:5px 0;
+    text-align:center;
+}
+
+
+.list ul li:hover{
+    background: rgba(255, 200, 0, 0.25);
+}
+
+h4{
+    font-size:1.2em;
+
+}
+
+
+.row-fluid select{
+    width:100%;
+}
+
+
+select{
+    border:1px solid #BEB78F;
+    border-radius: 0;
+}
+
+
+
+
+.btn-big{
+    font-size:2em;
+    padding:1em 1em;
+    color:#000 !important;
+    background:#fc0;
+    display:block;
+    margin:0 auto;
+    width:33%;
+    text-align: center;
+    font-weight: 300;
+
+
 }
