@@ -39,17 +39,17 @@
         </li>
 
 
-        <li>
+        <li ng-repeat="calculation in calculationList" >
             Марка
             <br/>Модель
             <br/>11111 руб/мес.
 
-            <a href="">копировать</a>
-            <a href="">удалить</a>
+            <a href="" ng-click="copyCalculation($index)" >копировать</a>
+            <a href="" ng-click="delCalculation($index)" >удалить</a>
         </li>
 
         <li>
-            <a href="">создать вариант</a>
+            <a href=""  ng-click="addCalculation()" >создать вариант</a>
         </li>
 
         <li>

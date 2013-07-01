@@ -55,3 +55,18 @@ seedAppServiceModule.
         }
 
     });
+
+seedAppServiceModule.
+    factory('CalculationConfiguration', function () {
+        var calculationList = [{
+            used: false,
+            price: undefined,
+            discount: undefined,
+            markId: undefined,
+            modelId: undefined,
+            packagingId: undefined,
+            yearId: undefined
+        }];
+        return calculationList;
+
+    });

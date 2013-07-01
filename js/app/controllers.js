@@ -18,9 +18,47 @@ function CalculatorCtrl($scope, CarConfiguration) {
 
     $scope.isCatalog = true;
     $scope.carPrice = 1000000;
+    $scope.calculationList = [];
+    $scope.car = CarConfiguration[0];
 
-    $scope.car = CarConfiguration;
+    $scope.addCalculation = function() {
+        $scope.calculationList.push({
+            car: {
+                used: false,
+                price: undefined,
+                discount: undefined,
+                markId: undefined,
+                modelId: undefined,
+                packagingId: undefined,
+                yearId: undefined
+            }
+        });
+    }
 
+    $scope.copyCalculation = function(ind) {
+
+        var cpv = $scope.calculationList[ind];
+        $scope.calculationList.push({
+            car: {
+                used: cpv.car.used,
+                price: cpv.car.price,
+                discount: cpv.car.discount,
+                markId: cpv.car.markId,
+                modelId: cpv.car.modelId,
+                packagingId: cpv.car.packagingId,
+                yearId: cpv.car.yearId
+            }
+        });
+        $scope.calculation = $scope.calculationList[$scope.calculationList.length-1];
+    }
+
+    $scope.delCalculation = function(ind) {
+        $scope.calculationList.splice(ind);
+    }
+
+    $scope.addCalculation();
+
+    $scope.calculation = $scope.calculationList[0];
 }
 
 function CarSearchCtrl($scope, CarConfiguration) {
