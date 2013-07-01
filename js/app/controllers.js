@@ -14,12 +14,11 @@ function FlipCtrl($scope) {
     }
 }
 
-function CalculatorCtrl($scope, CarConfiguration) {
+function CalculatorCtrl($scope) {
 
     $scope.isCatalog = true;
     $scope.carPrice = 1000000;
     $scope.calculationList = [];
-    $scope.car = CarConfiguration[0];
 
     $scope.addCalculation = function() {
         $scope.calculationList.push({
@@ -30,7 +29,9 @@ function CalculatorCtrl($scope, CarConfiguration) {
                 markId: undefined,
                 modelId: undefined,
                 packagingId: undefined,
-                yearId: undefined
+                yearId: undefined,
+                markName: 'mark',
+                modelName: 'model'
             }
         });
     }
@@ -56,23 +57,28 @@ function CalculatorCtrl($scope, CarConfiguration) {
         $scope.calculationList.splice(ind);
     }
 
+    $scope.selectCalculation = function(ind) {
+        $scope.calculation = $scope.calculationList[ind];
+    }
+
     $scope.addCalculation();
 
     $scope.calculation = $scope.calculationList[0];
 }
 
-function CarSearchCtrl($scope, CarConfiguration) {
-    $scope.selCars = [{carId:"1"}]
+function CarSearchCtrl($scope) {
+    $scope.selCars = [{carId:"1"}];
+    $scope.searchPrice = 1000000;
 }
 
-function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, CarConfiguration, $timeout) {
+function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout) {
 
     //init
+    $scope.car = $scope.calculation.car;
+
     $scope.selMarkList = [];
     $scope.selModelList = [];
     $scope.selPackagingList = [];
-
-    $scope.car = CarConfiguration;
 
     $scope.markList = Marks.query({}, function () {
         $scope.updateMark();
@@ -159,9 +165,9 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
     });
 }
 
-function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, CarConfiguration, $filter, $timeout) {
+function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, $filter, $timeout) {
 
-    $scope.car = CarConfiguration;
+    $scope.car = $scope.calculation.car;
 
     $scope.packaging_loanProductList = Packaging_LoanProduct.query({}, function () {
         $scope.filterLoanProductListForPack();
@@ -367,7 +373,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, C
 
 }
 
-function OfferCtrl($scope, CarConfiguration, $filter) {
+function OfferCtrl($scope, $filter) {
     $scope.serviceList = [
         {"id": "1", "selected": false, mandatory: false, "name": "Расш. гарантия", "ctype": "fixed", "cost": "3000"},
         {"id": "2", "selected": false, mandatory: false, "name": "Помощь на дорогах", "ctype": "fixed", "cost": "3000"},
