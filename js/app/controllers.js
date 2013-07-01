@@ -11,6 +11,9 @@ function FlipCtrl($scope) {
 
 function CalculatorCtrl($scope, CarConfiguration) {
 
+    $scope.isCatalog = true;
+    $scope.carPrice = 1000000;
+
     $scope.car = CarConfiguration;
 
 }

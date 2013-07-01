@@ -23,43 +23,43 @@
 </head>
 
 <body ng-controller="CalculatorCtrl">
-<aside>
-    <nav>
-        <img src="img/logo.png" />
-        <ul>
 
-            <li class="calculate-sum">
-                <span>Расчет платёжеспособности</span>
-                <dl><dt>max платеж</dt><dd>48 000 руб.</dd>
-                    <dt>max кредит</dt><dd>4 000 000 руб.</dd>
-                </dl>
-                <i></i>
-            </li>
+<nav>
+    <img>
+    <ul>
 
-
-            <li class="offer active">
-                Марка
-                <br/>Модель
-                <br/>11111 руб/мес.
-
-                <a href="">копировать</a>
-                <a href="">удалить</a>
-
-                <i></i>
-            </li>
-
-            <li>
-                <a href="">создать вариант</a>
-            </li>
-
-            <li>
-                <a href="">Сравнение</a>
-            </li>
-    </nav>
-</aside>
+        <li>
+            <span>Расчет платежноспособности</span>
+            <dl>
+                <dt>max платеж</dt>
+                <dd>111 руб.</dd>
+                <dt>max кредит</dt>
+                <dd>111 руб.</dd>
+            </dl>
+        </li>
 
 
-<div class="content-container">
+        <li>
+            Марка
+            <br/>Модель
+            <br/>11111 руб/мес.
+
+            <a href="">копировать</a>
+            <a href="">удалить</a>
+        </li>
+
+        <li>
+            <a href="">создать вариант</a>
+        </li>
+
+        <li>
+            <a href="">Сравнение</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div>
 <article></article>
 <!--расчет платежноспобности-->
 
@@ -68,26 +68,59 @@
 <section class="car-choose">
     <h2>Автомобиль</h2>
 
-    <a class="radio-btn active" href="">Новый</a>
-    <a class="radio-btn" href="">С пробегом</a>
+    <a href="" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()" >Новый</a>
+    <a href="" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()" >С пробегом</a>
 
-    <a class="radio-btn active" href="">Каталог</a>
-    <a class="radio-btn" href="">Поиск</a>
+    <a href="" ng-click="isCatalog=true" >Каталог</a>
+    <a href="" ng-click="isCatalog=false" >Поиск</a>
 
-    <section class="car-catalog">
-        <select></select><!--Марка-->
-        <select></select><!--Модель-->
-        <select></select><!--Комплектация-->
-        <select></select><!--Год-->
+    <section class="car-catalog" ng-show="isCatalog" >
+        <select ng-model="car.markId"
+                ng-options="mark.id as mark.name for mark in selMarkList"
+                ng-change="updateModel()"
+                >
+            <option value="">Любая</option>
+        </select><!--Марка-->
+        <select ng-model="car.modelId"
+                ng-options="model.id as model.name for model in selModelList"
+                ng-change="updatePackaging()"
+                >
+            <option value="">Любая</option>
+        </select><!--Модель-->
+        <select ng-model="car.packagingId"
+                ng-options="pack.id as pack.name for pack in selPackagingList"
+                ng-change="updateYear()"
+                >
+            <option value="">Любая</option>
+        </select><!--Комплектация-->
+        <select ng-model="car.yearId"
+                ng-options="year.yearId as year.yearId for year in selYearList"
+                >
+            <option value="">Любой</option>
+        </select><!--Год-->
     </section>
 
 
-    <section class="car-search">
+    <section class="car-search" ng-show="!isCatalog" >
         <div slider></div>
         <!--сумма-->
-        <select></select><!--Марка-->
-        <select></select><!--Модель-->
-        <select></select><!--Год-->
+        <select ng-model="car.markId"
+                ng-options="mark.id as mark.name for mark in selMarkList"
+                ng-change="updateModel()"
+                >
+            <option value="">Любая</option>
+        </select><!--Марка-->
+        <select ng-model="car.modelId"
+                ng-options="model.id as model.name for model in selModelList"
+                ng-change="updatePackaging()"
+                >
+            <option value="">Любая</option>
+        </select><!--Модель-->
+        <select ng-model="car.yearId"
+                ng-options="year.yearId as year.yearId for year in selYearList"
+                >
+            <option value="">Любой</option>
+        </select><!--Год-->
 
         <section class="car-list">
             <ul>
@@ -372,8 +405,6 @@
 
 
 <script type="text/javascript" src="js/jquery/jquery-1.10.1.min.js"></script>
-<!--<script type="text/javascript" src="js/jquery/jquery-1.6.2.min.js"></script>-->
-
 
 <script type="text/javascript" src="js/jquery/jquery-ui.min.js"></script>
 
@@ -389,7 +420,6 @@
 <script type="text/javascript" src="js/app/controllers.js"></script>
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
-
 
 </body>
 </html>
