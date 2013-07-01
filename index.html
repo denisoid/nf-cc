@@ -19,40 +19,42 @@
 
 <body ng-controller="CalculatorCtrl">
 <aside>
-<nav>
-    <img src="img/logo.png">
-    <ul>
+    <nav>
+        <img src="img/logo.png">
+        <ul>
 
-        <li class="calculate-sum">
-            <span>Расчет платежноспособности</span>
-            <dl>
-                <dt>max платеж</dt><dd>{{maxMonthPayment | currency }}</dd>
-                <dt>max кредит</dt><dd>{{maxCreditValue | currency }}</dd>
-            </dl>
-            <i></i>
-        </li>
+            <li class="calculate-sum">
+                <span>Расчет платежноспособности</span>
+                <dl>
+                    <dt>max платеж</dt>
+                    <dd>{{maxMonthPayment | currency }}</dd>
+                    <dt>max кредит</dt>
+                    <dd>{{maxCreditValue | currency }}</dd>
+                </dl>
+                <i></i>
+            </li>
 
 
-        <li ng-repeat="calculation in calculationList" class="active">
-            <div ng-click="selectCalculation($index)">{{calculation.car.markName}}
-            <br/>{{calculation.car.modelName}}
-            <br/>11111 руб/мес.
-            </div>
-            <a href="" ng-click="copyCalculation($index)" >копировать</a>
-            <a href="" ng-click="delCalculation($index)" >удалить</a>
-            <i></i>
-        </li>
+            <li ng-repeat="calculation in calculationList" class="active">
+                <div ng-click="selectCalculation($index)">{{calculation.car.markName}}
+                    <br/>{{calculation.car.modelName}}
+                    <br/>11111 руб/мес.
+                </div>
+                <a href="" ng-click="copyCalculation($index)">копировать</a>
+                <a href="" ng-click="delCalculation($index)">удалить</a>
+                <i></i>
+            </li>
 
-        <li>
-            <a href=""  ng-click="addCalculation()" >создать вариант</a>
-        </li>
+            <li>
+                <a href="" ng-click="addCalculation()">создать вариант</a>
+            </li>
 
-        <li>
-            <a href="">Сравнение</a>
-            <i></i>
-        </li>
-    </ul>
-</nav>
+            <li>
+                <a href="">Сравнение</a>
+                <i></i>
+            </li>
+        </ul>
+    </nav>
 </aside>
 
 <div class="content-container">
@@ -61,13 +63,15 @@
 
 
 <article>
-<section class="car-choose" ng-controller="CarConfigurationCtrl" >
+<section class="car-choose" ng-controller="CarConfigurationCtrl">
     <div class="title">
         <h2>Автомобиль</h2>
 
         <div class="car-type-choose">
-            <a href="" class="radio-btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</a>
-            <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</a>
+            <a href="" class="radio-btn ng-class: {'active': !car.used}"
+               ng-click="car.used=false;updateMark()">Новый</a>
+            <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С
+                пробегом</a>
         </div>
 
         <div class="car-search-type">
@@ -76,53 +80,88 @@
         </div>
     </div>
 
-    <section class="car-catalog" ng-show="isCatalog">
-        <select ng-model="car.markId"
-                ng-options="mark.id as mark.name for mark in selMarkList"
-                ng-change="updateModel()"
-                >
-        </select><!--Марка-->
-        <select ng-model="car.modelId"
-                ng-options="model.id as model.name for model in selModelList"
-                ng-change="updatePackaging()"
-                >
-        </select><!--Модель-->
-        <select ng-model="car.packagingId"
-                ng-options="pack.id as pack.name for pack in selPackagingList"
-                ng-change="updateYear()"
-                >
-        </select><!--Комплектация-->
-        <select ng-model="car.yearId"
-                ng-options="year.yearId as year.yearId for year in selYearList"
-                >
-        </select><!--Год-->
+    <section class="car-catalog row-fluid" ng-show="isCatalog">
+        <!--Марка-->
+        <div class="span3">
+            <select ng-model="car.markId"
+                    ng-options="mark.id as mark.name for mark in selMarkList"
+                    ng-change="updateModel()"
+                    >
+            </select>
+        </div>
+
+        <!--Модель-->
+        <div class="span3">
+            <select ng-model="car.modelId"
+                    ng-options="model.id as model.name for model in selModelList"
+                    ng-change="updatePackaging()"
+                    >
+            </select>
+        </div>
+
+        <!--Комплектация-->
+        <div class="span3">
+            <select ng-model="car.packagingId"
+                    ng-options="pack.id as pack.name for pack in selPackagingList"
+                    ng-change="updateYear()"
+                    >
+            </select>
+        </div>
+
+        <!--Год-->
+        <div class="span3">
+            <select ng-model="car.yearId"
+                    ng-options="year.yearId as year.yearId for year in selYearList"
+                    >
+            </select>
+        </div>
     </section>
 
 
     <section class="car-search" ng-show="!isCatalog" ng-controller="CarSearchCtrl">
-        <div slider ng-model="searchPrice" max="10000000" step="100000" ></div><input type="number" ng-model="searchPrice">
-        <!--сумма-->
-        <select ng-model="car.markId"
-                ng-options="mark.id as mark.name for mark in selMarkList"
-                ng-change="updateModel()"
-                >
-            <option value="">Любая</option>
-        </select><!--Марка-->
-        <select ng-model="car.modelId"
-                ng-options="model.id as model.name for model in selModelList"
-                ng-change="updatePackaging()"
-                >
-            <option value="">Любая</option>
-        </select><!--Модель-->
-        <select ng-model="car.yearId"
-                ng-options="year.yearId as year.yearId for year in selYearList"
-                >
-            <option value="">Любой</option>
-        </select><!--Год-->
+        <div class="row-fluid">
+            <!--сумма-->
+            <div class="span3">
+                <div slider ng-model="searchPrice" max="10000000" step="100000"></div>
+                <input type="number" ng-model="searchPrice">
+            </div>
 
-        <section class="car-list">
-            <ul>
-                <li ng-repeat="selCar in selCars">
+
+            <!--Марка-->
+            <div class="span3">
+                <select
+                        ng-model="car.markId"
+                        ng-options="mark.id as mark.name for mark in selMarkList"
+                        ng-change="updateModel()"
+                        >
+                    <option value="">Любая</option>
+                </select>
+            </div>
+
+
+            <!--Модель-->
+            <div class="span3">
+                <select ng-model="car.modelId"
+                        ng-options="model.id as model.name for model in selModelList"
+                        ng-change="updatePackaging()"
+                        >
+                    <option value="">Любая</option>
+                </select>
+            </div>
+
+            <!--Год-->
+            <div class="span3">
+                <select ng-model="car.yearId"
+                        ng-options="year.yearId as year.yearId for year in selYearList"
+                        >
+                    <option value="">Любой</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="car-list list">
+            <ul class="row-fluid">
+                <li class="span4" ng-repeat="selCar in selCars">
                     <div ng-click="selectCar($index)">
                         <h4>{{selCar.markName}} {{selCar.modelName}}</h4>
                         <span>{{selCar.price}}</span>
@@ -150,8 +189,8 @@
 <section class="credit-choose">
     <h2>Кредит</h2>
 
-    <section class="credit-filter">
-        <div>
+    <section class="credit-filter row-fluid">
+        <div class="span4">
             <label>Первоначальный взнос</label>
 
             <div slider></div>
@@ -159,31 +198,31 @@
         </div>
 
 
-        <div>
+        <div class="span4">
             <label>Срок</label>
 
             <div slider></div>
             <input>
         </div>
 
-        <div>
+        <div class="span4">
             <label><input type="checkbox"/>Клиент RCI</label>
             <label><input type="checkbox"/>Есть в CRM</label>
         </div>
     </section>
 
-    <section class="credit-offers">
-        <div class="selected">
+    <section class="credit-offers row-fluid">
+        <div class="selected span4">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>
 
-        <div>
+        <div class="span4">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>
 
-        <div>
+        <div class="span4">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>
@@ -192,8 +231,8 @@
         <a href="#">right</a>
     </section>
 
-    <section class="credit-options">
-        <div>
+    <section class="credit-options row-fluid">
+        <div class="span4">
             <label>Рефинансирование</label>
 
             <div slider></div>
@@ -201,14 +240,14 @@
         </div>
 
 
-        <div>
+        <div class="span4">
             <label>Трейд-ин</label>
 
             <div slider></div>
             <input>
         </div>
 
-        <div>
+        <div class="span4">
             <label>Остаточный платеж</label>
 
             <div slider></div>
@@ -230,9 +269,9 @@
     <h2>Дополнительные сервисы</h2>
 
 
-    <section class="main-services service-list">
-        <ul>
-            <li>
+    <section class="main-services service-list list">
+        <ul class="row-fluid">
+            <li class="span4">
                 <div>
                     <h4>ОСАГО</h4>
                     <span>+ 32 000 руб</span>
@@ -240,7 +279,7 @@
                 </div>
             </li>
 
-            <li>
+            <li class="span4">
 
                 <div>
                     <h4>КАСКО</h4>
@@ -253,9 +292,9 @@
     </section>
 
 
-    <section class="addination-services service-list">
-        <ul>
-            <li class="selected"><span>Расширенная гарантия</span>
+    <section class="addination-services service-list list">
+        <ul class="row-fluid">
+            <li class="selected span4"><span>Расширенная гарантия</span>
                 <a class="toggler"></a>
 
                 <div>
@@ -274,7 +313,7 @@
                 </div>
             </li>
 
-            <li><span>Защита кредита</span>
+            <li class="span4"><span>Защита кредита</span>
                 <a class="toggler"></a>
 
                 <div>
@@ -321,23 +360,23 @@
     <h2>Улучшения</h2>
 
 
-    <section class="car-list">
-        <ul>
-            <li>
+    <section class="car-list list">
+        <ul class="row-fluid">
+            <li class="span4">
                 <div>
                     <h4>car1</h4>
                     <span>32 000 руб</span>
                 </div>
             </li>
 
-            <li>
+            <li class="span4">
                 <div>
                     <h4>car1</h4>
                     <span>32 000 руб</span>
                 </div>
             </li>
 
-            <li>
+            <li class="span4">
                 <div>
                     <h4>car1</h4>
                     <span>32 000 руб</span>
@@ -347,9 +386,9 @@
     </section>
 
 
-    <section class="addination-services service-list">
-        <ul>
-            <li class="selected"><span>Расширенная гарантия</span>
+    <section class="addination-services service-list list">
+        <ul class="row-fluid">
+            <li class="selected span4"><span>Расширенная гарантия</span>
 
                 <div>
                     <h4>1 год → 2 года</h4>
@@ -357,7 +396,7 @@
                 </div>
             </li>
 
-            <li class="selected"><span>Расширенная гарантия</span>
+            <li class="selected span4"><span>Расширенная гарантия</span>
 
                 <div>
                     <h4>1 год → 2 года</h4>
@@ -365,7 +404,7 @@
                 </div>
             </li>
 
-            <li class="selected"><span>Расширенная гарантия</span>
+            <li class="selected span4"><span>Расширенная гарантия</span>
 
                 <div>
                     <h4>1 год → 2 года</h4>

@@ -162,18 +162,6 @@ aside li.calculate-sum dd{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 .content-container{
     margin-left:250px;
     width:710px;
@@ -215,7 +203,7 @@ a.radio-btn{
 }
 
 a.radio-btn:hover{
-    background: rgba(255, 200, 0, 0.23);
+    background: rgba(255, 200, 0, 0.25);
 }
 
 a.radio-btn.active{
@@ -241,4 +229,35 @@ div.title .car-search-type{
     position: absolute;
     right:0;
     bottom:0;
+}
+
+
+
+ul.row-fluid{
+    margin-left:0;
+}
+
+
+.list>ul>li{
+    background:#EAE9DA;
+    border:1px solid #BEB78F;
+    padding:5px 0;
+    text-align:center;
+
+
+}
+
+
+.list>ul>li:hover{
+    background: rgba(255, 200, 0, 0.25);
+}
+
+h4{
+    font-size:1.2em;
+
+}
+
+
+.row-fluid select{
+    width:100%;
 }
