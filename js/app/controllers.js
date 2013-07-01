@@ -22,12 +22,12 @@ function CalculatorCtrl($scope) {
         $scope.calculationList.push({
             car: {
                 used: false,
-                price: undefined,
-                discount: undefined,
-                markId: undefined,
-                modelId: undefined,
-                packagingId: undefined,
-                yearId: undefined,
+                price: null,
+                discount: null,
+                markId: null,
+                modelId: null,
+                packagingId: null,
+                yearId: null,
                 markName: 'mark',
                 modelName: 'model'
             }
@@ -64,27 +64,84 @@ function CalculatorCtrl($scope) {
     $scope.calculation = $scope.calculationList[0];
 }
 
-function CarSearchCtrl($scope) {
-    $scope.selCars = [
-        {carId: "1"}
-    ];
+function CarSearchCtrl($scope, $filter) {
+    $scope.selCars = [];
     $scope.searchPrice = 1000000;
 
     $scope.selectCar = function (ind) {
         $scope.calculation.car = {
             used: false,
-            price: undefined,
-            discount: undefined,
-            markId: undefined,
-            modelId: undefined,
-            packagingId: undefined,
-            yearId: undefined,
+            price: null,
+            discount: null,
+            markId: null,
+            modelId: null,
+            packagingId: null,
+            yearId: null,
             markName: 'mark',
             modelName: 'model'
         };
     }
 
+    $scope.searchCar = function () {
+        var delta = $scope.searchPrice * 0.1;
+
+        var selPackagingListForPrice = $filter('filter')($scope.packagingList, function (element) {
+                if (Math.abs($scope.searchPrice - element.cost) < delta) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
+        var markId = $scope.calculation.car.markId;
+
+        if(markId == null) {
+            $scope.selCars = selPackagingListForPrice;
+            return;
+        }
+
+        var modelId = null;
+
+        if($scope.calculation.car.modelId == null) {
+
+            var modelList = $scope.selModelList;
+            var selPackagingListForPriceAndMark = [];
+            for(var ti = 0; ti < modelList.length; ti++) {
+                modelId = modelList[ti].id;
+                var selPackagingListForPriceAndModel = $filter('filter')(selPackagingListForPrice, function (element) {
+                        if (element.modelId == modelId) {
+                            return true;
+                        }
+                        return false;
+                    }
+                );
+                if(selPackagingListForPriceAndModel.length > 0) {
+                    selPackagingListForPriceAndMark = selPackagingListForPriceAndMark.concat(selPackagingListForPriceAndModel);
+                }
+            }
+
+            $scope.selCars = selPackagingListForPriceAndMark;
+            return;
+        }
+
+        modelId = $scope.calculation.car.modelId;
+        var selPackagingListForPriceAndModel = $filter('filter')(selPackagingListForPrice, function (element) {
+                if (element.modelId == modelId) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
+        $scope.selCars = selPackagingListForPriceAndModel;
+    }
+
+    $scope.$watch('searchPrice', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.searchCar();
+    });
 }
+
 
 function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout) {
 
@@ -122,7 +179,7 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         if ($scope.selMarkList.length > 0) {
             $scope.car.markId = $scope.selMarkList[0].id;
         } else {
-            $scope.car.markId = undefined;
+            $scope.car.markId = null;
         }
         $scope.updateModel();
     }
@@ -135,7 +192,7 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         if ($scope.selModelList.length > 0) {
             $scope.car.modelId = $scope.selModelList[0].id;
         } else {
-            $scope.car.modelId = undefined;
+            $scope.car.modelId = null;
         }
         $scope.updatePackaging();
     }
@@ -148,16 +205,16 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         if ($scope.selPackagingList.length > 0) {
             $scope.car.packagingId = $scope.selPackagingList[0].id;
         } else {
-            $scope.car.packagingId = undefined;
+            $scope.car.packagingId = null;
         }
     }
 
     $scope.updateCarForPackaging = function () {
         var searchedId = $scope.car.packagingId;
-        if (searchedId == undefined) {
+        if (searchedId == null) {
             return;
         }
-        var packaging = undefined;
+        var packaging = null;
         for (var ti = 0, len = $scope.selPackagingList.length; ti < len; ti++) {
             var pack = $scope.selPackagingList[ti];
             if (pack.id == searchedId) {
@@ -165,9 +222,9 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
                 break;
             }
         }
-        if (packaging == undefined) {
-            $scope.car.price = undefined;
-            $scope.car.discount = undefined;
+        if (packaging == null) {
+            $scope.car.price = null;
+            $scope.car.discount = null;
         } else {
             $scope.car.price = packaging.cost;
             $scope.car.discount = packaging.discount;
@@ -263,7 +320,7 @@ function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, $
 
     $scope.filterLoanProductListForPack = function () {
 
-        if ($scope.car.packagingId == undefined) {
+        if ($scope.car.packagingId == null) {
             $scope.loanProductForPackList = $scope.loanProductList;
             return;
         }

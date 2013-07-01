@@ -163,8 +163,8 @@
             <ul class="row-fluid">
                 <li class="span4" ng-repeat="selCar in selCars">
                     <div ng-click="selectCar($index)">
-                        <h4>{{selCar.markName}} {{selCar.modelName}}</h4>
-                        <span>{{selCar.price}}</span>
+                        <h4>{{selCar.name}}</h4>
+                        <span>{{selCar.cost}}</span>
                     </div>
                 </li>
             </ul>
@@ -193,7 +193,7 @@
         <div class="span4">
             <label>Первоначальный взнос</label>
 
-            <div slider></div>
+            <div slider ng-model="ip"></div>
             <input>
         </div>
 
@@ -201,8 +201,8 @@
         <div class="span4">
             <label>Срок</label>
 
-            <div slider></div>
-            <input>
+            <div slider ng-model="months"></div>
+            <input ng-model="months">
         </div>
 
         <div class="span4 client-options">
