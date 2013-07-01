@@ -28,7 +28,7 @@
     <img>
     <ul>
 
-        <li ng-controller="ClientPaymentCtrl">
+        <li>
             <span>Расчет платежноспособности</span>
             <dl>
                 <dt>max платеж</dt>
@@ -121,7 +121,7 @@
         <section class="car-list">
             <ul>
                 <li ng-repeat="selCar in selCars">
-                    <div>
+                    <div ng-click="selectCar($index)">
                         <h4>{{selCar.markName}} {{selCar.modelName}}</h4>
                         <span>{{selCar.price}}</span>
                     </div>
