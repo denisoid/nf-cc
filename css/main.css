@@ -14,6 +14,7 @@ body{
 
 h1,h2,h3,h4{
     font-weight: 300;
+    margin:0;
 }
 
 
@@ -148,7 +149,7 @@ aside li.calculate-sum dt, aside li.calculate-sum dd{
 
 aside li.calculate-sum dl{
     margin:0;
-    font-size:0.8em;
+    font-size:0.9em;
 }
 
 
@@ -220,4 +221,24 @@ a.radio-btn:hover{
 a.radio-btn.active{
     background:#fc0;
     text-decoration: none;
+}
+
+div.title{
+    position: relative;
+
+}
+
+div.title h2, div.title div{
+    display:inline-block;
+
+
+
+
+}
+
+
+div.title .car-search-type{
+    position: absolute;
+    right:0;
+    bottom:0;
 }

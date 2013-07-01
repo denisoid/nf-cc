@@ -23,13 +23,11 @@
     <img src="img/logo.png">
     <ul>
 
-        <li>
+        <li class="calculate-sum">
             <span>Расчет платежноспособности</span>
             <dl>
-                <dt>max платеж</dt>
-                <dd>{{maxMonthPayment}} руб.</dd>
-                <dt>max кредит</dt>
-                <dd>{{maxCreditValue}} руб.</dd>
+                <dt>max платеж</dt><dd>{{maxMonthPayment | currency }}</dd>
+                <dt>max кредит</dt><dd>{{maxCreditValue | currency }}</dd>
             </dl>
             <i></i>
         </li>
@@ -64,13 +62,19 @@
 
 <article>
 <section class="car-choose" ng-controller="CarConfigurationCtrl" >
-    <h2>Автомобиль</h2>
+    <div class="title">
+        <h2>Автомобиль</h2>
 
-    <a href="" class="radio-btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</a>
-    <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</a>
+        <div class="car-type-choose">
+            <a href="" class="radio-btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</a>
+            <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</a>
+        </div>
 
-    <a href="" class="radio-btn" ng-click="isCatalog=true">Каталог</a>
-    <a href="" class="radio-btn" ng-click="isCatalog=false">Поиск</a>
+        <div class="car-search-type">
+            <a href="" class="radio-btn  ng-class: {'active': isCatalog}" ng-click="isCatalog=true">Каталог</a>
+            <a href="" class="radio-btn  ng-class: {'active': !isCatalog}" ng-click="isCatalog=false">Поиск</a>
+        </div>
+    </div>
 
     <section class="car-catalog" ng-show="isCatalog">
         <select ng-model="car.markId"
