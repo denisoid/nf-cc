@@ -28,13 +28,13 @@
     <img>
     <ul>
 
-        <li>
+        <li ng-controller="ClientPaymentCtrl">
             <span>Расчет платежноспособности</span>
             <dl>
                 <dt>max платеж</dt>
-                <dd>111 руб.</dd>
+                <dd>{{maxMonthPayment}} руб.</dd>
                 <dt>max кредит</dt>
-                <dd>111 руб.</dd>
+                <dd>{{maxCreditValue}} руб.</dd>
             </dl>
         </li>
 
@@ -65,16 +65,16 @@
 
 
 <article>
-<section class="car-choose">
+<section class="car-choose" ng-controller="CarConfigurationCtrl" >
     <h2>Автомобиль</h2>
 
-    <a href="" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()" >Новый</a>
-    <a href="" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()" >С пробегом</a>
+    <a href="" class="btn ng-class: {'active': !car.used}" ng-click="car.used=false;updateMark()">Новый</a>
+    <a href="" class="btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С пробегом</a>
 
-    <a href="" ng-click="isCatalog=true" >Каталог</a>
-    <a href="" ng-click="isCatalog=false" >Поиск</a>
+    <a href="" ng-click="isCatalog=true">Каталог</a>
+    <a href="" ng-click="isCatalog=false">Поиск</a>
 
-    <section class="car-catalog" ng-show="isCatalog" >
+    <section class="car-catalog" ng-show="isCatalog">
         <select ng-model="car.markId"
                 ng-options="mark.id as mark.name for mark in selMarkList"
                 ng-change="updateModel()"
@@ -101,7 +101,7 @@
     </section>
 
 
-    <section class="car-search" ng-show="!isCatalog" >
+    <section class="car-search" ng-show="!isCatalog" ng-controller="CarSearchCtrl">
         <div slider></div>
         <!--сумма-->
         <select ng-model="car.markId"
@@ -124,21 +124,7 @@
 
         <section class="car-list">
             <ul>
-                <li>
-                    <div>
-                        <h4>car1</h4>
-                        <span>32 000 руб</span>
-                    </div>
-                </li>
-
-                <li>
-                    <div>
-                        <h4>car1</h4>
-                        <span>32 000 руб</span>
-                    </div>
-                </li>
-
-                <li>
+                <li ng-repeat="selCar in selCars">
                     <div>
                         <h4>car1</h4>
                         <span>32 000 руб</span>

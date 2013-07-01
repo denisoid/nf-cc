@@ -2,6 +2,11 @@
 
 /* Controllers */
 
+function ClientPaymentCtrl($scope) {
+    $scope.maxMonthPayment =  100000;
+    $scope.maxCreditValue  = 1000000;
+}
+
 function FlipCtrl($scope) {
     $scope.isFlip = false;
     $scope.flip = function () {
@@ -16,6 +21,10 @@ function CalculatorCtrl($scope, CarConfiguration) {
 
     $scope.car = CarConfiguration;
 
+}
+
+function CarSearchCtrl($scope, CarConfiguration) {
+    $scope.selCars = [{carId:"1"}]
 }
 
 function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, CarConfiguration, $timeout) {
