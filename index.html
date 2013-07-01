@@ -102,13 +102,13 @@
         <!--сумма-->
         <select ng-model="car.markId"
                 ng-options="mark.id as mark.name for mark in selMarkList"
-                ng-change="updateModel()"
+                ng-change="updateModel();searchCar()"
                 >
             <option value="">Любая</option>
         </select><!--Марка-->
         <select ng-model="car.modelId"
                 ng-options="model.id as model.name for model in selModelList"
-                ng-change="updatePackaging()"
+                ng-change="updatePackaging();searchCar()"
                 >
             <option value="">Любая</option>
         </select><!--Модель-->
@@ -152,7 +152,7 @@
         <div>
             <label>Первоначальный взнос</label>
 
-            <div slider></div>
+            <div slider ng-model="ip"></div>
             <input>
         </div>
 
@@ -160,13 +160,13 @@
         <div>
             <label>Срок</label>
 
-            <div slider></div>
-            <input>
+            <div slider ng-model="months"></div>
+            <input ng-model="months">
         </div>
 
         <div>
-            <label><input type="checkbox"/>Клиент RCI</label>
-            <label><input type="checkbox"/>Есть в CRM</label>
+            <label><input type="checkbox" ng-model="isRCIClient" />Клиент RCI</label>
+            <label><input type="checkbox" ng-model="isCRMClient" />Есть в CRM</label>
         </div>
     </section>
 

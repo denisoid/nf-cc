@@ -64,7 +64,7 @@ function CalculatorCtrl($scope) {
     $scope.calculation = $scope.calculationList[0];
 }
 
-function CarSearchCtrl($scope) {
+function CarSearchCtrl($scope, $filter) {
     $scope.selCars = [
         {carId: "1"}
     ];
@@ -84,7 +84,23 @@ function CarSearchCtrl($scope) {
         };
     }
 
+    $scope.searchCar = function () {
+        var delta = $scope.searchPrice * 0.1;
+        $scope.selCars = $filter('filter')($scope.loanProductForPackList, function (element) {
+                if (Math.abs($scope.searchPrice - element.price) < delta) {
+                    return true;
+                }
+                return false;
+            }
+        );
+    }
+
+    $scope.$watch('searchPrice', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.searchCar();
+    });
 }
+
 
 function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout) {
 
