@@ -9,6 +9,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     font-size:14px;
     line-height: 1.6;
+    background:#e5e5e5;
 }
 
 
@@ -166,10 +167,16 @@ aside li.calculate-sum dd{
 
 
 .content-container{
-    margin-left:250px;
+    background:#fff;
+    margin-left:230px;
     width:710px;
+    padding-left:20px;
+    padding-right:20px;
 
     padding-bottom:3em;
+    -webkit-box-shadow: 0 0 15px #b1b1b1;
+    -moz-box-shadow: 0 0 15px #b1b1b1;
+    box-shadow: 0 0 15px #b1b1b1;
 
 }
 
@@ -182,6 +189,12 @@ aside li.calculate-sum dd{
 .price-line{
     position: relative;
     margin-bottom:2em;
+    text-align: right;
+}
+
+
+.price-line *{
+    display: inline-block;
 }
 
 
@@ -190,11 +203,6 @@ aside li.calculate-sum dd{
     font-size:2em;
     font-weight: 300;
     padding:0 0.2em;
-    position:absolute;
-    right:0;
-    top:0;
-
-
 }
 
 
@@ -224,7 +232,7 @@ label.radio-btn input{
 }
 
 
-
+/*title*/
 div.title{
     position: relative;
     margin-bottom:1em;
@@ -233,13 +241,7 @@ div.title{
 
 div.title h2, div.title div{
     display:inline-block;
-
-
-
-
 }
-
-
 div.title .car-search-type{
     position: absolute;
     right:0;
@@ -247,7 +249,7 @@ div.title .car-search-type{
 }
 
 
-
+/*grids*/
 ul.row-fluid{
     margin-left:0;
 }
@@ -272,6 +274,7 @@ ul.row-fluid{
 .list ul li:hover{
     background: rgba(255, 200, 0, 0.25);
 }
+
 
 h4{
     font-size:1.2em;
@@ -303,5 +306,42 @@ select{
     text-align: center;
     font-weight: 300;
 
+
+}
+
+
+.client-options {
+    text-align: justify;
+}
+
+.client-options a {
+    display: inline-block;
+    position: relative;
+    top: 1.2em;
+}
+
+.client-options:before{
+    content: '';
+    display: block;
+    width: 100%;
+    margin-bottom: -1.2em;
+}
+
+.client-options:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+.toggler{
+    background:url("../img/toggler.png") no-repeat;
+    width:7px;
+    height:10px;
+    display:block;
+    position:absolute;
+    top:2px;
+    right:-10px;
 
 }
