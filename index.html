@@ -206,8 +206,8 @@
         </div>
 
         <div class="span4">
-            <label><input type="checkbox"/>Клиент RCI</label>
-            <label><input type="checkbox"/>Есть в CRM</label>
+            <a class="radio-btn  ng-class: {'active': clientRCI}" ng-click="clientRCI=!clientRCI">Клиент RCI</a>
+            <a class="radio-btn  ng-class: {'active': existCRM}" ng-click="existCRM=!existCRM">Есть в CRM</a>
         </div>
     </section>
 
@@ -293,8 +293,8 @@
 
 
     <section class="addination-services service-list list">
-        <ul class="row-fluid">
-            <li class="selected span4"><span>Расширенная гарантия</span>
+        <div class="row-fluid">
+            <div class="selected span4"><span>Расширенная гарантия</span>
                 <a class="toggler"></a>
 
                 <div>
@@ -311,9 +311,9 @@
                     <a href="#">left</a>
                     <a href="#">right</a>
                 </div>
-            </li>
+            </div>
 
-            <li class="span4"><span>Защита кредита</span>
+            <div class="span4"><span>Защита кредита</span>
                 <a class="toggler"></a>
 
                 <div>
@@ -330,8 +330,8 @@
                     <a href="#">left</a>
                     <a href="#">right</a>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </section>
 
 
@@ -415,7 +415,7 @@
         </ul>
     </section>
 
-    <a>Оформить</a>
+    <a class="btn-big" href="#">Оформить</a>
 
 
 </section>
