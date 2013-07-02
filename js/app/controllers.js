@@ -12,27 +12,27 @@ function MaxPaymentCtrl($scope) {
 
     $scope.calculateMaxPayment = function () {
         var minExpendLevel = 0;
-        if($scope.regionId == "1") {
+        if ($scope.regionId == "1") {
             minExpendLevel = 20000;
-        } else if($scope.regionId == "2") {
+        } else if ($scope.regionId == "2") {
             minExpendLevel = 15000;
         } else {
             minExpendLevel = 10000;
         }
 
         var assuredIncome = 0;
-        if($scope.additionalIncomeAssured) {
+        if ($scope.additionalIncomeAssured) {
             assuredIncome = $scope.additionalIncome;
         } else {
-            assuredIncome = 0.5*$scope.additionalIncome;
+            assuredIncome = 0.5 * $scope.additionalIncome;
         }
 
-        $scope.client.maxMonthPayment = ($scope.monthIncome - minExpendLevel - $scope.monthPayment) + $scope.additionalIncome/12;
-        if($scope.client.maxMonthPayment < 0) {
+        $scope.client.maxMonthPayment = ($scope.monthIncome - minExpendLevel - $scope.monthPayment) + $scope.additionalIncome / 12;
+        if ($scope.client.maxMonthPayment < 0) {
             $scope.client.maxMonthPayment = 0;
             $scope.client.maxCreditValue = 0;
         } else {
-            $scope.client.maxCreditValue = 60*$scope.client.maxMonthPayment;
+            $scope.client.maxCreditValue = 60 * $scope.client.maxMonthPayment;
         }
     }
 }
@@ -83,20 +83,43 @@ function CalculatorCtrl($scope) {
                 yearId: cpv.car.yearId
             }
         });
-        $scope.calculation = $scope.calculationList[$scope.calculationList.length - 1];
     }
 
     $scope.delCalculation = function (ind) {
         $scope.calculationList.splice(ind);
     }
 
-    $scope.selectCalculation = function (ind) {
+    $scope.restoreCalculation = function (ind) {
         $scope.calculation = $scope.calculationList[ind];
     }
 
-    $scope.addCalculation();
+    $scope.saveCalculation = function () {
 
-    $scope.calculation = $scope.calculationList[0];
+        var cpv = $scope.calculation;
+        $scope.calculationList.push({
+            car: {
+                used: cpv.car.used,
+                price: cpv.car.price,
+                discount: cpv.car.discount,
+                markId: cpv.car.markId,
+                modelId: cpv.car.modelId,
+                packagingId: cpv.car.packagingId,
+                yearId: cpv.car.yearId
+            }
+        });
+    }
+
+    $scope.calculation = {
+        car: {
+            used: false,
+            price: 0,
+            discount: 0,
+            markId: null,
+            modelId: null,
+            packagingId: null,
+            yearId: null
+        }
+    };
 }
 
 function CarSearchCtrl($scope, $filter) {
@@ -130,18 +153,18 @@ function CarSearchCtrl($scope, $filter) {
 
         var markId = $scope.calculation.car.markId;
 
-        if(markId == null) {
+        if (markId == null) {
             $scope.selCars = selPackagingListForPrice;
             return;
         }
 
         var modelId = null;
 
-        if($scope.calculation.car.modelId == null) {
+        if ($scope.calculation.car.modelId == null) {
 
             var modelList = $scope.selModelList;
             var selPackagingListForPriceAndMark = [];
-            for(var ti = 0; ti < modelList.length; ti++) {
+            for (var ti = 0; ti < modelList.length; ti++) {
                 modelId = modelList[ti].id;
                 var selPackagingListForPriceAndModel = $filter('filter')(selPackagingListForPrice, function (element) {
                         if (element.modelId == modelId) {
@@ -150,7 +173,7 @@ function CarSearchCtrl($scope, $filter) {
                         return false;
                     }
                 );
-                if(selPackagingListForPriceAndModel.length > 0) {
+                if (selPackagingListForPriceAndModel.length > 0) {
                     selPackagingListForPriceAndMark = selPackagingListForPriceAndMark.concat(selPackagingListForPriceAndModel);
                 }
             }

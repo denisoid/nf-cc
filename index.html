@@ -36,7 +36,7 @@
 
 
             <li ng-repeat="calculation in calculationList" class="active">
-                <div ng-click="selectCalculation($index)">{{calculation.car.markName}}
+                <div ng-click="restoreCalculation($index)">{{calculation.car.markName}}
                     <br/>{{calculation.car.modelName}}
                     <br/>11111 руб/мес.
                 </div>
@@ -46,7 +46,7 @@
             </li>
 
             <li>
-                <a href="" ng-click="addCalculation()">создать вариант</a>
+                <a href="" ng-click="saveCalculation()">сохранить вариант</a>
             </li>
 
             <li>
