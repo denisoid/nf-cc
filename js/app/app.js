@@ -11,3 +11,9 @@ var seedAppModule = angular.module('seedApp',
         'ui.bootstrap'
     ]
 );
+
+seedAppModule.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.
+        when('/maxpayment', {templateUrl: 'partials/maxpayment.html', controller: MaxPaymentCtrl}).
+        otherwise({redirectTo: '/'});
+}]);

@@ -23,13 +23,13 @@
         <img src="img/logo.png">
         <ul>
 
-            <li class="calculate-sum">
+            <li class="calculate-sum" ng-click="isMaxPaymentShow=!isMaxPaymentShow">
                 <span>Расчет платежноспособности</span>
                 <dl>
                     <dt>max платеж</dt>
-                    <dd>{{maxMonthPayment | currency }}</dd>
+                    <dd>{{client.maxMonthPayment | currency }}</dd>
                     <dt>max кредит</dt>
-                    <dd>{{maxCreditValue | currency }}</dd>
+                    <dd>{{client.maxCreditValue | currency }}</dd>
                 </dl>
                 <i></i>
             </li>
@@ -58,7 +58,21 @@
 </aside>
 
 <div class="content-container">
-<article></article>
+<article ng-controller="MaxPaymentCtrl" ng-show="isMaxPaymentShow">
+    Расчет платежеспособности <br>
+    Ежемесячный доход <input type="text" ng-model="monthIncome" ng-change="calculateMaxPayment()"/> <br>
+    Дополнительный доход <input type="text" ng-model="additionalIncome" ng-change="calculateMaxPayment()"/> <br>
+    Подтвержден <input type="checkbox" ng-model="additionalIncomeAssured" ng-change="calculateMaxPayment()"/> <br>
+    Регион проживания <select ng-model="regionId" ng-change="calculateMaxPayment()">
+    <option value="1">Москва</option>
+    <option value="2">Московская область</option>
+    <option value="3">Все остальное</option>
+</select> <br>
+    Лимиты по кред. картам <input type="text" ng-model="creditCardLimit" ng-change="calculateMaxPayment()"/> <br>
+    Выплаты по долгу (в мес.) <input type="text" ng-model="monthPayment" ng-change="calculateMaxPayment()"/> <br>
+    Максимальный платеж {{client.maxMonthPayment}}<br>
+    Максимальный платеж {{client.maxCreditValue}}
+</article>
 <!--расчет платежноспобности-->
 
 
