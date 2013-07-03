@@ -23,7 +23,7 @@
         <img src="img/logo.png">
         <ul>
 
-            <li class="calculate-sum" ng-click="isMaxPaymentShow=!isMaxPaymentShow">
+            <li class="calculate-sum" ng-click="show.isMaxPayment=!show.isMaxPayment">
                 <span>Расчет платежноспособности</span>
                 <dl>
                     <dt>max платеж</dt>
@@ -58,7 +58,7 @@
 </aside>
 
 <div class="content-container">
-<article ng-controller="MaxPaymentCtrl" ng-show="isMaxPaymentShow">
+<article ng-controller="MaxPaymentCtrl" ng-show="show.isMaxPayment">
     Расчет платежеспособности <br>
     Ежемесячный доход <input type="text" ng-model="monthIncome" ng-change="calculateMaxPayment()"/> <br>
     Дополнительный доход <input type="text" ng-model="additionalIncome" ng-change="calculateMaxPayment()"/> <br>
