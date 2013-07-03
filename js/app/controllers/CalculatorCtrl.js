@@ -5,17 +5,18 @@
  * Date: 03.07.13
  * Time: 14:03
  */
-function CalculatorCtrl($scope) {
+function CalculatorCtrl($scope, CalculatorData) {
+    $scope.data = CalculatorData;
     $scope.isMaxPaymentShow = false;
 
     $scope.client = {maxMonthPayment: 100000, maxCreditValue: 1000000};
 
     $scope.isCatalog = true;
     $scope.carPrice = 1000000;
-    $scope.calculationList = [];
+    $scope.data.calculationList = [];
 
     $scope.addCalculation = function () {
-        $scope.calculationList.push({
+        $scope.data.calculationList.push({
             car: {
                 used: false,
                 price: null,
@@ -32,8 +33,8 @@ function CalculatorCtrl($scope) {
 
     $scope.copyCalculation = function (ind) {
 
-        var cpv = $scope.calculationList[ind];
-        $scope.calculationList.push({
+        var cpv = $scope.data.calculationList[ind];
+        $scope.data.calculationList.push({
             car: {
                 used: cpv.car.used,
                 price: cpv.car.price,
@@ -47,17 +48,17 @@ function CalculatorCtrl($scope) {
     }
 
     $scope.delCalculation = function (ind) {
-        $scope.calculationList.splice(ind);
+        $scope.data.calculationList.splice(ind);
     }
 
     $scope.restoreCalculation = function (ind) {
-        $scope.calculation = $scope.calculationList[ind];
+        $scope.data.calculation = $scope.data.calculationList[ind];
     }
 
     $scope.saveCalculation = function () {
 
-        var cpv = $scope.calculation;
-        $scope.calculationList.push({
+        var cpv = $scope.data.calculation;
+        $scope.data.calculationList.push({
             car: {
                 used: cpv.car.used,
                 price: cpv.car.price,
@@ -70,16 +71,5 @@ function CalculatorCtrl($scope) {
         });
     }
 
-    $scope.calculation = {
-        car: {
-            used: false,
-            price: 0,
-            discount: 0,
-            markId: null,
-            modelId: null,
-            packagingId: null,
-            yearId: null
-        }
-    };
 }
 

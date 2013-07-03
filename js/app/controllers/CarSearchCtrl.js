@@ -5,9 +5,10 @@
  * Date: 03.07.13
  * Time: 14:04
  */
-function CarSearchCtrl($scope, $filter) {
+function CarSearchCtrl($scope, $filter, CalculatorData) {
     $scope.selCars = [];
     $scope.searchPrice = 1000000;
+    $scope.calculation = CalculatorData.calculation;
 
     $scope.selectCar = function (ind) {
         $scope.calculation.car = {

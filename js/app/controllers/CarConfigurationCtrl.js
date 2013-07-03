@@ -5,10 +5,10 @@
  * Date: 03.07.13
  * Time: 14:04
  */
-function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout) {
+function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout, CalculatorData) {
 
     //init
-    $scope.car = $scope.calculation.car;
+    $scope.car = CalculatorData.calculation.car;
 
     $scope.selMarkList = [];
     $scope.selModelList = [];

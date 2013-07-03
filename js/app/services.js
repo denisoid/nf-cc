@@ -55,3 +55,21 @@ seedAppServiceModule.
         }
 
     });
+
+seedAppServiceModule.
+    factory('CalculatorData', function () {
+        return {
+            calculation: {
+                car: {
+                    used: false,
+                    price: 0,
+                    discount: 0,
+                    markId: null,
+                    modelId: null,
+                    packagingId: null,
+                    yearId: null
+                }
+            },
+            calculationList: []
+        }
+    });
