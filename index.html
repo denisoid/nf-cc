@@ -370,55 +370,28 @@
 
 </section>
 
-<section class="upgrades">
+<section class="upgrades" ng-controller="UpgradeCtrl">
     <h2>Улучшения</h2>
 
 
     <section class="car-list list">
+        <a href="" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()" >list left</a>
         <ul class="row-fluid">
-            <li class="span4">
+            <li class="span4" ng-repeat="upgrade in carUpgrade.currentPage">
                 <div>
-                    <h4>car1</h4>
-                    <span>32 000 руб</span>
-                </div>
-            </li>
-
-            <li class="span4">
-                <div>
-                    <h4>car1</h4>
-                    <span>32 000 руб</span>
-                </div>
-            </li>
-
-            <li class="span4">
-                <div>
-                    <h4>car1</h4>
+                    <h4>car{{ upgrade.id }}</h4>
                     <span>32 000 руб</span>
                 </div>
             </li>
         </ul>
+        <a href="" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()" >list right</a>
     </section>
 
 
     <section class="addination-services service-list list">
+        <a href="" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()" >list left</a>
         <ul class="row-fluid">
-            <li class="selected span4"><span>Расширенная гарантия</span>
-
-                <div>
-                    <h4>1 год → 2 года</h4>
-                    <span>+ 32 000 руб</span>
-                </div>
-            </li>
-
-            <li class="selected span4"><span>Расширенная гарантия</span>
-
-                <div>
-                    <h4>1 год → 2 года</h4>
-                    <span>+ 32 000 руб</span>
-                </div>
-            </li>
-
-            <li class="selected span4"><span>Расширенная гарантия</span>
+            <li class="selected span4" ng-repeat="upgrade in serviceUpgrade.currentPage"><span>Расширенная гарантия</span>
 
                 <div>
                     <h4>1 год → 2 года</h4>
@@ -427,6 +400,7 @@
             </li>
 
         </ul>
+        <a href="" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()" >list right</a>
     </section>
 
     <a class="btn-big" href="#">Оформить</a>
@@ -454,6 +428,8 @@
 <script type="text/javascript" src="js/angular-ui/bootstrap/ui-bootstrap-tpls-0.4.0-SNAPSHOT.min.js"></script>
 
 <script type="text/javascript" src="js/app/app.js"></script>
+
+<script type="text/javascript" src="js/app/utility.js"></script>
 
 <script type="text/javascript" src="js/app/controllers/CalculatorCtrl.js"></script>
 <script type="text/javascript" src="js/app/controllers/CarConfigurationCtrl.js"></script>
