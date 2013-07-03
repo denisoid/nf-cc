@@ -70,6 +70,27 @@ seedAppServiceModule.
                     yearId: null
                 }
             },
-            calculationList: []
+            calculationList: [],
+            saveCalculation: function () {
+
+                this.calculationList.push({
+                    car: {
+                        used: this.calculation.car.used,
+                        price: this.calculation.car.price,
+                        discount: this.calculation.car.discount,
+                        markId: this.calculation.car.markId,
+                        modelId: this.calculation.car.modelId,
+                        packagingId: this.calculation.car.packagingId,
+                        yearId: this.calculation.car.yearId
+                    }
+                });
+            },
+            delCalculation: function (ind) {
+                this.calculationList.splice(ind, true);
+            },
+            restoreCalculation: function (ind) {
+                this.calculation = this.calculationList[ind];
+            }
         }
-    });
+    }
+);

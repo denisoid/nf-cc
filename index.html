@@ -18,7 +18,7 @@
 </head>
 
 <body ng-controller="CalculatorCtrl">
-<aside>
+<aside ng-controller="MenuCtrl">
     <nav>
         <img src="img/logo.png">
         <ul>
@@ -35,18 +35,18 @@
             </li>
 
 
-            <li ng-repeat="calculation in calculationList" class="active">
+            <li ng-repeat="calculation in data.calculationList" class="active">
                 <div ng-click="restoreCalculation($index)">{{calculation.car.markName}}
                     <br/>{{calculation.car.modelName}}
                     <br/>11111 руб/мес.
                 </div>
-                <a href="" ng-click="copyCalculation($index)">копировать</a>
+                <a href="" ng-click="restoreCalculation($index)">загрузить</a>
                 <a href="" ng-click="delCalculation($index)">удалить</a>
                 <i></i>
             </li>
 
             <li>
-                <a href="" ng-click="saveCalculation()">сохранить вариант</a>
+                <a href="" ng-click="saveCalculation()">запомнить вариант</a>
             </li>
 
             <li>
@@ -190,9 +190,9 @@
     </section>
 
     <div class="price-line">
-        <h3>{{calculation.car.markName}} {{calculation.car.modelName}}</h3>
+        <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
 
-        <div class="price">{{calculation.car.price}} руб</div>
+        <div class="price">{{data.calculation.car.price}} руб</div>
         <a class="toggler"></a>
     </div>
 
@@ -462,6 +462,7 @@
 <script type="text/javascript" src="js/app/controllers/MaxPaymentCtrl.js"></script>
 <script type="text/javascript" src="js/app/controllers/OfferCtrl.js"></script>
 <script type="text/javascript" src="js/app/controllers/UpgradeCtrl.js"></script>
+<script type="text/javascript" src="js/app/controllers/MenuCtrl.js"></script>
 
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
