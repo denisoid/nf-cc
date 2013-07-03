@@ -378,7 +378,7 @@
         <a href="" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()" >list left</a>
         <ul class="row-fluid">
             <li class="span4" ng-repeat="upgrade in carUpgrade.currentPage">
-                <div>
+                <div ng-click="show(upgrade.id)">
                     <h4>car{{ upgrade.id }}</h4>
                     <span>32 000 руб</span>
                 </div>
@@ -393,7 +393,7 @@
         <ul class="row-fluid">
             <li class="selected span4" ng-repeat="upgrade in serviceUpgrade.currentPage"><span>Расширенная гарантия</span>
 
-                <div>
+                <div ng-click="show(upgrade.id)">
                     <h4>1 год → 2 года</h4>
                     <span>+ 32 000 руб</span>
                 </div>
