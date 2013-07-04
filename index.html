@@ -9,12 +9,17 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
-    <link href="css/main.css" rel="stylesheet" media="screen">
-    <link href="css/print.css" rel="stylesheet" media="print">
 
 
     <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
+
+    <link href="css/main.css" rel="stylesheet" media="screen">
+    <link href="css/print.css" rel="stylesheet" media="print">
+
+
+
 </head>
 
 <body ng-controller="CalculatorCtrl">
@@ -260,19 +265,21 @@
     <h2>Кредит</h2>
 
     <section class="credit-filter row-fluid">
-        <div class="span4">
+        <div class="span4 input-ip">
             <label>Первоначальный взнос</label>
 
+            <div class="input"><input><label>руб.</label></div>
             <div slider ng-model="ip"></div>
-            <input>
+
         </div>
 
 
-        <div class="span4">
-            <label>Срок</label>
+        <div class="span4 input-ip">
+            <label>Ежемесячный платеж</label>
 
+            <div class="input"><input class="input-mini" ng-model="months"><label>руб.</label></div>
             <div slider ng-model="months"></div>
-            <input ng-model="months">
+
         </div>
 
         <div class="span4 client-options">
@@ -281,43 +288,48 @@
         </div>
     </section>
 
-    <section class="credit-options row-fluid">
-        <div class="span4">
+    <section class="credit-filter row-fluid">
+        <div class="span4  input-ip">
+            <label>Оценка текущей машины</label>
+
+            <div class="input"><input><label>руб.</label></div>
+            <div slider></div>
+        </div>
+
+
+        <div class="span4 input-ip">
             <label>Рефинансирование</label>
 
+            <div class="input"><input><label>руб.</label></div>
             <div slider></div>
-            <input>
         </div>
 
-
-        <div class="span4">
-            <label>Трейд-ин</label>
-
-            <div slider></div>
-            <input>
-        </div>
-
-        <div class="span4">
+        <div class="span4 input-ip">
             <label>Остаточный платеж</label>
 
+            <div class="input"><input><label>руб.</label></div>
             <div slider></div>
-            <input>
         </div>
     </section>
 
 
     <section class="credit-offers row-fluid">
-        <div class="selected span4">
+        <div class="selected span3">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>
 
-        <div class="span4">
+        <div class="span3">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>
 
-        <div class="span4">
+        <div class="span3">
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
+
+        <div class="span3">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>

@@ -17,6 +17,85 @@ h1, h2, h3, h4 {
     margin: 0;
 }
 
+
+
+
+
+
+
+
+.ui-slider{
+    border-radius: 0;
+    height: 0;
+    border: 0;
+    border-top: 1px solid #000;
+    margin-top: 15px;
+}
+
+
+.ui-slider-range{
+    border-top: 1px solid #ccc !important;
+    top:-1px !important;
+
+}
+
+.ui-slider  .ui-slider-handle{
+    border-radius: 0;
+    border:0;
+    width: 0;
+    height: 0;
+
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    margin-left:-6px;
+
+    border-top: 15px solid #000;
+    background: transparent;
+    top:-15px;
+}
+
+
+.credit-filter{
+    margin-bottom:12px;
+}
+
+
+.credit-filter>div>div.input{
+    float:right;
+    white-space: nowrap;
+}
+
+.credit-filter>div>div.input *{
+    display:inline-block;
+}
+
+.credit-filter>div>div.input label{
+    padding-left:3px;
+
+}
+
+.credit-filter>div>div.input input{
+    text-align: right;
+}
+
+div.input-ip .input input{
+    width:70px;
+}
+
+div.input-ip .ui-slider{
+    margin-right:110px;
+}
+
+
+div.input-months .input input{
+    width:18px;
+}
+
+div.input-months .ui-slider{
+    margin-right:59px;
+}
+
+
 /*aside*/
 
 aside {
@@ -323,6 +402,32 @@ select {
 
 }
 
+
+/*credit-offers*/
+
+
+.credit-offers{
+    vertical-align: bottom;
+}
+
+.credit-offers>div{
+    border: 1px solid #AEAEAE;
+    padding: 7px 0;
+    text-align: center;
+    font-size:0.7em;
+    margin-top:6px;
+}
+
+.credit-offers>div.selected{
+    background: #FFF2BF;
+    padding: 10px 0;
+    font-size:1em;
+    margin-top:0;
+}
+
+
+
+
 .client-options {
     text-align: justify;
 }
@@ -368,10 +473,10 @@ select {
 }
 
 /*end-offer*/
-.end-offer h2{
-    font-size:28px;
-    padding-bottom:10px;
-    text-align:center;
+.end-offer h2 {
+    font-size: 28px;
+    padding-bottom: 10px;
+    text-align: center;
 }
 
 .end-offer table {
