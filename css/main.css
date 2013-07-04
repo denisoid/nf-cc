@@ -22,7 +22,7 @@ h1,h2,h3,h4{
 /*aside*/
 
 aside{
-    width:230px;
+    width:210px;
     background:#252525;
     position:fixed;
     top:0;
@@ -164,16 +164,38 @@ aside li.calculate-sum dd{
 
 
 
+header{
+    position: fixed;
+    left:210px;
+    width:720px;
+    z-index:10;
+    background: #e4e4e4;
+    background: -moz-linear-gradient(top,  #e4e4e4 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4e4e4), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top,  #e4e4e4 0%,#ffffff 100%);
+    background: -o-linear-gradient(top,  #e4e4e4 0%,#ffffff 100%);
+    background: -ms-linear-gradient(top,  #e4e4e4 0%,#ffffff 100%);
+    background: linear-gradient(to bottom,  #e4e4e4 0%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#ffffff',GradientType=0 );
+
+    height:60px;
+    line-height:60px;
+    padding:0 20px;
+}
+
+
 
 
 .content-container{
     background:#fff;
-    margin-left:230px;
-    width:710px;
+    margin-left:210px;
+    width:720px;
+
+    padding-top:80px;
     padding-left:20px;
     padding-right:20px;
-
     padding-bottom:3em;
+
     -webkit-box-shadow: 0 0 15px #b1b1b1;
     -moz-box-shadow: 0 0 15px #b1b1b1;
     box-shadow: 0 0 15px #b1b1b1;
@@ -182,14 +204,47 @@ aside li.calculate-sum dd{
 
 
 
+.car-info table{
+    display: block;
+    float:right;
+    vertical-align: bottom;
+    font-size:0.9em;
+
+}
+
+.car-info table tr td{
+    border-bottom:1px solid #cecece;
+    padding:3px 5px;
+}
 
 
+.car-info table tr:last-child td{
+    border:0;
+
+}
+
+.car-info table td:last-child{
+    padding-left:50px;
+    text-align: right;
+}
 
 
 .price-line{
+    clear:both;
     position: relative;
-    margin-bottom:2em;
     text-align: right;
+    margin:1em -20px;
+    padding:0 20px;
+
+    background: #ffeda4;
+    background: -moz-linear-gradient(left,  #ffeda4 0%, #ffcc00 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffeda4), color-stop(100%,#ffcc00));
+    background: -webkit-linear-gradient(left,  #ffeda4 0%,#ffcc00 100%);
+    background: -o-linear-gradient(left,  #ffeda4 0%,#ffcc00 100%);
+    background: -ms-linear-gradient(left,  #ffeda4 0%,#ffcc00 100%);
+    background: linear-gradient(to right,  #ffeda4 0%,#ffcc00 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffeda4', endColorstr='#ffcc00',GradientType=1 );
+
 }
 
 
@@ -199,7 +254,6 @@ aside li.calculate-sum dd{
 
 
 .price-line .price{
-    background:#fc0;
     font-size:2em;
     font-weight: 300;
     padding:0 0.2em;
@@ -249,6 +303,12 @@ div.title .car-search-type{
 }
 
 
+
+h2{
+    font-size:18px;
+
+}
+
 /*grids*/
 ul.row-fluid{
     margin-left:0;
@@ -297,11 +357,13 @@ select{
 
 .btn-big{
     font-size:2em;
+
     padding:1em 1em;
     color:#000 !important;
     background:#fc0;
     display:block;
     margin:0 auto;
+    margin-top:2em;
     width:33%;
     text-align: center;
     font-weight: 300;
@@ -343,5 +405,64 @@ select{
     position:absolute;
     top:2px;
     right:-10px;
+
+}
+
+
+/*services-choose*/
+.services-choose{
+    background:#FFF2BF;
+    border:1px solid #AEAEAE;
+    border-width: 1px 0;
+    margin:0 -20px;
+    padding:0 20px;
+
+}
+
+
+
+
+
+
+/*end-offer*/
+
+
+.end-offer table{
+    width:50%;
+    margin:0 auto;
+    font-size:12px;
+
+}
+
+
+.end-offer table tr td{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+
+
+
+.end-offer table tr{
+    font-style:italic;
+
+
+}
+
+.end-offer table tr td:nth-child(2){
+    text-align:right;
+
+}
+
+
+.end-offer table tr.header{
+    font-size:133%;
+    font-style: normal;
+}
+
+
+
+.end-offer table tr.space-top td{
+    padding-top:1.33em;
 
 }

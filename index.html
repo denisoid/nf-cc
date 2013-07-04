@@ -20,7 +20,7 @@
 <body ng-controller="CalculatorCtrl">
 <aside ng-controller="MenuCtrl">
     <nav>
-        <img src="img/logo.png">
+
         <ul>
 
             <li class="calculate-sum" ng-click="show.isMaxPayment=!show.isMaxPayment">
@@ -56,6 +56,11 @@
         </ul>
     </nav>
 </aside>
+
+<header>
+    <img src="img/logo.png">
+
+</header>
 
 <div class="content-container">
 <article ng-controller="MaxPaymentCtrl" ng-show="show.isMaxPayment">
@@ -188,6 +193,57 @@
             <a href="#">right</a>
         </section>
     </section>
+
+
+    <div class="car-info">
+
+        <table>
+            <tr>
+                <td><span>Длина:</span></td>
+                <td>4100 мм</td>
+            </tr>
+
+
+            <tr>
+                <td><span>Ширина:</span></td>
+                <td>1690 мм</td>
+            </tr>
+
+
+            <tr>
+                <td><span>Высота:</span></td>
+                <td>1550 мм</td>
+            </tr>
+
+
+            <tr>
+                <td><span>Клиренс:</span></td>
+                <td>145 мм</td>
+            </tr>
+
+
+            <tr>
+                <td><span>Колёсная база:</span></td>
+                <td>2630 мм</td>
+            </tr>
+
+
+            <tr>
+                <td><span>Масса:</span></td>
+                <td>1092 - 1177 кг</td>
+            </tr>
+
+
+            <tr>
+                <td><span>Полная масса:</span></td>
+                <td>1546 - 1580 кг</td>
+            </tr>
+        </table>
+
+        <img src="img/car.jpg" width="327" height="188"/>
+
+
+    </div>
 
     <div class="price-line">
         <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
@@ -375,7 +431,7 @@
 
 
     <section class="car-list list">
-        <a href="" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()" >list left</a>
+        <a href="" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()">list left</a>
         <ul class="row-fluid">
             <li class="span4" ng-repeat="upgrade in carUpgrade.currentPage">
                 <div ng-click="show(upgrade.id)">
@@ -384,14 +440,15 @@
                 </div>
             </li>
         </ul>
-        <a href="" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()" >list right</a>
+        <a href="" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()">list right</a>
     </section>
 
 
     <section class="addination-services service-list list">
-        <a href="" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()" >list left</a>
+        <a href="" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()">list left</a>
         <ul class="row-fluid">
-            <li class="selected span4" ng-repeat="upgrade in serviceUpgrade.currentPage"><span>Расширенная гарантия</span>
+            <li class="selected span4" ng-repeat="upgrade in serviceUpgrade.currentPage">
+                <span>Расширенная гарантия</span>
 
                 <div ng-click="show(upgrade.id)">
                     <h4>1 год → 2 года</h4>
@@ -400,13 +457,117 @@
             </li>
 
         </ul>
-        <a href="" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()" >list right</a>
+        <a href="" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()">list right</a>
     </section>
 
-    <a class="btn-big" href="#">Оформить</a>
+
+
 
 
 </section>
+
+<section class="end-offer">
+    <table>
+        <tr class="header">
+            <td>Сумма кредита</td>
+            <td>400 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr class="header">
+            <td>Срок кредита</td>
+            <td>12</td>
+            <td>мес</td>
+        </tr>
+        <tr class="header">
+            <td>Процентная ставка</td>
+            <td>9.00</td>
+            <td>%</td>
+        </tr>
+        <tr class="header">
+            <td>Стоимость автомобиля</td>
+            <td>560 000</td>
+            <td>руб</td>
+        </tr>
+        <tr>
+            <td>—автомобиль</td>
+            <td>560 000</td>
+            <td>руб</td>
+        </tr>
+        <tr>
+            <td>—аксессуары</td>
+            <td>0</td>
+            <td>руб</td>
+        </tr>
+        <tr class="header space-top">
+            <td>Дополнительные&nbsp; сервисы</td>
+            <td>197 640</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—ОСАГО</td>
+            <td>72 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—Каско</td>
+            <td>65 640</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—Защита платежей на 1 год</td>
+            <td>36 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—Спутниковая сигнализация</td>
+            <td>24 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr class="header space-top">
+            <td>Первоначальный платеж</td>
+            <td>123 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—наличными</td>
+            <td>100 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—трейд-ин</td>
+            <td>20 000</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—рефинансирование</td>
+            <td>3 000</td>
+            <td>руб.</td>
+        </tr>
+
+
+        <tr class="header space-top">
+            <td>Ежемесячный платеж</td>
+            <td>32 435</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—платеж за автомобиль</td>
+            <td>21 327</td>
+            <td>руб.</td>
+        </tr>
+        <tr>
+            <td>—платеж за дополнительные сервисы</td>
+            <td>11 108</td>
+            <td>руб.</td>
+        </tr>
+    </table>
+
+
+
+    <a class="btn-big" href="#">Оформить</a>
+</section>
+
+
 </article>
 
 <article></article>
