@@ -281,26 +281,6 @@
         </div>
     </section>
 
-    <section class="credit-offers row-fluid">
-        <div class="selected span4">
-            <h4>Стандартный 6.5%</h4>
-            <span>32 000 руб/мес</span>
-        </div>
-
-        <div class="span4">
-            <h4>Стандартный 6.5%</h4>
-            <span>32 000 руб/мес</span>
-        </div>
-
-        <div class="span4">
-            <h4>Стандартный 6.5%</h4>
-            <span>32 000 руб/мес</span>
-        </div>
-
-        <a href="#">left</a>
-        <a href="#">right</a>
-    </section>
-
     <section class="credit-options row-fluid">
         <div class="span4">
             <label>Рефинансирование</label>
@@ -326,12 +306,30 @@
     </section>
 
 
-    <div class="price-line">
-        <h3>Платеж за машину</h3>
+    <section class="credit-offers row-fluid">
+        <div class="selected span4">
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
 
-        <div class="price">560 000 руб/мес</div>
+        <div class="span4">
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
 
-    </div>
+        <div class="span4">
+            <h4>Стандартный 6.5%</h4>
+            <span>32 000 руб/мес</span>
+        </div>
+
+        <a href="#">left</a>
+        <a href="#">right</a>
+    </section>
+
+
+
+
+
 
 </section>
 
@@ -405,31 +403,22 @@
     </section>
 
 
-    <div class="price-line">
-        <h3>Итого за сервисы</h3>
 
-        <div class="price">560 000 руб/мес</div>
-    </div>
-
-    <div class="price-line">
-        <h3>Ежемесячный платеж: 1111+2222=</h3>
-
-        <div class="price">3333 руб/мес</div>
-    </div>
 
 
 </section>
 
 
-<section class="offer-complete">
-    <h2>Предложение</h2>
+<div class="price-line">
+    <h3>Ежемесячный платеж: 1111+2222=</h3>
 
-</section>
+    <div class="price">3333 руб/мес</div>
+</div>
+
+
+
 
 <section class="upgrades" ng-controller="UpgradeCtrl">
-    <h2>Улучшения</h2>
-
-
     <section class="car-list list">
         <a href="" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()">list left</a>
         <ul class="row-fluid">
@@ -442,7 +431,6 @@
         </ul>
         <a href="" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()">list right</a>
     </section>
-
 
     <section class="addination-services service-list list">
         <a href="" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()">list left</a>
@@ -467,6 +455,8 @@
 </section>
 
 <section class="end-offer">
+    <h2>Стандартный</h2>
+
     <table>
         <tr class="header">
             <td>Сумма кредита</td>

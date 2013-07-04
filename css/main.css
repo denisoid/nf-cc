@@ -1,200 +1,171 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic);
-html,body{
-    width:100%;
-    height:100%
+
+html, body {
+    width: 100%;
+    height: 100%
 }
 
-
-body{
+body {
     font-family: 'Open Sans', sans-serif;
-    font-size:14px;
+    font-size: 14px;
     line-height: 1.6;
-    background:#e5e5e5;
+    background: #e5e5e5;
 }
 
-
-h1,h2,h3,h4{
+h1, h2, h3, h4 {
     font-weight: 300;
-    margin:0;
+    margin: 0;
 }
-
 
 /*aside*/
 
-aside{
-    width:210px;
-    background:#252525;
-    position:fixed;
-    top:0;
-    left:0;
-    bottom:0;
-    padding:0;
+aside {
+    width: 210px;
+    background: #252525;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
 
-    color:#eee;
+    color: #eee;
 }
 
-
-
-aside img{
-    padding:10px;
+aside img {
+    padding: 10px;
 }
 
-
-aside ul{
+aside ul {
     list-style: none;
     padding: 0;
     margin: 0;
 
 }
 
-aside ul li{
-    padding:10px;
+aside ul li {
+    padding: 10px;
 }
 
-
-aside ul li i{
-    display:none;
+aside ul li i {
+    display: none;
 
 }
 
-
-aside ul li{
-    margin:20px 0 40px 0;
+aside ul li {
+    margin: 20px 0 40px 0;
 }
 
-
-aside ul li{
+aside ul li {
     border-radius: 10px 0 0 10px;
-    position:relative;
+    position: relative;
     cursor: pointer;
 }
 
-aside ul li:before, aside ul li:after, aside ul li i{
-    display:block;
+aside ul li:before, aside ul li:after, aside ul li i {
+    display: block;
     content: '';
-    width:10px;
+    width: 10px;
 
-    position:absolute;
-    right:0;
+    position: absolute;
+    right: 0;
 }
 
-
-aside ul li i{
-    top:-10px;
-    bottom:-10px;
-    height:auto;
-
-}
-
-
-aside ul li:before, aside ul li:after{
-    height:10px;
-    z-index:10;
+aside ul li i {
+    top: -10px;
+    bottom: -10px;
+    height: auto;
 
 }
 
+aside ul li:before, aside ul li:after {
+    height: 10px;
+    z-index: 10;
 
-aside ul li:before{
-    top:-10px;
+}
+
+aside ul li:before {
+    top: -10px;
     border-radius: 0 0 10px 0;
 }
 
-aside ul li:after{
-    bottom:-10px;
+aside ul li:after {
+    bottom: -10px;
     border-radius: 0 10px 0 0;
 }
 
-
-
 /*li.hover*/
 
-
-aside ul li:hover, aside ul li:hover i{
+aside ul li:hover, aside ul li:hover i {
     background: #555;
 }
 
-
-
-aside ul li:hover:before, aside ul li:hover:after{
-    background:#252525;
+aside ul li:hover:before, aside ul li:hover:after {
+    background: #252525;
 }
-
-
-
 
 /*li.active*/
 
-
-aside ul li.active, aside ul li.active i{
+aside ul li.active, aside ul li.active i {
     background: #fc0;
-    color:#333;
+    color: #333;
 }
 
-
-aside ul li.active:before, aside ul li.active:after{
-    background:#252525;
+aside ul li.active:before, aside ul li.active:after {
+    background: #252525;
 }
-
-
 
 /*calculate-sum*/
 
-
-aside li.calculate-sum dt, aside li.calculate-sum dd{
-    width:105px;
+aside li.calculate-sum dt, aside li.calculate-sum dd {
+    width: 105px;
     font-weight: normal;
     display: inline-block;
     padding: 0;
     margin: 0;
 }
 
-aside li.calculate-sum dl{
-    margin:0;
-    font-size:0;
+aside li.calculate-sum dl {
+    margin: 0;
+    font-size: 0;
 }
 
-aside li.calculate-sum dl *{
-    font-size:13px;
+aside li.calculate-sum dl * {
+    font-size: 13px;
 }
 
-aside li.calculate-sum dd{
-    text-align:right;
+aside li.calculate-sum dd {
+    text-align: right;
 
 }
 
-
-
-header{
+header {
     position: fixed;
-    left:210px;
-    width:720px;
-    z-index:10;
+    left: 210px;
+    width: 720px;
+    z-index: 10;
     background: #e4e4e4;
-    background: -moz-linear-gradient(top,  #e4e4e4 0%, #ffffff 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4e4e4), color-stop(100%,#ffffff));
-    background: -webkit-linear-gradient(top,  #e4e4e4 0%,#ffffff 100%);
-    background: -o-linear-gradient(top,  #e4e4e4 0%,#ffffff 100%);
-    background: -ms-linear-gradient(top,  #e4e4e4 0%,#ffffff 100%);
-    background: linear-gradient(to bottom,  #e4e4e4 0%,#ffffff 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#ffffff',GradientType=0 );
+    background: -moz-linear-gradient(top, #e4e4e4 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e4e4e4), color-stop(100%, #ffffff));
+    background: -webkit-linear-gradient(top, #e4e4e4 0%, #ffffff 100%);
+    background: -o-linear-gradient(top, #e4e4e4 0%, #ffffff 100%);
+    background: -ms-linear-gradient(top, #e4e4e4 0%, #ffffff 100%);
+    background: linear-gradient(to bottom, #e4e4e4 0%, #ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4e4e4', endColorstr='#ffffff', GradientType=0);
 
-    height:60px;
-    line-height:60px;
-    padding:0 20px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
 }
 
+.content-container {
+    background: #fff;
+    margin-left: 210px;
+    width: 720px;
 
-
-
-.content-container{
-    background:#fff;
-    margin-left:210px;
-    width:720px;
-
-    padding-top:80px;
-    padding-left:20px;
-    padding-right:20px;
-    padding-bottom:3em;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 3em;
 
     -webkit-box-shadow: 0 0 15px #b1b1b1;
     -moz-box-shadow: 0 0 15px #b1b1b1;
@@ -202,175 +173,155 @@ header{
 
 }
 
-
-
-.car-info table{
+.car-info table {
     display: block;
-    float:right;
+    float: right;
     vertical-align: bottom;
-    font-size:0.9em;
+    font-size: 0.9em;
 
 }
 
-.car-info table tr td{
-    border-bottom:1px solid #cecece;
-    padding:3px 5px;
+.car-info table tr td {
+    border-bottom: 1px solid #cecece;
+    padding: 3px 5px;
 }
 
-
-.car-info table tr:last-child td{
-    border:0;
+.car-info table tr:last-child td {
+    border: 0;
 
 }
 
-.car-info table td:last-child{
-    padding-left:50px;
+.car-info table td:last-child {
+    padding-left: 50px;
     text-align: right;
 }
 
-
-.price-line{
-    clear:both;
+.price-line {
+    clear: both;
     position: relative;
     text-align: right;
-    margin:1em -20px;
-    padding:0 20px;
+    margin: 1em -20px;
+    padding: 0 20px;
 
     background: #ffeda4;
-    background: -moz-linear-gradient(left,  #ffeda4 0%, #ffcc00 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffeda4), color-stop(100%,#ffcc00));
-    background: -webkit-linear-gradient(left,  #ffeda4 0%,#ffcc00 100%);
-    background: -o-linear-gradient(left,  #ffeda4 0%,#ffcc00 100%);
-    background: -ms-linear-gradient(left,  #ffeda4 0%,#ffcc00 100%);
-    background: linear-gradient(to right,  #ffeda4 0%,#ffcc00 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffeda4', endColorstr='#ffcc00',GradientType=1 );
+    background: -moz-linear-gradient(left, #ffeda4 0%, #ffcc00 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #ffeda4), color-stop(100%, #ffcc00));
+    background: -webkit-linear-gradient(left, #ffeda4 0%, #ffcc00 100%);
+    background: -o-linear-gradient(left, #ffeda4 0%, #ffcc00 100%);
+    background: -ms-linear-gradient(left, #ffeda4 0%, #ffcc00 100%);
+    background: linear-gradient(to right, #ffeda4 0%, #ffcc00 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeda4', endColorstr='#ffcc00', GradientType=1);
 
 }
 
-
-.price-line *{
+.price-line * {
     display: inline-block;
 }
 
-
-.price-line .price{
-    font-size:2em;
+.price-line .price {
+    font-size: 2em;
     font-weight: 300;
-    padding:0 0.2em;
+    padding: 0 0.2em;
 }
 
-
-
-.radio-btn{
-    font-size:1.3em;
+.radio-btn {
+    font-size: 1.3em;
     font-weight: 300;
-    margin:0;
-    padding:0 0.2em;
-    display:inline-block;
-    color:#000;
+    margin: 0;
+    padding: 0 0.2em;
+    display: inline-block;
+    color: #000;
 }
 
-label.radio-btn input{
-    display:none;
+label.radio-btn input {
+    display: none;
 
 }
 
-
-.radio-btn:hover{
+.radio-btn:hover {
     background: rgba(255, 200, 0, 0.25);
 }
 
-.radio-btn.active{
-    background:#fc0;
+.radio-btn.active {
+    background: #fc0;
     text-decoration: none;
 }
 
-
 /*title*/
-div.title{
+div.title {
     position: relative;
-    margin-bottom:1em;
+    margin-bottom: 1em;
 
 }
 
-div.title h2, div.title div{
-    display:inline-block;
+div.title h2, div.title div {
+    display: inline-block;
 }
-div.title .car-search-type{
+
+div.title .car-search-type {
     position: absolute;
-    right:0;
-    bottom:0;
+    right: 0;
+    bottom: 0;
 }
 
-
-
-h2{
-    font-size:18px;
+h2 {
+    font-size: 18px;
 
 }
 
 /*grids*/
-ul.row-fluid{
-    margin-left:0;
+ul.row-fluid {
+    margin-left: 0;
 }
 
-.list{
+.list {
     margin-bottom: 1em;
 }
 
-.list ul{
+.list ul {
     margin: 0;
     list-style: none;
 }
 
-.list ul li{
-    background:#EAE9DA;
-    border:1px solid #BEB78F;
-    padding:5px 0;
-    text-align:center;
+.list ul li {
+    background: #EAE9DA;
+    border: 1px solid #BEB78F;
+    padding: 5px 0;
+    text-align: center;
 }
 
-
-.list ul li:hover{
+.list ul li:hover {
     background: rgba(255, 200, 0, 0.25);
 }
 
-
-h4{
-    font-size:1.2em;
+h4 {
+    font-size: 1.2em;
 
 }
 
-
-.row-fluid select{
-    width:100%;
+.row-fluid select {
+    width: 100%;
 }
 
-
-select{
-    border:1px solid #BEB78F;
+select {
+    border: 1px solid #BEB78F;
     border-radius: 0;
 }
 
+.btn-big {
+    font-size: 2em;
 
-
-
-.btn-big{
-    font-size:2em;
-
-    padding:1em 1em;
-    color:#000 !important;
-    background:#fc0;
-    display:block;
-    margin:0 auto;
-    margin-top:2em;
-    width:33%;
+    padding: 1em 1em;
+    color: #000 !important;
+    background: #fc0;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2em;
+    width: 33%;
     text-align: center;
     font-weight: 300;
 
-
 }
-
 
 .client-options {
     text-align: justify;
@@ -382,7 +333,7 @@ select{
     top: 1.2em;
 }
 
-.client-options:before{
+.client-options:before {
     content: '';
     display: block;
     width: 100%;
@@ -395,74 +346,62 @@ select{
     width: 100%;
 }
 
-
-
-.toggler{
-    background:url("../img/toggler.png") no-repeat;
-    width:7px;
-    height:10px;
-    display:block;
-    position:absolute;
-    top:2px;
-    right:-10px;
+.toggler {
+    background: url("../img/toggler.png") no-repeat;
+    width: 7px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    top: 2px;
+    right: -10px;
 
 }
-
 
 /*services-choose*/
-.services-choose{
-    background:#FFF2BF;
-    border:1px solid #AEAEAE;
+.services-choose {
+    background: #FFF2BF;
+    border: 1px solid #AEAEAE;
     border-width: 1px 0;
-    margin:0 -20px;
-    padding:0 20px;
+    margin: 20px -20px;
+    padding: 0 20px;
 
 }
-
-
-
-
-
 
 /*end-offer*/
+.end-offer h2{
+    font-size:28px;
+    padding-bottom:10px;
+    text-align:center;
+}
 
-
-.end-offer table{
-    width:50%;
-    margin:0 auto;
-    font-size:12px;
+.end-offer table {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 12px;
 
 }
 
-
-.end-offer table tr td{
+.end-offer table tr td {
     padding-left: 3px;
     padding-right: 3px;
 }
 
-
-
-
-.end-offer table tr{
-    font-style:italic;
-
+.end-offer table tr {
+    font-style: italic;
 
 }
 
-.end-offer table tr td:nth-child(2){
-    text-align:right;
+.end-offer table tr td:nth-child(2) {
+    text-align: right;
 
 }
 
-
-.end-offer table tr.header{
-    font-size:133%;
+.end-offer table tr.header {
+    font-size: 130%;
     font-style: normal;
 }
 
-
-
-.end-offer table tr.space-top td{
-    padding-top:1.33em;
+.end-offer table tr.space-top td {
+    padding-top: 1.33em;
 
 }
