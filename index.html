@@ -10,14 +10,12 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 
-
     <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 
 
     <link href="css/main.css" rel="stylesheet" media="screen">
     <link href="css/print.css" rel="stylesheet" media="print">
-
 
 
 </head>
@@ -339,85 +337,73 @@
     </section>
 
 
-
-
-
-
 </section>
 
 <section class="services-choose">
     <h2>Дополнительные сервисы</h2>
 
-    <div class="show-month-price"><label class="checkbox"><input type="checkbox" checked>Показывать стоимость за месяц</label></div>
+    <div class="show-month-price"><label class="checkbox"><input type="checkbox" checked>Показывать стоимость за
+        месяц</label></div>
 
 
-    <section class="main-services service-list list">
-        <ul class="row-fluid">
-            <li class="span4">
-                <div>
-                    <h4>ОСАГО</h4>
-                    <span>+ 32 000 руб</span>
-                    <a class="toggler"></a>
-                </div>
-            </li>
-
-            <li class="span4">
-
-                <div>
-                    <h4>КАСКО</h4>
-                    <span>+32 000 руб</span>
-                    <a class="toggler"></a>
-                </div>
-
-            </li>
-        </ul>
-    </section>
+    <section class="service-list">
+        <div class="span6">
+            <ul>
+                <li>ОСАГО<span class="price">1 230 руб/мес.</span></li>
+                <li>
+                    <label class="radio"><input type="radio" name="r1"/>Без ОСАГО
+                        <span class="price">-1230 руб/мес.</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="radio"><input type="radio" checked name="r1"/>ОСАГО простое
+                        <span class="price"></span>
+                    </label>
+                </li>
+            </ul>
 
 
-    <section class="addination-services service-list list">
-        <div class="row-fluid">
-            <div class="selected span4"><span>Расширенная гарантия</span>
-                <a class="toggler"></a>
+            <span>Расширенная гарантия</span>
 
-                <div>
-                    <ul>
-                        <li>
-                            <h4>1 год</h4>
-                            <span>+ 32 000 руб</span>
-                        </li>
-                        <li>
-                            <h4>2 года</h4>
-                            <span>+ 32 000 руб</span>
-                        </li>
-                    </ul>
-                    <a href="#">left</a>
-                    <a href="#">right</a>
-                </div>
-            </div>
 
-            <div class="span4"><span>Защита кредита</span>
-                <a class="toggler"></a>
+            <a class="toggler"></a>
 
-                <div>
-                    <ul>
-                        <li>
-                            <h4>1 год</h4>
-                            <span>+ 32 000 руб</span>
-                        </li>
-                        <li>
-                            <h4>2 года</h4>
-                            <span>+ 32 000 руб</span>
-                        </li>
-                    </ul>
-                    <a href="#">left</a>
-                    <a href="#">right</a>
-                </div>
+            <div>
+                <ul>
+                    <li>
+                        <h4>1 год</h4>
+                        <span>+ 32 000 руб</span>
+                    </li>
+                    <li>
+                        <h4>2 года</h4>
+                        <span>+ 32 000 руб</span>
+                    </li>
+                </ul>
+                <a href="#">left</a>
+                <a href="#">right</a>
             </div>
         </div>
-    </section>
 
+        <div class="span4"><span>Защита кредита</span>
+            <a class="toggler"></a>
 
+            <div>
+                <ul>
+                    <li>
+                        <h4>1 год</h4>
+                        <span>+ 32 000 руб</span>
+                    </li>
+                    <li>
+                        <h4>2 года</h4>
+                        <span>+ 32 000 руб</span>
+                    </li>
+                </ul>
+                <a href="#">left</a>
+                <a href="#">right</a>
+            </div>
+        </div>
 
+</section>
 
 
 </section>
@@ -428,8 +414,6 @@
 
     <div class="price">3333 руб/мес</div>
 </div>
-
-
 
 
 <section class="upgrades" ng-controller="UpgradeCtrl">
@@ -461,9 +445,6 @@
         </ul>
         <a href="" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()">list right</a>
     </section>
-
-
-
 
 
 </section>
@@ -565,7 +546,6 @@
             <td>руб.</td>
         </tr>
     </table>
-
 
 
     <a class="btn-big" href="#">Оформить</a>
