@@ -18,6 +18,9 @@ h1, h2, h3, h4 {
 }
 
 
+.print{
+    display:none;
+}
 
 
 
@@ -463,20 +466,25 @@ ul.row-fluid {
 .list .arrow-prev, .list .arrow-next{
     display:block;
     background:blue;
-    width:20px;
+    width:30px;
     height:10px;
     position: absolute;
     left:50%;
-    margin-left:-10px;
+    margin-left:-15px;
+    background: url("../img/arrow.png") no-repeat;
 
 }
 
 .list .arrow-prev{
-    top:-10px;
+    top:-5px;
+    background-position: 0 -70px;
 }
 
+
+
 .list .arrow-next{
-    bottom:-10px;
+    bottom:-5px;
+    background-position: 0 -100px;
 
 }
 
@@ -556,20 +564,22 @@ select {
 
 .credit-offers .arrow-prev, .credit-offers .arrow-next{
     width:10px;
-    height:20px;
+    height:30px;
     left:auto;
     bottom:auto;
     top:50%;
-    margin-top:-10px;
-
+    margin:0;
+    margin-top:-15px;
 }
 
 .credit-offers .arrow-prev{
-    left:-10px;
+    left:-15px;
+    background-position: -10px 0;
 }
 
 .credit-offers .arrow-next{
-    right:-10px;
+    right:-15px;
+    background-position: -10px -30px;
 
 }
 
@@ -711,14 +721,20 @@ select {
 
 }
 
-.end-offer tr.collapsed:before{
+
+.end-offer tr.collapsed td:first-child:before, .end-offer tr.expanded td:first-child:before{
     content: "▼";
-    display: block;
-    left:-20px;
+    width:20px;
+    margin-left:-20px;
+    float:left;
+    display:block;
+
 
 }
 
-
+.end-offer tr.expanded td:first-child:before{
+    content: "►";
+}
 /*payment-calculation*/
 .payment-calculation{
     border:1px solid #555;
