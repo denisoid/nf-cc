@@ -480,6 +480,45 @@ select {
     padding-right:20px;
 }
 
+
+
+
+/**/
+
+.service-list div ul{
+    list-style: none;
+    padding:0;
+    margin:0 0 1.3em 0;
+}
+
+.service-list div ul li{
+    position: relative;
+    line-height:1.8;
+}
+
+.service-list div ul li.header{
+    font-size:18px;
+
+}
+
+.service-list div ul li .price{
+    right:0;
+    top:0;
+    position: absolute;
+    display:block;
+    text-align:right;
+}
+
+
+.service-list>div:nth-child(2n){
+    padding-left:2em;
+}
+
+.service-list>div:nth-child(2n+1){
+    margin-left:0;
+    padding-right:2em;
+}
+
 /*end-offer*/
 .end-offer h2 {
     font-size: 28px;
