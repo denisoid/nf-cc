@@ -9,7 +9,7 @@ function CalculatorCtrl($scope, CalculatorData) {
     $scope.data = CalculatorData;
     $scope.show = {isMaxPayment: false};
 
-    $scope.client = {maxMonthPayment: 100000, maxCreditValue: 1000000};
+    $scope.client = {maxMonthPayment: 0, maxCreditValue: 0};
 
     $scope.isCatalog = true;
     $scope.carPrice = 1000000;

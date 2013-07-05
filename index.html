@@ -66,20 +66,57 @@
 </header>
 
 <div class="content-container">
-<article ng-controller="MaxPaymentCtrl" ng-show="show.isMaxPayment">
-    Расчет платежеспособности <br>
-    Ежемесячный доход <input type="text" ng-model="monthIncome" ng-change="calculateMaxPayment()"/> <br>
-    Дополнительный доход <input type="text" ng-model="additionalIncome" ng-change="calculateMaxPayment()"/> <br>
-    Подтвержден <input type="checkbox" ng-model="additionalIncomeAssured" ng-change="calculateMaxPayment()"/> <br>
-    Регион проживания <select ng-model="regionId" ng-change="calculateMaxPayment()">
-    <option value="1">Москва</option>
-    <option value="2">Московская область</option>
-    <option value="3">Все остальное</option>
-</select> <br>
-    Лимиты по кред. картам <input type="text" ng-model="creditCardLimit" ng-change="calculateMaxPayment()"/> <br>
-    Выплаты по долгу (в мес.) <input type="text" ng-model="monthPayment" ng-change="calculateMaxPayment()"/> <br>
-    Максимальный платеж {{client.maxMonthPayment}}<br>
-    Максимальный платеж {{client.maxCreditValue}}
+<article ng-controller="MaxPaymentCtrl" ng-show="show.isMaxPayment" class="payment-calculation filter">
+    <div>
+        <label>Регион проживания</label>
+        <select ng-model="regionId" ng-change="calculateMaxPayment()">
+            <option value="1">Москва</option>
+            <option value="2">Московская область</option>
+            <option value="3">Все остальное</option>
+        </select>
+    </div>
+
+    <div class="input-ip">
+        <label>Основной доход</label>
+        <div class="input">
+            <input type="input" ng-model="monthIncome" ng-change="calculateMaxPayment()"/>
+            <label>руб.</label>
+        </div>
+        <div slider min="20000" max="200000" step="2000" ng-model="monthIncome" ng-change="calculateMaxPayment()"></div>
+    </div>
+
+
+
+    <div class="input-ip">
+        <label class="checkbox"><input type="checkbox" ng-model="additionalIncomeAssured" ng-change="calculateMaxPayment()"/>Подтвержден</label>
+        <label>Дополнительный доход</label>
+        <div class="input">
+            <input type="input" ng-model="additionalIncome" ng-change="calculateMaxPayment()"/>
+            <label>руб.</label>
+        </div>
+        <div slider min="0" max="500000" step="5000" ng-model="additionalIncome" ng-change="calculateMaxPayment()"></div>
+    </div>
+
+    <div class="input-ip">
+        <label>Лимиты по кредитным картам</label>
+        <div class="input">
+            <input type="input" ng-model="creditCardLimit" ng-change="calculateMaxPayment()"/>
+            <label>руб.</label>
+        </div>
+        <div slider min="0" max="500000" step="5000" ng-model="creditCardLimit" ng-change="calculateMaxPayment()"></div>
+    </div>
+
+    <div class="input-ip">
+        <label>Выплаты по долгу (в мес.) </label>
+        <div class="input">
+            <input type="input" ng-model="monthPayment" ng-change="calculateMaxPayment()"/>
+            <label>руб.</label>
+        </div>
+        <div slider min="0" max="500000" step="5000" ng-model="monthPayment" ng-change="calculateMaxPayment()"></div>
+    </div>
+
+
+    <a href="" ng-click="show.isMaxPayment=!show.isMaxPayment">ОК</a>
 </article>
 <!--расчет платежноспобности-->
 
@@ -141,16 +178,16 @@
 
 
     <section class="car-search" ng-show="!isCatalog" ng-controller="CarSearchCtrl">
-        <div class="row-fluid">
+        <div class="row-fluid filter">
             <!--сумма-->
-            <div class="span3">
-                <div slider ng-model="searchPrice" max="10000000" step="100000"></div>
-                <input type="number" ng-model="searchPrice">
+            <div class="span4  input-ip">
+                <div class="input"><input type="input" ng-model="searchPrice"><label>руб.</label></div>
+                <div slider ng-model="searchPrice" min="400000" max="4300000" step="100000"></div>
             </div>
 
 
             <!--Марка-->
-            <div class="span3">
+            <div class="span2">
                 <select
                         ng-model="car.markId"
                         ng-options="mark.id as mark.name for mark in selMarkList"
@@ -162,7 +199,7 @@
 
 
             <!--Модель-->
-            <div class="span3">
+            <div class="span4">
                 <select ng-model="car.modelId"
                         ng-options="model.id as model.name for model in selModelList"
                         ng-change="updatePackaging()"
@@ -172,7 +209,7 @@
             </div>
 
             <!--Год-->
-            <div class="span3">
+            <div class="span2">
                 <select ng-model="car.yearId"
                         ng-options="year.yearId as year.yearId for year in selYearList"
                         >
@@ -262,7 +299,7 @@
 <section class="credit-choose">
     <h2>Кредит</h2>
 
-    <section class="credit-filter row-fluid">
+    <section class="credit-filter filter row-fluid">
         <div class="span4 input-ip">
             <label>Первоначальный взнос</label>
 
@@ -286,7 +323,7 @@
         </div>
     </section>
 
-    <section class="credit-filter row-fluid">
+    <section class="credit-filter filter row-fluid">
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
@@ -396,7 +433,7 @@
         </div>
 
 
-</section>
+    </section>
 
 
 </section>

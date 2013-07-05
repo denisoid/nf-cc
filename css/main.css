@@ -55,27 +55,32 @@ h1, h2, h3, h4 {
 }
 
 
-.credit-filter{
+.filter{
     margin-bottom:12px;
 }
 
 
-.credit-filter>div>div.input{
+.filter>div>div.input{
     float:right;
     white-space: nowrap;
 }
 
-.credit-filter>div>div.input *{
+.filter>div>div.input *{
     display:inline-block;
 }
 
-.credit-filter>div>div.input label{
+.filter>div>div.input label{
     padding-left:3px;
 
 }
 
-.credit-filter>div>div.input input{
+.filter>div>div.input input{
     text-align: right;
+}
+
+
+div.input-ip .checkbox{
+    float:right;
 }
 
 div.input-ip .input input{
@@ -196,11 +201,19 @@ aside ul li.active:before, aside ul li.active:after {
 /*calculate-sum*/
 
 aside li.calculate-sum dt, aside li.calculate-sum dd {
-    width: 105px;
     font-weight: normal;
     display: inline-block;
     padding: 0;
     margin: 0;
+}
+
+
+aside li.calculate-sum dt{
+    width:80px;
+}
+
+aside li.calculate-sum dd{
+    width:110px;
 }
 
 aside li.calculate-sum dl {
@@ -556,4 +569,25 @@ select {
 .end-offer table tr.space-top td {
     padding-top: 1.33em;
 
+}
+
+
+/*payment-calculation*/
+.payment-calculation{
+    border:1px solid #555;
+    border-width:0 1px 1px 0;
+    position:fixed;
+    background:white;
+    z-index:11;
+    top:0;
+    left:210px;
+    padding:20px;
+    width:300px;
+}
+
+.payment-calculation>div{
+    clear:both;
+    margin-bottom:1em;
+    float:left;
+    width:100%;
 }
