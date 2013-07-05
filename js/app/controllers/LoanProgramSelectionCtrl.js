@@ -31,6 +31,8 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
 
     $scope.selectedOfferList = [];
 
+    $scope.currentOfferListPage = new ListWithPaging([], 4);
+
 
     $scope.addToSelectedOfferList = function (idx) {
         var soffer = $scope.currentOfferList[idx];
@@ -171,6 +173,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
         }
 
         $scope.currentOfferList = $filter('orderBy')($scope.currentOfferList, 'overPayment');
+        $scope.currentOfferListPage.setup($scope.currentOfferList);
     }
 
     $scope.resetTimerForUpdateOffers = function () {

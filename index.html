@@ -414,8 +414,8 @@
         <div class="span4 input-ip">
             <label>Первоначальный взнос</label>
 
-            <div class="input"><input><label>руб.</label></div>
-            <div slider ng-model="ip"></div>
+            <div class="input"><input ng-model="initialPayment"><label> руб.</label></div>
+            <div slider ng-model="initialPayment"></div>
 
         </div>
 
@@ -465,8 +465,8 @@
             <span>32 000 руб/мес</span>
         </div>
 
-        <div class="span3" ng-repeat="offer in offerListPage">
-            <h4>Стандартный 6.5%</h4>
+        <div class="span3" ng-repeat="offer in currentOfferListPage">
+            <h4>Стандартный 6.5% {{ index$ }}</h4>
             <span>32 000 руб/мес</span>
         </div>
 

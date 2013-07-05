@@ -40,5 +40,11 @@ function CalculatorCtrl($scope, CalculatorData) {
         $scope.show.isMaxPayment = false;
         $scope.show.isMain = !$scope.show.isCompare;
     }
+
+    $scope.toggleMain = function () {
+        $scope.show.isMain = true;
+        $scope.show.isMaxPayment = false;
+        $scope.show.isCompare = false;
+    }
 }
 
