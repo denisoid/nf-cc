@@ -5,18 +5,47 @@
  * Date: 03.07.13
  * Time: 14:19
  */
-function UpgradeCtrl($scope) {
+function UpgradeCtrl($scope, $filter, CalculatorData, Packagings) {
 
-    $scope.carUpgrade = new ListWithPaging([{id:1},{id:2},{id:3},{id:4},{id:5},{id:6},{id:7}], 3);
-    $scope.serviceUpgrade = new ListWithPaging([{id:1},{id:2},{id:3},{id:4},{id:5},{id:6},{id:7}], 3);
+    $scope.deltaPercent = 10;
+    $scope.data = CalculatorData;
+
+    $scope.packagingList = Packagings.query({}, function () {
+        $scope.updateUpgrades();
+    });
+
+
+    $scope.carUpgrade = new ListWithPaging([], 3);
+    $scope.serviceUpgrade = new ListWithPaging([], 3);
 
     $scope.updateUpgrades = function () {
-        $scope.carUpgrade.setup([{id:1},{id:2},{id:3},{id:4},{id:5},{id:6},{id:7}]);
-        $scope.serviceUpgrade.setup([{id:1},{id:2},{id:3},{id:4},{id:5},{id:6},{id:7}]);
+        var price = $scope.data.calculation.car.price;
+        var maxPrice = price * (1+$scope.deltaPercent/100);
+        var selectedPackageList = $filter('filter')($scope.packagingList, function (element) {
+                if ((element.cost > price) && (element.cost < maxPrice)) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        $scope.carUpgrade.setup(selectedPackageList);
+
+        var selectedServicesList = $filter('filter')($scope.packagingList, function (element) {
+                if ((element.cost > price) && (element.cost < maxPrice)) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        $scope.serviceUpgrade.setup(selectedServicesList);
     }
 
     $scope.show = function (idx) {
         window.alert(idx);
     }
 
+    $scope.$watch('car.packagingId', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.updateUpgrades();
+    });
 }

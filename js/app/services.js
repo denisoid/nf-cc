@@ -68,7 +68,8 @@ seedAppServiceModule.
                     modelId: null,
                     packagingId: null,
                     yearId: null
-                }
+                },
+                loanproduct: null
             },
             calculationList: [],
             saveCalculation: function () {
@@ -82,7 +83,8 @@ seedAppServiceModule.
                         modelId: this.calculation.car.modelId,
                         packagingId: this.calculation.car.packagingId,
                         yearId: this.calculation.car.yearId
-                    }
+                    },
+                    loanproduct: null
                 });
             },
             delCalculation: function (ind) {
