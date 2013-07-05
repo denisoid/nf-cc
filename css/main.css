@@ -97,13 +97,15 @@ div.input-months .input input{
 }
 
 div.input-months .ui-slider{
-    margin-right:59px;
+    margin-right:70px;
 }
 
 
-/*aside*/
 
-aside {
+
+/*aside.menu*/
+
+aside.menu {
     width: 210px;
     background: #252525;
     position: fixed;
@@ -115,37 +117,37 @@ aside {
     color: #eee;
 }
 
-aside img {
+aside.menu img {
     padding: 10px;
 }
 
-aside ul {
+aside.menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 
 }
 
-aside ul li {
+aside.menu ul li {
     padding: 10px;
 }
 
-aside ul li i {
+aside.menu ul li i {
     display: none;
 
 }
 
-aside ul li {
+aside.menu ul li {
     margin: 20px 0 40px 0;
 }
 
-aside ul li {
+aside.menu ul li {
     border-radius: 10px 0 0 10px;
     position: relative;
     cursor: pointer;
 }
 
-aside ul li:before, aside ul li:after, aside ul li i {
+aside.menu ul li:before, aside.menu ul li:after, aside.menu ul li i {
     display: block;
     content: '';
     width: 10px;
@@ -154,53 +156,53 @@ aside ul li:before, aside ul li:after, aside ul li i {
     right: 0;
 }
 
-aside ul li i {
+aside.menu ul li i {
     top: -10px;
     bottom: -10px;
     height: auto;
 
 }
 
-aside ul li:before, aside ul li:after {
+aside.menu ul li:before, aside.menu ul li:after {
     height: 10px;
     z-index: 10;
 
 }
 
-aside ul li:before {
+aside.menu ul li:before {
     top: -10px;
     border-radius: 0 0 10px 0;
 }
 
-aside ul li:after {
+aside.menu ul li:after {
     bottom: -10px;
     border-radius: 0 10px 0 0;
 }
 
 /*li.hover*/
 
-aside ul li:hover, aside ul li:hover i {
+aside.menu ul li:hover, aside.menu ul li:hover i {
     background: #555;
 }
 
-aside ul li:hover:before, aside ul li:hover:after {
+aside.menu ul li:hover:before, aside.menu ul li:hover:after {
     background: #252525;
 }
 
 /*li.active*/
 
-aside ul li.active, aside ul li.active i {
+aside.menu ul li.active, aside.menu ul li.active i {
     background: #fc0;
     color: #333;
 }
 
-aside ul li.active:before, aside ul li.active:after {
+aside.menu ul li.active:before, aside.menu ul li.active:after {
     background: #252525;
 }
 
 /*calculate-sum*/
 
-aside li.calculate-sum dt, aside li.calculate-sum dd {
+aside.menu li.calculate-sum dt, aside.menu li.calculate-sum dd {
     font-weight: normal;
     display: inline-block;
     padding: 0;
@@ -208,27 +210,41 @@ aside li.calculate-sum dt, aside li.calculate-sum dd {
 }
 
 
-aside li.calculate-sum dt{
+aside.menu li.calculate-sum dt{
     width:80px;
 }
 
-aside li.calculate-sum dd{
+aside.menu li.calculate-sum dd{
     width:110px;
 }
 
-aside li.calculate-sum dl {
+aside.menu li.calculate-sum dl {
     margin: 0;
     font-size: 0;
 }
 
-aside li.calculate-sum dl * {
+aside.menu li.calculate-sum dl * {
     font-size: 13px;
 }
 
-aside li.calculate-sum dd {
+aside.menu li.calculate-sum dd {
     text-align: right;
 
 }
+
+
+
+
+aside.upgrade{
+    position: fixed;
+    left:970px;
+    width:210px;
+    bottom:0;
+    top:0;
+    padding:0 20px;
+
+}
+
 
 header {
     position: fixed;
@@ -385,6 +401,12 @@ ul.row-fluid {
 .list ul li:hover {
     background: rgba(255, 200, 0, 0.25);
 }
+
+
+.upgrades .list li{
+    margin-bottom:1em;
+}
+
 
 h4 {
     font-size: 1.2em;
