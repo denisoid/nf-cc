@@ -20,7 +20,8 @@
 
 </head>
 
-<body ng-controller="CalculatorCtrl">
+<body>
+<div ng-controller="CalculatorCtrl" ng-cloak>
 <p class="print">
     ООО «Авто-дилер»<br/>
     Москва, ул. Ленина, 31<br/>
@@ -38,7 +39,7 @@
         <ul>
 
             <li class="calculate-sum ng-class: {'active': show.isMaxPayment}"
-                ng-click="show.isMaxPayment=!show.isMaxPayment">
+                ng-click="toggleMaxPayment()">
                 <span>Расчет платежноспособности</span>
                 <dl>
                     <dt>max платеж</dt>
@@ -64,7 +65,7 @@
                 <a href="" ng-click="saveCalculation()">запомнить вариант</a>
             </li>
 
-            <li class="link">
+            <li class="link" ng-click="toggleCompare()">
                 <a href="">Сравнение</a>
                 <i></i>
             </li>
@@ -72,7 +73,7 @@
     </nav>
 </aside>
 
-<aside class="upgrade filter">
+<aside class="upgrade filter" ng-show="show.isMain">
     <h2>Автомобили</h2>
 
     <div class="input-months clearfix">
@@ -195,8 +196,8 @@
 <!--расчет платежноспобности-->
 
 
-<article>
-<section class="car-choose" ng-controller="CarConfigurationCtrl">
+<article ng-controller="CarConfigurationCtrl" ng-show="show.isMain">
+<section class="car-choose">
 <div class="title car-title">
     <h2>Автомобиль</h2>
 
@@ -403,7 +404,9 @@
 
 </section>
 
-
+</article>
+<!--выбор машины-->
+<article ng-controller="LoanProgramSelectionCtrl" ng-show="show.isMain">
 <section class="credit-choose">
     <h2>Кредит</h2>
 
@@ -462,17 +465,7 @@
             <span>32 000 руб/мес</span>
         </div>
 
-        <div class="span3">
-            <h4>Стандартный 6.5%</h4>
-            <span>32 000 руб/мес</span>
-        </div>
-
-        <div class="span3">
-            <h4>Стандартный 6.5%</h4>
-            <span>32 000 руб/мес</span>
-        </div>
-
-        <div class="span3">
+        <div class="span3" ng-repeat="offer in offerListPage">
             <h4>Стандартный 6.5%</h4>
             <span>32 000 руб/мес</span>
         </div>
@@ -675,12 +668,10 @@
 
     <a class="btn-big noprint" href="#">Оформить</a>
 </section>
-
-
 </article>
+<!--расчет кредита-->
 
-<article class="noprint">
-
+<article class="noprint" ng-show="show.isCompare">
     <div class="row-fluid">
         <h4>Сравнение вариантов</h4>
 
@@ -820,31 +811,6 @@
 
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
-
-
-
-<script>
-
-    $(window).scroll(moveAsideMenu);
-    $(window).resize(moveAsideMenu);
-
-
-
-    function moveAsideMenu(){
-        window_top_offset=$("body").scrollTop();
-        window_height=$(window).height()
-        side_height=$("aside.menu").height();
-
-        if(side_height>window_height){
-            max_side_offset=side_height-window_height;
-            console.log(window_top_offset,max_side_offset);
-            $("aside.menu").css({
-                top: -Math.min(window_top_offset,max_side_offset)
-            });
-        }
-    }
-
-    </script>
-
+</div>
 </body>
 </html>

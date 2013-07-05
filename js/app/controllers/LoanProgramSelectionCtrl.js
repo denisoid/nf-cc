@@ -5,8 +5,9 @@
  * Date: 03.07.13
  * Time: 14:05
  */
-function LoanProgramSelectionCtrl($scope, LoanProducts, Packaging_LoanProduct, $filter, $timeout) {
-
+function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packaging_LoanProduct, $filter, $timeout) {
+    $scope.data = CalculatorData;
+    $scope.calculation = $scope.data.calculation;
     $scope.car = $scope.calculation.car;
 
     $scope.packaging_loanProductList = Packaging_LoanProduct.query({}, function () {
