@@ -20,7 +20,8 @@
 
 </head>
 
-<body ng-controller="CalculatorCtrl">
+<body>
+<div ng-controller="CalculatorCtrl" ng-cloak>
 <p class="print">
     ООО «Авто-дилер»<br/>
     Москва, ул. Ленина, 31<br/>
@@ -670,9 +671,7 @@
 </article>
 <!--расчет кредита-->
 
-<article class="noprint">
-<article ng-show="show.isCompare">
-
+<article class="noprint" ng-show="show.isCompare">
     <div class="row-fluid">
         <h4>Сравнение вариантов</h4>
 
@@ -812,6 +811,6 @@
 
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
-
+</div>
 </body>
 </html>
