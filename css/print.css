@@ -1,80 +1,133 @@
+body {
+    font-family: Verdana, sans-serif; /* Шрифт с засечками */
+    background: none;
+    line-height: 160%;
+    font-size: 8pt;
+    padding-top: 20px !important;
+    width: 60em;
+}
 
-	@page {size: landscape}
-	
-	
-	body {
-		 font-family: Verdana, sans-serif; /* Шрифт с засечками */
-		 background:none;
-		 line-height:140%
-		 -webkit-print-color-adjust:exact;
-		 font-size:8pt;
-		 padding-top:20px !important;
-	}
-	
-	h1, h2, p {
-	 color: #000; /* Черный цвет текста */
-	}
-	
-	
-	h4{
-		font-size:20px;
-	}
-	
-	
-	
-	.navbar,.choose-car, .credit-offers, .noprint{
-		display:none;
-	}
+h1, h2, p {
+    color: #000; /* Черный цвет текста */
+}
 
-	
+h4 {
+    font-size: 20px;
+}
 
-	
-	
-	
-	table tr td,table tr th{
-		border:1px solid #ccc;
-		border-width:0 1px 0 0;
-		
-		
-		padding:5px 10px;
-	}
-	
-	table {
-	   border:0;
-	   padding:0;
-	   border-collapse:collapse;
-	}
-	
-	
-	
-	table tr th, table tr td{
-		text-align:left;
-		font-weight:normal;
-	}
-	
-	
-	
-	.offer-name td{
-		font-weight:bold;
-		text-align:center
-	}
-	
-	.row-price td{
-		text-align:right;
-		white-space:nowrap;
-	}
-	
-	.row-icon td{
-		text-align:center;
-	
-	
-	
-	}
-	
-	table{
-	}
-	
-	table tr.group th, table tr.group td{
-		padding-top:20px;
-		font-weight:bold;
-	}
+aside, header, .filter, .car-catalog, .car-search, .car-title, .credit-choose, .services-choose, .noprint {
+    display: none;
+}
+
+/*
+table tr td,table tr th{
+    border:1px solid #ccc;
+    border-width:0 1px 0 0;
+
+
+    padding:5px 10px;
+}
+
+table {
+   border:0;
+   padding:0;
+   border-collapse:collapse;
+}
+
+
+
+table tr th, table tr td{
+    text-align:left;
+    font-weight:normal;
+}
+
+
+
+.offer-name td{
+    font-weight:bold;
+    text-align:center
+}
+
+.row-price td{
+    text-align:right;
+    white-space:nowrap;
+}
+
+.row-icon td{
+    text-align:center;
+
+
+
+}
+
+table{
+}
+
+table tr.group th, table tr.group td{
+    padding-top:20px;
+    font-weight:bold;
+}
+
+               */
+
+.car-info table {
+    display: block;
+    float: right;
+    vertical-align: bottom;
+    font-size: 0.9em;
+
+}
+
+.car-info table tr td {
+    border-bottom: 1px solid #cecece;
+    padding: 3px 5px;
+}
+
+.car-info table tr:last-child td {
+    border: 0;
+
+}
+
+.car-info table td:last-child {
+    padding-left: 50px;
+    text-align: right;
+}
+
+/*end-offer*/
+h2 {
+    font-size: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.end-offer table {
+    width: 40em;
+    margin: 0 auto;
+    font-size: 12px;
+
+}
+
+.end-offer table tr td {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.end-offer table tr {
+    font-style: italic;
+
+}
+
+.end-offer table tr td:nth-child(2) {
+    text-align: right;
+
+}
+
+.end-offer table tr.header {
+    font-size: 130%;
+    font-style: normal;
+}
+
+.end-offer table tr.space-top td {
+    padding-top: 1.33em;
+
+}

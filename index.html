@@ -21,6 +21,17 @@
 </head>
 
 <body ng-controller="CalculatorCtrl">
+<p class="print">
+    ООО «Авто-дилер»<br/>
+    Москва, ул. Ленина, 31<br/>
+    +7 495 212 85 06<br/>
+    <br/>
+    Ваш менеджер — Констанин Константинопольский<br/>
+    +7 906 212 85 06<br/>
+
+</p>
+
+
 <aside class="menu" ng-controller="MenuCtrl">
     <nav>
 
@@ -119,7 +130,7 @@
 <header>
     <img src="img/logo.png">
     <a href="">Печатать график платежей</a>
-    <a href="">Печатать предложение</a>
+    <a href="javascript:window.print();return false;">Печатать предложение</a>
 
 </header>
 
@@ -186,7 +197,7 @@
 
 <article>
 <section class="car-choose" ng-controller="CarConfigurationCtrl">
-<div class="title">
+<div class="title car-title">
     <h2>Автомобиль</h2>
 
     <div class="car-type-choose">
@@ -298,6 +309,10 @@
 </section>
 
 
+<div class="print">
+    <h2>{{data.calculation.car.markName}} {{data.calculation.car.modelName}} — {{data.calculation.car.price}} руб</h2>
+</div>
+
 <div class="car-info">
 
     <table>
@@ -348,7 +363,7 @@
 
 </div>
 
-<div class="price-line">
+<div class="price-line noprint">
     <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
 
     <div class="price">{{data.calculation.car.price}} руб</div>
@@ -552,14 +567,14 @@
 </section>
 
 
-<div class="price-line">
+<div class="price-line noprint">
     <h3>Ежемесячный платеж: 1111+2222=</h3>
 
     <div class="price">3333 руб/мес</div>
 </div>
 
 
-<section class="end-offer">
+<section class="end-offer print">
     <h2>Стандартный</h2>
 
     <table>
@@ -658,13 +673,13 @@
     </table>
 
 
-    <a class="btn-big" href="#">Оформить</a>
+    <a class="btn-big noprint" href="#">Оформить</a>
 </section>
 
 
 </article>
 
-<article>
+<article class="noprint">
 
     <div class="row-fluid">
         <h4>Сравнение вариантов</h4>
