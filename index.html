@@ -821,5 +821,30 @@
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
 
+
+
+<script>
+
+    $(window).scroll(moveAsideMenu);
+    $(window).resize(moveAsideMenu);
+
+
+
+    function moveAsideMenu(){
+        window_top_offset=$("body").scrollTop();
+        window_height=$(window).height()
+        side_height=$("aside.menu").height();
+
+        if(side_height>window_height){
+            max_side_offset=side_height-window_height;
+            console.log(window_top_offset,max_side_offset);
+            $("aside.menu").css({
+                top: -Math.min(window_top_offset,max_side_offset)
+            });
+        }
+    }
+
+    </script>
+
 </body>
 </html>
