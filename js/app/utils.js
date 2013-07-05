@@ -53,9 +53,8 @@ ListWithPaging.prototype.setup = function(list) {
 }
 
 ListWithPaging.prototype.init = function () {
-    this.length = list.length;
+    this.length = this.list.length;
     this.start = 0;
-    this.pageSize = pageSize;
     this.end = this.index + this.pageSize;
     if(this.end > this.length) {
         this.end = this.length;
