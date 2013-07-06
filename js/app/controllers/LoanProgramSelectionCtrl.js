@@ -24,13 +24,14 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
 
     $scope.initialPayment = 200000;
     $scope.initialPaymentPercent = 0;
+    $scope.monthPaymentFilter = 10000;
 
-    $scope.months = 12;
+    $scope.tradeIn = 0;
+    $scope.refinance = 10000;
+    $scope.lastPayment = 10000;
 
     $scope.currentOfferList = [];
-
     $scope.selectedOfferList = [];
-
     $scope.currentOfferListPage = new ListWithPaging([], 4);
 
 
@@ -50,7 +51,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
             returnValue: soffer.returnValue,
             rate: soffer.rate,
             serviceValue: soffer.serviceValue,
-            car: jQuery.extend(true, {}, $scope.car)
+            car: jQuery.extend(true, {}, $scope.car)//copy car to new object
         };
 
         $scope.selectedOfferList.push(offer);
@@ -121,9 +122,9 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
         $scope.loanProductForCriteriaList = $filter('filter')($scope.loanProductForPackList, function (element) {
                 if (
                     ($scope.initialPaymentPercent >= element.minip) &&
-                        ($scope.initialPaymentPercent <= element.maxip) &&
+                        ($scope.initialPaymentPercent <= element.maxip) && true /*
                         ($scope.months >= element.minterm) &&
-                        ($scope.months <= element.maxterm)
+                        ($scope.months <= element.maxterm)*/
                     ) {
                     return true;
                 }
@@ -202,7 +203,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
         $scope.resetTimerForUpdateOffers();
     });
 
-    $scope.$watch('months', function (newVal, oldVal) {
+    $scope.$watch('monthPaymentFilter', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.resetTimerForUpdateOffers();
     })

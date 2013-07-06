@@ -368,37 +368,44 @@
     <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
 
     <div class="price">{{data.calculation.car.price}} руб</div>
-    <a class="icon-info-sign"></a>
+    <a href="#discountModal" class="icon-info-sign" data-toggle="modal" ></a>
 </div>
 
 
-<div class="modal car-price" style="display:none;">
-    <div class="input">
-        <label>Рекомендованная цена</label>
-        <span>111 000</span>
-        <label>руб.</label>
+<div id="discountModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Скидки</h3>
     </div>
+    <div class="modal-body">
+        <div class="input">
+            <label>Рекомендованная цена</label>
+            <span>{{ car.price | number:0 }}</span>
+            <label>руб.</label>
+        </div>
 
-    <div class="input">
-        <label>Скидка производителя</label>
-        <span>111 000</span>
-        <label>руб.</label>
+        <div class="input">
+            <label>Скидка производителя</label>
+            <span>{{ car.discount | number:0 }}</span>
+            <label>руб.</label>
+        </div>
+
+        <div class="input">
+            <label>Скидка дилера</label>
+            <input type="input" ng-model="dealerDiscount" />
+            <label>руб.</label>
+        </div>
+
+        <div class="input">
+            <label>Итого</label>
+            <span>{{ (car.price - car.discount - dealerDiscount) | number:0 }}</span>
+            <label>руб.</label>
+        </div>
     </div>
-
-    <div class="input">
-        <label>Скидка дилера</label>
-        <input type="input"/>
-        <label>руб.</label>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cancelDiscount()">Отменить</button>
+        <button class="btn btn-primary" data-dismiss="modal" ng-click="applyDiscount()">Принять</button>
     </div>
-
-    <div class="input">
-        <label>Итого</label>
-        <span>111 000</span>
-        <label>руб.</label>
-    </div>
-
-    <a href="">OK</a>
-
 </div>
 
 
@@ -415,7 +422,7 @@
             <label>Первоначальный взнос</label>
 
             <div class="input"><input ng-model="initialPayment"><label> руб.</label></div>
-            <div slider ng-model="initialPayment"></div>
+            <div slider ng-model="initialPaymentPercent" max=100 min=0 step=1></div>
 
         </div>
 
@@ -423,8 +430,8 @@
         <div class="span4 input-ip">
             <label>Ежемесячный платеж</label>
 
-            <div class="input"><input class="input-mini" ng-model="months"><label>руб.</label></div>
-            <div slider ng-model="months"></div>
+            <div class="input"><input class="input-mini" ng-model="monthPaymentFilter"><label>руб.</label></div>
+            <div slider ng-model="monthPaymentFilter"></div>
 
         </div>
 
@@ -438,23 +445,23 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input><label>руб.</label></div>
-            <div slider></div>
+            <div class="input"><input ng-model="tradeIn"><label>руб.</label></div>
+            <div slider ng-model="tradeIn"></div>
         </div>
 
 
         <div class="span4 input-ip">
             <label>Рефинансирование</label>
 
-            <div class="input"><input><label>руб.</label></div>
-            <div slider></div>
+            <div class="input"><input ng-model="refinance" ><label>руб.</label></div>
+            <div slider ng-model="refinance" ></div>
         </div>
 
         <div class="span4 input-ip">
             <label>Остаточный платеж</label>
 
-            <div class="input"><input><label>руб.</label></div>
-            <div slider></div>
+            <div class="input"><input ng-model="lastPayment" ><label>руб.</label></div>
+            <div slider ng-model="lastPayment" ></div>
         </div>
     </section>
 
