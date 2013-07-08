@@ -591,7 +591,8 @@ select {
     white-space: nowrap;
 }
 
-.credit-offers .arrow-prev, .credit-offers .arrow-next{
+.credit-offers .arrow-prev, .credit-offers .arrow-next,
+.car-list .arrow-prev, .car-list .arrow-next{
     width:10px;
     height:30px;
     left:auto;
@@ -601,12 +602,14 @@ select {
     margin-top:-15px;
 }
 
-.credit-offers .arrow-prev{
+.credit-offers .arrow-prev,
+.car-list .arrow-prev{
     left:-15px;
     background-position: -10px 0;
 }
 
-.credit-offers .arrow-next{
+.credit-offers .arrow-next,
+.car-list .arrow-next{
     right:-15px;
     background-position: -10px -30px;
 
