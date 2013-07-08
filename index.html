@@ -54,7 +54,7 @@
             <li ng-repeat="calculation in data.calculationList" class="offer">
                 <div ng-click="restoreCalculation($index)">
                     <img src="img/car.jpg" height="50"/>
-                    <strong>{{calculation.car.markName}} {{calculation.car.modelName}} Nissan Note FDJFSJLKFUL</strong>
+                    <strong>{{calculation.car.markName}} {{calculation.car.modelName}}</strong>
                     <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
                 </div>
                 <a href="" class="icon-remove" ng-click="delCalculation($index)"></a>
@@ -576,9 +576,9 @@
 
 
     <div class="price-line noprint">
-        <h3>Ежемесячный платеж: 1111+2222=</h3>
+        <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment }} = </h3>
 
-        <div class="price">3333 руб/мес</div>
+        <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
     </div>
 
     <section class="end-offer print">
@@ -692,6 +692,11 @@
         <h4>Сравнение вариантов</h4>
 
         <table class='offers-comparison'>
+            <tr class='offer-car'>
+                <td>&nbsp;</td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.markName}} {{selectedOffer.car.modelName}}
+                </td>
+            </tr>
             <tr class='offer-name'>
                 <td>&nbsp;</td>
                 <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.name}}
@@ -718,7 +723,7 @@
             <tr class='offer-sum row-price'>
                 <th>Ставка</th>
                 <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.rate}} мес
+                    {{selectedOffer.rate}} %
                 </td>
             </tr>
             <tr class='offer-return row-price'>
