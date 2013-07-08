@@ -384,11 +384,20 @@ header nav a{
     text-align: right;
 }
 
-.price-line {
+
+.price-line-container{
     clear: both;
     position: relative;
+    margin: 20px -20px;
+    height: 44px;
+}
+
+.price-line {
+    position: absolute;
+    width:720px;
+    height:43px;
     text-align: right;
-    margin: 1em -20px;
+
     padding: 0 20px;
 
     background: #ffeda4;
@@ -400,6 +409,8 @@ header nav a{
     background: linear-gradient(to right, #ffeda4 0%, #ffcc00 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeda4', endColorstr='#ffcc00', GradientType=1);
 
+    z-index:200;
+    border-bottom: 1px solid #aaa;
 }
 
 .price-line * {

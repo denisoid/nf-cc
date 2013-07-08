@@ -133,7 +133,7 @@
     <nav ng-show="show.isMain">
         <a href="">Печатать график платежей</a>
         <a href="javascript:window.print();return false;">Печатать предложение</a>
-    <nav>
+    </nav>
 
 </header>
 
@@ -366,11 +366,14 @@
 
 </div>
 
-<div class="price-line noprint">
-    <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
 
-    <div class="price">{{data.calculation.car.price}} руб</div>
-    <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
+<div class="price-line-container">
+    <div class="price-line noprint" id="carPrice">
+        <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
+
+        <div class="price">{{data.calculation.car.price}} руб</div>
+        <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
+    </div>
 </div>
 
 
@@ -466,12 +469,14 @@
             <label>Остаточный платеж</label>
 
             <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
-            <div slider ng-model="lastPayment"  min="5000" max="200000" step="1000"></div>
+            <div slider ng-model="lastPayment" min="5000" max="200000" step="1000"></div>
         </div>
     </section>
 
-    <section class="noprint" ng-show="!calculation.offer"><span>Не найдены программы подходящие под заданные условия</span></section>
-    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span></section>
+    <section class="noprint" ng-show="!calculation.offer">
+        <span>Не найдены программы подходящие под заданные условия</span></section>
+    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span>
+    </section>
 
     <section class="credit-offers row-fluid list" ng-show="currentOfferList">
 
@@ -480,13 +485,15 @@
              ng-click="setCurrentOffer($index)">
             <h4 tooltip="{{ offer.name }}">{{ offer.name }}</h4>
             <span>
-                {{ offer.monthPayment }} руб/мес<br />
+                {{ offer.monthPayment }} руб/мес<br/>
                 <strong>{{ offer.months }} мес.</strong>
             </span>
         </div>
 
-        <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()" ng-show="currentOfferListPage.isLeft()"></a>
-        <a href="" class="arrow-next" ng-click="currentOfferListPage.right()" ng-show="currentOfferListPage.isRight()"></a>
+        <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()"
+           ng-show="currentOfferListPage.isLeft()"></a>
+        <a href="" class="arrow-next" ng-click="currentOfferListPage.right()"
+           ng-show="currentOfferListPage.isRight()"></a>
     </section>
 
 
@@ -574,14 +581,17 @@
 
     </section>
 
+    <div class="price-line-container">
+        <div class="price-line noprint" id="offerPrice">
+            <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment
+                }}
+                = </h3>
 
-    <div class="price-line noprint">
-        <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment }} = </h3>
-
-        <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
+            <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
+        </div>
     </div>
 
-    <section class="end-offer print">
+    <section class="end-offer">
         <h2>Стандартный</h2>
 
         <table>
@@ -694,7 +704,8 @@
         <table class='offers-comparison'>
             <tr class='offer-car'>
                 <td>&nbsp;</td>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.markName}} {{selectedOffer.car.modelName}}
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.markName}}
+                    {{selectedOffer.car.modelName}}
                 </td>
             </tr>
             <tr class='offer-name'>
@@ -869,6 +880,35 @@
             });
         }
     }
+
+
+    $.fn.followTo = function (abspos, fixpos) {
+        var $this = this,
+                $window = $(window);
+
+        //console.log($(this).parent().eq(0));
+
+        //pos=$(this).parent().eq().offsetTop;
+
+        $window.scroll(function (e) {
+            pos = $this.parent().offset().top - fixpos;
+            if ($window.scrollTop() < pos) {
+                $this.css({
+                    position: 'absolute',
+                    top: abspos
+                });
+            } else {
+                $this.css({
+                    position: 'fixed',
+                    top: fixpos
+                });
+            }
+        });
+    };
+
+
+    $("#carPrice").followTo(0, 60);
+    $("#offerPrice").followTo(0, 104);
 
 </script>
 </body>
