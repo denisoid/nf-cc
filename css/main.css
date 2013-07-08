@@ -75,16 +75,16 @@ h1, h2, h3, h4 {
     white-space: nowrap;
 }
 
-.filter>div>div.input *{
+.filter div.input *{
     display:inline-block;
 }
 
-.filter>div>div.input label{
+.filter div.input label{
     padding-left:3px;
 
 }
 
-.filter>div>div.input input{
+.filter div.input input{
     text-align: right;
 }
 
