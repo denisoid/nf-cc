@@ -570,6 +570,12 @@ select {
     margin-top:0;
 }
 
+.credit-offers>div h4{
+    max-height: 1.7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .credit-offers .arrow-prev, .credit-offers .arrow-next{
     width:10px;

@@ -476,8 +476,11 @@
         <div class="span3 ng-class: {selected: currentOfferListPage.currentIndex == $index}"
              ng-repeat="offer in currentOfferListPage.currentPage"
              ng-click="setCurrentOffer($index)">
-            <h4>{{ offer.name }}</h4>
-            <span>{{ offer.monthPayment }} руб/мес</span>
+            <h4 tooltip="{{ offer.name }}">{{ offer.name }}</h4>
+            <span>
+                {{ offer.monthPayment }} руб/мес<br />
+                <strong>{{ offer.months }} мес.</strong>
+            </span>
         </div>
 
         <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()" ng-show="currentOfferListPage.isLeft()"></a>
