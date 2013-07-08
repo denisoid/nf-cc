@@ -432,7 +432,7 @@
             <label>Ежемесячный платеж</label>
 
             <div class="input"><input class="input-mini" ng-model="monthPaymentFilter"><label>руб.</label></div>
-            <div slider ng-model="monthPaymentFilter"></div>
+            <div slider ng-model="monthPaymentFilter" min="5000" max="200000" step="1000"></div>
 
         </div>
 
@@ -446,7 +446,7 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input ng-model="tradeIn"><label>руб.</label></div>
+            <div class="input"><input ng-model="tradeIn" min="5000" max="200000" step="1000"><label>руб.</label></div>
             <div slider ng-model="tradeIn"></div>
         </div>
 
@@ -455,14 +455,14 @@
             <label>Рефинансирование</label>
 
             <div class="input"><input ng-model="refinance"><label>руб.</label></div>
-            <div slider ng-model="refinance"></div>
+            <div slider ng-model="refinance" min="5000" max="200000" step="1000"></div>
         </div>
 
         <div class="span4 input-ip">
             <label>Остаточный платеж</label>
 
             <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
-            <div slider ng-model="lastPayment"></div>
+            <div slider ng-model="lastPayment"  min="5000" max="200000" step="1000"></div>
         </div>
     </section>
 
