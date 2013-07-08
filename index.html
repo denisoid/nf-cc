@@ -55,7 +55,7 @@
                 <div ng-click="restoreCalculation($index)">
                     <img src="img/car.jpg" height="50"/>
                     <strong>{{calculation.car.markName}} {{calculation.car.modelName}} Nissan Note FDJFSJLKFUL</strong>
-                    <span>11111 руб/мес.</span>
+                    <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
                 </div>
                 <a href="" class="icon-remove" ng-click="delCalculation($index)"></a>
                 <!--<i></i>-->
@@ -73,26 +73,26 @@
     </nav>
 </aside>
 
-<aside class="upgrade filter" ng-show="show.isMain">
+<aside class="upgrade filter" ng-show="show.isMain" ng-controller="UpgradeCtrl">
     <h2>Автомобили</h2>
 
     <div class="input-months clearfix">
         <label>При сроке</label>
 
         <div class="input">
-            <input type="input"/>
+            <input type="input" ng-model="upgradeMonths"/>
             <label>мес.</label>
         </div>
-        <div slider min="3" max="36" step="3"></div>
+        <div slider min="1" max="64" step="1" ng-model="upgradeMonths"></div>
     </div>
 
 
-    <section class="upgrades" ng-controller="UpgradeCtrl">
+    <section class="upgrades">
         <section class="car-list list">
 
             <ul>
                 <li ng-repeat="upgrade in carUpgrade.currentPage">
-                    <div ng-click="show(upgrade.id)">
+                    <div ng-click="upgrade(upgrade.id)">
                         <h4>car{{ upgrade.id }}</h4>
                         <span>+3 500 руб</span>
                     </div>
