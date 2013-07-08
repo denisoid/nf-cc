@@ -74,7 +74,7 @@
 </aside>
 
 <aside class="upgrade filter" ng-show="show.isMain" ng-controller="UpgradeCtrl">
-    <h2>Автомобили</h2>
+    <h2>Улучшение</h2>
 
     <div class="input-months clearfix">
         <label>При сроке</label>
@@ -93,7 +93,7 @@
             <ul>
                 <li ng-repeat="upgrade in carUpgrade.currentPage">
                     <div ng-click="upgrade(upgrade.id)">
-                        <h4>car{{ upgrade.id }}</h4>
+                        <h4>{{ upgrade.modelName }}</h4>
                         <span>+3 500 руб</span>
                     </div>
                 </li>

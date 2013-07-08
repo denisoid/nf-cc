@@ -38,7 +38,25 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings) {
                 return false;
             }
         );
+
+        var length = selectedPackageList.length;
+        for(var ti = 0; ti < length; ti++) {
+            var pack = selectedPackageList[ti];
+            pack.modelName = $scope.getModelNameById(pack.modelId);
+        }
+
         $scope.serviceUpgrade.setup(selectedServicesList);
+    }
+
+    $scope.getModelNameById = function(modelId) {
+        var modelList = $filter('filter')($scope.modelList, function (element) {
+                if (element.id == modelId) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        return modelList[0];
     }
 
     $scope.upgrade = function (idx) {
