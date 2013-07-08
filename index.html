@@ -571,9 +571,9 @@
 
 
     <div class="price-line noprint">
-        <h3>Ежемесячный платеж: 1111+2222=</h3>
+        <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment }} = </h3>
 
-        <div class="price">3333 руб/мес</div>
+        <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
     </div>
 
     <section class="end-offer print">
@@ -687,6 +687,11 @@
         <h4>Сравнение вариантов</h4>
 
         <table class='offers-comparison'>
+            <tr class='offer-car'>
+                <td>&nbsp;</td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.markName}} {{selectedOffer.car.modelName}}
+                </td>
+            </tr>
             <tr class='offer-name'>
                 <td>&nbsp;</td>
                 <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.name}}
@@ -713,7 +718,7 @@
             <tr class='offer-sum row-price'>
                 <th>Ставка</th>
                 <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.rate}} мес
+                    {{selectedOffer.rate}} %
                 </td>
             </tr>
             <tr class='offer-return row-price'>
