@@ -5,7 +5,7 @@
  * Date: 03.07.13
  * Time: 14:19
  */
-function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models) {
+function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $window) {
 
     $scope.deltaPercent = 10;
     $scope.data = CalculatorData;
@@ -60,11 +60,14 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models) {
                 return false;
             }
         );
-        return modelList[0].name;
+        if(modelList.length > 0) {
+            return modelList[0].name;
+        }
+        return null;
     }
 
     $scope.upgrade = function (idx) {
-        window.alert(idx);
+        $window.alert(idx);
     }
 
     $scope.$watch('data.calculation.offer', function (newVal, oldVal) {
