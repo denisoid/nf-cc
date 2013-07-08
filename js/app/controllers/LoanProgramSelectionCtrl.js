@@ -145,7 +145,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
         $scope.currentOfferList = $filter('orderBy')($scope.currentOfferList, 'overPayment');
         $scope.currentOfferListPage.setup($scope.currentOfferList);
         if($scope.currentOfferList.length > 0) {
-            $scope.data.calculation.offer = currentOfferListPage.currentPage[0];
+            $scope.data.calculation.offer = $scope.currentOfferListPage.currentPage[0];
         }
 
     }
@@ -175,7 +175,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
         if($scope.data.calculation.offer != null) {
             $scope.selectedOfferList.push($scope.data.calculation.offer)
         }
-        for(var ti; ti < length; ti++) {
+        for(var ti = 0; ti < length; ti++) {
             var offer = $scope.data.calculationList[ti].offer;
             if(offer != null) {
                 $scope.selectedOfferList.push(offer);

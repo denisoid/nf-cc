@@ -6,7 +6,7 @@
  * Time: 14:05
  */
 function OfferCtrl($scope, $filter, CalculatorData) {
-    $scope.offer = CalculatorData.calculation.offer;
+    $scope.calculation = CalculatorData.calculation;
 
     $scope.serviceList = [
         {"id": "1", "selected": false, mandatory: false, "name": "Расш. гарантия", "ctype": "fixed", "cost": "3000"},
@@ -17,7 +17,7 @@ function OfferCtrl($scope, $filter, CalculatorData) {
     ];
 
     $scope.updateOffer = function () {
-        var offer = $scope.offer;
+        var offer = $scope.calculation.offer;
         var serviceValue = 0;
         for (var ti = 0, len = $scope.serviceList.length; ti < len; ti++) {
             var service = $scope.serviceList[ti];
