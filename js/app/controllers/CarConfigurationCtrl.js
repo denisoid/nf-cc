@@ -9,6 +9,7 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
 
     //init
     $scope.car = CalculatorData.calculation.car;
+    $scope.current = {mark: null, model: null, pack: null};
 
     $scope.selMarkList = [];
     $scope.selModelList = [];
@@ -39,9 +40,11 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
             return element.used == $scope.car.used;
         });
         if ($scope.selMarkList.length > 0) {
+            $scope.current.mark = $scope.selMarkList[0];
             $scope.car.markId = $scope.selMarkList[0].id;
             $scope.car.markName = $scope.selMarkList[0].name;
         } else {
+            $scope.current.mark = null;
             $scope.car.markId = null;
             $scope.car.markName = null;
         }
@@ -49,14 +52,17 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
     }
 
     $scope.updateModel = function () {
+
         if ($scope.modelList.length == 0) return;
         $scope.selModelList = $filter('filter')($scope.modelList, function (element) {
             return element.markId == $scope.car.markId;
         });
         if ($scope.selModelList.length > 0) {
+            $scope.current.model = $scope.selModelList[0];
             $scope.car.modelId = $scope.selModelList[0].id;
             $scope.car.modelName = $scope.selModelList[0].name;
         } else {
+            $scope.current.model = null;
             $scope.car.modelId = null;
             $scope.car.modelName = null;
         }
@@ -69,9 +75,11 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
             return element.modelId == $scope.car.modelId;
         });
         if ($scope.selPackagingList.length > 0) {
-            $scope.car.packagingId = $scope.selPackagingList[0].id;
+            $scope.current.pack = $scope.selPackagingList[0];
+            $scope.car.packagingId = $scope.current.pack.id;
         } else {
             $scope.car.packagingId = null;
+            $scope.current.pack = null;
         }
     }
 
@@ -97,8 +105,12 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         }
     }
 
-    $scope.$watch('car.packagingId', function (newVal, oldVal) {
+    $scope.$watch('current.pack', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.updateCarForPackaging();
+        $scope.car.markId = $scope.current.mark.id;
+        $scope.car.modelId = $scope.current.model.id;
+        $scope.car.markName = $scope.current.mark.name;
+        $scope.car.modelName = $scope.current.model.name;
     });
 }

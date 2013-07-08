@@ -91,8 +91,8 @@
         <section class="car-list list">
 
             <ul>
-                <li ng-repeat="upgradeCar in carUpgrade.currentPage">
-                    <div ng-click="upgrade(upgradeCar.id)">
+                <li ng-repeat="car in carUpgrade.currentPage">
+                    <div ng-click="upgrade(car.id)">
                         <h4>{{ upgrade.modelName }}</h4>
                         <span>+3 500 руб</span>
                     </div>
@@ -107,10 +107,10 @@
         <section class="addination-services service-list list">
 
             <ul>
-                <li class="selected" ng-repeat="serviceUpgrade in serviceUpgrade.currentPage">
+                <li class="selected" ng-repeat="service in serviceUpgrade.currentPage">
                     <span>Расширенная гарантия</span>
 
-                    <div ng-click="upgrade(serviceUpgrade.id)">
+                    <div ng-click="upgrade(service.id)">
                         <h4>1 год → 2 года</h4>
                         <span>+ 32 000 руб</span>
                     </div>
@@ -128,12 +128,12 @@
 </aside>
 
 
-<header>
+<header ng-controller="PrintCtrl">
     <img src="img/logo.png">
     <nav ng-show="show.isMain">
         <a href="">Печатать график платежей</a>
-        <a href="javascript:window.print();return false;">Печатать предложение</a>
-    <nav>
+        <a href="" ng-click="printOffer()">Печатать предложение</a>
+    </nav>
 
 </header>
 
@@ -219,8 +219,8 @@
 <section class="car-catalog row-fluid" ng-show="isCatalog">
     <!--Марка-->
     <div class="span3">
-        <select ng-model="car.markId"
-                ng-options="mark.id as mark.name for mark in selMarkList"
+        <select ng-model="current.mark"
+                ng-options="mark as mark.name for mark in selMarkList"
                 ng-change="updateModel()"
                 >
         </select>
@@ -228,8 +228,8 @@
 
     <!--Модель-->
     <div class="span3">
-        <select ng-model="car.modelId"
-                ng-options="model.id as model.name for model in selModelList"
+        <select ng-model="current.model"
+                ng-options="model as model.name for model in selModelList"
                 ng-change="updatePackaging()"
                 >
         </select>
@@ -237,8 +237,8 @@
 
     <!--Комплектация-->
     <div class="span3">
-        <select ng-model="car.packagingId"
-                ng-options="pack.id as pack.name for pack in selPackagingList"
+        <select ng-model="current.pack"
+                ng-options="pack as pack.name for pack in selPackagingList"
                 ng-change="updateYear()"
                 >
         </select>
@@ -843,6 +843,7 @@
 <script type="text/javascript" src="js/app/controllers/OfferCtrl.js"></script>
 <script type="text/javascript" src="js/app/controllers/UpgradeCtrl.js"></script>
 <script type="text/javascript" src="js/app/controllers/MenuCtrl.js"></script>
+<script type="text/javascript" src="js/app/controllers/PrintCtrl.js"></script>
 
 <script type="text/javascript" src="js/app/directives.js"></script>
 <script type="text/javascript" src="js/app/services.js"></script>
