@@ -368,11 +368,12 @@
     <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
 
     <div class="price">{{data.calculation.car.price}} руб</div>
-    <a href="#discountModal" class="icon-info-sign" data-toggle="modal" ></a>
+    <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
 </div>
 
 
-<div id="discountModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="discountModal" class="modal hide fade noprint" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Скидки</h3>
@@ -392,7 +393,7 @@
 
         <div class="input">
             <label>Скидка дилера</label>
-            <input type="input" ng-model="dealerDiscount" />
+            <input type="input" ng-model="dealerDiscount"/>
             <label>руб.</label>
         </div>
 
@@ -453,22 +454,24 @@
         <div class="span4 input-ip">
             <label>Рефинансирование</label>
 
-            <div class="input"><input ng-model="refinance" ><label>руб.</label></div>
-            <div slider ng-model="refinance" ></div>
+            <div class="input"><input ng-model="refinance"><label>руб.</label></div>
+            <div slider ng-model="refinance"></div>
         </div>
 
         <div class="span4 input-ip">
             <label>Остаточный платеж</label>
 
-            <div class="input"><input ng-model="lastPayment" ><label>руб.</label></div>
-            <div slider ng-model="lastPayment" ></div>
+            <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
+            <div slider ng-model="lastPayment"></div>
         </div>
     </section>
 
 
     <section class="credit-offers row-fluid list">
 
-        <div class="selected span3" ng-repeat="offer in currentOfferListPage.currentPage">
+        <div class="span3 ng-class: {selected: currentOfferListPage.currentIndex == $index}"
+             ng-repeat="offer in currentOfferListPage.currentPage"
+             ng-click="setCurrentOffer($index)">
             <h4>{{ offer.name }}</h4>
             <span>{{ offer.monthPayment }} руб/мес</span>
         </div>
@@ -479,7 +482,7 @@
 
 
 </section>
-
+<div class="noprint" ng-controller="OfferCtrl">
 <section class="services-choose">
     <h2>Дополнительные сервисы</h2>
 
@@ -568,7 +571,6 @@
 
     <div class="price">3333 руб/мес</div>
 </div>
-
 
 <section class="end-offer print">
     <h2>Стандартный</h2>
@@ -671,6 +673,8 @@
 
     <a class="btn-big noprint" href="#">Оформить</a>
 </section>
+
+</div>
 </article>
 <!--расчет кредита-->
 

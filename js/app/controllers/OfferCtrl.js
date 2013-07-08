@@ -5,7 +5,9 @@
  * Date: 03.07.13
  * Time: 14:05
  */
-function OfferCtrl($scope, $filter) {
+function OfferCtrl($scope, $filter, CalculatorData) {
+    $scope.offer = CalculatorData.calculation.offer;
+
     $scope.serviceList = [
         {"id": "1", "selected": false, mandatory: false, "name": "Расш. гарантия", "ctype": "fixed", "cost": "3000"},
         {"id": "2", "selected": false, mandatory: false, "name": "Помощь на дорогах", "ctype": "fixed", "cost": "3000"},

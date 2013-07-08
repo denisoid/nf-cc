@@ -69,10 +69,11 @@ seedAppServiceModule.
                     packagingId: null,
                     yearId: null
                 },
-                loanproduct: null
+                loanproduct: null,
+                offer: null
             },
             calculationList: [],
-            saveCalculation: function () {
+            saveCalculation: function (currentOffer) {
 
                 this.calculationList.push({
                     car: {
@@ -84,7 +85,8 @@ seedAppServiceModule.
                         packagingId: this.calculation.car.packagingId,
                         yearId: this.calculation.car.yearId
                     },
-                    loanproduct: null
+                    loanproduct: null,
+                    offer: currentOffer
                 });
             },
             delCalculation: function (ind) {

@@ -35,55 +35,6 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
     $scope.currentOfferListPage = new ListWithPaging([], 4);
 
 
-    $scope.addToSelectedOfferList = function (idx) {
-        var soffer = $scope.currentOfferList[idx];
-
-        var offer = {
-            n: "" + (new Date().getTime()),
-            id: soffer.id,
-            name: soffer.name,
-            price: $scope.car.price,
-            initialPayment: soffer.initialPayment,
-            creditValue: soffer.creditValue,
-            months: soffer.months,
-            monthPayment: soffer.monthPayment,
-            overPayment: soffer.overPayment,
-            returnValue: soffer.returnValue,
-            rate: soffer.rate,
-            serviceValue: soffer.serviceValue,
-            car: jQuery.extend(true, {}, $scope.car)//copy car to new object
-        };
-
-        $scope.selectedOfferList.push(offer);
-        $scope.sortSelectedOfferList();
-
-        if ($scope.selectedOfferList.length == 1) {
-            //скрол, срабатывает после небольшой задержки, т.к. колонка не добавляется сразу почему-то
-            setTimeout(function () {
-
-
-                var top;
-                $("table.offers-comparison:first").each(function () {
-                    top = $(this).offset().top
-                });
-
-                $("body, html").stop().animate({
-                    scrollTop: (top - 100) + "px"
-                });
-
-            }, 50)
-        }
-
-    }
-
-    $scope.sortSelectedOfferList = function () {
-        $scope.selectedOfferList = $filter('orderBy')($scope.selectedOfferList, 'overPayment');
-    }
-
-    $scope.removeFromSelectedOfferList = function (idx) {
-        $scope.selectedOfferList.splice(idx, 1);
-    }
-
     $scope.resetOffers = function () {
         $scope.loanProductForPackList = [];
         $scope.loanProductForCriteriaList = [];
@@ -193,6 +144,10 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
 
         $scope.currentOfferList = $filter('orderBy')($scope.currentOfferList, 'overPayment');
         $scope.currentOfferListPage.setup($scope.currentOfferList);
+        if($scope.currentOfferList.length > 0) {
+            $scope.data.calculation.offer = currentOfferListPage.currentPage[0];
+        }
+
     }
 
     $scope.resetTimerForUpdateOffers = function () {
@@ -207,6 +162,26 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
             }
             , 100);
 
+    }
+
+    $scope.setCurrentOffer = function (idx) {
+        $scope.currentOfferListPage.currentIndex = idx;
+        $scope.data.calculation.offer = $scope.currentOfferListPage.currentPage[idx];
+    }
+
+    $scope.updateCompare = function () {
+        var length = $scope.data.calculationList.length;
+        $scope.selectedOfferList = [];
+        if($scope.data.calculation.offer != null) {
+            $scope.selectedOfferList.push($scope.data.calculation.offer)
+        }
+        for(var ti; ti < length; ti++) {
+            var offer = $scope.data.calculationList[ti].offer;
+            if(offer != null) {
+                $scope.selectedOfferList.push(offer);
+            }
+        }
+        $scope.selectedOfferList = $filter('orderBy')($scope.selectedOfferList, 'overPayment');
     }
 
     $scope.$watch('car.price', function (newVal, oldVal) {
@@ -233,5 +208,16 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
         $scope.resetTimerForUpdateOffers();
     });
 
+    $scope.$watch('show.isCompare', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        if(newVal) {
+            $scope.updateCompare();
+        }
+    });
+
+    $scope.$watch('currentOfferListPage.currentIndex', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.setCurrentOffer(newVal);
+    });
 }
 

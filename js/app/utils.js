@@ -6,6 +6,7 @@
  * Time: 17:53
  */
 var ListWithPaging = function (list, pageSize) {
+    this.currentIndex = null;
     this.list = list;
     this.length = list.length;
     this.start = 0;
@@ -16,6 +17,7 @@ var ListWithPaging = function (list, pageSize) {
             this.end = this.length;
         }
         this.currentPage = this.list.slice(this.start, this.end);
+        this.currentIndex = 0;
     } else {
         this.end = 0;
         this.currentPage = [];
@@ -40,6 +42,7 @@ ListWithPaging.prototype.left = function () {
             }
             this.currentPage = this.list.slice(this.start, this.end);
         }
+        this.currentIndex = 0;
     }
 }
 
@@ -53,6 +56,7 @@ ListWithPaging.prototype.right = function () {
             }
             this.currentPage = this.list.slice(this.start, this.end);
         }
+        this.currentIndex = 0;
     }
 }
 
@@ -65,12 +69,14 @@ ListWithPaging.prototype.init = function () {
     this.length = this.list.length;
     this.start = 0;
     if (this.length > 0) {
+        this.currentIndex = 0;
         this.end = this.start + this.pageSize;
         if (this.end > this.length) {
             this.end = this.length;
         }
         this.currentPage = this.list.slice(this.start, this.end);
     } else {
+        this.currentIndex = null;
         this.end = 0;
         this.currentPage = [];
     }
