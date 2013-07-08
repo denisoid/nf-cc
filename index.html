@@ -62,7 +62,7 @@
             </li>
 
             <li class="link">
-                <a href="" ng-click="saveCalculation()">запомнить вариант</a>
+                <a href="" ng-click="saveCalculation()">+ Запомнить вариант</a>
             </li>
 
             <li class="link" ng-click="toggleCompare()">
@@ -130,8 +130,10 @@
 
 <header>
     <img src="img/logo.png">
-    <a href="">Печатать график платежей</a>
-    <a href="javascript:window.print();return false;">Печатать предложение</a>
+    <nav ng-show="show.isMain">
+        <a href="">Печатать график платежей</a>
+        <a href="javascript:window.print();return false;">Печатать предложение</a>
+    <nav>
 
 </header>
 
@@ -191,7 +193,7 @@
     </div>
 
 
-    <a href="" ng-click="show.isMaxPayment=!show.isMaxPayment">ОК</a>
+    <a href="" ng-click="show.isMaxPayment=!show.isMaxPayment" class="btn">ОК</a>
 </article>
 <!--расчет платежноспобности-->
 
@@ -304,8 +306,8 @@
         </ul>
 
 
-        <a href="#">left</a>
-        <a href="#">right</a>
+        <a href="#" class="arrow-prev"></a>
+        <a href="#" class="arrow-next"></a>
     </section>
 </section>
 
@@ -434,7 +436,7 @@
             <label>Ежемесячный платеж</label>
 
             <div class="input"><input class="input-mini" ng-model="monthPaymentFilter"><label>руб.</label></div>
-            <div slider ng-model="monthPaymentFilter"></div>
+            <div slider ng-model="monthPaymentFilter" min="5000" max="200000" step="1000"></div>
 
         </div>
 
@@ -448,7 +450,7 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input ng-model="tradeIn"><label>руб.</label></div>
+            <div class="input"><input ng-model="tradeIn" min="5000" max="200000" step="1000"><label>руб.</label></div>
             <div slider ng-model="tradeIn"></div>
         </div>
 
@@ -457,14 +459,14 @@
             <label>Рефинансирование</label>
 
             <div class="input"><input ng-model="refinance"><label>руб.</label></div>
-            <div slider ng-model="refinance"></div>
+            <div slider ng-model="refinance" min="5000" max="200000" step="1000"></div>
         </div>
 
         <div class="span4 input-ip">
             <label>Остаточный платеж</label>
 
             <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
-            <div slider ng-model="lastPayment"></div>
+            <div slider ng-model="lastPayment"  min="5000" max="200000" step="1000"></div>
         </div>
     </section>
 
@@ -476,8 +478,11 @@
         <div class="span3 ng-class: {selected: currentOfferListPage.currentIndex == $index}"
              ng-repeat="offer in currentOfferListPage.currentPage"
              ng-click="setCurrentOffer($index)">
-            <h4>{{ offer.name }}</h4>
-            <span>{{ offer.monthPayment }} руб/мес</span>
+            <h4 tooltip="{{ offer.name }}">{{ offer.name }}</h4>
+            <span>
+                {{ offer.monthPayment }} руб/мес<br />
+                <strong>{{ offer.months }} мес.</strong>
+            </span>
         </div>
 
         <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()" ng-show="currentOfferListPage.isLeft()"></a>

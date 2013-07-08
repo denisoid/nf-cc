@@ -168,6 +168,11 @@ aside.menu ul li a{
 }
 
 
+aside.menu ul li:hover a{
+    text-decoration: none!important;
+
+}
+
 
 
 aside.menu ul li:before, aside.menu ul li:after, aside.menu ul li i {
@@ -326,6 +331,20 @@ header {
     padding: 0 20px;
 }
 
+header nav{
+    float:right;
+
+}
+
+
+header nav a{
+    display: inline-block;
+    padding:3px;
+    margin-left:5px;
+
+}
+
+
 .content-container {
     background: #fff;
     margin-left: 210px;
@@ -385,6 +404,7 @@ header {
 
 .price-line * {
     display: inline-block;
+    vertical-align: middle;
 }
 
 .price-line .price {
@@ -553,6 +573,8 @@ select {
     text-align: center;
     font-size:0.7em;
     margin-top:6px;
+
+    cursor: pointer;
 }
 
 .credit-offers>div.selected{
@@ -562,6 +584,12 @@ select {
     margin-top:0;
 }
 
+.credit-offers>div h4{
+    max-height: 1.7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 .credit-offers .arrow-prev, .credit-offers .arrow-next{
     width:10px;
@@ -743,7 +771,7 @@ select {
 }
 
 .modal .input, .modal .input label{
-    font-size:20px;
+    font-size:18px;
     line-height: 35px;
 }
 
@@ -761,7 +789,7 @@ select {
 }
 
 .modal .input input, .modal .input span{
-    margin-left:240px;
+    margin-left:225px;
     text-align: right;
     display:block;
     width:100px
@@ -854,4 +882,24 @@ select {
 
 .offers-comparison .delete-offer:hover{
     background-position:0 bottom;
+}
+
+
+
+
+
+.payment-calculation{
+    width:50%;
+    margin:0 auto;
+
+}
+
+.payment-calculation .input-ip{
+    clear:both;
+    margin-bottom:1.5em;
+}
+
+
+.payment-calculation div.input-ip .ui-slider {
+    margin-right: 125px;
 }
