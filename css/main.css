@@ -69,7 +69,8 @@ h1, h2, h3, h4 {
 }
 
 
-.filter>div>div.input{
+.filter>div>div.input,
+.filter>div>div>div.input{
     float:right;
     white-space: nowrap;
 }
@@ -631,6 +632,10 @@ select {
 
 .client-options {
     text-align: justify;
+
+    height:50px;
+    margin-top:-70px;
+    margin-bottom: 20px;
 }
 
 .client-options a {
