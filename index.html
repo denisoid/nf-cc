@@ -415,6 +415,7 @@
 </article>
 <!--выбор машины-->
 <div ng-controller="LoanProgramSelectionCtrl">
+
 <article ng-show="show.isMain">
 <section class="credit-choose">
     <h2>Кредит</h2>
@@ -467,8 +468,10 @@
         </div>
     </section>
 
+    <section class="noprint" ng-show="!calculation.offer"><span>Не найдены программы подходящие под заданные условия</span></section>
+    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span></section>
 
-    <section class="credit-offers row-fluid list">
+    <section class="credit-offers row-fluid list" ng-show="currentOfferList">
 
         <div class="span3 ng-class: {selected: currentOfferListPage.currentIndex == $index}"
              ng-repeat="offer in currentOfferListPage.currentPage"
@@ -477,13 +480,13 @@
             <span>{{ offer.monthPayment }} руб/мес</span>
         </div>
 
-        <a href="#" class="arrow-prev"></a>
-        <a href="#" class="arrow-next"></a>
+        <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()" ng-show="currentOfferListPage.isLeft()"></a>
+        <a href="" class="arrow-next" ng-click="currentOfferListPage.right()" ng-show="currentOfferListPage.isRight()"></a>
     </section>
 
 
 </section>
-<div class="noprint" ng-controller="OfferCtrl">
+<div class="noprint" ng-controller="OfferCtrl" ng-show="calculation.offer">
     <section class="services-choose">
         <h2>Дополнительные сервисы</h2>
 
