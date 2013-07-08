@@ -130,8 +130,10 @@
 
 <header>
     <img src="img/logo.png">
-    <a href="">Печатать график платежей</a>
-    <a href="javascript:window.print();return false;">Печатать предложение</a>
+    <nav ng-show="show.isMain">
+        <a href="">Печатать график платежей</a>
+        <a href="javascript:window.print();return false;">Печатать предложение</a>
+    <nav>
 
 </header>
 
@@ -191,7 +193,7 @@
     </div>
 
 
-    <a href="" ng-click="show.isMaxPayment=!show.isMaxPayment">ОК</a>
+    <a href="" ng-click="show.isMaxPayment=!show.isMaxPayment" class="btn">ОК</a>
 </article>
 <!--расчет платежноспобности-->
 
@@ -304,8 +306,8 @@
         </ul>
 
 
-        <a href="#">left</a>
-        <a href="#">right</a>
+        <a href="#" class="arrow-prev"></a>
+        <a href="#" class="arrow-next"></a>
     </section>
 </section>
 

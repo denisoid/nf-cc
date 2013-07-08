@@ -331,6 +331,20 @@ header {
     padding: 0 20px;
 }
 
+header nav{
+    float:right;
+
+}
+
+
+header nav a{
+    display: inline-block;
+    padding:3px;
+    margin-left:5px;
+
+}
+
+
 .content-container {
     background: #fff;
     margin-left: 210px;
@@ -868,4 +882,24 @@ select {
 
 .offers-comparison .delete-offer:hover{
     background-position:0 bottom;
+}
+
+
+
+
+
+.payment-calculation{
+    width:50%;
+    margin:0 auto;
+
+}
+
+.payment-calculation .input-ip{
+    clear:both;
+    margin-bottom:1.5em;
+}
+
+
+.payment-calculation div.input-ip .ui-slider {
+    margin-right: 125px;
 }
