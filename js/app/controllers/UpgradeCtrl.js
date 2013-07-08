@@ -14,6 +14,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings) {
         $scope.updateUpgrades();
     });
 
+    $scope.upgradeMonths = 1;
 
     $scope.carUpgrade = new ListWithPaging([], 3);
     $scope.serviceUpgrade = new ListWithPaging([], 3);
@@ -40,11 +41,16 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings) {
         $scope.serviceUpgrade.setup(selectedServicesList);
     }
 
-    $scope.show = function (idx) {
+    $scope.upgrade = function (idx) {
         window.alert(idx);
     }
 
-    $scope.$watch('car.packagingId', function (newVal, oldVal) {
+    $scope.$watch('data.calculation.offer', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.updateUpgrades();
+    });
+
+    $scope.$watch('upgradeMonths', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.updateUpgrades();
     });

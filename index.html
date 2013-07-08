@@ -55,7 +55,7 @@
                 <div ng-click="restoreCalculation($index)">
                     <img src="img/car.jpg" height="50"/>
                     <strong>{{calculation.car.markName}} {{calculation.car.modelName}} Nissan Note FDJFSJLKFUL</strong>
-                    <span>11111 руб/мес.</span>
+                    <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
                 </div>
                 <a href="" class="icon-remove" ng-click="delCalculation($index)"></a>
                 <!--<i></i>-->
@@ -73,26 +73,26 @@
     </nav>
 </aside>
 
-<aside class="upgrade filter" ng-show="show.isMain">
+<aside class="upgrade filter" ng-show="show.isMain" ng-controller="UpgradeCtrl">
     <h2>Автомобили</h2>
 
     <div class="input-months clearfix">
         <label>При сроке</label>
 
         <div class="input">
-            <input type="input"/>
+            <input type="input" ng-model="upgradeMonths"/>
             <label>мес.</label>
         </div>
-        <div slider min="3" max="36" step="3"></div>
+        <div slider min="1" max="64" step="1" ng-model="upgradeMonths"></div>
     </div>
 
 
-    <section class="upgrades" ng-controller="UpgradeCtrl">
+    <section class="upgrades">
         <section class="car-list list">
 
             <ul>
                 <li ng-repeat="upgrade in carUpgrade.currentPage">
-                    <div ng-click="show(upgrade.id)">
+                    <div ng-click="upgrade(upgrade.id)">
                         <h4>car{{ upgrade.id }}</h4>
                         <span>+3 500 руб</span>
                     </div>
@@ -414,7 +414,9 @@
 
 </article>
 <!--выбор машины-->
-<article ng-controller="LoanProgramSelectionCtrl" ng-show="show.isMain">
+<div ng-controller="LoanProgramSelectionCtrl">
+
+<article ng-show="show.isMain">
 <section class="credit-choose">
     <h2>Кредит</h2>
 
@@ -466,8 +468,10 @@
         </div>
     </section>
 
+    <section class="noprint" ng-show="!calculation.offer"><span>Не найдены программы подходящие под заданные условия</span></section>
+    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span></section>
 
-    <section class="credit-offers row-fluid list">
+    <section class="credit-offers row-fluid list" ng-show="currentOfferList">
 
         <div class="span3 ng-class: {selected: currentOfferListPage.currentIndex == $index}"
              ng-repeat="offer in currentOfferListPage.currentPage"
@@ -476,203 +480,203 @@
             <span>{{ offer.monthPayment }} руб/мес</span>
         </div>
 
-        <a href="#" class="arrow-prev"></a>
-        <a href="#" class="arrow-next"></a>
+        <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()" ng-show="currentOfferListPage.isLeft()"></a>
+        <a href="" class="arrow-next" ng-click="currentOfferListPage.right()" ng-show="currentOfferListPage.isRight()"></a>
     </section>
 
 
 </section>
-<div class="noprint" ng-controller="OfferCtrl">
-<section class="services-choose">
-    <h2>Дополнительные сервисы</h2>
+<div class="noprint" ng-controller="OfferCtrl" ng-show="calculation.offer">
+    <section class="services-choose">
+        <h2>Дополнительные сервисы</h2>
 
-    <!--    <div class="show-month-price"><label class="checkbox"><input type="checkbox" checked>Показывать стоимость за
-            месяц</label></div>-->
+        <!--    <div class="show-month-price"><label class="checkbox"><input type="checkbox" checked>Показывать стоимость за
+                месяц</label></div>-->
 
 
-    <section class="service-list row-fluid">
-        <div class="span6">
-            <ul>
-                <li class="header">ОСАГО<span class="price">1 230 руб</span></li>
-                <li>
-                    <label class="radio"><input type="radio" name="r1"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" checked name="r1"/>ОСАГО простое
-                        <span class="price"></span>
-                    </label>
-                </li>
-            </ul>
-        </div>
+        <section class="service-list row-fluid">
+            <div class="span6">
+                <ul>
+                    <li class="header">ОСАГО<span class="price">1 230 руб</span></li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r1"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" checked name="r1"/>ОСАГО простое
+                            <span class="price"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="span6">
-            <ul>
-                <li class="header">ОСАГО<span class="price">1 230 руб</span></li>
-                <li>
-                    <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" checked name="r2"/>ОСАГО простое
-                        <span class="price"></span>
-                    </label>
-                </li>
-            </ul>
-        </div>
+            <div class="span6">
+                <ul>
+                    <li class="header">ОСАГО<span class="price">1 230 руб</span></li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r2"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" checked name="r2"/>ОСАГО простое
+                            <span class="price"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="span6">
-            <ul>
-                <li class="header">ОСАГО<span class="price">1 230 руб</span></li>
-                <li>
-                    <label class="radio"><input type="radio" name="r3"/>Без ОСАГО
-                        <span class="price">-1230 руб</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="radio"><input type="radio" checked name="r3"/>ОСАГО простое
-                        <span class="price"></span>
-                    </label>
-                </li>
-            </ul>
-        </div>
+            <div class="span6">
+                <ul>
+                    <li class="header">ОСАГО<span class="price">1 230 руб</span></li>
+                    <li>
+                        <label class="radio"><input type="radio" name="r3"/>Без ОСАГО
+                            <span class="price">-1230 руб</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio"><input type="radio" checked name="r3"/>ОСАГО простое
+                            <span class="price"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+
+        </section>
 
 
     </section>
 
 
-</section>
+    <div class="price-line noprint">
+        <h3>Ежемесячный платеж: 1111+2222=</h3>
+
+        <div class="price">3333 руб/мес</div>
+    </div>
+
+    <section class="end-offer print">
+        <h2>Стандартный</h2>
+
+        <table>
+            <tr class="header">
+                <td>Сумма кредита</td>
+                <td>400 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr class="header">
+                <td>Срок кредита</td>
+                <td>12</td>
+                <td>мес</td>
+            </tr>
+            <tr class="header">
+                <td>Процентная ставка</td>
+                <td>9.00</td>
+                <td>%</td>
+            </tr>
+            <tr class="header">
+                <td>Стоимость автомобиля</td>
+                <td>560 000</td>
+                <td>руб</td>
+            </tr>
+            <tr>
+                <td>—автомобиль</td>
+                <td>560 000</td>
+                <td>руб</td>
+            </tr>
+            <tr>
+                <td>—аксессуары</td>
+                <td>0</td>
+                <td>руб</td>
+            </tr>
+            <tr class="header space-top">
+                <td>Дополнительные&nbsp; сервисы</td>
+                <td>197 640</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—ОСАГО</td>
+                <td>72 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—Каско</td>
+                <td>65 640</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—Защита платежей на 1 год</td>
+                <td>36 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—Спутниковая сигнализация</td>
+                <td>24 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr class="header space-top expanded">
+                <td>Первоначальный платеж</td>
+                <td>123 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—наличными</td>
+                <td>100 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—трейд-ин</td>
+                <td>20 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—рефинансирование</td>
+                <td>3 000</td>
+                <td>руб.</td>
+            </tr>
 
 
-<div class="price-line noprint">
-    <h3>Ежемесячный платеж: 1111+2222=</h3>
-
-    <div class="price">3333 руб/мес</div>
-</div>
-
-<section class="end-offer print">
-    <h2>Стандартный</h2>
-
-    <table>
-        <tr class="header">
-            <td>Сумма кредита</td>
-            <td>400 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr class="header">
-            <td>Срок кредита</td>
-            <td>12</td>
-            <td>мес</td>
-        </tr>
-        <tr class="header">
-            <td>Процентная ставка</td>
-            <td>9.00</td>
-            <td>%</td>
-        </tr>
-        <tr class="header">
-            <td>Стоимость автомобиля</td>
-            <td>560 000</td>
-            <td>руб</td>
-        </tr>
-        <tr>
-            <td>—автомобиль</td>
-            <td>560 000</td>
-            <td>руб</td>
-        </tr>
-        <tr>
-            <td>—аксессуары</td>
-            <td>0</td>
-            <td>руб</td>
-        </tr>
-        <tr class="header space-top">
-            <td>Дополнительные&nbsp; сервисы</td>
-            <td>197 640</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—ОСАГО</td>
-            <td>72 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—Каско</td>
-            <td>65 640</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—Защита платежей на 1 год</td>
-            <td>36 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—Спутниковая сигнализация</td>
-            <td>24 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr class="header space-top expanded">
-            <td>Первоначальный платеж</td>
-            <td>123 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—наличными</td>
-            <td>100 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—трейд-ин</td>
-            <td>20 000</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—рефинансирование</td>
-            <td>3 000</td>
-            <td>руб.</td>
-        </tr>
+            <tr class="header space-top collapsed">
+                <td>Ежемесячный платеж</td>
+                <td>32 435</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—платеж за автомобиль</td>
+                <td>21 327</td>
+                <td>руб.</td>
+            </tr>
+            <tr>
+                <td>—платеж за дополнительные сервисы</td>
+                <td>11 108</td>
+                <td>руб.</td>
+            </tr>
+        </table>
 
 
-        <tr class="header space-top collapsed">
-            <td>Ежемесячный платеж</td>
-            <td>32 435</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—платеж за автомобиль</td>
-            <td>21 327</td>
-            <td>руб.</td>
-        </tr>
-        <tr>
-            <td>—платеж за дополнительные сервисы</td>
-            <td>11 108</td>
-            <td>руб.</td>
-        </tr>
-    </table>
-
-
-    <a class="btn-big noprint" href="#">Оформить</a>
-</section>
+        <a class="btn-big noprint" href="#">Оформить</a>
+    </section>
 
 </div>
 </article>
@@ -685,43 +689,52 @@
         <table class='offers-comparison'>
             <tr class='offer-name'>
                 <td>&nbsp;</td>
-                <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.name}}<a href="" class="delete-offer"
-                                                                                            ng-click="removeFromSelectedOfferList($index)"></a>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.name}}
                 </td>
             </tr>
             <tr class='offer-sum row-price'>
                 <th>Ежемесячный платеж</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.monthPayment | number:0}} руб./мес.
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.monthPayment |
+                    number:0}} руб./мес.
                 </td>
             </tr>
             <tr class='offer-sum row-price'>
                 <th>Сумма кредита</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">{{selectedOffer.creditValue | number:0}} руб.</td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.creditValue |
+                    number:0}} руб.
+                </td>
             </tr>
             <tr class='offer-term row-price'>
                 <th>Срок кредита</th>
-                <td ng-repeat="selectedOffer in selectedOfferList" class='offer-term'>{{selectedOffer.months}} мес</td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-term'>
+                    {{selectedOffer.months}} мес
+                </td>
             </tr>
             <tr class='offer-sum row-price'>
                 <th>Ставка</th>
-                <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.rate}} мес</td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                    {{selectedOffer.rate}} мес
+                </td>
             </tr>
             <tr class='offer-return row-price'>
                 <th>Сумма к возврату</th>
-                <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.returnValue |
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                    {{selectedOffer.returnValue |
                     number:0}} руб.
                 </td>
             </tr>
             <tr class='offer-return row-price'>
                 <th>Сумма переплаты</th>
-                <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.overPayment |
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                    {{selectedOffer.overPayment |
                     number:0}} руб.
                 </td>
             </tr>
 
             <tr class='offer-return row-price'>
                 <th>Стоимость доп. сервисов</th>
-                <td ng-repeat="selectedOffer in selectedOfferList" class='offer-sum'>{{selectedOffer.serviceValue |
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                    {{selectedOffer.serviceValue |
                     number:0}} руб.
                 </td>
             </tr>
@@ -729,26 +742,26 @@
 
             <tr class='group'>
                 <th>Требования к заемщику</th>
-                <td ng-repeat="selectedOffer in selectedOfferList"></td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index"></td>
             </tr>
 
             <tr class='row-icon'>
                 <th>Гражданство РФ</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
                     <img src="img/yes.png" tooltip="Требуется"/>
                 </td>
             </tr>
 
             <tr class='row-icon'>
                 <th>Домашний телефон</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
                     <img src="img/no.png" tooltip="Не требуется"/>
                 </td>
             </tr>
 
             <tr class='row-icon'>
                 <th>Мобильный телефон</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
                     <img src="img/yes.png" tooltip="Требуется"/>
                 </td>
             </tr>
@@ -756,19 +769,19 @@
 
             <tr class='group'>
                 <th>Список документов</th>
-                <td ng-repeat="selectedOffer in selectedOfferList"></td>
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index"></td>
             </tr>
 
             <tr class='row-icon'>
                 <th>Паспорт РФ</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
                     <img src="img/yes.png" tooltip="Требуется"/>
                 </td>
             </tr>
 
             <tr class='row-icon'>
                 <th>ПТС</th>
-                <td ng-repeat="selectedOffer in selectedOfferList">
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
                     <img src="img/no.png" ng-show="!selectedOffer.car.used" tooltip="Не требуется"/>
                     <img src="img/yes.png" ng-show="selectedOffer.car.used" tooltip="Требуется"/>
                 </td>
@@ -776,7 +789,7 @@
 
             <tr class="noprint">
                 <th></th>
-                <td ng-repeat="selectedOffer in selectedOfferList">
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
                     <button class='btn btn-large' ng-click="process($index)">Оформить</button>
                 </td>
             </tr>
@@ -787,11 +800,12 @@
 
 </article>
 <!--сравнение-->
+</div>
+<!--LoanProgramCtrl-->
+
 
 </div>
-
-
-
+<!--container-->
 
 
 </div>
@@ -832,17 +846,16 @@
     $(window).resize(moveAsideMenu);
 
 
+    function moveAsideMenu() {
+        window_top_offset = $("body").scrollTop();
+        window_height = $(window).height()
+        side_height = $("aside.menu").height();
 
-    function moveAsideMenu(){
-        window_top_offset=$("body").scrollTop();
-        window_height=$(window).height()
-        side_height=$("aside.menu").height();
-
-        if(side_height>window_height){
-            max_side_offset=side_height-window_height;
-            console.log(window_top_offset,max_side_offset);
+        if (side_height > window_height) {
+            max_side_offset = side_height - window_height;
+            console.log(window_top_offset, max_side_offset);
             $("aside.menu").css({
-                top: -Math.min(window_top_offset,max_side_offset)
+                top: -Math.min(window_top_offset, max_side_offset)
             });
         }
     }
