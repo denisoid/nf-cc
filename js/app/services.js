@@ -67,7 +67,9 @@ seedAppServiceModule.
                     markId: null,
                     modelId: null,
                     packagingId: null,
-                    yearId: null
+                    yearId: null,
+                    markName: null,
+                    modelName: null
                 },
                 loanproduct: null,
                 offer: null
@@ -83,7 +85,9 @@ seedAppServiceModule.
                         markId: this.calculation.car.markId,
                         modelId: this.calculation.car.modelId,
                         packagingId: this.calculation.car.packagingId,
-                        yearId: this.calculation.car.yearId
+                        yearId: this.calculation.car.yearId,
+                        markName: this.calculation.car.markName,
+                        modelName: this.calculation.car.modelName
                     },
                     loanproduct: null,
                     offer: this.calculation.offer

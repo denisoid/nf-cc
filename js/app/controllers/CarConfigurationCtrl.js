@@ -40,8 +40,10 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         });
         if ($scope.selMarkList.length > 0) {
             $scope.car.markId = $scope.selMarkList[0].id;
+            $scope.car.markName = $scope.selMarkList[0].name;
         } else {
             $scope.car.markId = null;
+            $scope.car.markName = null;
         }
         $scope.updateModel();
     }
@@ -53,8 +55,10 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         });
         if ($scope.selModelList.length > 0) {
             $scope.car.modelId = $scope.selModelList[0].id;
+            $scope.car.modelName = $scope.selModelList[0].name;
         } else {
             $scope.car.modelId = null;
+            $scope.car.modelName = null;
         }
         $scope.updatePackaging();
     }
