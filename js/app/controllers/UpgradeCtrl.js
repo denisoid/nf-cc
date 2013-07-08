@@ -5,12 +5,16 @@
  * Date: 03.07.13
  * Time: 14:19
  */
-function UpgradeCtrl($scope, $filter, CalculatorData, Packagings) {
+function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models) {
 
     $scope.deltaPercent = 10;
     $scope.data = CalculatorData;
 
     $scope.packagingList = Packagings.query({}, function () {
+        $scope.updateUpgrades();
+    });
+
+    $scope.modelList = Models.query({}, function () {
         $scope.updateUpgrades();
     });
 
@@ -56,7 +60,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings) {
                 return false;
             }
         );
-        return modelList[0];
+        return modelList[0].name;
     }
 
     $scope.upgrade = function (idx) {
