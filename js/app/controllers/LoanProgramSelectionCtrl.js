@@ -136,24 +136,42 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
     $scope.updateCurrentOfferList = function () {
         $scope.currentOfferList = [];
         for (var i = 0, len = $scope.loanProductForCriteriaList.length; i < len; i++) {
+            var monthPaymentFilter = $scope.monthPaymentFilter;
+            if(isNaN(monthPaymentFilter) || (monthPaymentFilter == null) || monthPaymentFilter == 0) {
+                break;
+            }
+
             var discount = parseFloat($scope.car.discount);
             if (isNaN(discount)) discount = 0;
-            var months = $scope.months;
             var price = $scope.car.price;
             var product = $scope.loanProductForCriteriaList[i];
             var initialPayment = $scope.initialPayment;
-            var dealerDiscount = 0;
-            var serviceDiscount = 0;
+            var dealerDiscount = parseFloat($scope.car.dealerDiscount);
+            if (isNaN(dealerDiscount)) dealerDiscount = 0;
+            var serviceDiscount = parseFloat($scope.car.serviceDiscount);
+            if (isNaN(serviceDiscount)) serviceDiscount = 0;
             var carCreditValue = price - initialPayment - discount - dealerDiscount;
-            var serviceValue = 125000 - serviceDiscount;
+            var serviceValue = 125000 - serviceDiscount; //TODO fix service sum
             var creditValue = carCreditValue + serviceValue;
+
+            if(creditValue <= 0 || monthPaymentFilter >= creditValue) {
+                break;
+            }
+
+            var months = Math.ceil((creditValue * (1 + (product.rate/100)))/monthPaymentFilter);
+
+            if(product.minterm > months || product.maxterm < months) {
+                continue;
+            }
+
             var overPayment = Math.round(creditValue * product.rate * months / 1200);
             var returnValue = (creditValue + overPayment);
             var monthPayment = Math.round(returnValue / months);
             var carMonthPayment = Math.round((carCreditValue + (carCreditValue * product.rate * months / 1200)) / months);
             var serviceMonthPayment = Math.round((serviceValue + (serviceValue * product.rate * months / 1200)) / months);
             var offer = {
-                id: product.id,
+                id: "" + i,
+                productId: product.id,
                 name: product.name,
                 price: price,
                 initialPayment: initialPayment,

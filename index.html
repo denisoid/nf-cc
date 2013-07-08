@@ -467,14 +467,10 @@
 
 
     <section class="credit-offers row-fluid list">
-        <div class="selected span3">
-            <h4>Стандартный 6.5%</h4>
-            <span>32 000 руб/мес</span>
-        </div>
 
-        <div class="span3" ng-repeat="offer in currentOfferListPage">
-            <h4>Стандартный 6.5% {{ index$ }}</h4>
-            <span>32 000 руб/мес</span>
+        <div class="selected span3" ng-repeat="offer in currentOfferListPage.currentPage">
+            <h4>{{ offer.name }}</h4>
+            <span>{{ offer.monthPayment }} руб/мес</span>
         </div>
 
         <a href="#" class="arrow-prev"></a>

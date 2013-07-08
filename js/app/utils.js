@@ -10,11 +10,16 @@ var ListWithPaging = function (list, pageSize) {
     this.length = list.length;
     this.start = 0;
     this.pageSize = pageSize;
-    this.end = this.start + this.pageSize;
-    if(this.end > this.length) {
-        this.end = this.length;
+    if (this.length > 0) {
+        this.end = this.start + this.pageSize;
+        if (this.end > this.length) {
+            this.end = this.length;
+        }
+        this.currentPage = this.list.slice(this.start, this.end);
+    } else {
+        this.end = 0;
+        this.currentPage = [];
     }
-    this.currentPage = this.list.slice(this.start, this.end);
 }
 
 ListWithPaging.prototype.isLeft = function () {
@@ -26,28 +31,32 @@ ListWithPaging.prototype.isRight = function () {
 }
 
 ListWithPaging.prototype.left = function () {
-    if(this.start >= this.pageSize) {
-        this.start -= this.pageSize;
-        this.end = this.start + this.pageSize;
-        if(this.end > this.length) {
-            this.end = this.length;
+    if (this.length > 0) {
+        if (this.start >= this.pageSize) {
+            this.start -= this.pageSize;
+            this.end = this.start + this.pageSize;
+            if (this.end > this.length) {
+                this.end = this.length;
+            }
+            this.currentPage = this.list.slice(this.start, this.end);
         }
-        this.currentPage = this.list.slice(this.start, this.end);
     }
 }
 
 ListWithPaging.prototype.right = function () {
-    if(this.start + this.pageSize < this.length) {
-        this.start += this.pageSize;
-        this.end = this.start + this.pageSize;
-        if(this.end > this.length) {
-            this.end = this.length;
+    if (this.length > 0) {
+        if (this.start + this.pageSize < this.length) {
+            this.start += this.pageSize;
+            this.end = this.start + this.pageSize;
+            if (this.end > this.length) {
+                this.end = this.length;
+            }
+            this.currentPage = this.list.slice(this.start, this.end);
         }
-        this.currentPage = this.list.slice(this.start, this.end);
     }
 }
 
-ListWithPaging.prototype.setup = function(list) {
+ListWithPaging.prototype.setup = function (list) {
     this.list = list;
     this.init();
 }
@@ -55,9 +64,14 @@ ListWithPaging.prototype.setup = function(list) {
 ListWithPaging.prototype.init = function () {
     this.length = this.list.length;
     this.start = 0;
-    this.end = this.index + this.pageSize;
-    if(this.end > this.length) {
-        this.end = this.length;
+    if (this.length > 0) {
+        this.end = this.start + this.pageSize;
+        if (this.end > this.length) {
+            this.end = this.length;
+        }
+        this.currentPage = this.list.slice(this.start, this.end);
+    } else {
+        this.end = 0;
+        this.currentPage = [];
     }
-    this.currentPage = this.list.slice(this.start, this.end);
 }
