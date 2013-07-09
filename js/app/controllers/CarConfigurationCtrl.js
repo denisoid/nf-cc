@@ -77,10 +77,12 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
                 $scope.selModelList = $filter('filter')($scope.modelList, function (element) {
                     return element.markId == $scope.car.mark.id;
                 });
-                if ($scope.selModelList.length > 0 && $scope.car.model == null) {
-                    $scope.car.model = $scope.selModelList[0];
-                } else {
+                if ($scope.selModelList.length == 0) {
                     $scope.car.model = null;
+                } else {
+                    if ($scope.car.model == null) {
+                        $scope.car.model = $scope.selModelList[0];
+                    }
                 }
             }
         }
@@ -106,11 +108,21 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         }
     }
 
-    /*
-    $scope.$watch('car.mark', function (newVal, oldVal) {
+    $scope.$watch('car.pack', function (newVal, oldVal) {
         if (newVal === oldVal) return;
-        $scope.updateModel();
+        if($scope.car.pack == null) return;
+        var modelId = $scope.car.model.id;
+        var length = $scope.selModelList.length;
+        var found = false;
+        for(var ti = 0; ti < length; ti++) {
+            if(modelId == $scope.selModelList[ti].id) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
+            $scope.updateModel();
+        }
     });
-    */
 
 }
