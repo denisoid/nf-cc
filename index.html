@@ -266,9 +266,9 @@
         <!--Марка-->
         <div class="span2">
             <select
-                    ng-model="car.markId"
-                    ng-options="mark.id as mark.name for mark in selMarkList"
-                    ng-change="updateModel()"
+                    ng-model="car.mark"
+                    ng-options="mark as mark.name for mark in selMarkList"
+                    ng-change="resetModel()"
                     >
                 <option value="">Любая</option>
             </select>
@@ -277,9 +277,9 @@
 
         <!--Модель-->
         <div class="span4">
-            <select ng-model="car.modelId"
-                    ng-options="model.id as model.name for model in selModelList"
-                    ng-change="updatePackaging()"
+            <select ng-model="car.model"
+                    ng-options="model as model.name for model in selModelList"
+                    ng-change="resetPack()"
                     >
                 <option value="">Любая</option>
             </select>
@@ -427,8 +427,8 @@
         <div class="span4 input-ip">
             <label>Первоначальный взнос</label>
 
-            <div class="input"><input ng-model="initialPayment"><label> руб.</label></div>
-            <div slider ng-model="initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ initialPaymentPercent }} %"></div>
+            <div class="input"><input ng-model="parameters.initialPayment"><label> руб.</label></div>
+            <div slider ng-model="parameters.initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ parameters.initialPaymentPercent }} %"></div>
 
         </div>
 
@@ -436,22 +436,22 @@
         <div class="span4 input-ip">
             <label>Ежемесячный платеж</label>
 
-            <div class="input"><input class="input-mini" ng-model="monthPaymentFilter"><label>руб.</label></div>
-            <div slider ng-model="monthPaymentFilter" min="5000" max="200000" step="1000"></div>
+            <div class="input"><input class="input-mini" ng-model="parameters.monthPaymentFilter"><label>руб.</label></div>
+            <div slider ng-model="parameters.monthPaymentFilter" min="5000" max="200000" step="1000"></div>
 
         </div>
 
         <div class="span4">
             <div class="client-options">
-                <a class="radio-btn  ng-class: {'active': clientRCI}" ng-click="clientRCI=!clientRCI">Клиент RCI</a>
-                <a class="radio-btn  ng-class: {'active': existCRM}" ng-click="existCRM=!existCRM">Есть в CRM</a>
+                <a class="radio-btn  ng-class: {'active': parameters.clientRCI}" ng-click="parameters.clientRCI=!parameters.clientRCI">Клиент RCI</a>
+                <a class="radio-btn  ng-class: {'active': parameters.existCRM}" ng-click="parameters.existCRM=!parameters.existCRM">Есть в CRM</a>
             </div>
 
             <div class="input-ip">
                 <label>Остаточный платеж</label>
 
-                <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
-                <div slider ng-model="lastPayment" min="0" max="200000" step="1000"></div>
+                <div class="input"><input ng-model="parameters.lastPayment"><label>руб.</label></div>
+                <div slider ng-model="parameters.lastPayment" min="0" max="200000" step="1000"></div>
             </div>
         </div>
     </section>
@@ -460,23 +460,23 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input ng-model="tradeIn" min="5000" max="200000" step="1000"><label>руб.</label></div>
-            <div slider ng-model="tradeIn"></div>
+            <div class="input"><input ng-model="parameters.tradeIn" min="5000" max="200000" step="1000"><label>руб.</label></div>
+            <div slider ng-model="parameters.tradeIn"></div>
         </div>
 
 
         <div class="span4 input-ip">
             <label>Рефинансирование</label>
 
-            <div class="input"><input ng-model="refinance"><label>руб.</label></div>
-            <div slider ng-model="refinance" min="5000" max="200000" step="1000"></div>
+            <div class="input"><input ng-model="parameters.refinance"><label>руб.</label></div>
+            <div slider ng-model="parameters.refinance" min="5000" max="200000" step="1000"></div>
         </div>
 
 
     </section>
 
     <section class="noprint" ng-show="!calculation.offer">
-        <span>Не найдены программы подходящие под заданные условия</span></section>
+    <span>Не найдены программы подходящие под заданные условия</span></section>
     <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span>
     </section>
 
