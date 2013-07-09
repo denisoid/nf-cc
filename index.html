@@ -23,6 +23,10 @@
 <body>
 <div ng-controller="CalculatorCtrl" ng-cloak>
 <p class="print">
+
+    <img src="img/logo.png" style="float:right">
+
+
     ООО «Авто-дилер»<br/>
     Москва, ул. Ленина, 31<br/>
     +7 495 212 85 06<br/>
@@ -65,7 +69,7 @@
                 <a href="" ng-click="saveCalculation()">+ Запомнить вариант</a>
             </li>
 
-            <li class="link" ng-click="toggleCompare()">
+            <li class="link ng-class: {'active': show.isCompare}" ng-click="toggleCompare()">
                 <a href="">Сравнение</a>
                 <i></i>
             </li>
@@ -131,7 +135,7 @@
 <header ng-controller="PrintCtrl">
     <img src="img/logo.png">
     <nav ng-show="show.isMain">
-        <a href="">Печатать график платежей</a>
+        <a href="" ng-click="printGrid()">Печатать график платежей</a>
         <a href="" ng-click="printOffer()">Печатать предложение</a>
     </nav>
 
@@ -425,7 +429,7 @@
 
     <section class="credit-filter filter row-fluid">
         <div class="span4 input-ip">
-            <label>Первоначальный взнос</label>
+            <label>Первоначальный взнос — {{ initialPaymentPercent }} %</label>
 
             <div class="input"><input ng-model="parameters.initialPayment"><label> руб.</label></div>
             <div slider ng-model="parameters.initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ parameters.initialPaymentPercent }} %"></div>
