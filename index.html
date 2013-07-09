@@ -366,7 +366,7 @@
 
 </div>
 <div class="price-line-container">
-<div class="price-line noprint">
+<div class="price-line noprint" id="carPrice">
     <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
 
     <div class="price">{{data.calculation.car.pack.price}} руб</div>
@@ -428,7 +428,7 @@
             <label>Первоначальный взнос</label>
 
             <div class="input"><input ng-model="initialPayment"><label> руб.</label></div>
-            <div slider ng-model="initialPaymentPercent" max=100 min=0 step=1></div>
+            <div slider ng-model="initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ initialPaymentPercent }} %"></div>
 
         </div>
 
@@ -472,12 +472,7 @@
             <div slider ng-model="refinance" min="5000" max="200000" step="1000"></div>
         </div>
 
-        <div class="span4 input-ip">
-            <label>Остаточный платеж</label>
 
-            <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
-            <div slider ng-model="lastPayment"  min="5000" max="200000" step="1000"></div>
-        </div>
     </section>
 
     <section class="noprint" ng-show="!calculation.offer">
