@@ -75,7 +75,14 @@ seedAppServiceModule.
                 this.calculationList.splice(ind, true);
             },
             restoreCalculation: function (ind) {
-                this.calculation = this.calculationList[ind];
+                this.calculation.car.used = this.calculationList[ind].car.used;
+                this.calculation.car.mark = this.calculationList[ind].car.mark;
+                this.calculation.car.model = this.calculationList[ind].car.model;
+                this.calculation.car.pack = this.calculationList[ind].car.pack;
+                this.calculation.car.yearId = this.calculationList[ind].car.yearId
+
+                this.calculation.loanproduct = this.calculationList[ind].loanproduct;
+                this.calculation.offer = this.calculationList[ind].offer;
             }
         }
     }

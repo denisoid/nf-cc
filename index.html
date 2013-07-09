@@ -206,7 +206,7 @@
     <div class="car-type-choose">
         <a href="" class="radio-btn ng-class: {'active': !car.used}"
            ng-click="car.used=false;updateMark()">Новый</a>
-        <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;updateMark()">С
+        <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;resetMark()">С
             пробегом</a>
     </div>
 
@@ -221,7 +221,7 @@
     <div class="span3">
         <select ng-model="car.mark"
                 ng-options="mark as mark.name for mark in selMarkList"
-                ng-change="updateModel()"
+                ng-change="resetModel()"
                 >
         </select>
     </div>
@@ -230,7 +230,7 @@
     <div class="span3">
         <select ng-model="car.model"
                 ng-options="model as model.name for model in selModelList"
-                ng-change="updatePackaging()"
+                ng-change="resetPackaging()"
                 >
         </select>
     </div>
@@ -239,7 +239,7 @@
     <div class="span3">
         <select ng-model="car.pack"
                 ng-options="pack as pack.name for pack in selPackagingList"
-                ng-change="updateYear()"
+                ng-change="resetYear()"
                 >
         </select>
     </div>

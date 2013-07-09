@@ -97,8 +97,11 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
                 break;
             }
 
-            var discount = parseFloat($scope.car.pack.discount);
-            if (isNaN(discount)) discount = 0;
+            var discount = 0;
+            if($scope.car.pack != null) {
+                discount = parseFloat($scope.car.pack.discount);
+                if (isNaN(discount)) discount = 0;
+            }
             var price = $scope.car.pack.price;
             var product = $scope.loanProductForCriteriaList[i];
             var initialPayment = $scope.initialPayment;
