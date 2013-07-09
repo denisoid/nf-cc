@@ -98,8 +98,8 @@
                     </div>
                 </li>
             </ul>
-            <a href="" class="arrow-prev" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()"></a>
-            <a href="" class="arrow-next" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()"></a>
+            <!--<a href="" class="arrow-prev" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()"></a>
+            <a href="" class="arrow-next" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()"></a>-->
         </section>
 
 
@@ -117,8 +117,8 @@
                 </li>
 
             </ul>
-            <a href="" class="arrow-prev" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()"></a>
-            <a href="" class="arrow-next" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()"></a>
+            <!--<a href="" class="arrow-prev" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()"></a>
+            <a href="" class="arrow-next" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()"></a>-->
         </section>
 
 
@@ -365,12 +365,13 @@
 
 
 </div>
-
-<div class="price-line noprint">
+<div class="price-line-container">
+<div class="price-line noprint" id="carPrice">
     <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
 
     <div class="price">{{data.calculation.car.pack.price}} руб</div>
     <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
+</div>
 </div>
 
 
@@ -427,7 +428,7 @@
             <label>Первоначальный взнос</label>
 
             <div class="input"><input ng-model="initialPayment"><label> руб.</label></div>
-            <div slider ng-model="initialPaymentPercent" max=100 min=0 step=1></div>
+            <div slider ng-model="initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ initialPaymentPercent }} %"></div>
 
         </div>
 
@@ -440,9 +441,18 @@
 
         </div>
 
-        <div class="span4 client-options">
-            <a class="radio-btn  ng-class: {'active': clientRCI}" ng-click="clientRCI=!clientRCI">Клиент RCI</a>
-            <a class="radio-btn  ng-class: {'active': existCRM}" ng-click="existCRM=!existCRM">Есть в CRM</a>
+        <div class="span4">
+            <div class="client-options">
+                <a class="radio-btn  ng-class: {'active': clientRCI}" ng-click="clientRCI=!clientRCI">Клиент RCI</a>
+                <a class="radio-btn  ng-class: {'active': existCRM}" ng-click="existCRM=!existCRM">Есть в CRM</a>
+            </div>
+
+            <div class="input-ip">
+                <label>Остаточный платеж</label>
+
+                <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
+                <div slider ng-model="lastPayment" min="0" max="200000" step="1000"></div>
+            </div>
         </div>
     </section>
 
@@ -462,16 +472,13 @@
             <div slider ng-model="refinance" min="5000" max="200000" step="1000"></div>
         </div>
 
-        <div class="span4 input-ip">
-            <label>Остаточный платеж</label>
 
-            <div class="input"><input ng-model="lastPayment"><label>руб.</label></div>
-            <div slider ng-model="lastPayment"  min="5000" max="200000" step="1000"></div>
-        </div>
     </section>
 
-    <section class="noprint" ng-show="!calculation.offer"><span>Не найдены программы подходящие под заданные условия</span></section>
-    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span></section>
+    <section class="noprint" ng-show="!calculation.offer">
+        <span>Не найдены программы подходящие под заданные условия</span></section>
+    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span>
+    </section>
 
     <section class="credit-offers row-fluid list" ng-show="currentOfferList">
 
@@ -480,24 +487,32 @@
              ng-click="setCurrentOffer($index)">
             <h4 tooltip="{{ offer.name }}">{{ offer.name }}</h4>
             <span>
-                {{ offer.monthPayment }} руб/мес<br />
+                {{ offer.monthPayment }} руб/мес<br/>
                 <strong>{{ offer.months }} мес.</strong>
             </span>
         </div>
 
-        <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()" ng-show="currentOfferListPage.isLeft()"></a>
-        <a href="" class="arrow-next" ng-click="currentOfferListPage.right()" ng-show="currentOfferListPage.isRight()"></a>
+        <a href="" class="arrow-prev" ng-click="currentOfferListPage.left()"
+           ng-show="currentOfferListPage.isLeft()"></a>
+        <a href="" class="arrow-next" ng-click="currentOfferListPage.right()"
+           ng-show="currentOfferListPage.isRight()"></a>
     </section>
 
 
 </section>
-<div class="noprint" ng-controller="OfferCtrl" ng-show="calculation.offer">
-    <div class="price-line noprint">
-        <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment }} = </h3>
+
+<div class="noprint price-line-container">
+    <div class="price-line noprint" id="offerPrice">
+        <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment
+            }}
+            = </h3>
 
         <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
     </div>
-    <section class="services-choose">
+</div>
+
+<div ng-controller="OfferCtrl" ng-show="calculation.offer">
+    <section class="noprint services-choose">
         <h2>Дополнительные сервисы</h2>
 
         <!--    <div class="show-month-price"><label class="checkbox"><input type="checkbox" checked>Показывать стоимость за
@@ -578,6 +593,7 @@
 
 
     </section>
+
 
     <section class="end-offer">
         <h2>Стандартный</h2>
@@ -868,6 +884,50 @@
             });
         }
     }
+
+
+    $.fn.followTo = function (abspos, fixpos, fixbottom) {
+        var $this = this,
+                $window = $(window);
+
+        //console.log($(this).parent().eq(0));
+
+        //pos=$(this).parent().eq().offsetTop;
+
+
+        $window.scroll(function (e) {
+
+            pos = $this.parent().offset().top - fixpos;
+
+
+            /*if (pos > ($window.scrollTop() + $window.height() - fixpos )) {
+             $this.css({
+             position: 'fixed',
+             top: "auto",
+             bottom: fixbottom
+             });
+             }
+             else*/
+            if (pos > $window.scrollTop()) {
+                $this.css({
+                    position: 'absolute',
+                    bottom: "auto",
+                    top: abspos
+                });
+            }
+            else if (pos < $window.scrollTop()) {
+                $this.css({
+                    position: 'fixed',
+                    bottom: "auto",
+                    top: fixpos
+                });
+            }
+        });
+    };
+
+
+    $("#carPrice").followTo(0, 60, 44);
+    $("#offerPrice").followTo(0, 104, 0);
 
 </script>
 </body>
