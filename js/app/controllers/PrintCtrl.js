@@ -12,7 +12,7 @@ function PrintCtrl($scope, $window) {
 
 
     $scope.printGrid = function() {
-        var win = window.open("grid.html");
+        var win = $window.open("grid.html");
     }
 
 }

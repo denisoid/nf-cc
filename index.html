@@ -429,7 +429,7 @@
 
     <section class="credit-filter filter row-fluid">
         <div class="span4 input-ip">
-            <label>Первоначальный взнос — {{ initialPaymentPercent }} %</label>
+            <label>Первоначальный взнос — {{ parameters.initialPaymentPercent }} %</label>
 
             <div class="input"><input ng-model="parameters.initialPayment"><label> руб.</label></div>
             <div slider ng-model="parameters.initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ parameters.initialPaymentPercent }} %"></div>
