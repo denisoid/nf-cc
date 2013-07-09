@@ -69,21 +69,22 @@ h1, h2, h3, h4 {
 }
 
 
-.filter>div>div.input{
+.filter>div>div.input,
+.filter>div>div>div.input{
     float:right;
     white-space: nowrap;
 }
 
-.filter>div>div.input *{
+.filter div.input *{
     display:inline-block;
 }
 
-.filter>div>div.input label{
+.filter div.input label{
     padding-left:3px;
 
 }
 
-.filter>div>div.input input{
+.filter div.input input{
     text-align: right;
 }
 
@@ -384,11 +385,20 @@ header nav a{
     text-align: right;
 }
 
-.price-line {
+
+.price-line-container{
     clear: both;
     position: relative;
+    margin: 20px -20px;
+    height: 44px;
+}
+
+.price-line {
+    position: absolute;
+    width:720px;
+    height:43px;
     text-align: right;
-    margin: 1em -20px;
+
     padding: 0 20px;
 
     background: #ffeda4;
@@ -400,6 +410,8 @@ header nav a{
     background: linear-gradient(to right, #ffeda4 0%, #ffcc00 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeda4', endColorstr='#ffcc00', GradientType=1);
 
+    z-index:200;
+    border-bottom: 1px solid #aaa;
 }
 
 .price-line * {
@@ -620,6 +632,10 @@ select {
 
 .client-options {
     text-align: justify;
+
+    height:50px;
+    margin-top:-70px;
+    margin-bottom: 20px;
 }
 
 .client-options a {
