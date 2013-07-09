@@ -100,7 +100,7 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         });
 
         if ($scope.selPackagingList.length > 0) {
-            if($scope.car.pack == null) {
+            if ($scope.car.pack == null) {
                 $scope.car.pack = $scope.selPackagingList[0];
             }
         } else {
@@ -110,18 +110,20 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
 
     $scope.$watch('car.pack', function (newVal, oldVal) {
         if (newVal === oldVal) return;
-        if($scope.car.pack == null) return;
-        var modelId = $scope.car.model.id;
-        var length = $scope.selModelList.length;
-        var found = false;
-        for(var ti = 0; ti < length; ti++) {
-            if(modelId == $scope.selModelList[ti].id) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
+        if ($scope.car.mark == null) return;
+        if ($scope.car.model == null) return;
+        if ($scope.car.pack == null) return;
+        if ($scope.selModelList.length == 0) {
             $scope.updateModel();
+        }
+        if ($scope.selModelList[0].markId != $scope.car.mark.id) {
+            $scope.updateModel();
+        }
+        if ($scope.selPackagingList.length == 0) {
+            $scope.updatePack();
+        }
+        if ($scope.selPackagingList[0].modelId != $scope.car.model.id) {
+            $scope.updatePack();
         }
     });
 
