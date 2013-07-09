@@ -54,7 +54,7 @@
             <li ng-repeat="calculation in data.calculationList" class="offer">
                 <div ng-click="restoreCalculation($index)">
                     <img src="img/car.jpg" height="50"/>
-                    <strong>{{calculation.car.markName}} {{calculation.car.modelName}}</strong>
+                    <strong>{{calculation.car.mark.name}} {{calculation.car.model.name}}</strong>
                     <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
                 </div>
                 <a href="" class="icon-remove" ng-click="delCalculation($index)"></a>
@@ -93,7 +93,7 @@
             <ul>
                 <li ng-repeat="car in carUpgrade.currentPage">
                     <div ng-click="upgrade(car.id)">
-                        <h4>{{ upgrade.modelName }}</h4>
+                        <h4>{{ upgrade.model.name }}</h4>
                         <span>+3 500 руб</span>
                     </div>
                 </li>
@@ -219,7 +219,7 @@
 <section class="car-catalog row-fluid" ng-show="isCatalog">
     <!--Марка-->
     <div class="span3">
-        <select ng-model="current.mark"
+        <select ng-model="car.mark"
                 ng-options="mark as mark.name for mark in selMarkList"
                 ng-change="updateModel()"
                 >
@@ -228,7 +228,7 @@
 
     <!--Модель-->
     <div class="span3">
-        <select ng-model="current.model"
+        <select ng-model="car.model"
                 ng-options="model as model.name for model in selModelList"
                 ng-change="updatePackaging()"
                 >
@@ -237,7 +237,7 @@
 
     <!--Комплектация-->
     <div class="span3">
-        <select ng-model="current.pack"
+        <select ng-model="car.pack"
                 ng-options="pack as pack.name for pack in selPackagingList"
                 ng-change="updateYear()"
                 >
@@ -313,7 +313,7 @@
 
 
 <div class="print">
-    <h2>Стоимость {{data.calculation.car.markName}} {{data.calculation.car.modelName}} — {{data.calculation.car.price}} руб</h2>
+    <h2>Стоимость {{data.calculation.car.mark.name}} {{data.calculation.car.model.name}} — {{data.calculation.car.pack.price}} руб</h2>
 </div>
 
 <div class="car-info">
@@ -367,9 +367,9 @@
 </div>
 
 <div class="price-line noprint">
-    <h3>{{data.calculation.car.markName}} {{data.calculation.car.modelName}}</h3>
+    <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
 
-    <div class="price">{{data.calculation.car.price}} руб</div>
+    <div class="price">{{data.calculation.car.pack.price}} руб</div>
     <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
 </div>
 
@@ -383,13 +383,13 @@
     <div class="modal-body">
         <div class="input">
             <label>Рекомендованная цена</label>
-            <span>{{ car.price | number:0 }}</span>
+            <span>{{ car.pack.price | number:0 }}</span>
             <label>руб.</label>
         </div>
 
         <div class="input">
             <label>Скидка производителя</label>
-            <span>{{ car.discount | number:0 }}</span>
+            <span>{{ car.pack.discount | number:0 }}</span>
             <label>руб.</label>
         </div>
 
@@ -401,7 +401,7 @@
 
         <div class="input">
             <label>Итого</label>
-            <span>{{ (car.price - car.discount - dealerDiscount) | number:0 }}</span>
+            <span>{{ (car.pack.price - car.pack.discount - dealerDiscount) | number:0 }}</span>
             <label>руб.</label>
         </div>
     </div>
@@ -692,7 +692,7 @@
         <table class='offers-comparison'>
             <tr class='offer-car'>
                 <td>&nbsp;</td>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.markName}} {{selectedOffer.car.modelName}}
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.mark.name}} {{selectedOffer.car.model.name}}
                 </td>
             </tr>
             <tr class='offer-name'>
