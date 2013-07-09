@@ -35,9 +35,9 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
     $scope.currentOfferListPage = new ListWithPaging([], 4);
 
     $scope.updateFilters = function() {
-        $scope.initialPaymentPercent = Math.round(($scope.initialPayment/$scope.car.price) * 100);
+        $scope.initialPaymentPercent = Math.round(($scope.initialPayment/$scope.car.pack.price) * 100);
         $scope.car.dealerDiscount = 0;
-        $scope.monthPaymentFilter = Math.round($scope.car.price / 12);
+        $scope.monthPaymentFilter = Math.round($scope.car.pack.price / 12);
     }
 
     $scope.resetOffers = function () {
@@ -97,9 +97,9 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
                 break;
             }
 
-            var discount = parseFloat($scope.car.discount);
+            var discount = parseFloat($scope.car.pack.discount);
             if (isNaN(discount)) discount = 0;
-            var price = $scope.car.price;
+            var price = $scope.car.pack.price;
             var product = $scope.loanProductForCriteriaList[i];
             var initialPayment = $scope.initialPayment;
             var dealerDiscount = parseFloat($scope.car.dealerDiscount);
@@ -191,7 +191,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
 
     $scope.$watch('initialPayment', function (newVal, oldVal) {
         if (newVal === oldVal) return;
-        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.price);
+        $scope.initialPaymentPercent = Math.round($scope.initialPayment * 100 / $scope.car.pack.price);
         $scope.resetTimerForUpdateOffers();
     });
 

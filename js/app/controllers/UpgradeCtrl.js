@@ -24,7 +24,10 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     $scope.serviceUpgrade = new ListWithPaging([], 3);
 
     $scope.updateUpgrades = function () {
-        var price = $scope.data.calculation.car.price;
+        if($scope.data.calculation.car.pack == null) {
+            return;
+        }
+        var price = $scope.data.calculation.car.pack.price;
         var maxPrice = price * (1+$scope.deltaPercent/100);
         var selectedPackageList = $filter('filter')($scope.packagingList, function (element) {
                 if ((element.cost > price) && (element.cost < maxPrice)) {
