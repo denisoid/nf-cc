@@ -54,7 +54,15 @@ seedAppServiceModule.
                     yearId: null
                 },
                 loanproduct: null,
-                offer: null
+                offer: null,
+                parameters: {
+                    initialPayment: 200000,
+                    initialPaymentPercent: 0,
+                    monthPaymentFilter: 10000,
+                    tradeIn: 0,
+                    refinance: 10000,
+                    lastPayment: 0
+                }
             },
             calculationList: [],
             saveCalculation: function () {
@@ -68,14 +76,23 @@ seedAppServiceModule.
                         yearId: this.calculation.car.yearId
                     },
                     loanproduct: null,
-                    offer: this.calculation.offer
+                    offer: this.calculation.offer,
+                    parameters: this.calculation.parameters
                 });
             },
             delCalculation: function (ind) {
                 this.calculationList.splice(ind, true);
             },
             restoreCalculation: function (ind) {
-                this.calculation = this.calculationList[ind];
+                this.calculation.car.used = this.calculationList[ind].car.used;
+                this.calculation.car.mark = this.calculationList[ind].car.mark;
+                this.calculation.car.model = this.calculationList[ind].car.model;
+                this.calculation.car.pack = this.calculationList[ind].car.pack;
+                this.calculation.car.yearId = this.calculationList[ind].car.yearId
+
+                this.calculation.loanproduct = this.calculationList[ind].loanproduct;
+                this.calculation.offer = this.calculationList[ind].offer;
+                this.calculation.parameters = this.calculationList[ind].parameters;
             }
         }
     }

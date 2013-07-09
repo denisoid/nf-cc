@@ -30,7 +30,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         var price = $scope.data.calculation.car.pack.price;
         var maxPrice = price * (1+$scope.deltaPercent/100);
         var selectedPackageList = $filter('filter')($scope.packagingList, function (element) {
-                if ((element.cost > price) && (element.cost < maxPrice)) {
+                if ((element.price > price) && (element.price < maxPrice)) {
                     return true;
                 }
                 return false;
@@ -39,7 +39,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         $scope.carUpgrade.setup(selectedPackageList);
 
         var selectedServicesList = $filter('filter')($scope.packagingList, function (element) {
-                if ((element.cost > price) && (element.cost < maxPrice)) {
+                if ((element.price > price) && (element.price < maxPrice)) {
                     return true;
                 }
                 return false;

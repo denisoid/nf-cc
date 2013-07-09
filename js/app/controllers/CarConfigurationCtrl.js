@@ -8,6 +8,7 @@
 function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout, CalculatorData) {
 
     //init
+    $scope.calculation = CalculatorData.calculation;
     $scope.car = CalculatorData.calculation.car;
 
     $scope.selMarkList = [];
@@ -21,7 +22,7 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         $scope.updateModel();
     });
     $scope.packagingList = Packagings.query({}, function () {
-        $scope.updatePackaging();
+        $scope.updatePack();
     });
 
     //$scope.yearList = Years.query();
@@ -33,49 +34,97 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
 
     $scope.car.yearId = currentYear;
 
+    $scope.resetMark = function () {
+        $scope.car.mark = null;
+        $scope.car.model = null;
+        $scope.car.pack = null;
+        $scope.updateMark();
+    }
+    $scope.resetModel = function () {
+        $scope.car.model = null;
+        $scope.car.pack = null;
+        $scope.updateModel();
+    }
+
+    $scope.resetPack = function () {
+        $scope.car.pack = null;
+        $scope.updatePack();
+    }
+
     $scope.updateMark = function () {
-        if ($scope.markList.length == 0) return;
-        $scope.selMarkList = $filter('filter')($scope.markList, function (element) {
-            return element.used == $scope.car.used;
-        });
-        if ($scope.selMarkList.length > 0) {
-            $scope.car.mark = $scope.selMarkList[0];
+        if ($scope.markList.length == 0) {
+            car.mark = null;
         } else {
-            $scope.car.mark = null;
+            $scope.selMarkList = $filter('filter')($scope.markList, function (element) {
+                return element.used == $scope.car.used;
+            });
+            if ($scope.selMarkList.length > 0 && $scope.car.mark == null) {
+                $scope.car.mark = $scope.selMarkList[0];
+            } else {
+                $scope.car.mark = null;
+            }
         }
         $scope.updateModel();
     }
 
     $scope.updateModel = function () {
-        if($scope.car.mark == null) {
+        if ($scope.car.mark == null) {
             $scope.car.model = null;
-            return;
-        }
-        if ($scope.modelList.length == 0) return;
-        $scope.selModelList = $filter('filter')($scope.modelList, function (element) {
-            return element.markId == $scope.car.mark.id;
-        });
-        if ($scope.selModelList.length > 0) {
-            $scope.car.model = $scope.selModelList[0];
         } else {
-            $scope.car.model = null;
+            if ($scope.modelList.length == 0) {
+                $scope.car.model = null;
+            } else {
+                $scope.selModelList = $filter('filter')($scope.modelList, function (element) {
+                    return element.markId == $scope.car.mark.id;
+                });
+                if ($scope.selModelList.length == 0) {
+                    $scope.car.model = null;
+                } else {
+                    if ($scope.car.model == null) {
+                        $scope.car.model = $scope.selModelList[0];
+                    }
+                }
+            }
         }
-        $scope.updatePackaging();
+        $scope.updatePack();
     }
 
-    $scope.updatePackaging = function () {
-        if($scope.car.model == null) {
+    $scope.updatePack = function () {
+        if (($scope.packagingList.length == 0) || ($scope.car.model == null)) {
+            $scope.selPackagingList = [];
             $scope.car.pack = null;
             return;
         }
-        if ($scope.packagingList.length == 0) return;
         $scope.selPackagingList = $filter('filter')($scope.packagingList, function (element) {
             return element.modelId == $scope.car.model.id;
         });
+
         if ($scope.selPackagingList.length > 0) {
-            $scope.car.pack = $scope.selPackagingList[0];
+            if ($scope.car.pack == null) {
+                $scope.car.pack = $scope.selPackagingList[0];
+            }
         } else {
             $scope.car.pack = null;
         }
     }
+
+    $scope.$watch('car.pack', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        if ($scope.car.mark == null) return;
+        if ($scope.car.model == null) return;
+        if ($scope.car.pack == null) return;
+        if ($scope.selModelList.length == 0) {
+            $scope.updateModel();
+        }
+        if ($scope.selModelList[0].markId != $scope.car.mark.id) {
+            $scope.updateModel();
+        }
+        if ($scope.selPackagingList.length == 0) {
+            $scope.updatePack();
+        }
+        if ($scope.selPackagingList[0].modelId != $scope.car.model.id) {
+            $scope.updatePack();
+        }
+    });
+
 }
