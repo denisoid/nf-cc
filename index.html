@@ -91,34 +91,34 @@
         <section class="car-list list">
 
             <ul>
-                <li ng-repeat="car in carUpgrade.currentPage">
-                    <div ng-click="upgrade(car.id)">
-                        <h4>{{ upgrade.model.name }}</h4>
-                        <span>+3 500 руб</span>
+                <li ng-repeat="offer in carUpgrade.currentPage">
+                    <div ng-click="upgradeCar(offer)">
+                        <h4>{{ data.calculation.car.mark.name + ' ' + offer.model.name }}</h4>
+                        <span>+{{ offer.pack.price | number:0 }} руб</span>
                     </div>
                 </li>
             </ul>
-            <!--<a href="" class="arrow-prev" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()"></a>
-            <a href="" class="arrow-next" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()"></a>-->
+            <a href="" class="arrow-prev" ng-click="carUpgrade.left()" ng-show="carUpgrade.isLeft()"></a>
+            <a href="" class="arrow-next" ng-click="carUpgrade.right()" ng-show="carUpgrade.isRight()"></a>
         </section>
 
 
-        <h2>Сервисы</h2>
+        <h2>Дополнительные сервисы</h2>
         <section class="addination-services service-list list">
 
             <ul>
-                <li class="selected" ng-repeat="service in serviceUpgrade.currentPage">
+                <li class="selected" ng-repeat="offer in serviceUpgrade.currentPage">
                     <span>Расширенная гарантия</span>
 
-                    <div ng-click="upgrade(service.id)">
+                    <div ng-click="upgradeService(offer)">
                         <h4>1 год → 2 года</h4>
                         <span>+ 32 000 руб</span>
                     </div>
                 </li>
 
             </ul>
-            <!--<a href="" class="arrow-prev" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()"></a>
-            <a href="" class="arrow-next" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()"></a>-->
+            <a href="" class="arrow-prev" ng-click="serviceUpgrade.left()" ng-show="serviceUpgrade.isLeft()"></a>
+            <a href="" class="arrow-next" ng-click="serviceUpgrade.right()" ng-show="serviceUpgrade.isRight()"></a>
         </section>
 
 
@@ -220,7 +220,7 @@
     <!--Марка-->
     <div class="span3">
         <select ng-model="car.mark"
-                ng-options="mark as mark.name for mark in selMarkList"
+                ng-options="mark as mark.name for mark in selMarkList track by mark.id"
                 ng-change="resetModel()"
                 >
         </select>
@@ -229,7 +229,7 @@
     <!--Модель-->
     <div class="span3">
         <select ng-model="car.model"
-                ng-options="model as model.name for model in selModelList"
+                ng-options="model as model.name for model in selModelList track by model.id"
                 ng-change="resetPack()"
                 >
         </select>
@@ -238,7 +238,7 @@
     <!--Комплектация-->
     <div class="span3">
         <select ng-model="car.pack"
-                ng-options="pack as pack.name for pack in selPackagingList"
+                ng-options="pack as pack.name for pack in selPackagingList track by pack.id"
                 ng-change="resetYear()"
                 >
         </select>

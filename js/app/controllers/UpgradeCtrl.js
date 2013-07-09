@@ -29,14 +29,23 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         }
         var price = $scope.data.calculation.car.pack.price;
         var maxPrice = price * (1+$scope.deltaPercent/100);
+        var markId = $scope.data.calculation.car.mark.id;
         var selectedPackageList = $filter('filter')($scope.packagingList, function (element) {
-                if ((element.price > price) && (element.price < maxPrice)) {
+                if ((element.price > price) && (element.price < maxPrice) && (element.markId == markId)) {
                     return true;
                 }
                 return false;
             }
         );
-        $scope.carUpgrade.setup(selectedPackageList);
+        var carUpgradeList = [];
+        var length = selectedPackageList.length;
+        for(var ti = 0; ti < length; ti++) {
+            var pack = selectedPackageList[ti];
+            var model = $scope.getModelById(pack.modelId);
+            carUpgradeList.push({pack: pack, model: model});
+        }
+
+        $scope.carUpgrade.setup(carUpgradeList);
 
         var selectedServicesList = $filter('filter')($scope.packagingList, function (element) {
                 if ((element.price > price) && (element.price < maxPrice)) {
@@ -46,16 +55,16 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
             }
         );
 
-        var length = selectedPackageList.length;
+        length = selectedPackageList.length;
         for(var ti = 0; ti < length; ti++) {
             var pack = selectedPackageList[ti];
-            pack.modelName = $scope.getModelNameById(pack.modelId);
+            pack.model = $scope.getModelById(pack.modelId);
         }
 
         $scope.serviceUpgrade.setup(selectedServicesList);
     }
 
-    $scope.getModelNameById = function(modelId) {
+    $scope.getModelById = function(modelId) {
         var modelList = $filter('filter')($scope.modelList, function (element) {
                 if (element.id == modelId) {
                     return true;
@@ -64,13 +73,18 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
             }
         );
         if(modelList.length > 0) {
-            return modelList[0].name;
+            return modelList[0];
         }
         return null;
     }
 
-    $scope.upgrade = function (idx) {
-        $window.alert(idx);
+    $scope.upgradeCar = function (offer) {
+        $scope.data.saveCalculation();
+        $scope.data.calculation.car.model = offer.model;
+        $scope.data.calculation.car.pack = offer.pack;
+    }
+
+    $scope.upgradeService = function (offer) {
     }
 
     $scope.$watch('data.calculation.offer', function (newVal, oldVal) {
