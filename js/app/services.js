@@ -61,7 +61,8 @@ seedAppServiceModule.
                     monthPaymentFilter: 10000,
                     tradeIn: 0,
                     refinance: 10000,
-                    lastPayment: 0
+                    lastPayment: 0,
+                    clientRCI:true
                 }
             },
             calculationList: [],

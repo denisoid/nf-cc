@@ -425,12 +425,17 @@
 
 <article ng-show="show.isMain">
 <section class="credit-choose">
-    <h2>Кредит</h2>
 
-    <div class="client-options">
-        <a class="radio-btn  ng-class: {'active': parameters.clientRCI}" ng-click="parameters.clientRCI=!parameters.clientRCI">Клиент RCI</a>
-        <a class="radio-btn  ng-class: {'active': parameters.existCRM}" ng-click="parameters.existCRM=!parameters.existCRM">Есть в CRM</a>
+    <div class="title car-title">
+        <h2>Кредит</h2>
+
+        <div class="client-options">
+            <a class="radio-btn  ng-class: {'active': parameters.clientRCI}" ng-click="parameters.clientRCI=!parameters.clientRCI">Клиент RCI</a>
+            <a class="radio-btn  ng-class: {'active': parameters.existCRM}" ng-click="parameters.existCRM=!parameters.existCRM">Есть в CRM</a>
+        </div>
+
     </div>
+
 
     <section class="credit-filter filter row-fluid">
         <div class="span6 input-ip">
@@ -457,8 +462,8 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input ng-model="parameters.tradeIn" min="0" max="2000000" step="1000"><label>руб.</label></div>
-            <div slider ng-model="parameters.tradeIn"></div>
+            <div class="input"><input ng-model="parameters.tradeIn" ><label>руб.</label></div>
+            <div slider ng-model="parameters.tradeIn" min="0" max="1000000" step="1000"></div>
         </div>
 
 
@@ -466,7 +471,7 @@
             <label>Рефинансирование</label>
 
             <div class="input"><input ng-model="parameters.refinance"><label>руб.</label></div>
-            <div slider ng-model="parameters.refinance" min="0" max="2000000" step="1000"></div>
+            <div slider ng-model="parameters.refinance" min="0" max="1000000" step="1000"></div>
         </div>
 
         <div class="span4">
@@ -476,7 +481,7 @@
                 <label>Остаточный платеж</label>
 
                 <div class="input"><input ng-model="parameters.lastPayment"><label>руб.</label></div>
-                <div slider ng-model="parameters.lastPayment" min="0" max="2000000" step="1000"></div>
+                <div slider ng-model="parameters.lastPayment" min="0" max="1000000" step="1000"></div>
             </div>
         </div>
 

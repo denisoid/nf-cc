@@ -628,8 +628,12 @@ select {
 }
 
 
-
-
+.client-options a {
+    display: inline-block;
+    /*position: relative;
+    top: 1.2em;*/
+}
+/*
 .client-options {
     text-align: justify;
 
@@ -638,11 +642,7 @@ select {
     margin-bottom: 20px;
 }
 
-.client-options a {
-    display: inline-block;
-    position: relative;
-    top: 1.2em;
-}
+
 
 .client-options:before {
     content: '';
@@ -655,7 +655,7 @@ select {
     content: '';
     display: inline-block;
     width: 100%;
-}
+}     */
 
 .toggler {
     background: url("../img/toggler.png") no-repeat;
