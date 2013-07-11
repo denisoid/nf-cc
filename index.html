@@ -637,74 +637,64 @@
                 <td>560 000</td>
                 <td>руб</td>
             </tr>
-            <tr>
-                <td>—автомобиль</td>
-                <td>560 000</td>
-                <td>руб</td>
-            </tr>
-            <tr>
-                <td>—аксессуары</td>
-                <td>0</td>
-                <td>руб</td>
-            </tr>
-            <tr class="header space-top">
+            <tr class="header collapsible">
                 <td>Дополнительные&nbsp; сервисы</td>
                 <td>197 640</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—ОСАГО</td>
                 <td>72 000</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—Каско</td>
                 <td>65 640</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—Защита платежей на 1 год</td>
                 <td>36 000</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—Спутниковая сигнализация</td>
                 <td>24 000</td>
                 <td>руб.</td>
             </tr>
-            <tr class="header space-top expanded">
+            <tr class="header collapsible">
                 <td>Первоначальный платеж</td>
                 <td>123 000</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—наличными</td>
                 <td>100 000</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—трейд-ин</td>
                 <td>20 000</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—рефинансирование</td>
                 <td>3 000</td>
                 <td>руб.</td>
             </tr>
 
 
-            <tr class="header space-top collapsed">
+            <tr class="header collapsible">
                 <td>Ежемесячный платеж</td>
                 <td>32 435</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—платеж за автомобиль</td>
                 <td>21 327</td>
                 <td>руб.</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>—платеж за дополнительные сервисы</td>
                 <td>11 108</td>
                 <td>руб.</td>
@@ -947,6 +937,25 @@
 
     $("#carPrice").followTo(0, 60, 44);
     $("#offerPrice").followTo(0, 104, 0);
+
+
+    $("tr.collapsible").click(function(){
+        $row=$(this);
+
+
+        $row.nextUntil("tr.collapsible").toggle();
+
+
+        //while($row=$row.next()){
+            //console.log($row.hasClass("collapsible"));
+            //$row.toggle();
+        //}
+
+        $(this).toggleClass('expanded');
+    })
+
+
+
 
 </script>
 </body>
