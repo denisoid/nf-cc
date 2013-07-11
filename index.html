@@ -56,7 +56,8 @@
 
 
             <li ng-repeat="calculation in data.calculationList" class="offer">
-                <div ng-click="restoreCalculation($index)">
+                <div ng-click="restoreCalculation($index)" tooltip="{{calculation.car.mark.name}} {{calculation.car.model.name}}
+{{calculation.car.pack.name}}">
                     <img src="img/car.jpg" height="50"/>
                     <strong>{{calculation.car.mark.name}} {{calculation.car.model.name}}</strong>
                     <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
@@ -317,7 +318,8 @@
 
 
 <div class="print">
-    <h2>Стоимость {{data.calculation.car.mark.name}} {{data.calculation.car.model.name}} — {{data.calculation.car.pack.price}} руб</h2>
+    <h2>Стоимость {{data.calculation.car.mark.name}} {{data.calculation.car.model.name}} —
+        {{data.calculation.car.pack.price}} руб</h2>
 </div>
 
 <div class="car-info">
@@ -370,12 +372,12 @@
 
 </div>
 <div class="price-line-container">
-<div class="price-line noprint" id="carPrice">
-    <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
+    <div class="price-line noprint" id="carPrice">
+        <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
 
-    <div class="price">{{data.calculation.car.pack.price}} руб</div>
-    <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
-</div>
+        <div class="price">{{data.calculation.car.pack.price}} руб</div>
+        <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
+    </div>
 </div>
 
 
@@ -430,8 +432,10 @@
         <h2>Кредит</h2>
 
         <div class="client-options">
-            <a class="radio-btn  ng-class: {'active': parameters.clientRCI}" ng-click="parameters.clientRCI=!parameters.clientRCI">Клиент RCI</a>
-            <a class="radio-btn  ng-class: {'active': parameters.existCRM}" ng-click="parameters.existCRM=!parameters.existCRM">Есть в CRM</a>
+            <a class="radio-btn  ng-class: {'active': parameters.clientRCI}"
+               ng-click="parameters.clientRCI=!parameters.clientRCI">Клиент RCI</a>
+            <a class="radio-btn  ng-class: {'active': parameters.existCRM}"
+               ng-click="parameters.existCRM=!parameters.existCRM">Есть в CRM</a>
         </div>
 
     </div>
@@ -442,7 +446,8 @@
             <label>Первоначальный взнос — {{ parameters.initialPaymentPercent }} %</label>
 
             <div class="input"><input ng-model="parameters.initialPayment"><label> руб.</label></div>
-            <div slider ng-model="parameters.initialPaymentPercent" max="100" min="0" step="1" tooltip="{{ parameters.initialPaymentPercent }} %"></div>
+            <div slider ng-model="parameters.initialPaymentPercent" max="100" min="0" step="1"
+                 tooltip="{{ parameters.initialPaymentPercent }} %"></div>
 
         </div>
 
@@ -450,7 +455,8 @@
         <div class="span6 input-ip">
             <label>Ежемесячный платеж</label>
 
-            <div class="input"><input class="input-mini" ng-model="parameters.monthPaymentFilter"><label>руб.</label></div>
+            <div class="input"><input class="input-mini" ng-model="parameters.monthPaymentFilter"><label>руб.</label>
+            </div>
             <div slider ng-model="parameters.monthPaymentFilter" min="5000" max="200000" step="1000"></div>
 
         </div>
@@ -462,7 +468,7 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input ng-model="parameters.tradeIn" ><label>руб.</label></div>
+            <div class="input"><input ng-model="parameters.tradeIn"><label>руб.</label></div>
             <div slider ng-model="parameters.tradeIn" min="0" max="1000000" step="1000"></div>
         </div>
 
@@ -488,7 +494,7 @@
     </section>
 
     <section class="noprint" ng-show="!calculation.offer">
-    <span>Не найдены программы подходящие под заданные условия</span></section>
+        <span>Не найдены программы подходящие под заданные условия</span></section>
     <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span>
     </section>
 
@@ -720,7 +726,8 @@
         <table class='offers-comparison'>
             <tr class='offer-car'>
                 <td>&nbsp;</td>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.mark.name}} {{selectedOffer.car.model.name}}
+                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.mark.name}}
+                    {{selectedOffer.car.model.name}}
                 </td>
             </tr>
             <tr class='offer-name'>
