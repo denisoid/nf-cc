@@ -896,7 +896,11 @@ select {
 
 
 
+.offers-comparison-container{
+    width:100%;
+    overflow-x: scroll;
 
+}
 
 .offers-comparison{
     /*width:100%;*/
@@ -933,10 +937,12 @@ select {
 
 
 .offers-comparison th, .offers-comparison td{
-    width:293px;
+    width:170px !important;
+    min-width:170px !important;
     border-bottom:1px solid #ccc;
     padding:3px 5px;
     background:rgba(255,255,255,0.7);
+    /*white-space: nowrap;*/
 }
 
 
