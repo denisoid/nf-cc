@@ -53,6 +53,7 @@ seedAppServiceModule.
                     pack: null,
                     yearId: null
                 },
+                offerIndex: 0,
                 offer: {
                     creditValue: 0,
                     product: {},
@@ -234,8 +235,8 @@ seedAppServiceModule.
                         pack: this.calculation.car.pack,
                         yearId: this.calculation.car.yearId
                     },
-                    offer: this.calculation.offer,
-                    parameters: this.calculation.parameters
+                    offer: $.extend(true, {}, this.calculation.offer),
+                    parameters: $.extend(true, {}, this.calculation.parameters)
                 });
             },
             delCalculation: function (ind) {
@@ -251,16 +252,8 @@ seedAppServiceModule.
                     yearId: copy.car.yearId
                 }
 
-                this.calculation.offer = copy.offer;
-                this.calculation.parameters = {
-                    initialPayment: copy.parameters.initialPayment,
-                    monthPaymentFilter: copy.parameters.monthPaymentFilter,
-                    tradeIn: copy.parameters.tradeIn,
-                    refinance: copy.parameters.refinance,
-                    lastPayment: copy.parameters.lastPayment,
-                    clientRCI: copy.parameters.clientRCI,
-                    existCRM: copy.parameters.existCRM
-                }
+                this.calculation.offer = copyObject1Level(copy.offer);
+                this.calculation.parameters = copyObject1Level(copy.parameters);
             }
         }
     }

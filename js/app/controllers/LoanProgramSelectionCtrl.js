@@ -174,7 +174,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     }
 
     $scope.setCurrentOffer = function (idx) {
-        $scope.currentOfferListPage.currentIndex = idx;
+        $scope.calculation.offerIndex = idx;
         var copy = $scope.currentOfferListPage.currentPage[idx];
         var offer = $scope.data.calculation.offer;
         offer.product = copy.product;
@@ -230,7 +230,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         }
     });
 
-    $scope.$watch('currentOfferListPage.currentIndex', function (newVal, oldVal) {
+    $scope.$watch('calculation.offerIndex', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.setCurrentOffer(newVal);
     });
@@ -248,5 +248,14 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.resetTimerForUpdateOffers();
     });
 
+    $scope.$watch('parameters.tradeIn', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.resetTimerForUpdateOffers();
+    });
+
+    $scope.$watch('parameters.refinance', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.resetTimerForUpdateOffers();
+    });
 }
 
