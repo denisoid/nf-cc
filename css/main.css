@@ -15,6 +15,7 @@ body {
 h1, h2, h3, h4 {
     font-weight: 300;
     margin: 0;
+    white-space: nowrap;
 }
 
 
@@ -528,11 +529,6 @@ ul.row-fluid {
 }
 
 
-.upgrades .list{
-    margin-top:1em;
-
-}
-
 
 .upgrades .list li{
     margin-bottom:1em;
@@ -545,7 +541,8 @@ ul.row-fluid {
 
 .upgrades .list{
     min-height: 184px;
-    padding:1em 0;
+    padding:0.5em 0;
+    margin-top:0;
 }
 
 h4 {
@@ -705,7 +702,7 @@ select {
 
 .services-choose table th{
     text-align: left;
-    font-size:1.1em;
+    color:#aaa;
     font-weight: normal;
 }
 .services-choose table th.text-right{
@@ -999,4 +996,12 @@ select {
 
 .tooltip-inner {
     white-space:pre-wrap;
+}
+
+
+
+
+#offerPrice{
+    position: fixed;
+    bottom:0;
 }
