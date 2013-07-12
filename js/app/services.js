@@ -54,10 +54,19 @@ seedAppServiceModule.
                     yearId: null
                 },
                 offer: {
-                    loanproduct: {},
-                    months:0,
+                    creditValue: 0,
+                    product: {},
+                    months: 0,
+                    monthPayment: 0,
+                    overPayment: 0,
+                    returnValue: 0,
+                    serviceValue: 0,
+                    serviceDiscount: 0,
+                    carMonthPayment: 0,
+                    serviceMonthPayment: 0,
                     services: {
-                        sum:0,
+                        sum: 0,
+                        discount: 0,
                         grouplist: [
                             {
                                 name: 'ОСАГО',
@@ -170,31 +179,38 @@ seedAppServiceModule.
                                 ]
                             }
                         ],
-                        init: function() {
+                        init: function () {
                             var glength = this.grouplist.length;
-                            for(var ti = 0; ti < glength; ti++) {
-                                if(this.grouplist[ti].mandatory) {
+                            for (var ti = 0; ti < glength; ti++) {
+                                if (this.grouplist[ti].mandatory) {
                                     var slist = this.grouplist[ti].servicelist;
-                                    if(slist.length > 0) {
+                                    if (slist.length > 0) {
                                         this.grouplist[ti].selected = slist[0];
                                     }
                                 }
                             }
                         },
-                        calculateSum: function() {
+                        calculateSum: function () {
                             var glength = this.grouplist.length;
                             var newsum = 0;
-                            for(var ti = 0; ti < glength; ti++) {
-                                if(this.grouplist[ti].selected == null) {
+                            var newdiscount = 0;
+                            for (var ti = 0; ti < glength; ti++) {
+                                if (this.grouplist[ti].selected == null) {
                                     continue;
                                 }
                                 var price = parseFloat(this.grouplist[ti].selected.price);
-                                if(isNaN(price) || price == null) {
+                                if (isNaN(price) || price == null) {
                                     price = 0;
                                 }
+                                var discount = parseFloat(this.grouplist[ti].selected.discount);
+                                if (isNaN(discount) || discount == null) {
+                                    discount = 0;
+                                }
                                 newsum += price;
+                                newdiscount += discount;
                             }
                             this.sum = newsum;
+                            this.discount = newdiscount;
                         }
                     }
                 },
