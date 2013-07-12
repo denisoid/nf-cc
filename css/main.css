@@ -692,8 +692,56 @@ select {
     padding-right:20px;
 }
 
+.services-choose table{
+    width:100%;
+    margin-bottom:0.5em;
+
+}
+
+.services-choose table td, .services-choose table th{
+    line-height: 1.4em;
+    white-space: nowrap;
+}
+
+.services-choose table th{
+    text-align: left;
+    font-size:1.1em;
+    font-weight: normal;
+}
+.services-choose table th.text-right{
+    text-align: right;
+}
+
+.services-choose table td:last-child, .services-choose table  th:last-child{
+    text-align: right;
+}
+.services-choose table td{
+    padding-bottom:0.5em;
+}
+
+.services-choose table td.sale{
+    color: #3aab00;
+    font-style: italic;
+}
 
 
+.services-choose table td select{
+    width:100%;
+    margin:0;
+}
+
+
+.services-choose table td:nth-child(1){width:30%;}
+.services-choose table td:nth-child(2){width:25%;padding-right:1em}
+.services-choose table td:nth-child(3){width:10%;}
+.services-choose table td:nth-child(4){width:15%;}
+.services-choose table td:nth-child(5){width:20%;}
+
+
+
+.services-choose table tr:last-child{
+    font-style: italic;
+}
 
 /**/
 
