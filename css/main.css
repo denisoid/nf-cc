@@ -245,7 +245,7 @@ aside.menu ul li:hover:before, aside.menu ul li:hover:after {
 
 /*li.active*/
 
-aside.menu ul li.active, aside.menu ul li.active i {
+aside.menu ul li.active, aside.menu ul li.active a, aside.menu ul li.active i {
     background: #fff;
     color: #333;
 }
@@ -730,6 +730,12 @@ select {
     margin:0;
 }
 
+.services-choose table td input{
+    width:55px;
+    margin:0;
+    text-align: right;
+}
+
 
 .services-choose table td:nth-child(1){width:30%;}
 .services-choose table td:nth-child(2){width:25%;padding-right:1em}
@@ -839,6 +845,11 @@ select {
     content: "►";
 }
 
+.end-offer tr td:nth-child(2){width:70px;}
+.end-offer tr td:nth-child(3){width:46px;}
+
+
+
 .modal .input{
     position:relative;
     font-size:20px;
@@ -885,7 +896,11 @@ select {
 
 
 
+.offers-comparison-container{
+    width:100%;
+    overflow-x: scroll;
 
+}
 
 .offers-comparison{
     /*width:100%;*/
@@ -922,10 +937,12 @@ select {
 
 
 .offers-comparison th, .offers-comparison td{
-    width:293px;
+    width:170px !important;
+    min-width:170px !important;
     border-bottom:1px solid #ccc;
     padding:3px 5px;
     background:rgba(255,255,255,0.7);
+    /*white-space: nowrap;*/
 }
 
 

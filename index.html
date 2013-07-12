@@ -554,16 +554,16 @@
         </table>
 
         <table>
-            <!--<tr>
+            <tr>
                 <th>Сервис</th>
                 <th>Тип сервиса</th>
                 <th class="text-right">Стоимость</th>
                 <th class="text-right">Скидка</th>
-                <th class="text-right"></th>
+                <th class="text-right">Платеж</th>
 
-            </tr>-->
+            </tr>
             <tr>
-                <td>Осаго</td>
+                <td>КАСКО</td>
                 <td>
                     <select name="" id="">
                         <option value="" selected>На 1 год</option>
@@ -572,14 +572,14 @@
                     </select>
 
                 </td>
-                <td class="text-right">4 799 руб.</td>
+                <td class="text-right"><input value="4 799" type=""/> руб.</td>
                 <td class="text-right sale">—2201 руб.</td>
                 <td class="text-right">399,91 руб/мес.</td>
 
 
             </tr>
             <tr>
-                <td>Расширенная страховка</td>
+                <td>Продленная гарантия</td>
                 <td>
                     <select name="" id="">
                         <option value="">На 1 год</option>
@@ -588,25 +588,42 @@
                     </select>
 
                 </td>
-                <td class="text-right">18 000 руб.</td>
+                <td class="text-right"><input value="18 000" type=""/> руб.</td>
                 <td class="text-right sale"></td>
                 <td class="text-right">750 руб/мес.</td>
 
 
             </tr>
             <tr>
-                <td>Осаго</td>
+                <td>Secure PLUS</td>
                 <td>
                     <select name="" id="">
-                        <option value="" selected>На 1 год</option>
+                        <option value="" selected>Нет</option>
                         <option value="">На 2 года</option>
                         <option value="">На 3 года</option>
                     </select>
 
                 </td>
-                <td class="text-right">4 799 руб.</td>
-                <td class="text-right sale">—1000 руб.</td>
-                <td class="text-right">399,91 руб/мес.</td>
+                <td class="text-right">—</td>
+                <td class="text-right sale"></td>
+                <td class="text-right">—</td>
+
+
+            </tr>
+
+            <tr>
+                <td>Защита платежей</td>
+                <td>
+                    <select name="" id="">
+                        <option value="">На 1 год</option>
+                        <option value="" selected>На 2 года</option>
+                        <option value="">На 3 года</option>
+                    </select>
+
+                </td>
+                <td class="text-right"><input value="18 000" type=""/> руб.</td>
+                <td class="text-right sale"></td>
+                <td class="text-right">750 руб/мес.</td>
 
 
             </tr>
@@ -621,7 +638,6 @@
 
             </tr>
         </table>
-
 
 
     </section>
@@ -738,121 +754,115 @@
     <div class="row-fluid">
         <h4>Сравнение вариантов</h4>
 
-        <table class='offers-comparison'>
-            <tr class='offer-car'>
-                <td>&nbsp;</td>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.mark.name}}
-                    {{selectedOffer.car.model.name}}
-                </td>
-            </tr>
-            <tr class='offer-name'>
-                <td>&nbsp;</td>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.name}}
-                </td>
-            </tr>
-            <tr class='offer-sum row-price'>
-                <th>Ежемесячный платеж</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.monthPayment |
-                    number:0}} руб./мес.
-                </td>
-            </tr>
-            <tr class='offer-sum row-price'>
-                <th>Сумма кредита</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.creditValue |
-                    number:0}} руб.
-                </td>
-            </tr>
-            <tr class='offer-term row-price'>
-                <th>Срок кредита</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-term'>
-                    {{selectedOffer.months}} мес
-                </td>
-            </tr>
-            <tr class='offer-sum row-price'>
-                <th>Ставка</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.product.rate}} %
-                </td>
-            </tr>
-            <tr class='offer-return row-price'>
-                <th>Сумма к возврату</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.returnValue |
-                    number:0}} руб.
-                </td>
-            </tr>
-            <tr class='offer-return row-price'>
-                <th>Сумма переплаты</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.overPayment |
-                    number:0}} руб.
-                </td>
-            </tr>
+        <div class="offers-comparison-container">
+            <table class='offers-comparison'>
+                <!--<tr class='offer-car'>
+                    <td>&nbsp;</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.car.mark.name}}
+                        {{selectedOffer.car.model.name}}
+                    </td>
+                </tr>-->
+                <tr class='offer-name'>
+                    <td>&nbsp;</td>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.name}}
+                    </td>
+                </tr>
+                <tr class='offer-sum row-price'>
+                    <th>Ежемесячный платеж</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.monthPayment |
+                        number:0}} руб./мес.
+                    </td>
+                </tr>
+                <tr class='offer-sum row-price'>
+                    <th>Сумма кредита</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">{{selectedOffer.creditValue |
+                        number:0}} руб.
+                    </td>
+                </tr>
+                <tr class='offer-term row-price'>
+                    <th>Срок кредита</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-term'>
+                        {{selectedOffer.months}} мес
+                    </td>
+                </tr>
+                <tr class='offer-sum row-price'>
+                    <th>Ставка</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                        {{selectedOffer.rate}} %
+                    </td>
+                </tr>
+                <tr class='offer-return row-price'>
+                    <th>Сумма к возврату</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                        {{selectedOffer.returnValue |
+                        number:0}} руб.
+                    </td>
+                </tr>
+                <tr class='offer-return row-price'>
+                    <th>Сумма переплаты</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                        {{selectedOffer.overPayment |
+                        number:0}} руб.
+                    </td>
+                </tr>
 
-            <tr class='offer-return row-price'>
-                <th>Стоимость доп. сервисов</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.serviceValue |
-                    number:0}} руб.
-                </td>
-            </tr>
-
-
-            <tr class='group'>
-                <th>Требования к заемщику</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index"></td>
-            </tr>
-
-            <tr class='row-icon'>
-                <th>Гражданство РФ</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
-                    <img src="img/yes.png" tooltip="Требуется"/>
-                </td>
-            </tr>
-
-            <tr class='row-icon'>
-                <th>Домашний телефон</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
-                    <img src="img/no.png" tooltip="Не требуется"/>
-                </td>
-            </tr>
-
-            <tr class='row-icon'>
-                <th>Мобильный телефон</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
-                    <img src="img/yes.png" tooltip="Требуется"/>
-                </td>
-            </tr>
+                <tr class='offer-return row-price'>
+                    <th>Стоимость доп. сервисов</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
+                        {{selectedOffer.serviceValue |
+                        number:0}} руб.
+                    </td>
+                </tr>
 
 
-            <tr class='group'>
-                <th>Список документов</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index"></td>
-            </tr>
+                <tr class='group'>
+                    <th>Требования к заемщику</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index"></td>
+                </tr>
 
-            <tr class='row-icon'>
-                <th>Паспорт РФ</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
-                    <img src="img/yes.png" tooltip="Требуется"/>
-                </td>
-            </tr>
+                <tr class='row-icon'>
+                    <th>Гражданство РФ</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">
+                        <img src="img/yes.png" tooltip="Требуется"/>
+                    </td>
+                </tr>
 
-            <tr class='row-icon'>
-                <th>ПТС</th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
-                    <img src="img/no.png" ng-show="!selectedOffer.car.used" tooltip="Не требуется"/>
-                    <img src="img/yes.png" ng-show="selectedOffer.car.used" tooltip="Требуется"/>
-                </td>
-            </tr>
+                <tr class='row-icon'>
+                    <th>Домашний телефон</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">
+                        <img src="img/no.png" tooltip="Не требуется"/>
+                    </td>
+                </tr>
 
-            <tr class="noprint">
-                <th></th>
-                <td ng-repeat="selectedOffer in selectedOfferList track by $index">
-                    <button class='btn btn-large' ng-click="process($index)">Оформить</button>
-                </td>
-            </tr>
+                <tr class='row-icon'>
+                    <th>Мобильный телефон</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">
+                        <img src="img/yes.png" tooltip="Требуется"/>
+                    </td>
+                </tr>
 
-        </table>
+
+                <tr class='group'>
+                    <th>Список документов</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index"></td>
+                </tr>
+
+                <tr class='row-icon'>
+                    <th>Паспорт РФ</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">
+                        <img src="img/yes.png" tooltip="Требуется"/>
+                    </td>
+                </tr>
+
+                <tr class='row-icon'>
+                    <th>ПТС</th>
+                    <td ng-repeat="selectedOffer in selectedOfferList track by $index">
+                        <img src="img/no.png" ng-show="!selectedOffer.car.used" tooltip="Не требуется"/>
+                        <img src="img/yes.png" ng-show="selectedOffer.car.used" tooltip="Требуется"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 
@@ -964,22 +974,20 @@
     $("#offerPrice").followTo(0, 104, 0);
 
 
-    $("tr.collapsible").click(function(){
-        $row=$(this);
+    $("tr.collapsible").click(function () {
+        $row = $(this);
 
 
         $row.nextUntil("tr.collapsible").toggle();
 
 
         //while($row=$row.next()){
-            //console.log($row.hasClass("collapsible"));
-            //$row.toggle();
+        //console.log($row.hasClass("collapsible"));
+        //$row.toggle();
         //}
 
         $(this).toggleClass('expanded');
     })
-
-
 
 
 </script>
