@@ -546,7 +546,7 @@
                     </select>
                 </td>
                 <td class="text-right">{{ group.selected.price | number:0 }} руб.</td>
-                <td class="text-right sale">— {{ group.selected.discount | number:0 }} руб.</td>
+                <td class="text-right sale"><span ng-show="group.selected.discount>0">—{{ group.selected.discount | number:0 }} руб.</span></td>
                 <td class="text-right"> {{ (group.selected.price/calculation.offer.months) | number:0 }}
                     руб/мес.
                 </td>
