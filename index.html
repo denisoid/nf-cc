@@ -545,9 +545,9 @@
                             >
                     </select>
                 </td>
-                <td class="text-right">{{ calculation.offer.services.sum | number:0 }} руб.</td>
+                <td class="text-right">{{ group.selected.price | number:0 }} руб.</td>
                 <td class="text-right sale">— {{ group.selected.discount | number:0 }} руб.</td>
-                <td class="text-right"> {{ Math.round(group.selected.price/calculation.offer.months) | number:0 }}
+                <td class="text-right"> {{ (group.selected.price/calculation.offer.months) | number:0 }}
                     руб/мес.
                 </td>
             </tr>
@@ -556,7 +556,7 @@
                 <td class="text-right">Итого</td>
                 <td class="text-right">{{ calculation.offer.services.sum | number:0 }} руб.</td>
                 <td></td>
-                <td class="text-right">{{ Math.round(calculation.offer.services.sum/calculation.offer.months) | number:0
+                <td class="text-right">{{ (calculation.offer.services.sum/calculation.offer.months) | number:0
                     }} руб/мес.
                 </td>
             </tr>
