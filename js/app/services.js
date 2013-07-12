@@ -53,8 +53,10 @@ seedAppServiceModule.
                     pack: null,
                     yearId: null
                 },
-                loanproduct: {},
-                offer: null,
+                offer: {
+                    loanproduct: {},
+                    services: []
+                },
                 parameters: {
                     initialPayment: 0,
                     monthPaymentFilter: 0,
@@ -75,7 +77,6 @@ seedAppServiceModule.
                         pack: this.calculation.car.pack,
                         yearId: this.calculation.car.yearId
                     },
-                    loanproduct: null,
                     offer: this.calculation.offer,
                     parameters: this.calculation.parameters
                 });

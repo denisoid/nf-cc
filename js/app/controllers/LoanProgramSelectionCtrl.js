@@ -16,6 +16,8 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.initialPaymentPercent = Math.round(100*$scope.parameters.initialPayment / $scope.car.pack.price);
     }
 
+    $scope.parameters.monthPaymentFilter = $scope.client.maxMonthPayment;
+
     $scope.packaging_loanProductList = Packaging_LoanProduct.query({}, function () {
         $scope.filterLoanProductListForPack();
         $scope.resetTimerForUpdateOffers();
