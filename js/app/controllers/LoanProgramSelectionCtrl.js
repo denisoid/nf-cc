@@ -9,6 +9,11 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     $scope.data = CalculatorData;
     $scope.client = ClientData;
     $scope.calculation = $scope.data.calculation;
+
+    //init services
+    $scope.calculation.offer.services.init();
+    $scope.calculation.offer.services.calculateSum();
+
     $scope.parameters = $scope.data.calculation.parameters;
     $scope.car = $scope.calculation.car;
     $scope.initialPaymentPercent = 0;
@@ -131,16 +136,12 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             var offer = {
                 id: "" + i,
                 product: product,
-                productId: product.id,
-                name: product.name,
                 price: price,
-                initialPayment: initialPayment,
                 creditValue: creditValue,
                 months: months,
                 monthPayment: monthPayment,
                 overPayment: overPayment,
                 returnValue: returnValue,
-                rate: product.rate,
                 serviceValue: serviceValue,
                 serviceDiscount: serviceDiscount,
                 discount: discount,
@@ -154,7 +155,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.currentOfferList = $filter('orderBy')($scope.currentOfferList, 'overPayment');
         $scope.currentOfferListPage.setup($scope.currentOfferList);
         if($scope.currentOfferList.length > 0) {
-            $scope.data.calculation.offer = $scope.currentOfferListPage.currentPage[0];
+            $scope.setCurrentOffer(0);
         }
 
     }
@@ -175,7 +176,9 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
 
     $scope.setCurrentOffer = function (idx) {
         $scope.currentOfferListPage.currentIndex = idx;
-        $scope.data.calculation.offer = $scope.currentOfferListPage.currentPage[idx];
+        var copy = $scope.currentOfferListPage.currentPage[idx];
+        $scope.data.calculation.offer.product = copy.product;
+        $scope.data.calculation.offer.months = copy.months;
     }
 
     $scope.updateCompare = function () {

@@ -527,7 +527,31 @@
 <div ng-controller="OfferCtrl" ng-show="calculation.offer">
     <section class="noprint services-choose">
         <h2>Дополнительные сервисы</h2>
+        {{ calculation.offer.services.grouplist[0] }}
+        <table>
+            <tr ng-repeat="group in calculation.offer.services.grouplist">
+                <td>{{ group.name }}</td>
+                <td>
+                    <select ng-model="group.selected" ng-options="service as service.name for service in group.servicelist">
+                    </select>
 
+                </td>
+                <td class="text-right">{{ calculation.offer.services.sum | number:0 }} руб.</td>
+                <td class="text-right sale">— {{ group.selected.discount }} руб.</td>
+                <td class="text-right"> {{ group.selected.price/calculation.offer.months }} руб/мес.</td>
+
+
+            </tr>
+            <tr>
+                <td></td>
+                <td class="text-right">Итого</td>
+                <td class="text-right">20 132 руб.</td>
+                <td></td>
+                <td class="text-right">3 399,91 руб/мес.</td>
+
+
+            </tr>
+        </table>
 
         <table>
             <!--<tr>
@@ -747,7 +771,7 @@
             <tr class='offer-sum row-price'>
                 <th>Ставка</th>
                 <td ng-repeat="selectedOffer in selectedOfferList track by $index" class='offer-sum'>
-                    {{selectedOffer.rate}} %
+                    {{selectedOffer.product.rate}} %
                 </td>
             </tr>
             <tr class='offer-return row-price'>

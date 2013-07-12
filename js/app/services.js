@@ -55,7 +55,104 @@ seedAppServiceModule.
                 },
                 offer: {
                     loanproduct: {},
-                    services: []
+                    months:0,
+                    services: {
+                        sum:0,
+                        grouplist: [
+                            {
+                                name: 'ОСАГО',
+                                selected: null,
+                                mandatory: true,
+                                servicelist: [
+                                    {
+                                        name: 'ОСАГО 1 год',
+                                        price: '10000',
+                                        discount: '0'
+                                    },
+                                    {
+                                        name: 'ОСАГО 2 года',
+                                        price: '20000',
+                                        discount: '1000'
+                                    },
+                                    {
+                                        name: 'ОСАГО 3 года',
+                                        price: '30000',
+                                        discount: '3000'
+                                    }
+                                ]
+                            },
+                            {
+                                name: 'КАСКО',
+                                selected: null,
+                                mandatory: false,
+                                servicelist: [
+                                    {
+                                        name: 'КАСКО 1 год',
+                                        price: '60000',
+                                        discount: '0'
+                                    },
+                                    {
+                                        name: 'КАСКО 2 года',
+                                        price: '120000',
+                                        discount: '10000'
+                                    },
+                                    {
+                                        name: 'КАСКО 3 года',
+                                        price: '180000',
+                                        discount: '30000'
+                                    }
+                                ]
+                            },
+                            {
+                                name: 'Расширенная гарантия',
+                                selected: null,
+                                mandatory: false,
+                                servicelist: [
+                                    {
+                                        name: 'Расширенная гарантия 1 год',
+                                        price: '10000',
+                                        discount: '0'
+                                    },
+                                    {
+                                        name: 'Расширенная гарантия 2 года',
+                                        price: '20000',
+                                        discount: '2000'
+                                    },
+                                    {
+                                        name: 'Расширенная гарантия 3 года',
+                                        price: '30000',
+                                        discount: '4000'
+                                    }
+                                ]
+                            }
+                        ],
+                        init: function() {
+                            var glength = this.grouplist.length;
+                            for(var ti = 0; ti < glength; ti++) {
+                                if(this.grouplist[ti].mandatory) {
+                                    var slist = this.grouplist[ti].servicelist;
+                                    if(slist.length > 0) {
+                                        this.grouplist[ti].selected = slist[0];
+                                    }
+                                }
+                            }
+                        },
+                        calculateSum: function() {
+                            var glength = this.grouplist.length;
+                            var newsum = 0;
+                            for(var ti = 0; ti < glength; ti++) {
+                                if(this.grouplist[ti].selected == null) {
+                                    continue;
+                                }
+                                var price = parseFloat(this.grouplist[ti].selected.price);
+                                if(isNaN(price) || price == null) {
+                                    price = 0;
+                                }
+                                newsum += price;
+                            }
+                            this.sum = newsum;
+                        }
+                    }
                 },
                 parameters: {
                     initialPayment: 0,
@@ -94,7 +191,6 @@ seedAppServiceModule.
                     yearId: copy.car.yearId
                 }
 
-                this.calculation.loanproduct = copy.loanproduct;
                 this.calculation.offer = copy.offer;
                 this.calculation.parameters = {
                     initialPayment: copy.parameters.initialPayment,
