@@ -25,6 +25,8 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
 
     $scope.updateUpgrades = function () {
         if($scope.data.calculation.car.pack == null) {
+            $scope.carUpgrade.setup([]);
+            $scope.serviceUpgrade.setup([]);
             return;
         }
         var price = $scope.data.calculation.car.pack.price;
@@ -39,6 +41,9 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         );
         var carUpgradeList = [];
         var length = selectedPackageList.length;
+
+        if(length > 3) length = 3; //TODO - rewrite - now cut to 3
+
         for(var ti = 0; ti < length; ti++) {
             var pack = selectedPackageList[ti];
             var model = $scope.getModelById(pack.modelId);
@@ -56,6 +61,9 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         );
 
         length = selectedPackageList.length;
+
+        if(length > 3) length = 3; //TODO - rewrite - now cut to 3
+
         for(var ti = 0; ti < length; ti++) {
             var pack = selectedPackageList[ti];
             pack.model = $scope.getModelById(pack.modelId);
