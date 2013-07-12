@@ -673,13 +673,15 @@ select {
 
 /*services-choose*/
 .services-choose {
-    background: #FFF2BF;
-    border: 1px solid #AEAEAE;
-    border-width: 1px 0;
-    margin: 20px -20px;
-    padding: 0 20px;
     position: relative;
+
 }
+
+
+.services-choose table {
+    margin: 10px -20px;
+}
+
 
 
 .services-choose .show-month-price{
@@ -690,7 +692,7 @@ select {
 }
 
 .services-choose table{
-    width:100%;
+    width:760px;
     margin-bottom:0.5em;
 
 }
@@ -736,15 +738,42 @@ select {
 
 .services-choose table td:nth-child(1){width:30%;}
 .services-choose table td:nth-child(2){width:25%;padding-right:1em}
-.services-choose table td:nth-child(3){width:10%;}
-.services-choose table td:nth-child(4){width:15%;}
-.services-choose table td:nth-child(5){width:20%;}
+.services-choose table td:nth-child(3){width:10%;min-width: 90px;}
+.services-choose table td:nth-child(4){width:15%;min-width: 110px;}
+.services-choose table td:nth-child(5){width:20%;min-width: 115px;}
 
 
 
 .services-choose table tr:last-child{
     font-style: italic;
 }
+
+
+
+
+.services-choose table tr>*:first-child{padding-left:20px;}
+.services-choose table tr>*:last-child{padding-right:20px;}
+
+
+.services-choose table tr.service{
+    background: #FFF2BF;
+}
+
+
+.services-choose table tr:nth-child(2) td{
+    padding-top:0.5em;
+}
+
+.services-choose table tr:first-child, .services-choose table tr:last-child{
+    border: 1px solid #AEAEAE;
+    border-width: 0 0 1px 0;
+}
+
+
+.services-choose table tr:last-child{
+    border-width: 1px 0 0 0;
+}
+
 
 /**/
 

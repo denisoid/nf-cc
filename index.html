@@ -99,7 +99,8 @@
                 <li ng-repeat="offer in carUpgrade.currentPage">
                     <div ng-click="upgradeCar(offer)">
                         <h4>{{ data.calculation.car.mark.name + ' ' + offer.model.name }}</h4>
-                        <span>+{{ offer.pack.price | number:0 }} руб</span>
+                        <span style="color:#888">при увеличении цены на <br /></span>
+                        <span>{{ offer.pack.price | number:0 }} руб</span>
                     </div>
                 </li>
             </ul>
@@ -379,7 +380,7 @@
     <div class="price-line noprint" id="carPrice">
         <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
 
-        <div class="price">{{data.calculation.car.pack.price}} руб</div>
+        <div class="price">{{data.calculation.car.pack.price |  number:0}} руб</div>
         <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
     </div>
 </div>
@@ -536,7 +537,7 @@
                 <th class="text-right">Скидка</th>
                 <th class="text-right">Платеж</th>
             </tr>
-            <tr ng-repeat="group in calculation.offer.services.grouplist">
+            <tr class="service" ng-repeat="group in calculation.offer.services.grouplist">
                 <td>{{ group.name }}</td>
                 <td>
                     <select ng-model="group.selected"
@@ -546,8 +547,8 @@
                     </select>
                 </td>
                 <td class="text-right">{{ group.selected.price | number:0 }} руб.</td>
-                <td class="text-right sale">— {{ group.selected.discount | number:0 }} руб.</td>
-                <td class="text-right"> {{ ((group.selected.price - group.selected.discount)/calculation.offer.months) | number:0 }}
+                <td class="text-right sale"><span ng-show="group.selected.discount>0">—{{ group.selected.discount | number:0 }} руб.</span></td>
+                <td class="text-right"> {{ (group.selected.price/calculation.offer.months) | number:0 }}
                     руб/мес.
                 </td>
             </tr>
@@ -564,17 +565,6 @@
     </section>
 
 
-    <div class="noprint price-line-container">
-        <div class="price-line noprint" id="offerPrice">
-            <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment
-                }}
-                = </h3>
-
-            <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
-        </div>
-    </div>
-
-
     <section class="end-offer">
         <h2>Стандартный</h2>
 
@@ -585,20 +575,44 @@
                 <td>руб.</td>
             </tr>
             <tr class="header">
-                <td>Срок кредита</td>
+                <td>Срок</td>
                 <td>12</td>
                 <td>мес</td>
+            </tr>
+            <tr class="header">
+                <td>Цена автомобиля</td>
+                <td>560 000</td>
+                <td>руб</td>
+            </tr>
+            <tr class="header">
+                <td>Остаточный платеж</td>
+                <td>560 000</td>
+                <td>руб</td>
             </tr>
             <tr class="header">
                 <td>Процентная ставка</td>
                 <td>9.00</td>
                 <td>%</td>
             </tr>
-            <tr class="header">
-                <td>Стоимость автомобиля</td>
-                <td>560 000</td>
-                <td>руб</td>
+
+
+            <tr class="header collapsible">
+                <td>Первоначальный взнос</td>
+                <td>123 000</td>
+                <td>руб.</td>
             </tr>
+            <tr style="display:none">
+                <td>—наличными</td>
+                <td>100 000</td>
+                <td>руб.</td>
+            </tr>
+            <tr style="display:none">
+                <td>—трейд-ин</td>
+                <td>20 000</td>
+                <td>руб.</td>
+            </tr>
+
+
             <tr class="header collapsible">
                 <td>Дополнительные&nbsp; сервисы</td>
                 <td>197 640</td>
@@ -624,26 +638,7 @@
                 <td>24 000</td>
                 <td>руб.</td>
             </tr>
-            <tr class="header collapsible">
-                <td>Первоначальный платеж</td>
-                <td>123 000</td>
-                <td>руб.</td>
-            </tr>
-            <tr style="display:none">
-                <td>—наличными</td>
-                <td>100 000</td>
-                <td>руб.</td>
-            </tr>
-            <tr style="display:none">
-                <td>—трейд-ин</td>
-                <td>20 000</td>
-                <td>руб.</td>
-            </tr>
-            <tr style="display:none">
-                <td>—рефинансирование</td>
-                <td>3 000</td>
-                <td>руб.</td>
-            </tr>
+
 
 
             <tr class="header collapsible">
@@ -670,11 +665,10 @@
 
     <div class="noprint price-line-container">
         <div class="price-line noprint" id="offerPrice">
-            <h3>Ежемесячный платеж:
-                = </h3>
+            <h3>Ежемесячный платеж:</h3>
 
             <div class="price" tooltip="Платеж за машину — {{ calculation.offer.carMonthPayment }} руб.
-Платеж за сервисы — {{ calculation.offer.serviceMonthPayment }} руб.">{{ calculation.offer.monthPayment }} руб/мес</div>
+Платеж за сервисы — {{ calculation.offer.serviceMonthPayment }} руб.">{{ calculation.offer.monthPayment | number:0 }} руб/мес</div>
         </div>
     </div>
 
