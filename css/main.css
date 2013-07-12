@@ -730,6 +730,12 @@ select {
     margin:0;
 }
 
+.services-choose table td input{
+    width:55px;
+    margin:0;
+    text-align: right;
+}
+
 
 .services-choose table td:nth-child(1){width:30%;}
 .services-choose table td:nth-child(2){width:25%;padding-right:1em}
@@ -838,6 +844,11 @@ select {
 .end-offer tr.expanded td:first-child:before{
     content: "►";
 }
+
+.end-offer tr td:nth-child(2){width:70px;}
+.end-offer tr td:nth-child(3){width:46px;}
+
+
 
 .modal .input{
     position:relative;
