@@ -245,7 +245,7 @@ aside.menu ul li:hover:before, aside.menu ul li:hover:after {
 
 /*li.active*/
 
-aside.menu ul li.active, aside.menu ul li.active i {
+aside.menu ul li.active, aside.menu ul li.active a, aside.menu ul li.active i {
     background: #fff;
     color: #333;
 }
