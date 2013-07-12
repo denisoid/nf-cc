@@ -99,7 +99,8 @@
                 <li ng-repeat="offer in carUpgrade.currentPage">
                     <div ng-click="upgradeCar(offer)">
                         <h4>{{ data.calculation.car.mark.name + ' ' + offer.model.name }}</h4>
-                        <span>+{{ offer.pack.price | number:0 }} руб</span>
+                        <span style="color:#888">при увеличении цены на <br /></span>
+                        <span>{{ offer.pack.price | number:0 }} руб</span>
                     </div>
                 </li>
             </ul>
