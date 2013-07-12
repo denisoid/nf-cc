@@ -58,7 +58,7 @@
             <li ng-repeat="calculation in data.calculationList" class="offer">
                 <div ng-click="restoreCalculation($index)" tooltip="{{calculation.car.mark.name}} {{calculation.car.model.name}}
 {{calculation.car.pack.name}}">
-                    <img src="img/car.jpg" height="50"/>
+                    <img ng-src="img/cars/{{ data.calculation.car.model.img }}" height="50"/>
                     <strong>{{calculation.car.mark.name}} {{calculation.car.model.name}}</strong>
                     <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
                 </div>
@@ -367,7 +367,7 @@
         </tr>
     </table>
 
-    <img src="img/car.jpg" width="327" height="188"/>
+    <img ng-src="img/cars/{{ data.calculation.car.model.img }}" width="327" height="188"/>
 
 
 </div>
@@ -505,7 +505,7 @@
              ng-click="setCurrentOffer($index)">
             <h4 tooltip="{{ offer.name }}">{{ offer.name }}</h4>
             <span>
-                {{ offer.monthPayment }} руб/мес<br/>
+                {{ offer.carMonthPayment }} руб/мес<br/>
                 <strong>{{ offer.months }} мес.</strong>
             </span>
         </div>
