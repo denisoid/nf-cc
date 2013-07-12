@@ -227,6 +227,7 @@
         <select ng-model="car.mark"
                 ng-options="mark as mark.name for mark in selMarkList track by mark.id"
                 ng-change="resetModel()"
+                ng-disabled="selMarkList.length == 1"
                 >
         </select>
     </div>
@@ -236,6 +237,7 @@
         <select ng-model="car.model"
                 ng-options="model as model.name for model in selModelList track by model.id"
                 ng-change="resetPack()"
+                ng-disabled="selModelList.length == 1"
                 >
         </select>
     </div>
@@ -245,6 +247,7 @@
         <select ng-model="car.pack"
                 ng-options="pack as pack.name for pack in selPackagingList track by pack.id"
                 ng-change="resetYear()"
+                ng-disabled="selPackagingList.length == 1"
                 >
         </select>
     </div>
@@ -253,6 +256,7 @@
     <div class="span3">
         <select ng-model="car.yearId"
                 ng-options="year.yearId as year.yearId for year in selYearList"
+                ng-disabled="selYearList.length == 1"
                 >
         </select>
     </div>
