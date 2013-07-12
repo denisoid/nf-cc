@@ -571,27 +571,27 @@
         <table>
             <tr class="header">
                 <td>Сумма кредита</td>
-                <td>400 000</td>
+                <td>{{ data.calculation.offer.creditValue | number:0 }}</td>
                 <td>руб.</td>
             </tr>
             <tr class="header">
                 <td>Срок</td>
-                <td>12</td>
+                <td>{{ data.calculation.offer.months }}</td>
                 <td>мес</td>
             </tr>
             <tr class="header">
                 <td>Цена автомобиля</td>
-                <td>560 000</td>
+                <td>{{data.calculation.car.pack.price |  number:0}}</td>
                 <td>руб</td>
             </tr>
             <tr class="header">
                 <td>Остаточный платеж</td>
-                <td>560 000</td>
+                <td>0</td>
                 <td>руб</td>
             </tr>
             <tr class="header">
                 <td>Процентная ставка</td>
-                <td>9.00</td>
+                <td>{{ data.calculation.offer.rate }}</td>
                 <td>%</td>
             </tr>
 
