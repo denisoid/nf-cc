@@ -457,7 +457,7 @@
 
             <div class="input"><input class="input-mini" ng-model="parameters.monthPaymentFilter"><label>руб.</label>
             </div>
-            <div slider ng-model="parameters.monthPaymentFilter" min="5000" max="200000" step="1000"></div>
+            <div slider ng-model="parameters.monthPaymentFilter" min="1000" max="client.maxMonthPayment" step="1000"></div>
 
         </div>
 
