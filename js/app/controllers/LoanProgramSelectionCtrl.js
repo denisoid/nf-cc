@@ -11,6 +11,10 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     $scope.calculation = $scope.data.calculation;
     $scope.parameters = $scope.data.calculation.parameters;
     $scope.car = $scope.calculation.car;
+    $scope.initialPaymentPercent = 0;
+    if($scope.car.pack) {
+        $scope.initialPaymentPercent = Math.round(100*$scope.parameters.initialPayment / $scope.car.pack.price);
+    }
 
     $scope.packaging_loanProductList = Packaging_LoanProduct.query({}, function () {
         $scope.filterLoanProductListForPack();
@@ -29,7 +33,6 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     $scope.currentOfferListPage = new ListWithPaging([], 4);
 
     $scope.updateFilters = function() {
-        $scope.parameters.initialPaymentPercent = Math.round(($scope.parameters.initialPayment/$scope.car.pack.price) * 100);
         $scope.car.dealerDiscount = 0;
     }
 
@@ -68,10 +71,11 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     }
 
     $scope.filterLoanProductListForCriteria = function () {
+        var initialPaymentPercent = Math.round(100 * $scope.parameters.initialPayment / $scope.car.pack.price);
         $scope.loanProductForCriteriaList = $filter('filter')($scope.loanProductForPackList, function (element) {
                 if (
-                    ($scope.parameters.initialPaymentPercent >= element.minip) &&
-                        ($scope.parameters.initialPaymentPercent <= element.maxip) && true /*
+                    (initialPaymentPercent >= element.minip) &&
+                        (initialPaymentPercent <= element.maxip) && true /*
                         ($scope.parameters.months >= element.minterm) &&
                         ($scope.parameters.months <= element.maxterm)*/
                     ) {
@@ -185,9 +189,10 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
 
     $scope.$watch('parameters.initialPayment', function (newVal, oldVal) {
         if (newVal === oldVal) return;
-        $scope.parameters.initialPaymentPercent = Math.round($scope.parameters.initialPayment * 100 / $scope.car.pack.price);
+        $scope.initialPaymentPercent = Math.round(100*$scope.parameters.initialPayment / $scope.car.pack.price);
         $scope.resetTimerForUpdateOffers();
     });
+
 
     $scope.$watch('parameters.monthPaymentFilter', function (newVal, oldVal) {
         if (newVal === oldVal) return;

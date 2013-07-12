@@ -56,8 +56,7 @@ seedAppServiceModule.
                 loanproduct: {},
                 offer: null,
                 parameters: {
-                    initialPayment: 200000,
-                    initialPaymentPercent: 0,
+                    initialPayment: 0,
                     monthPaymentFilter: 0,
                     tradeIn: 0,
                     refinance: 0,
@@ -102,7 +101,7 @@ seedAppServiceModule.
 seedAppServiceModule.
     factory('ClientData', function () {
         return {
-            maxCreditValue: 0,
-            maxMonthPayment: 0
+            maxCreditValue: 3000000,
+            maxMonthPayment: 100000
         };
     });
