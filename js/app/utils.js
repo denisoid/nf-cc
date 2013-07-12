@@ -81,3 +81,11 @@ ListWithPaging.prototype.init = function () {
         this.currentPage = [];
     }
 }
+
+var copyObject1Level = function(obj) {
+    var copy = {};
+    for (var attr in obj) {
+        copy[attr] = obj[attr];
+    }
+    return copy;
+}

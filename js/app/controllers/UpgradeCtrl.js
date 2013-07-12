@@ -95,7 +95,12 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     $scope.upgradeService = function (offer) {
     }
 
-    $scope.$watch('data.calculation.offer', function (newVal, oldVal) {
+    $scope.$watch('data.calculation.offer.product', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.updateUpgrades();
+    });
+
+    $scope.$watch('data.calculation.car.pack', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.updateUpgrades();
     });
