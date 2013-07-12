@@ -227,6 +227,7 @@
         <select ng-model="car.mark"
                 ng-options="mark as mark.name for mark in selMarkList track by mark.id"
                 ng-change="resetModel()"
+                ng-disabled="selMarkList.length == 1"
                 >
         </select>
     </div>
@@ -236,6 +237,7 @@
         <select ng-model="car.model"
                 ng-options="model as model.name for model in selModelList track by model.id"
                 ng-change="resetPack()"
+                ng-disabled="selModelList.length == 1"
                 >
         </select>
     </div>
@@ -245,6 +247,7 @@
         <select ng-model="car.pack"
                 ng-options="pack as pack.name for pack in selPackagingList track by pack.id"
                 ng-change="resetYear()"
+                ng-disabled="selPackagingList.length == 1"
                 >
         </select>
     </div>
@@ -253,6 +256,7 @@
     <div class="span3">
         <select ng-model="car.yearId"
                 ng-options="year.yearId as year.yearId for year in selYearList"
+                ng-disabled="selYearList.length == 1"
                 >
         </select>
     </div>
@@ -441,13 +445,13 @@
     </div>
 
 
-    <section class="credit-filter filter row-fluid">
+    <section class="credit-filter filter row-fluid" ng-show="car.pack">
         <div class="span6 input-ip">
-            <label>Первоначальный взнос — {{ parameters.initialPaymentPercent }} %</label>
+            <label>Первоначальный взнос — {{ initialPaymentPercent }} %</label>
 
             <div class="input"><input ng-model="parameters.initialPayment"><label> руб.</label></div>
-            <div slider ng-model="parameters.initialPaymentPercent" max="100" min="0" step="1"
-                 tooltip="{{ parameters.initialPaymentPercent }} %"></div>
+            <div slider ng-model="parameters.initialPayment" max="car.pack.price" min="0" step="1000"
+                 tooltip="{{ initialPaymentPercent }} %"></div>
 
         </div>
 
@@ -457,7 +461,7 @@
 
             <div class="input"><input class="input-mini" ng-model="parameters.monthPaymentFilter"><label>руб.</label>
             </div>
-            <div slider ng-model="parameters.monthPaymentFilter" min="5000" max="200000" step="1000"></div>
+            <div slider ng-model="parameters.monthPaymentFilter" min="1000" max="client.maxMonthPayment" step="1000"></div>
 
         </div>
 
