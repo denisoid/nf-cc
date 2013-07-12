@@ -262,6 +262,11 @@ aside.menu ul li .icon-remove{
     right:5px;
 
     background:url(../img/close.png) no-repeat top left;
+    height:8px;
+    width:8px;
+    display:block;
+    padding:0;
+    margin:0;
 }
 
 
