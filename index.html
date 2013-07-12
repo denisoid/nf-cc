@@ -546,7 +546,7 @@
                     </select>
                 </td>
                 <td class="text-right">{{ group.selected.price | number:0 }} руб.</td>
-                <td class="text-right sale"><span ng-show="group.selected.discount>0">—{{ group.selected.discount | number:0 }} руб.</span></td>
+                <td class="text-right sale">— {{ group.selected.discount | number:0 }} руб.</td>
                 <td class="text-right"> {{ (group.selected.price/calculation.offer.months) | number:0 }}
                     руб/мес.
                 </td>
@@ -556,13 +556,23 @@
                 <td class="text-right">Итого</td>
                 <td class="text-right">{{ calculation.offer.services.sum | number:0 }} руб.</td>
                 <td></td>
-                <td class="text-right">{{ (calculation.offer.services.sum/calculation.offer.months) | number:0
+                <td class="text-right">{{ ((calculation.offer.services.sum - calculation.offer.services.discount)/calculation.offer.months) | number:0
                     }} руб/мес.
                 </td>
             </tr>
         </table>
     </section>
 
+
+    <div class="noprint price-line-container">
+        <div class="price-line noprint" id="offerPrice">
+            <h3>Ежемесячный платеж: {{ calculation.offer.carMonthPayment }} + {{ calculation.offer.serviceMonthPayment
+                }}
+                = </h3>
+
+            <div class="price">{{ calculation.offer.monthPayment }} руб/мес</div>
+        </div>
+    </div>
 
 
     <section class="end-offer">

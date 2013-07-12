@@ -109,13 +109,12 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             var initialPayment = $scope.parameters.initialPayment;
             var dealerDiscount = parseFloat($scope.car.dealerDiscount);
             if (isNaN(dealerDiscount)) dealerDiscount = 0;
-            var serviceDiscount = parseFloat($scope.car.serviceDiscount);
-            if (isNaN(serviceDiscount)) serviceDiscount = 0;
             var tradeIn = $scope.parameters.tradeIn;
             var refinance = $scope.parameters.refinance;
             var lastpayment = $scope.parameters.lastPayment;
             var carCreditValue = price - initialPayment - discount - dealerDiscount - tradeIn + refinance - lastpayment;
-            var serviceValue = 125000 - serviceDiscount; //TODO fix service sum
+            var serviceDiscount = $scope.calculation.offer.services.discount;
+            var serviceValue = $scope.calculation.offer.services.sum - serviceDiscount;
             var creditValue = carCreditValue + serviceValue;
 
             if(creditValue <= 0 || monthPaymentFilter >= creditValue) {
@@ -177,8 +176,17 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     $scope.setCurrentOffer = function (idx) {
         $scope.currentOfferListPage.currentIndex = idx;
         var copy = $scope.currentOfferListPage.currentPage[idx];
-        $scope.data.calculation.offer.product = copy.product;
-        $scope.data.calculation.offer.months = copy.months;
+        var offer = $scope.data.calculation.offer;
+        offer.product = copy.product;
+        offer.creditValue = copy.creditValue;
+        offer.months = copy.months;
+        offer.monthPayment = copy.monthPayment;
+        offer.overPayment = copy.overPayment;
+        offer.returnValue = copy.returnValue;
+        offer.serviceValue = copy.serviceValue;
+        offer.serviceDiscount = copy.serviceDiscount;
+        offer.carMonthPayment = copy.carMonthPayment;
+        offer.serviceMonthPayment = copy.serviceMonthPayment;
     }
 
     $scope.updateCompare = function () {
@@ -234,5 +242,11 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.filterLoanProductListForPack();
         $scope.resetTimerForUpdateOffers();
     });
+
+    $scope.$watch('calculation.offer.services.sum', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.resetTimerForUpdateOffers();
+    });
+
 }
 
