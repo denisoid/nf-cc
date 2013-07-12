@@ -114,6 +114,7 @@ h2 {
 
 .end-offer table tr {
     font-style: italic;
+    display: table-row !important;
 
 }
 
