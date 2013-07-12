@@ -104,22 +104,66 @@ seedAppServiceModule.
                                 ]
                             },
                             {
-                                name: 'Расширенная гарантия',
+                                name: 'Продленная гарантия',
                                 selected: null,
                                 mandatory: false,
                                 servicelist: [
                                     {
-                                        name: 'Расширенная гарантия 1 год',
+                                        name: 'Продленная гарантия 1 год',
                                         price: '10000',
                                         discount: '0'
                                     },
                                     {
-                                        name: 'Расширенная гарантия 2 года',
+                                        name: 'Продленная гарантия 2 года',
                                         price: '20000',
                                         discount: '2000'
                                     },
                                     {
-                                        name: 'Расширенная гарантия 3 года',
+                                        name: 'Продленная гарантия 3 года',
+                                        price: '30000',
+                                        discount: '4000'
+                                    }
+                                ]
+                            },
+                            {
+                                name: 'Secure PLUS',
+                                selected: null,
+                                mandatory: false,
+                                servicelist: [
+                                    {
+                                        name: 'Secure PLUS 1 год',
+                                        price: '10000',
+                                        discount: '0'
+                                    },
+                                    {
+                                        name: 'Secure PLUS 2 года',
+                                        price: '20000',
+                                        discount: '2000'
+                                    },
+                                    {
+                                        name: 'Secure PLUS 3 года',
+                                        price: '30000',
+                                        discount: '4000'
+                                    }
+                                ]
+                            },
+                            {
+                                name: 'Защита платежей',
+                                selected: null,
+                                mandatory: false,
+                                servicelist: [
+                                    {
+                                        name: 'Защита платежей 1 год',
+                                        price: '10000',
+                                        discount: '0'
+                                    },
+                                    {
+                                        name: 'Защита платежей 2 года',
+                                        price: '20000',
+                                        discount: '2000'
+                                    },
+                                    {
+                                        name: 'Защита платежей 3 года',
                                         price: '30000',
                                         discount: '4000'
                                     }
