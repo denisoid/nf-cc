@@ -58,7 +58,7 @@
             <li ng-repeat="calculation in data.calculationList" class="offer">
                 <div ng-click="restoreCalculation($index)" tooltip="{{calculation.car.mark.name}} {{calculation.car.model.name}}
 {{calculation.car.pack.name}}">
-                    <img ng-src="img/cars/{{ data.calculation.car.model.img }}" height="50"/>
+                    <img ng-src="img/cars/{{ calculation.car.model.img }}" height="50"/>
                     <strong>{{calculation.car.mark.name}} {{calculation.car.model.name}}</strong>
                     <span>{{ calculation.offer.monthPayment }} руб/мес.</span>
                 </div>

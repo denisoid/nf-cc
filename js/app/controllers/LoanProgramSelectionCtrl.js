@@ -106,7 +106,10 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             if (isNaN(dealerDiscount)) dealerDiscount = 0;
             var serviceDiscount = parseFloat($scope.car.serviceDiscount);
             if (isNaN(serviceDiscount)) serviceDiscount = 0;
-            var carCreditValue = price - initialPayment - discount - dealerDiscount;
+            var tradeIn = $scope.parameters.tradeIn;
+            var refinance = $scope.parameters.refinance;
+            var lastpayment = $scope.parameters.lastPayment;
+            var carCreditValue = price - initialPayment - discount - dealerDiscount - tradeIn + refinance - lastpayment;
             var serviceValue = 125000 - serviceDiscount; //TODO fix service sum
             var creditValue = carCreditValue + serviceValue;
 
@@ -127,6 +130,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             var serviceMonthPayment = Math.round((serviceValue + (serviceValue * product.rate * months / 1200)) / months);
             var offer = {
                 id: "" + i,
+                product: product,
                 productId: product.id,
                 name: product.name,
                 price: price,

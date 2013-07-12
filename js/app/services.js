@@ -63,12 +63,12 @@ seedAppServiceModule.
                     tradeIn: 0,
                     refinance: 0,
                     lastPayment: 0,
-                    clientRCI:true
+                    clientRCI: true,
+                    existCRM: true
                 }
             },
             calculationList: [],
             saveCalculation: function () {
-
                 this.calculationList.push({
                     car: {
                         used: this.calculation.car.used,
@@ -85,15 +85,26 @@ seedAppServiceModule.
                 this.calculationList.splice(ind, true);
             },
             restoreCalculation: function (ind) {
-                this.calculation.car.used = this.calculationList[ind].car.used;
-                this.calculation.car.mark = this.calculationList[ind].car.mark;
-                this.calculation.car.model = this.calculationList[ind].car.model;
-                this.calculation.car.pack = this.calculationList[ind].car.pack;
-                this.calculation.car.yearId = this.calculationList[ind].car.yearId
+                var copy = this.calculationList[ind];
+                this.calculation.car = {
+                    used: copy.car.used,
+                    mark: copy.car.mark,
+                    model: copy.car.model,
+                    pack: copy.car.pack,
+                    yearId: copy.car.yearId
+                }
 
-                this.calculation.loanproduct = this.calculationList[ind].loanproduct;
-                this.calculation.offer = this.calculationList[ind].offer;
-                this.calculation.parameters = this.calculationList[ind].parameters;
+                this.calculation.loanproduct = copy.loanproduct;
+                this.calculation.offer = copy.offer;
+                this.calculation.parameters = {
+                    initialPayment: copy.parameters.initialPayment,
+                    monthPaymentFilter: copy.parameters.monthPaymentFilter,
+                    tradeIn: copy.parameters.tradeIn,
+                    refinance: copy.parameters.refinance,
+                    lastPayment: copy.parameters.lastPayment,
+                    clientRCI: copy.parameters.clientRCI,
+                    existCRM: copy.parameters.existCRM
+                }
             }
         }
     }
