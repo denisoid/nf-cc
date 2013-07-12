@@ -5,11 +5,11 @@
  * Date: 03.07.13
  * Time: 14:03
  */
-function CalculatorCtrl($scope, CalculatorData) {
+function CalculatorCtrl($scope, CalculatorData, ClientData) {
     $scope.data = CalculatorData;
     $scope.show = {isMaxPayment: false, isCompare:false, isMain: true};
 
-    $scope.client = {maxMonthPayment: 0, maxCreditValue: 0};
+    $scope.client = ClientData;
 
     $scope.isCatalog = true;
     $scope.carPrice = 1000000;

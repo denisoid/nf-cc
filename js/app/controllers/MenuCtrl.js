@@ -5,8 +5,9 @@
  * Date: 03.07.13
  * Time: 15:33
  */
-function MenuCtrl($scope, CalculatorData) {
+function MenuCtrl($scope, CalculatorData, ClientData) {
     $scope.data = CalculatorData;
+    $scope.client = ClientData;
 
     $scope.delCalculation = function (ind) {
         $scope.data.delCalculation(ind);

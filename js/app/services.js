@@ -53,14 +53,14 @@ seedAppServiceModule.
                     pack: null,
                     yearId: null
                 },
-                loanproduct: null,
+                loanproduct: {},
                 offer: null,
                 parameters: {
                     initialPayment: 200000,
                     initialPaymentPercent: 0,
-                    monthPaymentFilter: 10000,
+                    monthPaymentFilter: 0,
                     tradeIn: 0,
-                    refinance: 10000,
+                    refinance: 0,
                     lastPayment: 0,
                     clientRCI:true
                 }
@@ -98,3 +98,11 @@ seedAppServiceModule.
         }
     }
 );
+
+seedAppServiceModule.
+    factory('ClientData', function () {
+        return {
+            maxCreditValue: 0,
+            maxMonthPayment: 0
+        };
+    });

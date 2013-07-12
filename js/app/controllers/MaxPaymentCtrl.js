@@ -7,7 +7,8 @@
  * Time: 14:00
  * To change this template use File | Settings | File Templates.
  */
-function MaxPaymentCtrl($scope) {
+function MaxPaymentCtrl($scope, ClientData) {
+    $scope.client = ClientData;
     $scope.monthIncome = 0;
     $scope.additionalIncome = 0;
     $scope.additionalIncomeAssured = false;

@@ -5,8 +5,9 @@
  * Date: 03.07.13
  * Time: 14:05
  */
-function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packaging_LoanProduct, $filter, $timeout) {
+function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProducts, Packaging_LoanProduct, $filter, $timeout) {
     $scope.data = CalculatorData;
+    $scope.client = ClientData;
     $scope.calculation = $scope.data.calculation;
     $scope.parameters = $scope.data.calculation.parameters;
     $scope.car = $scope.calculation.car;
@@ -30,7 +31,6 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
     $scope.updateFilters = function() {
         $scope.parameters.initialPaymentPercent = Math.round(($scope.parameters.initialPayment/$scope.car.pack.price) * 100);
         $scope.car.dealerDiscount = 0;
-        $scope.parameters.monthPaymentFilter = Math.round($scope.car.pack.price / 12);
     }
 
     $scope.resetOffers = function () {
@@ -211,6 +211,14 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, LoanProducts, Packagin
     $scope.$watch('currentOfferListPage.currentIndex', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.setCurrentOffer(newVal);
+    });
+
+    $scope.$watch('client.maxMonthPayment', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.parameters.monthPaymentFilter = $scope.client.maxMonthPayment;
+        $scope.updateFilters();
+        $scope.filterLoanProductListForPack();
+        $scope.resetTimerForUpdateOffers();
     });
 }
 
