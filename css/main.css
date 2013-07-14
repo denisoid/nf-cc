@@ -840,7 +840,7 @@ select {
 
 }
 
-.end-offer table tr td:nth-child(2) {
+.end-offer table tr td:nth-child(3) {
     text-align: right;
 
 }
@@ -856,7 +856,7 @@ select {
 
 }
 
-
+/*
 .end-offer tr.collapsible td:first-child:before{
     content: "►";
     width:20px;
@@ -870,9 +870,9 @@ select {
 .end-offer tr.expanded td:first-child:before{
     content: "▼";
 }
-
-.end-offer tr td:nth-child(2){width:70px;}
-.end-offer tr td:nth-child(3){width:46px;}
+*/
+.end-offer tr td:nth-child(3){width:70px;}
+.end-offer tr td:nth-child(4){width:46px;}
 
 
 

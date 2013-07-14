@@ -209,6 +209,12 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.selectedOfferList = $filter('orderBy')($scope.selectedOfferList, 'overPayment');
     }
 
+    $scope.isServiceGroupSelected = function (group) {
+        if(group.selected != null) return true;
+        return false;
+    }
+
+
     $scope.$watch('data.calculation.parameters.initialPayment', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.initialPaymentPercent = Math.round(100*$scope.data.calculation.parameters.initialPayment / $scope.data.calculation.car.pack.price);

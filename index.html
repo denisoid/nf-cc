@@ -570,70 +570,83 @@
 
         <table>
             <tr class="header">
+                <td></td>
                 <td>Сумма кредита</td>
                 <td>{{ data.calculation.offer.creditValue | number:0 }}</td>
                 <td>руб.</td>
             </tr>
             <tr class="header">
+                <td></td>
                 <td>Срок</td>
                 <td>{{ data.calculation.offer.months }}</td>
                 <td>мес</td>
             </tr>
             <tr class="header">
+                <td></td>
                 <td>Цена автомобиля</td>
                 <td>{{data.calculation.car.pack.price |  number:0}}</td>
                 <td>руб</td>
             </tr>
             <tr class="header">
+                <td></td>
                 <td>Остаточный платеж</td>
                 <td>{{ data.calculation.parameters.lastPayment | number:0 }}</td>
                 <td>руб</td>
             </tr>
             <tr class="header">
+                <td></td>
                 <td>Процентная ставка</td>
                 <td>{{ data.calculation.offer.product.rate }}</td>
                 <td>%</td>
             </tr>
 
 
-            <tr class="header collapsible">
+            <tr class="header">
+                <td><div ng-click="collapseInitialPayment=!collapseInitialPayment"><span ng-show="!collapseInitialPayment">►</span><span ng-show="collapseInitialPayment">▼</span></div></td>
                 <td>Первоначальный взнос</td>
                 <td>{{ (data.calculation.parameters.initialPayment + data.calculation.parameters.tradeIn - data.calculation.parameters.refinace) | number:0}}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none">
+            <tr ng-show="collapseInitialPayment">
+                <td></td>
                 <td>—наличными</td>
                 <td>{{ data.calculation.parameters.initialPayment | number:0 }}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none">
+            <tr ng-show="collapseInitialPayment">
+                <td></td>
                 <td>—трейд-ин</td>
                 <td>{{ data.calculation.parameters.tradeIn | number:0 }}</td>
                 <td>руб.</td>
             </tr>
 
 
-            <tr class="header collapsible">
+            <tr class="header">
+                <td><div ng-click="collapseServices=!collapseServices"><span ng-show="!collapseServices">►</span><span ng-show="collapseServices">▼</span></div></td>
                 <td>Дополнительные&nbsp; сервисы</td>
-                <td>{{ (data.calculation.offer.sevices.sum - data.calculation.offer.sevices.discount) | number:0 }}</td>
+                <td>{{ (data.calculation.offer.services.sum - data.calculation.offer.services.discount) | number:0 }}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none" ng-repeat="group in data.calculation.offer.sevices.grouplist">
-                <td>group.selected.name</td>
+            <tr ng-show="collapseServices" ng-repeat="group in data.calculation.offer.services.grouplist | filter:isServiceGroupSelected">
+                <td></td>
+                <td>{{ group.selected.name }}</td>
                 <td>{{ (group.selected.price -  group.selected.discount) | number:0}}</td>
                 <td>руб.</td>
             </tr>
-            <tr class="header collapsible">
+            <tr class="header">
+                <td><div ng-click="collapseMonthPayment=!collapseMonthPayment"><span ng-show="!collapseMonthPayment">►</span><span ng-show="collapseMonthPayment">▼</span></div></td>
                 <td>Ежемесячный платеж</td>
                 <td>{{ data.calculation.offer.monthPayment | number:0}}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none">
+            <tr ng-show="collapseMonthPayment">
+                <td></td>
                 <td>—платеж за автомобиль</td>
                 <td>{{ data.calculation.offer.carMonthPayment | number:0}}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none">
+            <tr ng-show="collapseMonthPayment">
+                <td></td>
                 <td>—платеж за дополнительные сервисы</td>
                 <td>{{ data.calculation.offer.serviceMonthPayment | number:0 }}</td>
                 <td>руб.</td>
