@@ -566,7 +566,7 @@
 
 
     <section class="end-offer">
-        <h2>Стандартный</h2>
+        <h2>Кредитная программа: "{{ data.calculation.offer.product.name }}"</h2>
 
         <table>
             <tr class="header">
@@ -586,74 +586,56 @@
             </tr>
             <tr class="header">
                 <td>Остаточный платеж</td>
-                <td>0</td>
+                <td>{{ data.calculation.parameters.lastPayment | number:0 }}</td>
                 <td>руб</td>
             </tr>
             <tr class="header">
                 <td>Процентная ставка</td>
-                <td>{{ data.calculation.offer.rate }}</td>
+                <td>{{ data.calculation.offer.product.rate }}</td>
                 <td>%</td>
             </tr>
 
 
             <tr class="header collapsible">
                 <td>Первоначальный взнос</td>
-                <td>123 000</td>
+                <td>{{ (data.calculation.parameters.initialPayment + data.calculation.parameters.tradeIn - data.calculation.parameters.refinace) | number:0}}</td>
                 <td>руб.</td>
             </tr>
             <tr style="display:none">
                 <td>—наличными</td>
-                <td>100 000</td>
+                <td>{{ data.calculation.parameters.initialPayment | number:0 }}</td>
                 <td>руб.</td>
             </tr>
             <tr style="display:none">
                 <td>—трейд-ин</td>
-                <td>20 000</td>
+                <td>{{ data.calculation.parameters.tradeIn | number:0 }}</td>
                 <td>руб.</td>
             </tr>
 
 
             <tr class="header collapsible">
                 <td>Дополнительные&nbsp; сервисы</td>
-                <td>197 640</td>
+                <td>{{ (data.calculation.sevices.sum - data.calculation.sevices.discount) | number:0 }}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none">
-                <td>—ОСАГО</td>
-                <td>72 000</td>
+            <tr style="display:none" ng-repeat="group in data.calculation.sevices.grouplist">
+                <td>group.selected.name</td>
+                <td>{{ (group.selected.price -  group.selected.discount) | number:0}}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none">
-                <td>—Каско</td>
-                <td>65 640</td>
-                <td>руб.</td>
-            </tr>
-            <tr style="display:none">
-                <td>—Защита платежей на 1 год</td>
-                <td>36 000</td>
-                <td>руб.</td>
-            </tr>
-            <tr style="display:none">
-                <td>—Спутниковая сигнализация</td>
-                <td>24 000</td>
-                <td>руб.</td>
-            </tr>
-
-
-
             <tr class="header collapsible">
                 <td>Ежемесячный платеж</td>
-                <td>32 435</td>
+                <td>{{ calculation.offer.monthPayment | number:0}}</td>
                 <td>руб.</td>
             </tr>
             <tr style="display:none">
                 <td>—платеж за автомобиль</td>
-                <td>21 327</td>
+                <td>{{ calculation.offer.carMonthPayment | number:0}}</td>
                 <td>руб.</td>
             </tr>
             <tr style="display:none">
                 <td>—платеж за дополнительные сервисы</td>
-                <td>11 108</td>
+                <td>{{ calculation.offer.serviceMonthPayment | number:0 }}</td>
                 <td>руб.</td>
             </tr>
         </table>
