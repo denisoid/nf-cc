@@ -43,6 +43,12 @@ seedAppServiceModule.
     });
 
 seedAppServiceModule.
+    factory('ServiceGroups', function ($resource) {
+        var data = $resource('js/data/service_groups.json', {}, {});
+        return data;
+    });
+
+seedAppServiceModule.
     factory('CalculatorData', function () {
         return {
             calculation: {
@@ -68,118 +74,7 @@ seedAppServiceModule.
                     services: {
                         sum: 0,
                         discount: 0,
-                        grouplist: [
-                            {
-                                name: 'ОСАГО',
-                                selected: null,
-                                mandatory: true,
-                                servicelist: [
-                                    {
-                                        name: 'ОСАГО 1 год',
-                                        price: '10000',
-                                        discount: '0'
-                                    },
-                                    {
-                                        name: 'ОСАГО 2 года',
-                                        price: '20000',
-                                        discount: '1000'
-                                    },
-                                    {
-                                        name: 'ОСАГО 3 года',
-                                        price: '30000',
-                                        discount: '3000'
-                                    }
-                                ]
-                            },
-                            {
-                                name: 'КАСКО',
-                                selected: null,
-                                mandatory: false,
-                                servicelist: [
-                                    {
-                                        name: 'КАСКО 1 год',
-                                        price: '60000',
-                                        discount: '0'
-                                    },
-                                    {
-                                        name: 'КАСКО 2 года',
-                                        price: '120000',
-                                        discount: '10000'
-                                    },
-                                    {
-                                        name: 'КАСКО 3 года',
-                                        price: '180000',
-                                        discount: '30000'
-                                    }
-                                ]
-                            },
-                            {
-                                name: 'Продленная гарантия',
-                                selected: null,
-                                mandatory: false,
-                                servicelist: [
-                                    {
-                                        name: 'Продленная гарантия 1 год',
-                                        price: '10000',
-                                        discount: '0'
-                                    },
-                                    {
-                                        name: 'Продленная гарантия 2 года',
-                                        price: '20000',
-                                        discount: '2000'
-                                    },
-                                    {
-                                        name: 'Продленная гарантия 3 года',
-                                        price: '30000',
-                                        discount: '4000'
-                                    }
-                                ]
-                            },
-                            {
-                                name: 'Secure PLUS',
-                                selected: null,
-                                mandatory: false,
-                                servicelist: [
-                                    {
-                                        name: 'Secure PLUS 1 год',
-                                        price: '10000',
-                                        discount: '0'
-                                    },
-                                    {
-                                        name: 'Secure PLUS 2 года',
-                                        price: '20000',
-                                        discount: '2000'
-                                    },
-                                    {
-                                        name: 'Secure PLUS 3 года',
-                                        price: '30000',
-                                        discount: '4000'
-                                    }
-                                ]
-                            },
-                            {
-                                name: 'Защита платежей',
-                                selected: null,
-                                mandatory: false,
-                                servicelist: [
-                                    {
-                                        name: 'Защита платежей 1 год',
-                                        price: '10000',
-                                        discount: '0'
-                                    },
-                                    {
-                                        name: 'Защита платежей 2 года',
-                                        price: '20000',
-                                        discount: '2000'
-                                    },
-                                    {
-                                        name: 'Защита платежей 3 года',
-                                        price: '30000',
-                                        discount: '4000'
-                                    }
-                                ]
-                            }
-                        ],
+                        grouplist: [],
                         init: function () {
                             var glength = this.grouplist.length;
                             for (var ti = 0; ti < glength; ti++) {

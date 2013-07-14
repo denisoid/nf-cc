@@ -5,14 +5,16 @@
  * Date: 03.07.13
  * Time: 14:05
  */
-function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProducts, Packaging_LoanProduct, $filter, $timeout) {
+function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProducts, Packaging_LoanProduct, ServiceGroups, $filter, $timeout) {
     $scope.data = CalculatorData;
     $scope.client = ClientData;
     $scope.calculation = $scope.data.calculation;
 
     //init services
-    $scope.calculation.offer.services.init();
-    $scope.calculation.offer.services.calculateSum();
+    $scope.calculation.offer.services.grouplist = ServiceGroups.query({}, function () {
+        $scope.calculation.offer.services.init();
+        $scope.calculation.offer.services.calculateSum();
+    });
 
     $scope.parameters = $scope.data.calculation.parameters;
     $scope.car = $scope.calculation.car;
