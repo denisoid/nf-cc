@@ -55,12 +55,12 @@
             </li>
 
 
-            <li ng-repeat="calculation in data.calculationList" class="offer">
-                <div ng-click="restoreCalculation($index)" tooltip="{{calculation.car.mark.name}} {{calculation.car.model.name}}
-{{calculation.car.pack.name}}">
-                    <img ng-src="img/cars/{{ calculation.car.model.img }}" height="50"/>
-                    <strong>{{calculation.car.mark.name}} {{calculation.car.model.name}}</strong>
-                    <span>{{ calculation.offer.monthPayment |number:0  }} руб/мес.</span>
+            <li ng-repeat="calc in data.calculationList" class="offer">
+                <div ng-click="restoreCalculation($index)" tooltip="{{calc.car.mark.name}} {{calc.car.model.name}}
+{{calc.car.pack.name}}">
+                    <img ng-src="img/cars/{{ calc.car.model.img }}" height="50"/>
+                    <strong>{{calc.car.mark.name}} {{calc.car.model.name}}</strong>
+                    <span>{{ calc.offer.monthPayment |number:0  }} руб/мес.</span>
                 </div>
                 <a href="" class="icon-remove" ng-click="delCalculation($index)"></a>
                 <!--<i></i>-->
@@ -96,11 +96,11 @@
         <section class="car-list list">
 
             <ul>
-                <li ng-repeat="offer in carUpgrade.currentPage">
-                    <div ng-click="upgradeCar(offer)">
-                        <h4>{{ data.calculation.car.mark.name + ' ' + offer.model.name }}</h4>
-                        <span style="color:#888">при увеличении цены на <br /></span>
-                        <span>{{ offer.pack.price | number:0 }} руб</span>
+                <li ng-repeat="carUpgrade in carUpgrade.currentPage">
+                    <div ng-click="upgradeCar(carUpgrade)">
+                        <h4>{{ data.calculation.car.mark.name + ' ' + carUpgrade.car.model.name }}</h4>
+                        <span style="color:#888">при увеличении платежа на <br /></span>
+                        <span>{{ carUpgrade.monthDelta | number:0 }} руб/мес</span>
                     </div>
                 </li>
             </ul>
@@ -210,9 +210,9 @@
     <h2>Автомобиль</h2>
 
     <div class="car-type-choose">
-        <a href="" class="radio-btn ng-class: {'active': !car.used}"
-           ng-click="car.used=false;updateMark()">Новый</a>
-        <a href="" class="radio-btn ng-class: {'active': car.used}" ng-click="car.used=true;resetMark()">С
+        <a href="" class="radio-btn ng-class: {'active': !data.calculation.car.used}"
+           ng-click="data.calculation.car.used=false;updateMark()">Новый</a>
+        <a href="" class="radio-btn ng-class: {'active': data.calculation.car.used}" ng-click="data.calculation.car.used=true;resetMark()">С
             пробегом</a>
     </div>
 
@@ -225,7 +225,7 @@
 <section class="car-catalog row-fluid" ng-show="isCatalog">
     <!--Марка-->
     <div class="span3">
-        <select ng-model="car.mark"
+        <select ng-model="data.calculation.car.mark"
                 ng-options="mark as mark.name for mark in selMarkList track by mark.id"
                 ng-change="resetModel()"
                 ng-disabled="selMarkList.length == 1"
@@ -235,7 +235,7 @@
 
     <!--Модель-->
     <div class="span3">
-        <select ng-model="car.model"
+        <select ng-model="data.calculation.car.model"
                 ng-options="model as model.name for model in selModelList track by model.id"
                 ng-change="resetPack()"
                 ng-disabled="selModelList.length == 1"
@@ -245,7 +245,7 @@
 
     <!--Комплектация-->
     <div class="span3">
-        <select ng-model="car.pack"
+        <select ng-model="data.calculation.car.pack"
                 ng-options="pack as pack.name for pack in selPackagingList track by pack.id"
                 ng-change="resetYear()"
                 ng-disabled="selPackagingList.length == 1"
@@ -255,7 +255,7 @@
 
     <!--Год-->
     <div class="span3">
-        <select ng-model="car.yearId"
+        <select ng-model="data.calculation.car.yearId"
                 ng-options="year.yearId as year.yearId for year in selYearList"
                 ng-disabled="selYearList.length == 1"
                 >
@@ -276,7 +276,7 @@
         <!--Марка-->
         <div class="span2">
             <select
-                    ng-model="car.mark"
+                    ng-model="data.calculation.car.mark"
                     ng-options="mark as mark.name for mark in selMarkList"
                     ng-change="resetModel()"
                     >
@@ -287,7 +287,7 @@
 
         <!--Модель-->
         <div class="span4">
-            <select ng-model="car.model"
+            <select ng-model="data.calculation.car.model"
                     ng-options="model as model.name for model in selModelList"
                     ng-change="resetPack()"
                     >
@@ -297,7 +297,7 @@
 
         <!--Год-->
         <div class="span2">
-            <select ng-model="car.yearId"
+            <select ng-model="data.calculation.car.yearId"
                     ng-options="year.yearId as year.yearId for year in selYearList"
                     >
                 <option value="">Любой</option>
@@ -395,13 +395,13 @@
     <div class="modal-body">
         <div class="input">
             <label>Рекомендованная цена</label>
-            <span>{{ car.pack.price | number:0 }}</span>
+            <span>{{ data.calculation.car.pack.price | number:0 }}</span>
             <label>руб.</label>
         </div>
 
         <div class="input">
             <label>Скидка производителя</label>
-            <span>{{ car.pack.discount | number:0 }}</span>
+            <span>{{ data.calculation.car.pack.discount | number:0 }}</span>
             <label>руб.</label>
         </div>
 
@@ -413,7 +413,7 @@
 
         <div class="input">
             <label>Итого</label>
-            <span>{{ (car.pack.price - car.pack.discount - dealerDiscount) | number:0 }}</span>
+            <span>{{ (data.calculation.car.pack.price - data.calculation.car.pack.discount - dealerDiscount) | number:0 }}</span>
             <label>руб.</label>
         </div>
     </div>
@@ -437,21 +437,21 @@
         <h2>Кредит</h2>
 
         <div class="client-options">
-            <a class="radio-btn  ng-class: {'active': parameters.clientRCI}"
-               ng-click="parameters.clientRCI=!parameters.clientRCI">Клиент RCI</a>
-            <a class="radio-btn  ng-class: {'active': parameters.existCRM}"
-               ng-click="parameters.existCRM=!parameters.existCRM">Есть в CRM</a>
+            <a class="radio-btn  ng-class: {'active': data.calculation.parameters.clientRCI}"
+               ng-click="data.calculation.parameters.clientRCI=!data.calculation.parameters.clientRCI">Клиент RCI</a>
+            <a class="radio-btn  ng-class: {'active': data.calculation.parameters.existCRM}"
+               ng-click="data.calculation.parameters.existCRM=!data.calculation.parameters.existCRM">Есть в CRM</a>
         </div>
 
     </div>
 
 
-    <section class="credit-filter filter row-fluid" ng-show="car.pack">
+    <section class="credit-filter filter row-fluid" ng-show="data.calculation.car.pack">
         <div class="span6 input-ip">
             <label>Взнос наличными — {{ initialPaymentPercent }} %</label>
 
-            <div class="input"><input ng-model="parameters.initialPayment"><label> руб.</label></div>
-            <div slider ng-model="parameters.initialPayment" max="car.pack.price" min="0" step="1000"
+            <div class="input"><input ng-model="data.calculation.parameters.initialPayment"><label> руб.</label></div>
+            <div slider ng-model="data.calculation.parameters.initialPayment" max="data.calculation.car.pack.price" min="0" step="1000"
                  tooltip="{{ initialPaymentPercent }} %"></div>
 
         </div>
@@ -460,9 +460,9 @@
         <div class="span6 input-ip">
             <label>Ежемесячный платеж</label>
 
-            <div class="input"><input class="input-mini" ng-model="parameters.monthPaymentFilter"><label>руб.</label>
+            <div class="input"><input class="input-mini" ng-model="data.calculation.parameters.monthPaymentFilter"><label>руб.</label>
             </div>
-            <div slider ng-model="parameters.monthPaymentFilter" min="1000" max="client.maxMonthPayment"
+            <div slider ng-model="data.calculation.parameters.monthPaymentFilter" min="1000" max="client.maxMonthPayment"
                  step="1000"></div>
 
         </div>
@@ -474,16 +474,16 @@
         <div class="span4  input-ip">
             <label>Оценка текущей машины</label>
 
-            <div class="input"><input ng-model="parameters.tradeIn"><label>руб.</label></div>
-            <div slider ng-model="parameters.tradeIn" min="0" max="1000000" step="1000"></div>
+            <div class="input"><input ng-model="data.calculation.parameters.tradeIn"><label>руб.</label></div>
+            <div slider ng-model="data.calculation.parameters.tradeIn" min="0" max="1000000" step="1000"></div>
         </div>
 
 
         <div class="span4 input-ip">
             <label>Рефинансирование</label>
 
-            <div class="input"><input ng-model="parameters.refinance"><label>руб.</label></div>
-            <div slider ng-model="parameters.refinance" min="0" max="1000000" step="1000"></div>
+            <div class="input"><input ng-model="data.calculation.parameters.refinance"><label>руб.</label></div>
+            <div slider ng-model="data.calculation.parameters.refinance" min="0" max="1000000" step="1000"></div>
         </div>
 
         <div class="span4">
@@ -492,21 +492,21 @@
             <div class="input-ip">
                 <label>Остаточный платеж</label>
 
-                <div class="input"><input ng-model="parameters.lastPayment"><label>руб.</label></div>
-                <div slider ng-model="parameters.lastPayment" min="0" max="1000000" step="1000"></div>
+                <div class="input"><input ng-model="data.calculation.parameters.lastPayment"><label>руб.</label></div>
+                <div slider ng-model="data.calculation.parameters.lastPayment" min="0" max="1000000" step="1000"></div>
             </div>
         </div>
 
     </section>
 
-    <section class="noprint" ng-show="!calculation.offer">
+    <section class="noprint" ng-show="!data.calculation.offer">
         <span>Не найдены программы подходящие под заданные условия</span></section>
-    <section class="noprint" ng-show="calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span>
+    <section class="noprint" ng-show="data.calculation.offer"><span>Найдено программ кредитования: {{ currentOfferList.length }}</span>
     </section>
 
     <section class="credit-offers row-fluid list" ng-show="currentOfferList">
 
-        <div class="span3 ng-class: {selected: calculation.offerIndex == $index}"
+        <div class="span3 ng-class: {selected: data.calculation.offerIndex == $index}"
              ng-repeat="offer in currentOfferListPage.currentPage"
              ng-click="setCurrentOffer($index)">
             <h4 tooltip="{{ offer.product.name }}">{{ offer.product.name }}</h4>
@@ -526,7 +526,7 @@
 </section>
 
 
-<div ng-controller="OfferCtrl" ng-show="calculation.offer">
+<div ng-controller="OfferCtrl" ng-show="data.calculation.offer">
     <section class="noprint services-choose">
         <h2>Дополнительные сервисы</h2>
         <table>
@@ -537,27 +537,27 @@
                 <th class="text-right">Скидка</th>
                 <th class="text-right">Платеж</th>
             </tr>
-            <tr class="service" ng-repeat="group in calculation.offer.services.grouplist">
+            <tr class="service" ng-repeat="group in data.calculation.offer.services.grouplist">
                 <td>{{ group.name }}</td>
                 <td>
                     <select ng-model="group.selected"
                             ng-options="service as service.name for service in group.servicelist"
-                            ng-change="calculation.offer.services.calculateSum()"
+                            ng-change="data.calculation.offer.services.calculateSum()"
                             >
                     </select>
                 </td>
                 <td class="text-right">{{ group.selected.price | number:0 }} руб.</td>
                 <td class="text-right sale"><span ng-show="group.selected.discount>0">—{{ group.selected.discount | number:0 }} руб.</span></td>
-                <td class="text-right"> {{ (group.selected.price/calculation.offer.months) | number:0 }}
+                <td class="text-right"> {{ (group.selected.price/data.calculation.offer.months) | number:0 }}
                     руб/мес.
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td class="text-right">Итого</td>
-                <td class="text-right">{{ calculation.offer.services.sum | number:0 }} руб.</td>
+                <td class="text-right">{{ data.calculation.offer.services.sum | number:0 }} руб.</td>
                 <td></td>
-                <td class="text-right">{{ ((calculation.offer.services.sum - calculation.offer.services.discount)/calculation.offer.months) | number:0
+                <td class="text-right">{{ ((data.calculation.offer.services.sum - data.calculation.offer.services.discount)/data.calculation.offer.months) | number:0
                     }} руб/мес.
                 </td>
             </tr>
@@ -625,17 +625,17 @@
             </tr>
             <tr class="header collapsible">
                 <td>Ежемесячный платеж</td>
-                <td>{{ calculation.offer.monthPayment | number:0}}</td>
+                <td>{{ data.calculation.offer.monthPayment | number:0}}</td>
                 <td>руб.</td>
             </tr>
             <tr style="display:none">
                 <td>—платеж за автомобиль</td>
-                <td>{{ calculation.offer.carMonthPayment | number:0}}</td>
+                <td>{{ data.calculation.offer.carMonthPayment | number:0}}</td>
                 <td>руб.</td>
             </tr>
             <tr style="display:none">
                 <td>—платеж за дополнительные сервисы</td>
-                <td>{{ calculation.offer.serviceMonthPayment | number:0 }}</td>
+                <td>{{ data.calculation.offer.serviceMonthPayment | number:0 }}</td>
                 <td>руб.</td>
             </tr>
         </table>
@@ -649,8 +649,8 @@
         <div class="price-line noprint" id="offerPrice">
             <h3>Ежемесячный платеж:</h3>
 
-            <div class="price" tooltip="Платеж за машину — {{ calculation.offer.carMonthPayment |number:0 }} руб/мес.
-Платеж за сервисы — {{ calculation.offer.serviceMonthPayment |number:0  }} руб/мес.">{{ calculation.offer.monthPayment | number:0 }} руб/мес.</div>
+            <div class="price" tooltip="Платеж за машину — {{ data.calculation.offer.carMonthPayment |number:0 }} руб/мес.
+Платеж за сервисы — {{ data.calculation.offer.serviceMonthPayment |number:0  }} руб/мес.">{{ data.calculation.offer.monthPayment | number:0 }} руб/мес.</div>
         </div>
     </div>
 

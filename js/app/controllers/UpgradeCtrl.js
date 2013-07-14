@@ -23,7 +23,25 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     $scope.carUpgrade = new ListWithPaging([], 3);
     $scope.serviceUpgrade = new ListWithPaging([], 3);
 
+    $scope.getCreditReturnValue = function (pack) {
+        var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
+        var parameters = $scope.data.calculation.parameters;
+        var rate = parseFloat($scope.data.calculation.offer.product.rate);
+        if(isNaN(rate)) {
+            rate = 0;
+        }
+        var discount = parseFloat(pack.discount);
+        if(isNaN(discount)) {
+            discount = 0;
+        }
+        var price = parseFloat(pack.price) - discount - parameters.initialPayment - parameters.tradeIn + parameters.refinance;
+        var result = price + price*rate*months/1200;
+        return result;
+    }
+
+
     $scope.updateCarUpgrades = function () {
+        var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
         var price = $scope.data.calculation.car.pack.price;
         var maxPrice = price * (1 + $scope.deltaPercent / 100);
         var markId = $scope.data.calculation.car.mark.id;
@@ -36,13 +54,20 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         );
         var carUpgradeList = [];
         var length = selectedPackageList.length;
+        if(length > 0) {
 
-        if (length > 3) length = 3; //TODO - rewrite - now cut to 3
+            var currentReturnValue = $scope.getCreditReturnValue($scope.data.calculation.car.pack);
 
-        for (var ti = 0; ti < length; ti++) {
-            var pack = selectedPackageList[ti];
-            var model = $scope.getModelById(pack.modelId);
-            carUpgradeList.push({pack: pack, model: model});
+            if (length > 3) length = 3; //TODO - rewrite algorithm - now cut to 3
+
+            for (var ti = 0; ti < length; ti++) {
+                var pack = selectedPackageList[ti];
+                var model = $scope.getModelById(pack.modelId);
+                var newReturnValue = $scope.getCreditReturnValue(pack);
+
+                var monthDelta = (newReturnValue - currentReturnValue)/months;
+                carUpgradeList.push({"monthDelta": monthDelta, "car": {pack: pack, model: model}});
+            }
         }
 
         $scope.carUpgrade.setup(carUpgradeList);
@@ -52,26 +77,26 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
         var grouplist = $scope.data.calculation.offer.services.grouplist;
         var upgradeList = [];
-        var glength =  grouplist.length;
+        var glength = grouplist.length;
         for (var ti = 0; ti < glength; ti++) {
             var group = grouplist[ti];
             var slist = group.servicelist;
             var slength = group.servicelist.length;
-            if(slength == 0) continue;
-            if(group.selected == null) {
+            if (slength == 0) continue;
+            if (group.selected == null) {
                 var newService = slist[0];
                 var delta = parseFloat(slist[0].price) - parseFloat(slist[0].discount);
-                var monthDelta = delta/months;
+                var monthDelta = delta / months;
                 upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
                 continue;
             }
             var currentService = group.selected;
             slength -= 1;//check all but last element
             for (var tj = 0; tj < slength; tj++) {
-                if(currentService == slist[tj]) {
-                    var newService = slist[tj+1];
+                if (currentService == slist[tj]) {
+                    var newService = slist[tj + 1];
                     var delta = parseFloat(newService.price) - parseFloat(newService.discount) - parseFloat(group.selected.price) + parseFloat(group.selected.discount);
-                    var monthDelta = delta/months;
+                    var monthDelta = delta / months;
                     upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
                     break;
                 }
@@ -89,7 +114,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     };
 
     $scope.updateUpgrades = function () {
-        if($scope.data.calculation.car.pack == null) {
+        if ($scope.data.calculation.car.pack == null) {
             $scope.carUpgrade.setup([]);
             $scope.serviceUpgrade.setup([]);
             return;
@@ -98,7 +123,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         this.updateServiceUpgrades();
     }
 
-    $scope.getModelById = function(modelId) {
+    $scope.getModelById = function (modelId) {
         var modelList = $filter('filter')($scope.modelList, function (element) {
                 if (element.id == modelId) {
                     return true;
@@ -106,7 +131,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
                 return false;
             }
         );
-        if(modelList.length > 0) {
+        if (modelList.length > 0) {
             return modelList[0];
         }
         return null;
@@ -114,8 +139,8 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
 
     $scope.upgradeCar = function (offer) {
         $scope.data.saveCalculation();
-        $scope.data.calculation.car.model = offer.model;
-        $scope.data.calculation.car.pack = offer.pack;
+        $scope.data.calculation.car.model = offer.car.model;
+        $scope.data.calculation.car.pack = offer.car.pack;
     }
 
     $scope.upgradeService = function (serviceUpgrade) {
