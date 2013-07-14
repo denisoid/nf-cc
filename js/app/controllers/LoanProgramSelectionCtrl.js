@@ -120,7 +120,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             var services = $scope.data.calculation.offer.services;
             var serviceDiscount = services.discount;
             var serviceValue = services.sum - serviceDiscount;
-            var creditValue = carCreditValue + serviceValue;
+            var creditValue = carCreditValue;
 
             if(creditValue <= 0 || monthPaymentFilter >= creditValue) {
                 break;
@@ -136,7 +136,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             var returnValue = (creditValue + overPayment);
             var monthPayment = Math.round(returnValue / months);
             var carMonthPayment = Math.round((carCreditValue + (carCreditValue * product.rate * months / 1200)) / months);
-            var serviceMonthPayment = Math.round((serviceValue + (serviceValue * product.rate * months / 1200)) / months);
+            var serviceMonthPayment = Math.round(serviceValue / months);
             var offer = {
                 id: "" + i,
                 product: product,

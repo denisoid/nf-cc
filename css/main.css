@@ -858,7 +858,7 @@ select {
 
 
 .end-offer tr.collapsible td:first-child:before{
-    content: "▼";
+    content: "►";
     width:20px;
     margin-left:-20px;
     float:left;
@@ -868,7 +868,7 @@ select {
 }
 
 .end-offer tr.expanded td:first-child:before{
-    content: "►";
+    content: "▼";
 }
 
 .end-offer tr td:nth-child(2){width:70px;}

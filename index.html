@@ -615,10 +615,10 @@
 
             <tr class="header collapsible">
                 <td>Дополнительные&nbsp; сервисы</td>
-                <td>{{ (data.calculation.sevices.sum - data.calculation.sevices.discount) | number:0 }}</td>
+                <td>{{ (data.calculation.offer.sevices.sum - data.calculation.offer.sevices.discount) | number:0 }}</td>
                 <td>руб.</td>
             </tr>
-            <tr style="display:none" ng-repeat="group in data.calculation.sevices.grouplist">
+            <tr style="display:none" ng-repeat="group in data.calculation.offer.sevices.grouplist">
                 <td>group.selected.name</td>
                 <td>{{ (group.selected.price -  group.selected.discount) | number:0}}</td>
                 <td>руб.</td>
