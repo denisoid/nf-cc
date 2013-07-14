@@ -113,12 +113,12 @@
         <section class="addination-services service-list list">
 
             <ul>
-                <li class="selected" ng-repeat="offer in serviceUpgrade.currentPage">
-                    <span>Расширенная гарантия</span>
+                <li class="selected" ng-repeat="serviceUpgrade in serviceUpgrade.currentPage">
+                    <span>{{ serviceUpgrade.group.name }}</span>
 
-                    <div ng-click="upgradeService(offer)">
-                        <h4>1 год → 2 года</h4>
-                        <span>+ 32 000 руб</span>
+                    <div ng-click="upgradeService(serviceUpgrade)">
+                        <h4>{{ serviceUpgrade.newService.name }}</h4>
+                        <span>+ {{ serviceUpgrade.monthDelta | number:0 }} руб/мес </span>
                     </div>
                 </li>
 

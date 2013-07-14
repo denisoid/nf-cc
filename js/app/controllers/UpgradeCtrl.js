@@ -18,19 +18,14 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         $scope.updateUpgrades();
     });
 
-    $scope.upgradeMonths = 1;
+    $scope.upgradeMonths = 0;
 
     $scope.carUpgrade = new ListWithPaging([], 3);
     $scope.serviceUpgrade = new ListWithPaging([], 3);
 
-    $scope.updateUpgrades = function () {
-        if($scope.data.calculation.car.pack == null) {
-            $scope.carUpgrade.setup([]);
-            $scope.serviceUpgrade.setup([]);
-            return;
-        }
+    $scope.updateCarUpgrades = function () {
         var price = $scope.data.calculation.car.pack.price;
-        var maxPrice = price * (1+$scope.deltaPercent/100);
+        var maxPrice = price * (1 + $scope.deltaPercent / 100);
         var markId = $scope.data.calculation.car.mark.id;
         var selectedPackageList = $filter('filter')($scope.packagingList, function (element) {
                 if ((element.price > price) && (element.price < maxPrice) && (element.markId == markId)) {
@@ -42,34 +37,65 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         var carUpgradeList = [];
         var length = selectedPackageList.length;
 
-        if(length > 3) length = 3; //TODO - rewrite - now cut to 3
+        if (length > 3) length = 3; //TODO - rewrite - now cut to 3
 
-        for(var ti = 0; ti < length; ti++) {
+        for (var ti = 0; ti < length; ti++) {
             var pack = selectedPackageList[ti];
             var model = $scope.getModelById(pack.modelId);
             carUpgradeList.push({pack: pack, model: model});
         }
 
         $scope.carUpgrade.setup(carUpgradeList);
+    };
 
-        var selectedServicesList = $filter('filter')($scope.packagingList, function (element) {
-                if ((element.price > price) && (element.price < maxPrice)) {
-                    return true;
-                }
-                return false;
+    $scope.updateServiceUpgrades = function () {
+        var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
+        var grouplist = $scope.data.calculation.offer.services.grouplist;
+        var upgradeList = [];
+        var glength =  grouplist.length;
+        for (var ti = 0; ti < glength; ti++) {
+            var group = grouplist[ti];
+            var slist = group.servicelist;
+            var slength = group.servicelist.length;
+            if(slength == 0) continue;
+            if(group.selected == null) {
+                var newService = slist[0];
+                var delta = parseFloat(slist[0].price) - parseFloat(slist[0].discount);
+                var monthDelta = delta/months;
+                upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
+                continue;
             }
-        );
-
-        length = selectedPackageList.length;
-
-        if(length > 3) length = 3; //TODO - rewrite - now cut to 3
-
-        for(var ti = 0; ti < length; ti++) {
-            var pack = selectedPackageList[ti];
-            pack.model = $scope.getModelById(pack.modelId);
+            var currentService = group.selected;
+            slength -= 1;//check all but last element
+            for (var tj = 0; tj < slength; tj++) {
+                if(currentService == slist[tj]) {
+                    var newService = slist[tj+1];
+                    var delta = parseFloat(newService.price) - parseFloat(newService.discount) - parseFloat(group.selected.price) + parseFloat(group.selected.discount);
+                    var monthDelta = delta/months;
+                    upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
+                    break;
+                }
+            }
         }
 
-        $scope.serviceUpgrade.setup(selectedServicesList);
+        var length = upgradeList.length;
+
+        if (length > 3) length = 3; //TODO - rewrite - now cut to 3
+        var selectedUpgradeList = []
+        for (var ti = 0; ti < length; ti++) {
+            selectedUpgradeList.push(upgradeList[ti]);
+        }
+        $scope.serviceUpgrade.setup(selectedUpgradeList);
+    };
+
+    $scope.updateUpgrades = function () {
+        if($scope.data.calculation.car.pack == null) {
+            $scope.carUpgrade.setup([]);
+            $scope.serviceUpgrade.setup([]);
+            return;
+        }
+        this.updateCarUpgrades();
+        this.updateServiceUpgrades();
     }
 
     $scope.getModelById = function(modelId) {
@@ -92,7 +118,10 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
         $scope.data.calculation.car.pack = offer.pack;
     }
 
-    $scope.upgradeService = function (offer) {
+    $scope.upgradeService = function (serviceUpgrade) {
+        $scope.data.saveCalculation();
+        serviceUpgrade.group.selected = serviceUpgrade.newService;
+        $scope.data.calculation.offer.services.calculateSum();
     }
 
     $scope.$watch('data.calculation.offer.product', function (newVal, oldVal) {
@@ -108,5 +137,10 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     $scope.$watch('upgradeMonths', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.updateUpgrades();
+    });
+
+    $scope.$watch('data.calculation.offer.services.sum', function (newVal, oldVal) {
+        if (newVal === oldVal) return;
+        $scope.updateServiceUpgrades();
     });
 }
