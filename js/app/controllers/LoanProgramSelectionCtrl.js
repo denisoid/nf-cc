@@ -221,7 +221,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.resetTimerForUpdateOffers();
     })
 
-    $scope.$watch('data.calculation.offer.car.pack', function (newVal, oldVal) {
+    $scope.$watch('data.calculation.car.pack', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.updateFilters();
         $scope.filterLoanProductListForPack();
