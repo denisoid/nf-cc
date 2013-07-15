@@ -214,7 +214,7 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     }
 
     $scope.isServiceGroupSelected = function (group) {
-        if(group.selected != null) return true;
+        if(group.selected.name != "") return true;
         return false;
     }
 

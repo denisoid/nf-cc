@@ -78,11 +78,16 @@ seedAppServiceModule.
                         init: function () {
                             var glength = this.grouplist.length;
                             for (var ti = 0; ti < glength; ti++) {
-                                if (this.grouplist[ti].mandatory) {
-                                    var slist = this.grouplist[ti].servicelist;
-                                    if (slist.length > 0) {
-                                        this.grouplist[ti].selected = slist[0];
-                                    }
+                                if (!this.grouplist[ti].mandatory) {
+                                    this.grouplist[ti].servicelist.splice(0,0,{
+                                        "name": "",
+                                            "price": "0",
+                                            "discount": "0"
+                                    });
+                                }
+                                var slist = this.grouplist[ti].servicelist;
+                                if (slist.length > 0) {
+                                    this.grouplist[ti].selected = slist[0];
                                 }
                             }
                         },
