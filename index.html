@@ -97,8 +97,8 @@
 
             <ul>
                 <li ng-repeat="carUpgrade in carUpgrade.currentPage">
-                    <div ng-click="upgradeCar(carUpgrade)">
-                        <h4>{{ data.calculation.car.mark.name + ' ' + carUpgrade.car.model.name }}</h4>
+                    <div class="truncate" ng-click="upgradeCar(carUpgrade)">
+                        <h4 tooltip="{{ data.calculation.car.mark.name + ' ' + carUpgrade.car.model.name }}">{{ data.calculation.car.mark.name + ' ' + carUpgrade.car.model.name }}</h4>
                         <span style="color:#888">при увеличении платежа на <br /></span>
                         <span>{{ carUpgrade.monthDelta | number:0 }} руб/мес</span>
                     </div>
@@ -114,10 +114,10 @@
 
             <ul>
                 <li class="selected" ng-repeat="serviceUpgrade in serviceUpgrade.currentPage">
-                    <span>{{ serviceUpgrade.group.name }}</span>
+                    <span tooltip="{{ serviceUpgrade.group.name }}">{{ serviceUpgrade.group.name }}</span>
 
-                    <div ng-click="upgradeService(serviceUpgrade)">
-                        <h4>{{ serviceUpgrade.newService.name }}</h4>
+                    <div class="truncate" ng-click="upgradeService(serviceUpgrade)">
+                        <h4 tooltip="{{ serviceUpgrade.newService.name }}">{{ serviceUpgrade.newService.name }}</h4>
                         <span>+ {{ serviceUpgrade.monthDelta | number:0 }} руб/мес </span>
                     </div>
                 </li>
