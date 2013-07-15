@@ -504,7 +504,7 @@
                 <td>{{ group.name }}</td>
                 <td>
                     <select ng-model="group.selected"
-                            ng-options="service as service.name for service in group.servicelist"
+                            ng-options="service as service.name for service in group.servicelist track by service.id"
                             ng-change="data.calculation.offer.services.calculateSum()"
                             >
                     </select>

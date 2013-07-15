@@ -127,7 +127,7 @@ seedAppServiceModule.
             },
             calculationList: [],
             saveCalculation: function () {
-                this.calculationList.push({
+                var calculationCopy = {
                     car: {
                         used: this.calculation.car.used,
                         mark: this.calculation.car.mark,
@@ -138,7 +138,9 @@ seedAppServiceModule.
                     offerIndex: this.calculation.offerIndex,
                     offer: copyObject1Level(this.calculation.offer),
                     parameters: copyObject1Level(this.calculation.parameters)
-                });
+                };
+                calculationCopy.offer.services = angular.copy(calculationCopy.offer.services);
+                this.calculationList.push(calculationCopy);
             },
             delCalculation: function (ind) {
                 this.calculationList.splice(ind, true);
@@ -154,6 +156,7 @@ seedAppServiceModule.
                 }
                 this.calculation.offerIndex = copy.offerIndex;
                 this.calculation.offer = copyObject1Level(copy.offer);
+                this.calculation.offer.services = angular.copy(copy.offer.services);
                 this.calculation.parameters = copyObject1Level(copy.parameters);
             }
         }

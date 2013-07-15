@@ -1,20 +1,24 @@
 [
     {
+        "id": "1",
         "name": "ОСАГО",
         "selected": null,
         "mandatory": true,
         "servicelist": [
             {
+                "id": "1",
                 "name": "ОСАГО 1 год",
                 "price": "10000",
                 "discount": "0"
             },
             {
+                "id": "2",
                 "name": "ОСАГО 2 года",
                 "price": "20000",
                 "discount": "1000"
             },
             {
+                "id": "3",
                 "name": "ОСАГО 3 года",
                 "price": "30000",
                 "discount": "3000"
@@ -22,21 +26,25 @@
         ]
     },
     {
+        "id": "2",
         "name": "КАСКО",
         "selected": null,
         "mandatory": false,
         "servicelist": [
             {
+                "id": "1",
                 "name": "КАСКО 1 год",
                 "price": "60000",
                 "discount": "0"
             },
             {
+                "id": "2",
                 "name": "КАСКО 2 года",
                 "price": "120000",
                 "discount": "10000"
             },
             {
+                "id": "3",
                 "name": "КАСКО 3 года",
                 "price": "180000",
                 "discount": "30000"
@@ -44,21 +52,25 @@
         ]
     },
     {
+        "id": "3",
         "name": "Продленная гарантия",
         "selected": null,
         "mandatory": false,
         "servicelist": [
             {
+                "id": "1",
                 "name": "Продленная гарантия 1 год",
                 "price": "10000",
                 "discount": "0"
             },
             {
+                "id": "2",
                 "name": "Продленная гарантия 2 года",
                 "price": "20000",
                 "discount": "2000"
             },
             {
+                "id": "3",
                 "name": "Продленная гарантия 3 года",
                 "price": "30000",
                 "discount": "4000"
@@ -66,21 +78,25 @@
         ]
     },
     {
+        "id": "4",
         "name": "Secure PLUS",
         "selected": null,
         "mandatory": false,
         "servicelist": [
             {
+                "id": "1",
                 "name": "Secure PLUS 1 год",
                 "price": "10000",
                 "discount": "0"
             },
             {
+                "id": "2",
                 "name": "Secure PLUS 2 года",
                 "price": "20000",
                 "discount": "2000"
             },
             {
+                "id": "3",
                 "name": "Secure PLUS 3 года",
                 "price": "30000",
                 "discount": "4000"
@@ -88,21 +104,25 @@
         ]
     },
     {
+        "id": "5",
         "name": "Защита платежей",
         "selected": null,
         "mandatory": false,
         "servicelist": [
             {
+                "id": "1",
                 "name": "Защита платежей 1 год",
                 "price": "10000",
                 "discount": "0"
             },
             {
+                "id": "2",
                 "name": "Защита платежей 2 года",
                 "price": "20000",
                 "discount": "2000"
             },
             {
+                "id": "3",
                 "name": "Защита платежей 3 года",
                 "price": "30000",
                 "discount": "4000"
