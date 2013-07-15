@@ -159,7 +159,11 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         $scope.currentOfferList = $filter('orderBy')($scope.currentOfferList, 'overPayment');
         $scope.currentOfferListPage.setup($scope.currentOfferList);
         if($scope.currentOfferList.length > 0) {
-            $scope.setCurrentOffer(0);
+            if($scope.data.calculation.offerIndex < $scope.currentOfferList.length) {
+                $scope.setCurrentOffer($scope.data.calculation.offerIndex);
+            } else {
+                $scope.setCurrentOffer(0);
+            }
         }
 
     }

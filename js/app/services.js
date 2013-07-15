@@ -130,8 +130,9 @@ seedAppServiceModule.
                         pack: this.calculation.car.pack,
                         yearId: this.calculation.car.yearId
                     },
-                    offer: $.extend(true, {}, this.calculation.offer),
-                    parameters: $.extend(true, {}, this.calculation.parameters)
+                    offerIndex: this.calculation.offerIndex,
+                    offer: copyObject1Level(this.calculation.offer),
+                    parameters: copyObject1Level(this.calculation.parameters)
                 });
             },
             delCalculation: function (ind) {
@@ -146,7 +147,7 @@ seedAppServiceModule.
                     pack: copy.car.pack,
                     yearId: copy.car.yearId
                 }
-
+                this.calculation.offerIndex = copy.offerIndex;
                 this.calculation.offer = copyObject1Level(copy.offer);
                 this.calculation.parameters = copyObject1Level(copy.parameters);
             }
