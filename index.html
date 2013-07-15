@@ -330,45 +330,9 @@
 <div class="car-info">
 
     <table>
-        <tr>
-            <td><span>Длина:</span></td>
-            <td>4100 мм</td>
-        </tr>
-
-
-        <tr>
-            <td><span>Ширина:</span></td>
-            <td>1690 мм</td>
-        </tr>
-
-
-        <tr>
-            <td><span>Высота:</span></td>
-            <td>1550 мм</td>
-        </tr>
-
-
-        <tr>
-            <td><span>Клиренс:</span></td>
-            <td>145 мм</td>
-        </tr>
-
-
-        <tr>
-            <td><span>Колёсная база:</span></td>
-            <td>2630 мм</td>
-        </tr>
-
-
-        <tr>
-            <td><span>Масса:</span></td>
-            <td>1092 - 1177 кг</td>
-        </tr>
-
-
-        <tr>
-            <td><span>Полная масса:</span></td>
-            <td>1546 - 1580 кг</td>
+        <tr ng-repeat="drow in data.calculation.car.model.ttc">
+            <td><span>{{ drow.name }}:</span></td>
+            <td>{{ drow.value }}</td>
         </tr>
     </table>
 
