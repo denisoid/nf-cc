@@ -474,7 +474,7 @@
              ng-click="setCurrentOffer($index)">
             <h4 tooltip="{{ offer.product.name }}">{{ offer.product.name }}</h4>
             <span>
-                {{ offer.carMonthPayment }} руб/мес<br/>
+                {{ offer.carMonthPayment | number:0 }} руб/мес<br/>
                 <strong>{{ offer.months }} мес.</strong>
             </span>
         </div>
@@ -534,6 +534,12 @@
         <table>
             <tr class="header">
                 <td></td>
+                <td>Цена автомобиля</td>
+                <td>{{data.calculation.car.pack.price |  number:0}}</td>
+                <td>руб</td>
+            </tr>
+            <tr class="header">
+                <td></td>
                 <td>Сумма кредита</td>
                 <td>{{ data.calculation.offer.creditValue | number:0 }}</td>
                 <td>руб.</td>
@@ -543,12 +549,6 @@
                 <td>Срок</td>
                 <td>{{ data.calculation.offer.months }}</td>
                 <td>мес</td>
-            </tr>
-            <tr class="header">
-                <td></td>
-                <td>Цена автомобиля</td>
-                <td>{{data.calculation.car.pack.price |  number:0}}</td>
-                <td>руб</td>
             </tr>
             <tr class="header">
                 <td></td>

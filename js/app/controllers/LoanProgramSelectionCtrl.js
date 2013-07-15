@@ -132,11 +132,11 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
                 continue;
             }
 
-            var overPayment = Math.round(creditValue * product.rate * months / 1200);
+            var overPayment = (creditValue * product.rate * months / 1200);
             var returnValue = (creditValue + overPayment);
-            var monthPayment = Math.round(returnValue / months);
-            var carMonthPayment = Math.round((carCreditValue + (carCreditValue * product.rate * months / 1200)) / months);
-            var serviceMonthPayment = Math.round(serviceValue / months);
+            var monthPayment = (returnValue + serviceValue) / months;
+            var carMonthPayment = ((carCreditValue + (carCreditValue * product.rate * months / 1200)) / months);
+            var serviceMonthPayment = (serviceValue / months);
             var offer = {
                 id: "" + i,
                 product: product,
