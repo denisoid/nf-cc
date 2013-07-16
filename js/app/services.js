@@ -62,7 +62,7 @@ seedAppServiceModule.
                 offerIndex: 0,
                 offer: {
                     creditValue: 0,
-                    product: {},
+                    product: null,
                     months: 0,
                     monthPayment: 0,
                     overPayment: 0,
@@ -158,6 +158,19 @@ seedAppServiceModule.
                 this.calculation.offer = copyObject1Level(copy.offer);
                 this.calculation.offer.services = angular.copy(copy.offer.services);
                 this.calculation.parameters = copyObject1Level(copy.parameters);
+            },
+            resetOffer: function () {
+                var offer = this.calculation.offer;
+                offer.creditValue = 0;
+                offer.product = null;
+                offer.months = 0;
+                offer.monthPayment = 0;
+                offer.overPayment = 0;
+                offer.returnValue = 0;
+                offer.serviceValue = 0;
+                offer.serviceDiscount = 0;
+                offer.carMonthPayment = 0;
+                offer.serviceMonthPayment = 0;
             }
         }
     }

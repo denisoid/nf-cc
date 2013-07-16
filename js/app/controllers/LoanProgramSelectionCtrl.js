@@ -79,6 +79,10 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     }
 
     $scope.filterLoanProductListForCriteria = function () {
+        if($scope.data.calculation.car.pack == null) {
+            $scope.loanProductForCriteriaList = [];
+            return;
+        }
         var initialPaymentPercent = Math.round(100 * $scope.data.calculation.parameters.initialPayment / $scope.data.calculation.car.pack.price);
         $scope.loanProductForCriteriaList = $filter('filter')($scope.loanProductForPackList, function (element) {
                 if (
@@ -97,7 +101,10 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     $scope.updateCurrentOfferList = function () {
         $scope.currentOfferList = [];
         var car = $scope.data.calculation.car;
-        if(car.pack == null) return;
+        if(car.pack == null) {
+            $scope.data.resetOffer();
+            return;
+        }
         var parameters = $scope.data.calculation.parameters;
 
         for (var i = 0, len = $scope.loanProductForCriteriaList.length; i < len; i++) {

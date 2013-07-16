@@ -74,6 +74,10 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     };
 
     $scope.updateServiceUpgrades = function () {
+        if($scope.data.calculation.offer.product == null) {
+            $scope.serviceUpgrade.setup([]);
+            return;
+        }
         var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
         var grouplist = $scope.data.calculation.offer.services.grouplist;
         var upgradeList = [];
@@ -114,7 +118,7 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
     };
 
     $scope.updateUpgrades = function () {
-        if ($scope.data.calculation.car.pack == null) {
+        if (($scope.data.calculation.car.pack == null) || ($scope.data.calculation.offer.product == null)) {
             $scope.carUpgrade.setup([]);
             $scope.serviceUpgrade.setup([]);
             return;

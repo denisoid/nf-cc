@@ -692,7 +692,8 @@ select {
 
 .services-choose table{
     margin-bottom:0.5em;
-
+    table-layout: fixed;
+    width: 720px;
 }
 
 .services-choose table td, .services-choose table th{
@@ -714,6 +715,8 @@ select {
 }
 .services-choose table td{
     padding-bottom:0.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .services-choose table td.sale{
@@ -723,22 +726,15 @@ select {
 
 
 .services-choose table td select{
-    width:100%;
+    width: 170px;
     margin:0;
 }
 
-.services-choose table td input{
-    width:55px;
-    margin:0;
-    text-align: right;
-}
-
-
-.services-choose table td:nth-child(1){width:30%;}
-.services-choose table td:nth-child(2){width:25%;padding-right:1em}
-.services-choose table td:nth-child(3){width:10%;min-width: 80px;}
-.services-choose table td:nth-child(4){width:15%;min-width: 100px;}
-.services-choose table td:nth-child(5){width:20%;min-width: 90px;}
+.serviceName  {width:130px;}
+.serviceType  {width:180px;padding-right:10px}
+.servicePrice {width:80px}
+.serviceDiscount{width:80px}
+.serviceMonthPayment {width:80px; overflow: hidden}
 
 
 
