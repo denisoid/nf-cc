@@ -683,12 +683,6 @@ select {
 }
 
 
-.services-choose table {
-    margin: 10px -20px;
-}
-
-
-
 .services-choose .show-month-price{
     position:absolute;
     right:0;
@@ -697,7 +691,6 @@ select {
 }
 
 .services-choose table{
-    width:760px;
     margin-bottom:0.5em;
 
 }
@@ -743,9 +736,9 @@ select {
 
 .services-choose table td:nth-child(1){width:30%;}
 .services-choose table td:nth-child(2){width:25%;padding-right:1em}
-.services-choose table td:nth-child(3){width:10%;min-width: 90px;}
-.services-choose table td:nth-child(4){width:15%;min-width: 110px;}
-.services-choose table td:nth-child(5){width:20%;min-width: 115px;}
+.services-choose table td:nth-child(3){width:10%;min-width: 80px;}
+.services-choose table td:nth-child(4){width:15%;min-width: 100px;}
+.services-choose table td:nth-child(5){width:20%;min-width: 90px;}
 
 
 
@@ -1026,16 +1019,123 @@ select {
     margin-right: 125px;
 }
 
-
-
 .tooltip-inner {
     white-space:pre-wrap;
 }
 
-
-
-
 #offerPrice{
     position: fixed;
     bottom:0;
+}
+
+
+.terms-container>div{
+    border-radius:5px;
+}
+
+
+.terms-container .extra-terms{
+    border:1px solid #fffac3;
+}
+
+.terms-container .main-terms{
+    border:1px solid #FFCA15;
+}
+
+/* entire container, keeps perspective */
+.flip-container  {
+    perspective: 1000;
+}
+
+
+.flip-container .extra-terms{
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+
+}
+
+/* flip the pane when hovered */
+.flip-container.hover .terms-container>div.extra-terms {
+    -webkit-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+}
+
+
+/* flip the pane when hovered */
+.flip-container.hover .terms-container>div.main-terms {
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+
+.flip-container, .terms-container, .main-terms, .extra-terms {
+    height: 650px;
+
+}
+
+.terms-container{
+    position:relative;
+
+}
+
+/* flip speed goes here */
+.terms-container>div {
+    -webkit-transition:all 0.5s linear;
+    -ms-transition:all 0.5s linear;
+    -o-transition:all 0.5s linear;
+    -moz-transition:all 0.5s linear;
+    transition:all 0.5s linear;
+
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* hide back of pane during swap */
+.main-terms, .extra-terms {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+
+
+    -webkit-box-shadow: 0px 8px 20px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    -ms-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    -o-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    box-shadow:         0px 8px 20px rgba(50, 50, 50, 0.5);
+
+
+
+}
+
+
+.flip-inner{
+    line-height:160%;
+    width:auto;
+}
+
+a.rotate{
+    display:block;
+    width:30px;
+    height:30px;
+    background:url(../img/rotate.png) no-repeat 0 0;
+    position:absolute;
+    top:5px;
+    right:0;
+}
+
+.padding20 {
+    padding: 20px;
+}
+
+.padding0 {
+    padding: 0px;
 }
