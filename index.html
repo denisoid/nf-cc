@@ -89,11 +89,11 @@
         <div slider min="1" max="64" step="1" ng-model="upgradeMonths"></div>
     </div>
 
+    <h2>Автомобили</h2>
+    <span ng-show="carUpgrade.currentPage.length == 0">Нет доступных альтернативных вариантов</span>
 
     <section class="upgrades">
         <section class="car-list list" ng-show="carUpgrade.currentPage.length > 0">
-
-            <h2>Автомобили</h2>
 
             <ul>
                 <li ng-repeat="carUpgrade in carUpgrade.currentPage">
