@@ -1038,6 +1038,13 @@ select {
     border:1px solid #FFCA15;
 }
 
+
+.terms-container>div, .terms-container{
+	min-width:720px !important;
+	width:720px !important;
+}
+
+
 /* entire container, keeps perspective */
 .flip-container  {
     perspective: 1000;

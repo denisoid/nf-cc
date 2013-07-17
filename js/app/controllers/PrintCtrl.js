@@ -8,6 +8,7 @@
 function PrintCtrl($scope, $window) {
     $scope.printOffer = function() {
         $window.print();
+	$("a.rotate").click();
     }
 
 
