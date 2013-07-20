@@ -5,10 +5,12 @@
  * Date: 03.07.13
  * Time: 14:19
  */
-function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $window) {
+function UpgradeCtrl($scope, $filter, CalculatorData, ClientData, Packagings, Models) {
 
     $scope.deltaPercent = 10;
     $scope.data = CalculatorData;
+    $scope.client = ClientData;
+
 
     $scope.packagingList = Packagings.query({}, function () {
         $scope.updateUpgrades();
@@ -41,6 +43,12 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
 
 
     $scope.updateCarUpgrades = function () {
+        if($scope.data.calculation.offer.product == null) {
+            $scope.carUpgrade.setup([]);
+            return;
+        }
+        var maxMonthPayment = $scope.client.maxMonthPayment;
+        var maxCreditValue = $scope.client.maxCreditValue;
         var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
         var price = $scope.data.calculation.car.pack.price;
         var maxPrice = price * (1 + $scope.deltaPercent / 100);
@@ -64,9 +72,11 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
                 var pack = selectedPackageList[ti];
                 var model = $scope.getModelById(pack.modelId);
                 var newReturnValue = $scope.getCreditReturnValue(pack);
-
+                var monthPayment = newReturnValue/months;
                 var monthDelta = (newReturnValue - currentReturnValue)/months;
-                carUpgradeList.push({"monthDelta": monthDelta, "car": {pack: pack, model: model}});
+                if(newReturnValue <= maxCreditValue && monthPayment <= maxMonthPayment) {
+                    carUpgradeList.push({"monthDelta": monthDelta, "car": {pack: pack, model: model}});
+                }
             }
         }
 
@@ -78,6 +88,9 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
             $scope.serviceUpgrade.setup([]);
             return;
         }
+        var maxMonthPayment = $scope.client.maxMonthPayment;
+        var maxCreditValue = $scope.client.maxCreditValue;
+        var currentMonthPayment = $scope.data.calculation.offer.monthPayment;
         var months = $scope.data.calculation.offer.months + $scope.upgradeMonths;
         var grouplist = $scope.data.calculation.offer.services.grouplist;
         var upgradeList = [];
@@ -91,7 +104,9 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
                 var newService = slist[0];
                 var delta = parseFloat(slist[0].price) - parseFloat(slist[0].discount);
                 var monthDelta = delta / months;
-                upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
+                if((currentMonthPayment + monthDelta) <= maxMonthPayment) {
+                    upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
+                }
                 continue;
             }
             var currentService = group.selected;
@@ -101,7 +116,9 @@ function UpgradeCtrl($scope, $filter, CalculatorData, Packagings, Models, $windo
                     var newService = slist[tj + 1];
                     var delta = parseFloat(newService.price) - parseFloat(newService.discount) - parseFloat(group.selected.price) + parseFloat(group.selected.discount);
                     var monthDelta = delta / months;
-                    upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
+                    if((currentMonthPayment + monthDelta) <= maxMonthPayment) {
+                        upgradeList.push({"group": group, "delta": delta, "monthDelta": monthDelta, "newService": newService});
+                    }
                     break;
                 }
             }

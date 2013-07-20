@@ -163,6 +163,17 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             $scope.currentOfferList.push(offer);
         }
 
+        $scope.currentOfferList = $filter('filter')($scope.currentOfferList, function(element) {
+            if($scope.client.maxMonthPayment < element.monthPayment)  {
+                return false;
+            }
+            if($scope.client.maxCreditValue < element.creditValue)  {
+                return false;
+            }
+            return true;
+
+        });
+
         $scope.currentOfferList = $filter('orderBy')($scope.currentOfferList, 'overPayment');
         $scope.currentOfferListPage.setup($scope.currentOfferList);
         if($scope.currentOfferList.length > 0) {
@@ -171,6 +182,8 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
             } else {
                 $scope.setCurrentOffer(0);
             }
+        } else {
+            $scope.data.resetOffer();
         }
 
     }

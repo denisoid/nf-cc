@@ -139,8 +139,8 @@
 <header ng-controller="PrintCtrl">
     <img src="img/logo.png">
     <nav ng-show="show.isMain">
-        <a href="" ng-click="printGrid()">Печатать график платежей</a>
-        <a href="" ng-click="printOffer()">Печатать предложение</a>
+        <a href="" ng-click="printGrid()" ng-show="data.calculation.offer.product">Печатать график платежей</a>
+        <a href="" ng-click="printOffer()" ng-show="data.calculation.offer.product">Печатать предложение</a>
     </nav>
 
 </header>
@@ -504,7 +504,7 @@
                     </section>
                 </div>
 
-                <section class="noprint services-choose" ng-controller="OfferCtrl" ng-show="data.calculation.offer">
+                <section class="noprint services-choose" ng-controller="OfferCtrl" ng-show="data.calculation.offer.product">
                     <h2>&nbsp&nbsp&nbsp&nbspДополнительные сервисы</h2>
                     <table>
                         <tr>
@@ -549,9 +549,10 @@
         <div class="extra-terms">
             <div class="flip-inner">
                 <section class="end-offer">
-                    <h2>Кредитная программа: "{{ data.calculation.offer.product.name }}"</h2>
+                    <h2 ng-show="!data.calculation.offer.product">Нет доступной кредитной программы</h2>
+                    <h2 ng-show="data.calculation.offer.product">Кредитная программа: "{{ data.calculation.offer.product.name }}"</h2>
 
-                    <table>
+                    <table ng-show="data.calculation.offer.product">
                         <tr class="header">
                             <td></td>
                             <td>Цена автомобиля</td>
@@ -655,9 +656,9 @@
         </div>
     </div>
 </div>
-<a class="btn-big noprint" href="#">Оформить</a>
+<a class="btn-big noprint" href="#" ng-show="data.calculation.offer.product">Оформить</a>
 
-<div class="noprint price-line-container">
+<div class="noprint price-line-container" ng-show="data.calculation.offer.product">
     <div class="price-line noprint" id="offerPrice">
         <h3>Ежемесячный платеж:</h3>
 
