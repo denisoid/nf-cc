@@ -5,7 +5,7 @@
  * Date: 03.07.13
  * Time: 14:04
  */
-function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout, CalculatorData) {
+function CarConfigurationCtrl($rootScope, $scope, $filter, LoanProducts, Packaging_LoanProduct, Products, Packagings, Marks, Models, $timeout, CalculatorData) {
 
     //init
     $scope.data = CalculatorData;
@@ -114,8 +114,12 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
         }
     }
 
-    $scope.$watch('data.calculation.car.pack', function (newVal, oldVal) {
+    $scope.$watch('data.calculation.car.dealerDiscount', function (newVal, oldVal) {
         if (newVal === oldVal) return;
+        $rootScope.$broadcast('car.changed');
+    });
+
+    $scope.$watch('data.calculation.car.pack', function (newVal, oldVal) {
         var car = $scope.data.calculation.car;
         if (car.mark == null) return;
         if (car.model == null) return;
@@ -133,5 +137,4 @@ function CarConfigurationCtrl($scope, $filter, LoanProducts, Packaging_LoanProdu
             $scope.updatePack();
         }
     });
-
 }

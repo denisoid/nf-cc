@@ -9,6 +9,7 @@
  */
 function MaxPaymentCtrl($scope, ClientData) {
     $scope.client = ClientData;
+    $scope.months = 60;
     $scope.monthIncome = 0;
     $scope.additionalIncome = 0;
     $scope.additionalIncomeAssured = false;
@@ -33,12 +34,12 @@ function MaxPaymentCtrl($scope, ClientData) {
             assuredIncome = 0.5 * $scope.additionalIncome;
         }
 
-        $scope.client.maxMonthPayment = ($scope.monthIncome - minExpendLevel - $scope.monthPayment) + $scope.additionalIncome / 12;
+        $scope.client.maxMonthPayment = Math.round(($scope.monthIncome - minExpendLevel - $scope.monthPayment) + $scope.additionalIncome / 12);
         if ($scope.client.maxMonthPayment < 0) {
             $scope.client.maxMonthPayment = 0;
             $scope.client.maxCreditValue = 0;
         } else {
-            $scope.client.maxCreditValue = 60 * $scope.client.maxMonthPayment;
+            $scope.client.maxCreditValue = $scope.months * $scope.client.maxMonthPayment;
         }
     }
 }

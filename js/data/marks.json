@@ -5,11 +5,11 @@
     { "id": "1288", "name": "Renault с пробегом", "used": true},
     { "id": "1286", "name": "Infiniti с пробегом", "used": true},
     { "id": "1287", "name": "Nissan с пробегом", "used": true},
-    { "id": "93", "name": "Audi", "used": false},
-    { "id": "94", "name": "BMW", "used": false},
-    { "id": "95", "name": "Ford", "used": false},
-    { "id": "96", "name": "Lexus", "used": false},
-    { "id": "97", "name": "Mazda", "used": false},
-    { "id": "98", "name": "Toyota", "used": false},
-    { "id": "99", "name": "Volkswagen", "used": false}
+    { "id": "93", "name": "Audi", "used": true},
+    { "id": "94", "name": "BMW", "used": true},
+    { "id": "95", "name": "Ford", "used": true},
+    { "id": "96", "name": "Lexus", "used": true},
+    { "id": "97", "name": "Mazda", "used": true},
+    { "id": "98", "name": "Toyota", "used": true},
+    { "id": "99", "name": "Volkswagen", "used": true}
 ]

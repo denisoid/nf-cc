@@ -567,15 +567,22 @@ select {
 .btn-big {
     font-size: 2em;
 
-    padding: 1em 1em;
+    padding: 0em 1em;
     color: #000 !important;
-    background: #fc0;
+    background: #FCD84E;
     display: block;
     margin: 0 auto;
-    margin-top: 2em;
-    width: 33%;
+    margin-top: 1em;
+    width: 20%;
     text-align: center;
     font-weight: 300;
+    border-radius:5px;
+
+    -webkit-box-shadow: 0px 8px 20px rgba(50, 50, 50, 0.5);
+    -moz-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    -ms-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    -o-box-shadow:    0px 8px 20px rgba(50, 50, 50, 0.5);
+    box-shadow:         0px 8px 20px rgba(50, 50, 50, 0.5);
 
 }
 

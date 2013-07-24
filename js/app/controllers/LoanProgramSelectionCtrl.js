@@ -273,7 +273,6 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
     $scope.$watch('client.maxMonthPayment', function (newVal, oldVal) {
         if (newVal === oldVal) return;
         $scope.data.calculation.parameters.monthPaymentFilter = $scope.client.maxMonthPayment;
-        $scope.updateFilters();
         $scope.filterLoanProductListForPack();
         $scope.resetTimerForUpdateOffers();
     });
@@ -292,5 +291,9 @@ function LoanProgramSelectionCtrl($scope, CalculatorData, ClientData, LoanProduc
         if (newVal === oldVal) return;
         $scope.resetTimerForUpdateOffers();
     });
+
+    $scope.$on('car.changed', function() {
+        $scope.resetTimerForUpdateOffers();
+    })
 }
 

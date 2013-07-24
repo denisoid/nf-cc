@@ -44,7 +44,7 @@
 
             <li class="calculate-sum ng-class: {'active': show.isMaxPayment}"
                 ng-click="toggleMaxPayment()">
-                <span>Расчет платежноспособности</span>
+                <span>Расчет платежеспособности</span>
                 <dl>
                     <dt>max платеж</dt>
                     <dd>{{client.maxMonthPayment | number:0 }} руб.</dd>
@@ -191,6 +191,16 @@
     </div>
 
     <div class="input-ip">
+        <label>Срок кредита</label>
+
+        <div class="input">
+            <input type="input" ng-model="months" ng-change="calculateMaxPayment()"/>
+            <label>мес.</label>
+        </div>
+        <div slider min="1" max="60" step="1" ng-model="months" ng-change="calculateMaxPayment()"></div>
+    </div>
+
+    <div class="input-ip">
         <label>Выплаты по долгу (в мес.) </label>
 
         <div class="input">
@@ -203,7 +213,7 @@
 
     <a href="" ng-click="toggleMaxPayment()" class="btn">ОК</a>
 </article>
-<!--расчет платежноспобности-->
+<!--расчет платежеспособности-->
 
 
 <article ng-controller="CarConfigurationCtrl" ng-show="show.isMain">
@@ -327,7 +337,7 @@
 
         <div class="print">
             <h2>Стоимость {{data.calculation.car.mark.name}} {{data.calculation.car.model.name}} —
-                {{data.calculation.car.pack.price}} руб</h2>
+                {{data.calculation.car.pack.price - data.calculation.car.dealerDiscount}} руб</h2>
         </div>
 
         <div class="car-info">
@@ -347,7 +357,7 @@
             <div class="price-line noprint" id="carPrice">
                 <h3>{{data.calculation.car.mark.name}} {{data.calculation.car.model.name}}</h3>
 
-                <div class="price">{{data.calculation.car.pack.price | number:0}} руб</div>
+                <div class="price">{{data.calculation.car.pack.price - data.calculation.car.dealerDiscount | number:0}} руб</div>
                 <a href="#discountModal" class="icon-info-sign" data-toggle="modal"></a>
             </div>
         </div>
@@ -375,13 +385,13 @@
 
                 <div class="input">
                     <label>Скидка дилера</label>
-                    <input type="input" ng-model="dealerDiscount"/>
+                    <input type="input" ng-model="data.calculation.car.dealerDiscount" onchange="broadcastCarChangedEvent()"/>
                     <label>руб.</label>
                 </div>
 
                 <div class="input">
                     <label>Итого</label>
-                    <span>{{ (data.calculation.car.pack.price - data.calculation.car.pack.discount - dealerDiscount) | number:0 }}</span>
+                    <span>{{ (data.calculation.car.pack.price - data.calculation.car.pack.discount - data.calculation.car.dealerDiscount) | number:0 }}</span>
                     <label>руб.</label>
                 </div>
             </div>
@@ -656,7 +666,7 @@
         </div>
     </div>
 </div>
-<a class="btn-big noprint" href="#" ng-show="data.calculation.offer.product">Оформить</a>
+<a class="btn-big noprint" ng-show="data.calculation.offer.product" ng-click="processOffer()">Оформить</a>
 
 <div class="noprint price-line-container" ng-show="data.calculation.offer.product">
     <div class="price-line noprint" id="offerPrice">

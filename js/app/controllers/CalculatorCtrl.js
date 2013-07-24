@@ -5,7 +5,7 @@
  * Date: 03.07.13
  * Time: 14:03
  */
-function CalculatorCtrl($scope, CalculatorData, ClientData) {
+function CalculatorCtrl($scope, CalculatorData, ClientData, $window) {
     $scope.data = CalculatorData;
     $scope.show = {isMaxPayment: false, isCompare:false, isMain: true};
 
@@ -25,6 +25,10 @@ function CalculatorCtrl($scope, CalculatorData, ClientData) {
 
     $scope.saveCalculation = function () {
         $scope.data.saveCalculation();
+    }
+
+    $scope.processOffer = function () {
+        var win = $window.open("front.html");
     }
 
     $scope.offerList = []

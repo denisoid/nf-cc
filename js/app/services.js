@@ -57,7 +57,8 @@ seedAppServiceModule.
                     mark: null,
                     model: null,
                     pack: null,
-                    yearId: null
+                    yearId: null,
+                    dealerDiscount: 0
                 },
                 offerIndex: 0,
                 offer: {
@@ -133,7 +134,8 @@ seedAppServiceModule.
                         mark: this.calculation.car.mark,
                         model: this.calculation.car.model,
                         pack: this.calculation.car.pack,
-                        yearId: this.calculation.car.yearId
+                        yearId: this.calculation.car.yearId,
+                        dealerDiscount: this.calculation.car.dealerDiscount
                     },
                     offerIndex: this.calculation.offerIndex,
                     offer: copyObject1Level(this.calculation.offer),
@@ -152,7 +154,8 @@ seedAppServiceModule.
                     mark: copy.car.mark,
                     model: copy.car.model,
                     pack: copy.car.pack,
-                    yearId: copy.car.yearId
+                    yearId: copy.car.yearId,
+                    dealerDiscount: copy.car.dealerDiscount
                 }
                 this.calculation.offerIndex = copy.offerIndex;
                 this.calculation.offer = copyObject1Level(copy.offer);
